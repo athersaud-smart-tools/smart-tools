@@ -23,25 +23,28 @@ export const metadata = {
     "typing test",
     "online tools",
   ],
+  verification: {
+    google: "K_-YbyZLqsDANY55cqnQnxbI6K9jxu4qd7b1SK0ip84",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <head>
-        <meta
-          name="google-site-verification"
-          content="K_-YbyZLqsDANY55cqnQnxbI6K9jxu4qd7b1SK0ip84"
-        />
-      </head>
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-  );
-}
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <html
+//       lang="en"
+//       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+//     >
+//       <head>
+//         <meta
+//           name="google-site-verification"
+//           content="K_-YbyZLqsDANY55cqnQnxbI6K9jxu4qd7b1SK0ip84"
+//         />
+//       </head>
+//       <body className="min-h-full flex flex-col">{children}</body>
+//     </html>
+//   );
+// }
