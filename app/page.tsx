@@ -27,6 +27,14 @@ export default function Home() {
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
+          <Link href="/ai-rewrite">
+            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
+              <h3 className="text-lg font-bold mb-2">🤖 AI Text Improver</h3>
+              <p className="text-gray-600 text-sm">
+                Rewrite and improve your text instantly using AI.
+              </p>
+            </div>
+        </Link>
 
           <Link href="/image/resize">
             <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
