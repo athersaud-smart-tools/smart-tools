@@ -12,35 +12,30 @@ const tools = [
     icon: "🤖",
     title: "AI Text Improver",
     desc: "Rewrite and improve your text instantly using AI.",
-    color: "#e85d2f",
   },
   {
     href: "/image/resize",
     icon: "🖼️",
     title: "Image Resizer",
     desc: "Resize any image to any size in seconds.",
-    color: "#2f6ee8",
   },
   {
     href: "/image/compress",
     icon: "⚡",
     title: "Image Compressor",
     desc: "Reduce image file size without losing quality.",
-    color: "#1a8c5b",
   },
   {
     href: "/typing-test",
     icon: "⌨️",
     title: "Typing Speed Test",
     desc: "Find out how fast you can type in 30 seconds.",
-    color: "#8b5cf6",
   },
   {
     href: "/pdf/merge",
     icon: "📄",
     title: "PDF Merge",
     desc: "Combine multiple PDF files into one document.",
-    color: "#e8852f",
   },
 ];
 
@@ -58,6 +53,7 @@ export default function Home() {
           <li><a href="/image/resize">Images</a></li>
           <li><a href="/typing-test">Typing</a></li>
           <li><a href="/pdf/merge">PDF</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </nav>
 
@@ -89,6 +85,11 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="footer">
+        <div style={{ marginBottom: "0.75rem", display: "flex", justifyContent: "center", gap: "1.5rem" }}>
+          <a href="/about" style={{ color: "#888", textDecoration: "none" }}>About</a>
+          <a href="/contact" style={{ color: "#888", textDecoration: "none" }}>Contact</a>
+          <a href="/privacy-policy" style={{ color: "#888", textDecoration: "none" }}>Privacy Policy</a>
+        </div>
         © 2026 <span>SmartTools</span> — Free tools for everyone
       </footer>
 
