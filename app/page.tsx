@@ -1,84 +1,96 @@
+import Link from "next/link";
+
 export const metadata = {
-  title: "Free Online Tools - Image Resize, Compress & Typing Test",
+  title: "Smart Tools - Free Online Tools for Everyone",
   description:
-    "Use free online tools to resize images, compress files, and test typing speed. Fast, simple, and secure tools for everyday use.",
+    "Free tools to resize images, compress files, improve text with AI, test typing speed, and merge PDFs.",
 };
 
-import Link from "next/link";
+const tools = [
+  {
+    href: "/ai-rewrite",
+    icon: "🤖",
+    title: "AI Text Improver",
+    desc: "Rewrite and improve your text instantly using AI.",
+    color: "#e85d2f",
+  },
+  {
+    href: "/image/resize",
+    icon: "🖼️",
+    title: "Image Resizer",
+    desc: "Resize any image to any size in seconds.",
+    color: "#2f6ee8",
+  },
+  {
+    href: "/image/compress",
+    icon: "⚡",
+    title: "Image Compressor",
+    desc: "Reduce image file size without losing quality.",
+    color: "#1a8c5b",
+  },
+  {
+    href: "/typing-test",
+    icon: "⌨️",
+    title: "Typing Speed Test",
+    desc: "Find out how fast you can type in 30 seconds.",
+    color: "#8b5cf6",
+  },
+  {
+    href: "/pdf/merge",
+    icon: "📄",
+    title: "PDF Merge",
+    desc: "Combine multiple PDF files into one document.",
+    color: "#e8852f",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen" style={{ background: "var(--bg)" }}>
 
-      {/* HERO SECTION */}
-      <div className="text-center py-16 px-6 bg-white shadow">
-        <h1 className="text-4xl font-bold mb-4">
-          🚀 Smart Tools for Everyday Use
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <a href="/" className="navbar-logo">
+          🚀 SmartTools
+        </a>
+        <ul className="navbar-links">
+          <li><a href="/ai-rewrite">AI Rewrite</a></li>
+          <li><a href="/image/resize">Images</a></li>
+          <li><a href="/typing-test">Typing</a></li>
+          <li><a href="/pdf/merge">PDF</a></li>
+        </ul>
+      </nav>
+
+      {/* HERO */}
+      <div className="hero">
+        <div className="badge">100% Free • No Sign Up</div>
+        <h1>
+          Smart Tools for<br />
+          <span className="accent-text">Everyday Use</span>
         </h1>
-        <p className="text-gray-600 max-w-xl mx-auto">
-          Free online tools to resize images, compress files, and improve productivity.
+        <p>
+          Resize images, improve text with AI, test your typing speed, and merge PDFs — all for free.
         </p>
       </div>
 
-      {/* TOOLS SECTION */}
-      <div className="p-6 max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6 text-center">
-          🔧 Popular Tools
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <Link href="/ai-rewrite">
-            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
-              <h3 className="text-lg font-bold mb-2">🤖 AI Text Improver</h3>
-              <p className="text-gray-600 text-sm">
-                Rewrite and improve your text instantly using AI.
-              </p>
-            </div>
-        </Link>
-
-          <Link href="/image/resize">
-            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
-              <h3 className="text-lg font-bold mb-2">🖼️ Image Resizer</h3>
-              <p className="text-gray-600 text-sm">
-                Resize images quickly with perfect dimensions.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/image/compress">
-            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
-              <h3 className="text-lg font-bold mb-2">🖼️ Image Compressor</h3>
-              <p className="text-gray-600 text-sm">
-                Reduce image file size without losing quality.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/typing-test">
-            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
-              <h3 className="text-lg font-bold mb-2">⌨️ Typing Test</h3>
-              <p className="text-gray-600 text-sm">
-                Check your typing speed and improve your skills.
-              </p>
-            </div>
-          </Link>
-
-          <Link href="/pdf/merge">
-  <div className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition cursor-pointer">
-    <h3 className="text-lg font-bold mb-2">📄 PDF Merge</h3>
-    <p className="text-gray-600 text-sm">
-      Combine multiple PDF files into one document.
-    </p>
-  </div>
-</Link>
-
+      {/* TOOLS */}
+      <div className="section">
+        <h2 className="section-title">🔧 All Tools</h2>
+        <div className="tools-grid">
+          {tools.map((tool) => (
+            <Link key={tool.href} href={tool.href} className="tool-card">
+              <span className="tool-icon">{tool.icon}</span>
+              <h3>{tool.title}</h3>
+              <p>{tool.desc}</p>
+            </Link>
+          ))}
         </div>
       </div>
 
       {/* FOOTER */}
-      <div className="text-center py-6 text-gray-500 text-sm">
-        © 2026 Smart Tools. All rights reserved.
-      </div>
+      <footer className="footer">
+        © 2026 <span>SmartTools</span> — Free tools for everyone
+      </footer>
 
     </main>
   );
