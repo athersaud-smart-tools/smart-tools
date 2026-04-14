@@ -1,12 +1,15 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Smart Tools - Free Online Tools for Everyone",
-  description: "Free online tools — resize images, improve text with AI, generate QR codes, convert units, pick colors, count words, create passwords, test typing speed, and merge PDFs.",
+  title: "Smart Tools - 15 Free Online Tools for Everyone",
+  description: "Free online tools — BMI calculator, age calculator, loan calculator, image resizer, AI text improver, QR code generator, unit converter, word counter, stopwatch and more!",
 };
 
 const tools = [
   { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Rewrite and improve your text instantly using AI." },
+  { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Calculate your Body Mass Index and health category." },
+  { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Find your exact age in years, months, days and hours." },
+  { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Calculate monthly payments, total cost and interest." },
   { href: "/image/resize", icon: "🖼️", title: "Image Resizer", desc: "Resize any image to any size in seconds." },
   { href: "/image/compress", icon: "⚡", title: "Image Compressor", desc: "Reduce image file size without losing quality." },
   { href: "/qr-code", icon: "📷", title: "QR Code Generator", desc: "Turn any text or link into a QR code instantly." },
@@ -15,6 +18,7 @@ const tools = [
   { href: "/color-picker", icon: "🎨", title: "Color Picker", desc: "Pick any color and get HEX, RGB and HSL values." },
   { href: "/text-case", icon: "📝", title: "Text Case Converter", desc: "Convert text to uppercase, lowercase, title case and more." },
   { href: "/unit-converter", icon: "🔄", title: "Unit Converter", desc: "Convert length, weight, temperature, speed and more." },
+  { href: "/stopwatch", icon: "⏱️", title: "Stopwatch", desc: "Simple stopwatch with lap timer." },
   { href: "/typing-test", icon: "⌨️", title: "Typing Speed Test", desc: "Find out how fast you can type in 30 seconds." },
   { href: "/pdf/merge", icon: "📄", title: "PDF Merge", desc: "Combine multiple PDF files into one document." },
 ];
@@ -27,7 +31,7 @@ export default function Home() {
         <a href="/" className="navbar-logo">🚀 SmartTools</a>
         <ul className="navbar-links">
           <li><a href="/ai-rewrite">AI Rewrite</a></li>
-          <li><a href="/image/resize">Images</a></li>
+          <li><a href="/bmi-calculator">BMI</a></li>
           <li><a href="/qr-code">QR Code</a></li>
           <li><a href="/unit-converter">Converter</a></li>
           <li><a href="/about">About</a></li>
@@ -35,9 +39,9 @@ export default function Home() {
       </nav>
 
       <div className="hero">
-        <div className="badge">100% Free • No Sign Up • 11 Tools</div>
+        <div className="badge">100% Free • No Sign Up • 15 Tools</div>
         <h1>Smart Tools for<br /><span className="accent-text">Everyday Use</span></h1>
-        <p>Resize images, improve text with AI, convert units, generate QR codes and more — all for free.</p>
+        <p>BMI calculator, AI text improver, QR codes, unit converter and more — all completely free!</p>
       </div>
 
       <div className="section">
