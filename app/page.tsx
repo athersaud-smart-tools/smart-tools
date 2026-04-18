@@ -1,15 +1,18 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Smart Tools - 15 Free Online Tools for Everyone",
-  description: "Free online tools — BMI calculator, age calculator, loan calculator, image resizer, AI text improver, QR code generator, unit converter, word counter, stopwatch and more!",
+  title: "Smart Tools - 18 Free Online Tools for Everyone",
+  description: "Free online tools — currency converter, BMI calculator, percentage calculator, age calculator, loan calculator, image resizer, AI text improver, QR code generator, random number generator and more!",
 };
 
 const tools = [
   { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Rewrite and improve your text instantly using AI." },
+  { href: "/currency-converter", icon: "💱", title: "Currency Converter", desc: "Convert between world currencies with live rates." },
   { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Calculate your Body Mass Index and health category." },
   { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Find your exact age in years, months, days and hours." },
   { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Calculate monthly payments, total cost and interest." },
+  { href: "/percentage-calculator", icon: "%", title: "Percentage Calculator", desc: "Calculate percentages, increases and decreases easily." },
+  { href: "/random-number", icon: "🎲", title: "Random Number Generator", desc: "Generate random numbers for games, lotteries and more." },
   { href: "/image/resize", icon: "🖼️", title: "Image Resizer", desc: "Resize any image to any size in seconds." },
   { href: "/image/compress", icon: "⚡", title: "Image Compressor", desc: "Reduce image file size without losing quality." },
   { href: "/qr-code", icon: "📷", title: "QR Code Generator", desc: "Turn any text or link into a QR code instantly." },
@@ -30,18 +33,18 @@ export default function Home() {
       <nav className="navbar">
         <a href="/" className="navbar-logo">🚀 SmartTools</a>
         <ul className="navbar-links">
-          <li><a href="/ai-rewrite">AI Rewrite</a></li>
+          <li><a href="/currency-converter">Currency</a></li>
           <li><a href="/bmi-calculator">BMI</a></li>
           <li><a href="/qr-code">QR Code</a></li>
-          <li><a href="/unit-converter">Converter</a></li>
+          <li><a href="/pdf/merge">PDF</a></li>
           <li><a href="/about">About</a></li>
         </ul>
       </nav>
 
       <div className="hero">
-        <div className="badge">100% Free • No Sign Up • 15 Tools</div>
+        <div className="badge">100% Free • No Sign Up • 18 Tools</div>
         <h1>Smart Tools for<br /><span className="accent-text">Everyday Use</span></h1>
-        <p>BMI calculator, AI text improver, QR codes, unit converter and more — all completely free!</p>
+        <p>Currency converter, BMI calculator, AI text improver, QR codes and more — all completely free!</p>
       </div>
 
       <div className="section">
