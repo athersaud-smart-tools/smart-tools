@@ -32,7 +32,9 @@ export default function Home() {
 
   const filtered = tools.filter((t) => {
     const matchCat = active === "All" || t.category === active;
-    const matchSearch = t.title.toLowerCase().includes(search.toLowerCase()) || t.desc.toLowerCase().includes(search.toLowerCase());
+    const matchSearch =
+      t.title.toLowerCase().includes(search.toLowerCase()) ||
+      t.desc.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchSearch;
   });
 
@@ -43,28 +45,23 @@ export default function Home() {
       <nav className="navbar">
         <a href="/" className="navbar-logo">Smart<span>Tools</span></a>
         <ul className="navbar-links">
-          <li><a href="/currency-converter">Currency</a></li>
-          <li><a href="/bmi-calculator">BMI</a></li>
-          <li><a href="/qr-code">QR Code</a></li>
-          <li><a href="/pdf/merge">PDF</a></li>
+          <li><a href="/blog">Blog</a></li>
           <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
 
       {/* HERO */}
       <div className="hero">
-        <div className="hero-grid" />
-        <div className="hero-glow" />
         <div className="hero-content">
-          <div className="badge">18 Free Tools • No Sign Up Required</div>
           <h1>
-            The Smartest Free<br />
-            <span className="accent-text">Online Tools</span>
+            Free Online Tools for Everyday Tasks
           </h1>
           <p>
-            Currency converter, BMI calculator, AI writer, QR codes and more.<br />
-            All free. All instant. No account needed.
+            Smart Tools offers free calculators, converters, generators,
+            and productivity tools. No signup required. Fast and easy to use.
           </p>
+
           {/* Search */}
           <div className="search-wrap">
             <span className="search-icon">🔍</span>
@@ -78,29 +75,35 @@ export default function Home() {
         </div>
       </div>
 
-      {/* STATS */}
-      <div className="stats-bar">
-        {[
-          { num: "18", label: "Free Tools" },
-          { num: "0", label: "Sign Ups" },
-          { num: "100%", label: "Free Forever" },
-          { num: "⚡", label: "Instant Results" },
-        ].map((s) => (
-          <div key={s.label} className="stat-item">
-            <div className="stat-num">{s.num}</div>
-            <div className="stat-label">{s.label}</div>
-          </div>
-        ))}
+      {/* SEO CONTENT (VERY IMPORTANT FOR ADSENSE) */}
+      <div className="section" style={{ maxWidth: "900px", margin: "auto" }}>
+        <h2>Why Use Smart Tools?</h2>
+        <p>
+          Smart Tools is a collection of free online utilities designed to help
+          users perform everyday tasks quickly and efficiently. Whether you need
+          a calculator, converter, or generator, our tools are built to be fast,
+          simple, and reliable.
+        </p>
+
+        <p>
+          Our platform is perfect for students, developers, and professionals
+          who need quick solutions without downloading software or creating
+          accounts.
+        </p>
+
+        <h3>Popular Uses</h3>
+        <ul>
+          <li>Calculate percentages and loans</li>
+          <li>Convert currencies and units</li>
+          <li>Generate secure passwords</li>
+          <li>Edit and process text instantly</li>
+        </ul>
       </div>
 
       {/* TOOLS */}
       <div className="section">
-        <div className="section-header">
-          <h2 className="section-title">All Tools</h2>
-          <span className="section-tag">{filtered.length} tools</span>
-        </div>
+        <h2>All Tools</h2>
 
-        {/* Category pills */}
         <div className="category-pills">
           {categories.map((cat) => (
             <button
@@ -113,24 +116,26 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Grid */}
         <div className="tools-grid">
           {filtered.map((tool) => (
             <Link key={tool.href} href={tool.href} className="tool-card">
               <div className="tool-icon-wrap">{tool.icon}</div>
               <h3>{tool.title}</h3>
               <p>{tool.desc}</p>
-              <span className="tool-card-arrow">↗</span>
             </Link>
           ))}
         </div>
+      </div>
 
-        {filtered.length === 0 && (
-          <div style={{ textAlign: "center", padding: "3rem", color: "var(--ink2)" }}>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🔍</div>
-            <p>No tools found. Try a different search!</p>
-          </div>
-        )}
+      {/* BLOG PREVIEW (VERY IMPORTANT) */}
+      <div className="section" style={{ maxWidth: "900px", margin: "auto" }}>
+        <h2>Latest Articles</h2>
+
+        <ul>
+          <li><a href="/blog">Best Free Online Tools in 2026</a></li>
+          <li><a href="/blog">How to Use Online Calculators Efficiently</a></li>
+          <li><a href="/blog">Top Productivity Tools for Students</a></li>
+        </ul>
       </div>
 
       {/* FOOTER */}
@@ -139,8 +144,9 @@ export default function Home() {
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
           <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
         </div>
-        © 2026 <span>SmartTools</span> — Free tools for everyone
+        © 2026 SmartTools — Free tools for everyone
       </footer>
 
     </main>
