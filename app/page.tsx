@@ -134,7 +134,7 @@ export default function Home() {
         <ul>
           <li><a href="/blog">Best Free Online Tools in 2026</a></li>
           <li><a href="/blog">How to Use Online Calculators Efficiently</a></li>
-          <li><a href="/blog">Top Productivity Tools for Students</a></li>
+          <li><a href="/blog">Top Productivity Tools for everyone</a></li>
         </ul>
       </div>
 
