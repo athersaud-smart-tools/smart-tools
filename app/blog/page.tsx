@@ -1,3 +1,3 @@
 export default function Blog() {
-  return <h1>Blog is working ✅</h1>;
+  return <h1>Blog</h1>;
 }
