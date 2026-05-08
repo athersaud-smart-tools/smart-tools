@@ -147,6 +147,65 @@ export default function Home() {
           <a href="/terms">Terms</a>
         </div>
         © 2026 SmartTools — Free tools for everyone
+
+{/* ABOUT SECTION */}
+<section
+  style={{
+    maxWidth: "1000px",
+    margin: "60px auto",
+    padding: "20px",
+    lineHeight: "1.8",
+  }}
+>
+  <h2>About Smart Tools</h2>
+
+  <p>
+    Smart Tools is a free online platform that provides useful browser-based
+    utilities for students, professionals, creators, and everyday users.
+  </p>
+
+  <p>
+    Our goal is to make online tools simple, fast, and accessible without
+    requiring downloads or account registration.
+  </p>
+
+  <p>
+    Users can access calculators, generators, image tools, PDF tools, and
+    productivity resources instantly from any device.
+  </p>
+
+  <h2>Why Use Smart Tools?</h2>
+
+  <ul>
+    <li>Free online tools</li>
+    <li>No sign-up required</li>
+    <li>Fast and responsive design</li>
+    <li>Works on desktop and mobile devices</li>
+    <li>Easy-to-use interface</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Are Smart Tools free?</h3>
+
+  <p>
+    Yes. All tools on Smart Tools are free to use.
+  </p>
+
+  <h3>Do I need to create an account?</h3>
+
+  <p>
+    No. Most tools work instantly without registration.
+  </p>
+
+  <h3>Can I use Smart Tools on mobile devices?</h3>
+
+  <p>
+    Yes. Smart Tools is designed to work on smartphones, tablets, and desktop
+    computers.
+  </p>
+</section>
+
       </footer>
 
     </main>
