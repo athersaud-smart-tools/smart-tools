@@ -5,19 +5,27 @@ export default function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: "https://smart-tools-eta.vercel.app/image/resize",
+      url: "https://smart-tools-eta.vercel.app/blog",
       lastModified: new Date(),
     },
     {
-      url: "https://smart-tools-eta.vercel.app/image/compress",
+      url: "https://smart-tools-eta.vercel.app/blog/best-online-tools-2026",
       lastModified: new Date(),
     },
     {
-      url: "https://smart-tools-eta.vercel.app/typing-test",
+      url: "https://smart-tools-eta.vercel.app/blog/how-online-calculators-save-time",
       lastModified: new Date(),
     },
     {
-      url: "https://smart-tools-eta.vercel.app/pdf/merge",
+      url: "https://smart-tools-eta.vercel.app/blog/why-browser-tools-are-growing",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://smart-tools-eta.vercel.app/blog/top-tools-for-students",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://smart-tools-eta.vercel.app/blog/best-free-image-tools",
       lastModified: new Date(),
     },
   ];
