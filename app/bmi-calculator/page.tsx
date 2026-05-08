@@ -106,6 +106,81 @@ export default function BMICalculator() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+<div style={{
+  maxWidth: "900px",
+  margin: "50px auto",
+  padding: "20px",
+  lineHeight: "1.8"
+}}>
+
+  <h2>What is BMI?</h2>
+
+  <p>
+    BMI stands for Body Mass Index. It is a simple calculation that helps
+    estimate whether a person has a healthy body weight based on height and
+    weight.
+  </p>
+
+  <p>
+    BMI calculators are commonly used by fitness enthusiasts, healthcare
+    professionals, and individuals who want to track their health goals.
+  </p>
+
+  <h2>How to Use the BMI Calculator</h2>
+
+  <ol>
+    <li>Enter your height</li>
+    <li>Enter your weight</li>
+    <li>Click calculate</li>
+    <li>View your BMI result instantly</li>
+  </ol>
+
+  <h2>Why BMI is Important</h2>
+
+  <p>
+    BMI can help users understand whether they are underweight, normal weight,
+    overweight, or obese. While BMI is not a perfect health measurement, it is
+    widely used as a quick screening tool.
+  </p>
+
+  <h2>BMI Categories</h2>
+
+  <ul>
+    <li>Underweight: Below 18.5</li>
+    <li>Normal weight: 18.5 – 24.9</li>
+    <li>Overweight: 25 – 29.9</li>
+    <li>Obese: 30 and above</li>
+  </ul>
+
+  <h2>Benefits of Online BMI Calculators</h2>
+
+  <ul>
+    <li>Fast results</li>
+    <li>Easy to use</li>
+    <li>Accessible on any device</li>
+    <li>No installation required</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Is BMI accurate?</h3>
+
+  <p>
+    BMI is a general guideline and may not be accurate for every individual,
+    but it is widely used for basic health assessments.
+  </p>
+
+  <h3>Can I use BMI to track fitness goals?</h3>
+
+  <p>
+    Yes. Many people use BMI calculators as part of their health and fitness
+    tracking routines.
+  </p>
+
+</div>
+
     </main>
   );
 }
