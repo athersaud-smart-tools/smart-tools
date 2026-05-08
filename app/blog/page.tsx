@@ -13,76 +13,72 @@ export default function Blog() {
       <h1>Smart Tools Blog</h1>
 
       <p>
-        Welcome to the Smart Tools blog. Here you can find helpful guides,
-        tutorials, and articles about online tools, productivity, calculators,
-        generators, and digital utilities.
+        Welcome to the Smart Tools Blog. Here you will find helpful guides,
+        tutorials, and explanations about online tools, calculators, and
+        productivity resources.
       </p>
 
-      <div
-        style={{
-          marginTop: "30px",
-          display: "grid",
-          gap: "20px",
-        }}
-      >
-        {/* ARTICLE CARD */}
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
-          <h2>
-            <Link href="/blog/best-online-tools-2026">
-              Best Free Online Tools in 2026
-            </Link>
-          </h2>
+      <hr style={{ margin: "20px 0" }} />
 
-          <p>
-            Discover the most useful free online tools for productivity,
-            calculations, image editing, and more.
-          </p>
-
+      {/* ARTICLE 1 */}
+      <div style={{ marginBottom: "25px" }}>
+        <h2>
           <Link href="/blog/best-online-tools-2026">
-            Read Full Article →
+            Best Free Online Tools in 2026
           </Link>
-        </div>
+        </h2>
+        <p>
+          Discover the most useful free online tools for productivity,
+          calculations, image editing, and more.
+        </p>
+      </div>
 
-        {/* FUTURE ARTICLES */}
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
-          <h2>How Online Calculators Save Time</h2>
+      {/* ARTICLE 2 */}
+      <div style={{ marginBottom: "25px" }}>
+        <h2>
+          <Link href="/blog/how-online-calculators-save-time">
+            How Online Calculators Save Time
+          </Link>
+        </h2>
+        <p>
+          Learn how calculators improve productivity and speed up daily tasks.
+        </p>
+      </div>
 
-          <p>
-            Learn how browser-based calculators improve efficiency for students,
-            professionals, and businesses.
-          </p>
+      {/* ARTICLE 3 */}
+      <div style={{ marginBottom: "25px" }}>
+        <h2>
+          <Link href="/blog/why-browser-tools-are-growing">
+            Why Browser-Based Tools Are Growing
+          </Link>
+        </h2>
+        <p>
+          Explore why users prefer online tools instead of installing software.
+        </p>
+      </div>
 
-          <p>Coming soon...</p>
-        </div>
+      {/* ARTICLE 4 */}
+      <div style={{ marginBottom: "25px" }}>
+        <h2>
+          <Link href="/blog/top-tools-for-students">
+            Top Online Tools for Students in 2026
+          </Link>
+        </h2>
+        <p>
+          Best tools students can use for studying, assignments, and productivity.
+        </p>
+      </div>
 
-        <div
-          style={{
-            border: "1px solid #ddd",
-            padding: "20px",
-            borderRadius: "10px",
-          }}
-        >
-          <h2>Why Browser-Based Tools Are Growing</h2>
-
-          <p>
-            Explore why more users prefer web tools instead of downloading
-            software.
-          </p>
-
-          <p>Coming soon...</p>
-        </div>
+      {/* ARTICLE 5 */}
+      <div style={{ marginBottom: "25px" }}>
+        <h2>
+          <Link href="/blog/best-free-image-tools">
+            Best Free Online Image Tools in 2026
+          </Link>
+        </h2>
+        <p>
+          Learn about image resizers, compressors, and design tools online.
+        </p>
       </div>
     </main>
   );
