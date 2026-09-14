@@ -1,82 +1,133 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import type { Metadata } from "next";
 
-export default function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [sent, setSent] = useState(false);
+export const metadata: Metadata = {
+  title: "Contact Smart Tools",
+  description:
+    "Contact Smart Tools with questions, feedback, suggestions, or reports about the website and its online tools.",
+};
 
-  const handleSubmit = () => {
-    if (!name || !email || !message) {
-      alert("Please fill in all fields!");
-      return;
-    }
-    // Opens email client
-    window.location.href = `mailto:contact@smart-tools.com?subject=Message from ${name}&body=${message}%0A%0AFrom: ${name}%0AEmail: ${email}`;
-    setSent(true);
-  };
-
+export default function ContactPage() {
   return (
-    <main className="page-wrap">
-      <div style={{ maxWidth: 560, margin: "0 auto" }}>
-        <Link href="/" className="btn-back">← Back to Home</Link>
+    <main className="min-h-screen bg-white px-6 py-12 text-gray-800">
+      <div className="mx-auto max-w-4xl">
+        <Link
+          href="/"
+          className="mb-8 inline-block text-sm font-medium text-blue-600 hover:underline"
+        >
+          ← Back to Smart Tools
+        </Link>
 
-        <div className="tool-container">
-          <h1>📬 Contact Us</h1>
-          <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Have a question, suggestion, or found a bug? We'd love to hear from you!
-          </p>
+        <article className="space-y-8">
+          <header>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              Contact Smart Tools
+            </h1>
 
-          {sent ? (
-            <div style={{ padding: "1.5rem", background: "rgba(26,140,91,0.08)", borderRadius: 12, textAlign: "center", border: "1.5px solid var(--green)" }}>
-              <p style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "1.1rem", color: "var(--green)" }}>
-                ✅ Thank you! We'll get back to you soon.
-              </p>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              We welcome questions, feedback, suggestions, and reports about
+              problems with the website or its tools.
+            </p>
+          </header>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              How can we help?
+            </h2>
+
+            <p className="leading-7">
+              If you find a problem with a calculator, converter, document
+              utility, image tool, article, or another part of Smart Tools,
+              please let us know. Helpful feedback allows us to improve the
+              website and make the tools easier to use.
+            </p>
+
+            <p className="leading-7">
+              You can also contact us with suggestions for new tools or topics
+              that you would like to see covered in future articles.
+            </p>
+          </section>
+
+          <section className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+            <h2 className="text-xl font-semibold text-gray-900">
+              Contact information
+            </h2>
+
+            <p className="mt-3 leading-7 text-gray-700">
+              Please use the contact method provided by Smart Tools for your
+              inquiry. When contacting us about a technical problem, include
+              the name of the tool and a short explanation of what happened.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              What to include in a technical report
+            </h2>
+
+            <p className="leading-7">
+              If you are reporting a problem, the following information can
+              help us understand the issue:
+            </p>
+
+            <ul className="list-disc space-y-2 pl-6 leading-7">
+              <li>The name of the tool or page.</li>
+              <li>What you were trying to do.</li>
+              <li>What happened instead.</li>
+              <li>Any error message that appeared.</li>
+              <li>The device or browser you were using, if relevant.</li>
+            </ul>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              Suggestions and feedback
+            </h2>
+
+            <p className="leading-7">
+              We are continuously improving Smart Tools. If there is a useful
+              calculator, converter, generator, document feature, image tool,
+              or productivity utility you would like us to consider, send us
+              your suggestion.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              Other useful pages
+            </h2>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/about"
+                className="font-medium text-blue-600 hover:underline"
+              >
+                About Smart Tools →
+              </Link>
+
+              <Link
+                href="/privacy-policy"
+                className="font-medium text-blue-600 hover:underline"
+              >
+                Privacy Policy →
+              </Link>
+
+              <Link
+                href="/terms"
+                className="font-medium text-blue-600 hover:underline"
+              >
+                Terms of Use →
+              </Link>
+
+              <Link
+                href="/blog"
+                className="font-medium text-blue-600 hover:underline"
+              >
+                Read the Blog →
+              </Link>
             </div>
-          ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div>
-                <label className="field-label">Your Name</label>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="John Smith"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label className="field-label">Your Email</label>
-                <input
-                  type="email"
-                  className="input-field"
-                  placeholder="john@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label className="field-label">Message</label>
-                <textarea
-                  className="input-field"
-                  placeholder="Write your message here..."
-                  rows={5}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-              </div>
-
-              <button onClick={handleSubmit} className="btn btn-primary">
-                📨 Send Message
-              </button>
-            </div>
-          )}
-        </div>
+          </section>
+        </article>
       </div>
     </main>
   );
