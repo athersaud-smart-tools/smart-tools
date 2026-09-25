@@ -117,6 +117,56 @@ export default function ResizeImage() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Image Resizer?</h2>
+        <p>
+          The image resizer changes the width and height of an image to fit exactly what you
+          need, whether that’s a specific pixel size for a website, a profile picture, or a
+          document upload requirement.
+        </p>
+
+        <h2>How to Use the Image Resizer</h2>
+        <ol>
+          <li>Upload the image you want to resize</li>
+          <li>Enter your desired width and height</li>
+          <li>Preview the resized image</li>
+          <li>Download the resized image to your device</li>
+        </ol>
+
+        <h2>Why Resize Images</h2>
+        <p>
+          Different platforms and forms require different image dimensions — a profile
+          picture, a banner, and a document scan all need different sizes. Resizing an image
+          before uploading it saves you from upload errors, awkward cropping, or images that
+          look stretched or squeezed on a page.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Resizing profile pictures for social media platforms</li>
+          <li>Fitting images to exact dimensions required by a form or application</li>
+          <li>Preparing images for a website or blog post</li>
+          <li>Creating uniform image sizes for a gallery or portfolio</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Will resizing distort my image?</h3>
+        <p>
+          If you change the width and height by different proportions, the image can appear
+          stretched. For the best results, try to keep the same aspect ratio as the original
+          image.
+        </p>
+
+        <h3>Can I make an image larger without losing quality?</h3>
+        <p>
+          Enlarging an image beyond its original size can reduce sharpness, since no new
+          detail is being added. For best results, resizing works best when reducing an
+          image’s dimensions rather than enlarging them.
+        </p>
+      </div>
     </main>
   );
 }

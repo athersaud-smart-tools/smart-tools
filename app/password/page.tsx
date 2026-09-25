@@ -120,6 +120,54 @@ export default function PasswordGenerator() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Password Generator?</h2>
+        <p>
+          The password generator creates strong, random passwords made up of a mix of
+          letters, numbers, and symbols. Strong passwords make it much harder for anyone to
+          guess or break into your accounts.
+        </p>
+
+        <h2>How to Use the Password Generator</h2>
+        <ol>
+          <li>Choose your desired password length</li>
+          <li>Select which character types to include (uppercase, numbers, symbols, etc.)</li>
+          <li>Generate a new password</li>
+          <li>Copy it and use it for your account</li>
+        </ol>
+
+        <h2>Why Use a Password Generator</h2>
+        <p>
+          Passwords like “123456” or a pet’s name are easy for attackers to guess. A password
+          generator creates random combinations that are extremely difficult to crack, which
+          significantly improves your account security compared to passwords you might come
+          up with yourself.
+        </p>
+
+        <h2>Tips for Strong Passwords</h2>
+        <ul>
+          <li>Use at least 12-16 characters when the account allows it</li>
+          <li>Include a mix of uppercase, lowercase, numbers, and symbols</li>
+          <li>Never reuse the same password across multiple accounts</li>
+          <li>Store passwords in a password manager rather than memorizing them all</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is it safe to use a randomly generated password?</h3>
+        <p>
+          Yes, in fact random passwords are generally safer than ones you create yourself,
+          since they don’t rely on predictable patterns or personal information.
+        </p>
+
+        <h3>Should I use the same generated password for every account?</h3>
+        <p>
+          No. Using a unique password for each account limits the damage if one account is
+          ever compromised, since attackers can’t reuse that password on your other accounts.
+        </p>
+      </div>
     </main>
   );
 }

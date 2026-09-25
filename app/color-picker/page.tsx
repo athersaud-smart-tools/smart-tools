@@ -122,6 +122,55 @@ export default function ColorPicker() {
           <p style={{ fontSize: "0.75rem", color: "var(--ink2)", marginTop: "0.4rem" }}>Click any shade to copy it</p>
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Color Picker Tool?</h2>
+        <p>
+          The color picker tool lets you choose, preview, and copy colors in formats like
+          HEX and RGB. It also shows related shades of your chosen color, which is handy for
+          building color palettes for websites, designs, or art projects.
+        </p>
+
+        <h2>How to Use the Color Picker</h2>
+        <ol>
+          <li>Pick a color using the color selector</li>
+          <li>View the color’s HEX and RGB codes instantly</li>
+          <li>Browse related shades generated from your chosen color</li>
+          <li>Click any shade to copy its code to your clipboard</li>
+        </ol>
+
+        <h2>Why Use an Online Color Picker</h2>
+        <p>
+          Designers, developers, and hobbyists often need exact color codes rather than just
+          a visual match. An online color picker removes the guesswork by giving you precise,
+          copy-ready codes you can paste directly into design software, CSS, or image editors.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Finding the exact HEX code for a website’s color scheme</li>
+          <li>Building a matching color palette from a single starting color</li>
+          <li>Matching colors for logos, graphics, or presentations</li>
+          <li>Exploring shades and tints for design inspiration</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What’s the difference between HEX and RGB?</h3>
+        <p>
+          HEX codes represent colors using a six-character combination of letters and
+          numbers (like #FF4D00), while RGB represents the same color using red, green, and
+          blue values. Both describe the same colors, just in different formats used by
+          different tools.
+        </p>
+
+        <h3>Can I use these colors for both web and print design?</h3>
+        <p>
+          HEX and RGB codes are designed for digital use, such as websites and screens. For
+          print design, colors are typically converted to CMYK by your design software.
+        </p>
+      </div>
     </main>
   );
 }

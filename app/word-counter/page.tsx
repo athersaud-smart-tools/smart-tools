@@ -63,6 +63,55 @@ export default function WordCounter() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Word Counter?</h2>
+        <p>
+          The word counter instantly counts the number of words, characters, and often
+          sentences or paragraphs in any text you type or paste in. It’s a simple way to
+          check if your writing meets a required length.
+        </p>
+
+        <h2>How to Use the Word Counter</h2>
+        <ol>
+          <li>Type or paste your text into the box</li>
+          <li>The word and character counts update automatically as you type</li>
+          <li>Check your totals against any length requirement</li>
+          <li>Clear the text to start a new count</li>
+        </ol>
+
+        <h2>Why Use a Word Counter</h2>
+        <p>
+          Many assignments, articles, and applications have strict word or character limits.
+          Manually counting words is slow and error-prone, especially in longer pieces of
+          writing. A word counter gives you an instant, accurate count so you can edit your
+          text to fit the requirement.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Checking essay or assignment word count requirements</li>
+          <li>Staying within character limits for social media posts</li>
+          <li>Tracking word counts while writing articles or blog posts</li>
+          <li>Meeting character limits for meta descriptions or headlines</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Does the word counter count numbers and symbols?</h3>
+        <p>
+          Numbers are typically counted as words when separated by spaces, while the
+          character count includes all characters, including numbers, punctuation, and
+          spaces.
+        </p>
+
+        <h3>Can I count words in a very long document?</h3>
+        <p>
+          Yes, you can paste in long passages or entire documents and the tool will count the
+          total words and characters instantly.
+        </p>
+      </div>
     </main>
   );
 }

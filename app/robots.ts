@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://smart-tools-eta.vercel.app/sitemap.xml",
+    sitemap: "https://smartedgetools.com/sitemap.xml",
   };
 }

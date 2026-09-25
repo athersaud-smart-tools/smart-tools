@@ -187,6 +187,54 @@ export default function MergePDF() {
         </div>
 
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the PDF Merge Tool?</h2>
+        <p>
+          The PDF merge tool combines multiple separate PDF files into a single document, in
+          the order you choose. Instead of sending several attachments, you can hand over one
+          organized file.
+        </p>
+
+        <h2>How to Use the PDF Merge Tool</h2>
+        <ol>
+          <li>Upload the PDF files you want to combine</li>
+          <li>Arrange them in the order you want them merged</li>
+          <li>Click merge</li>
+          <li>Download the single combined PDF file</li>
+        </ol>
+
+        <h2>Why Merge PDFs</h2>
+        <p>
+          Merging PDFs is helpful when you have multiple related documents — like scanned
+          pages, reports, or forms — that need to be reviewed or submitted as one file. It
+          keeps everything organized and avoids the confusion of sending several separate
+          attachments.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Combining scanned pages into a single document</li>
+          <li>Merging separate reports or chapters into one file</li>
+          <li>Putting together application documents for submission</li>
+          <li>Creating a single portfolio or resume packet from multiple files</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is there a limit to how many PDFs I can merge?</h3>
+        <p>
+          You can merge multiple PDF files at once; for very large batches, merging in
+          smaller groups may work more smoothly.
+        </p>
+
+        <h3>Will merging affect the quality of my PDFs?</h3>
+        <p>
+          No, merging combines the files as they are without recompressing or altering the
+          content inside each page.
+        </p>
+      </div>
     </main>
   );
 }

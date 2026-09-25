@@ -146,6 +146,54 @@ export default function CurrencyConverter() {
           </div>
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Currency Converter?</h2>
+        <p>
+          The currency converter lets you quickly convert an amount from one currency to
+          another using up-to-date exchange rates. It’s a simple way to see how much your
+          money is worth in a different currency without doing manual math.
+        </p>
+
+        <h2>How to Use the Currency Converter</h2>
+        <ol>
+          <li>Enter the amount you want to convert</li>
+          <li>Select the currency you’re converting from</li>
+          <li>Select the currency you’re converting to</li>
+          <li>View the converted amount instantly</li>
+        </ol>
+
+        <h2>Why Use an Online Currency Converter</h2>
+        <p>
+          Exchange rates change constantly, so manually calculating conversions is unreliable
+          unless you’re checking rates every time. A currency converter automatically applies
+          current rates, making it much easier to budget for travel, understand international
+          prices, or estimate the cost of an online purchase from another country.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Planning a travel budget before a trip abroad</li>
+          <li>Checking prices when shopping on international websites</li>
+          <li>Comparing costs of living between countries</li>
+          <li>Understanding freelance or remittance payments in another currency</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How often are exchange rates updated?</h3>
+        <p>
+          Exchange rates fluctuate throughout the day based on global markets, so the tool
+          reflects rates as closely to real time as possible.
+        </p>
+
+        <h3>Can I convert between any two currencies?</h3>
+        <p>
+          Yes, you can select from a wide range of major world currencies and convert between
+          any pair available in the dropdown menus.
+        </p>
+      </div>
     </main>
   );
 }

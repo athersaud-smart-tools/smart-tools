@@ -12,7 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://smartedgetools.com"),
   title: "Smart Tools - Free Online Image, PDF & Typing Tools",
   description:
     "Free online tools to resize images, compress files, merge PDFs, and test typing speed. Fast, secure, and easy to use.",

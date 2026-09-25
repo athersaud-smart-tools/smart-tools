@@ -17,7 +17,7 @@ export default function RandomNumberGenerator() {
     const countN = Math.min(parseInt(count), 100);
     if (isNaN(minN) || isNaN(maxN) || minN >= maxN) return;
 
-    let result: number[] = [];
+    const result: number[] = [];
     if (unique) {
       const pool = Array.from({ length: maxN - minN + 1 }, (_, i) => i + minN);
       for (let i = 0; i < Math.min(countN, pool.length); i++) {
@@ -96,6 +96,53 @@ export default function RandomNumberGenerator() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Random Number Generator?</h2>
+        <p>
+          The random number generator produces one or more random numbers within a range
+          that you choose. It’s a simple way to pick a number fairly, without any bias or
+          pattern.
+        </p>
+
+        <h2>How to Use the Random Number Generator</h2>
+        <ol>
+          <li>Enter the minimum and maximum values for your range</li>
+          <li>Choose how many random numbers you want to generate</li>
+          <li>Click generate</li>
+          <li>Copy the results for your use</li>
+        </ol>
+
+        <h2>Why Use a Random Number Generator</h2>
+        <p>
+          Picking numbers “randomly” by hand is surprisingly hard to do fairly — people
+          naturally favor certain numbers without realizing it. A random number generator
+          removes that bias and gives you a genuinely random result every time.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Picking a winner for a giveaway or raffle</li>
+          <li>Choosing teams or turn order fairly</li>
+          <li>Generating sample data or test numbers</li>
+          <li>Making unbiased decisions between numbered options</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Are the numbers truly random?</h3>
+        <p>
+          The tool uses a random number generation method to produce numbers with no
+          predictable pattern within your chosen range.
+        </p>
+
+        <h3>Can I generate multiple numbers without repeats?</h3>
+        <p>
+          Yes, you can generate multiple random numbers at once for situations like drawing
+          several winners or creating a random list.
+        </p>
       </div>
     </main>
   );

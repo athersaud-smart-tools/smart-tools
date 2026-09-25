@@ -109,6 +109,53 @@ export default function TypingTest() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Typing Test?</h2>
+        <p>
+          The typing test measures how fast and accurately you can type by having you type a
+          passage of text against the clock. At the end, you get your typing speed in words
+          per minute (WPM) along with your accuracy percentage.
+        </p>
+
+        <h2>How to Use the Typing Test</h2>
+        <ol>
+          <li>Click start to begin the test</li>
+          <li>Type the displayed text as quickly and accurately as you can</li>
+          <li>The test ends automatically once you finish typing</li>
+          <li>View your typing speed (WPM) and accuracy results</li>
+        </ol>
+
+        <h2>Why Take a Typing Test</h2>
+        <p>
+          Typing speed matters for schoolwork, jobs that involve a lot of computer use, and
+          general productivity. Testing regularly helps you track improvement over time and
+          identify areas, like accuracy or specific letter combinations, that need practice.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Practicing and improving typing speed for school or work</li>
+          <li>Preparing for typing speed requirements on job applications</li>
+          <li>Tracking typing progress over time</li>
+          <li>Friendly typing speed competitions with friends</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is a good typing speed?</h3>
+        <p>
+          Average typing speed is generally around 40 WPM, while speeds of 60-80 WPM or
+          higher are considered fast. Accuracy matters just as much as speed.
+        </p>
+
+        <h3>How is accuracy calculated?</h3>
+        <p>
+          Accuracy is calculated by comparing the characters you typed correctly against the
+          total characters in the passage, shown as a percentage.
+        </p>
+      </div>
     </main>
   );
 }

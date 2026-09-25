@@ -84,6 +84,54 @@ export default function TextCaseConverter() {
           </div>
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Text Case Converter?</h2>
+        <p>
+          The text case converter instantly changes the capitalization of any text you enter,
+          switching it between formats like UPPERCASE, lowercase, Title Case, and Sentence
+          case.
+        </p>
+
+        <h2>How to Use the Text Case Converter</h2>
+        <ol>
+          <li>Type or paste your text into the box</li>
+          <li>Select the case format you want</li>
+          <li>The text updates instantly</li>
+          <li>Copy the converted text to use wherever needed</li>
+        </ol>
+
+        <h2>Why Use a Text Case Converter</h2>
+        <p>
+          Manually retyping text to fix its capitalization is tedious and easy to get wrong,
+          especially with longer passages. A text case converter changes the entire format
+          instantly, saving time when preparing titles, headlines, or formatted documents.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Formatting titles and headlines into Title Case</li>
+          <li>Converting text to Sentence case for readability</li>
+          <li>Fixing text that was accidentally typed in all caps</li>
+          <li>Preparing consistent formatting for documents or code</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What’s the difference between Title Case and Sentence case?</h3>
+        <p>
+          Title Case capitalizes the first letter of most words, commonly used for headlines,
+          while Sentence case only capitalizes the first letter of the sentence, similar to
+          normal writing.
+        </p>
+
+        <h3>Can I convert very long blocks of text?</h3>
+        <p>
+          Yes, you can paste in paragraphs or entire documents and the tool will convert the
+          case of all the text at once.
+        </p>
+      </div>
     </main>
   );
 }

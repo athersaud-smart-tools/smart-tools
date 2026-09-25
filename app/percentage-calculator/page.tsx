@@ -98,6 +98,55 @@ export default function PercentageCalculator() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Percentage Calculator?</h2>
+        <p>
+          The percentage calculator helps you quickly work out percentages, such as finding
+          what percent one number is of another, calculating a percentage increase or
+          decrease, or figuring out a discount amount.
+        </p>
+
+        <h2>How to Use the Percentage Calculator</h2>
+        <ol>
+          <li>Choose the type of percentage calculation you need</li>
+          <li>Enter the numbers involved</li>
+          <li>Click calculate</li>
+          <li>View the result instantly</li>
+        </ol>
+
+        <h2>Why Use a Percentage Calculator</h2>
+        <p>
+          Percentage math shows up constantly in everyday life — discounts while shopping,
+          tips at restaurants, grades in school, or interest on savings. A percentage
+          calculator removes the risk of manual math errors and gives you accurate results
+          in seconds.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Calculating a discount or sale price while shopping</li>
+          <li>Working out a tip amount at a restaurant</li>
+          <li>Figuring out grade percentages from test scores</li>
+          <li>Calculating percentage increase or decrease between two numbers</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>How do I calculate a percentage increase?</h3>
+        <p>
+          A percentage increase is found by subtracting the original number from the new
+          number, dividing that by the original number, and multiplying by 100. The
+          calculator does this automatically when you select that option.
+        </p>
+
+        <h3>Can I use this to calculate a discount price?</h3>
+        <p>
+          Yes, you can use it to figure out the discount amount as well as the final price
+          after the discount is applied.
+        </p>
+      </div>
     </main>
   );
 }

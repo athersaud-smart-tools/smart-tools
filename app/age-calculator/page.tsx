@@ -86,6 +86,56 @@ export default function AgeCalculator() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is an Age Calculator?</h2>
+        <p>
+          An age calculator works out exactly how old you are (or how old someone else is)
+          based on a date of birth. Instead of counting years by hand, it instantly gives you
+          your age in years, months, and days, plus fun extras like how many days are left
+          until your next birthday.
+        </p>
+
+        <h2>How to Use the Age Calculator</h2>
+        <ol>
+          <li>Enter the date of birth you want to calculate</li>
+          <li>Click calculate</li>
+          <li>Instantly see the exact age in years, months, and days</li>
+          <li>Check how many days remain until the next birthday</li>
+        </ol>
+
+        <h2>Why Use an Online Age Calculator</h2>
+        <p>
+          Calculating age manually means accounting for leap years, different month lengths,
+          and whether a birthday has already passed this year — it’s easy to make a small
+          mistake. An online age calculator does this instantly and accurately, which is
+          useful for filling out forms, checking eligibility requirements, or just settling
+          a birthday debate with a friend.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Filling out job applications or school enrollment forms</li>
+          <li>Checking age eligibility for events, sports, or services</li>
+          <li>Planning birthday celebrations</li>
+          <li>Satisfying simple curiosity about exact age in days</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Does the calculator account for leap years?</h3>
+        <p>
+          Yes. The calculator automatically accounts for leap years so your age in days and
+          months is accurate.
+        </p>
+
+        <h3>Can I calculate someone else’s age, not just mine?</h3>
+        <p>
+          Yes. You can enter any date of birth to calculate the current age for anyone,
+          including pets, historical figures, or upcoming due dates.
+        </p>
+      </div>
     </main>
   );
 }

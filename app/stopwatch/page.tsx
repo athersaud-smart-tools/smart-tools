@@ -98,6 +98,53 @@ export default function Stopwatch() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Online Stopwatch?</h2>
+        <p>
+          The online stopwatch lets you time anything directly in your browser, with start,
+          stop, and lap functions, so there’s no need to dig out a separate timer app or
+          device.
+        </p>
+
+        <h2>How to Use the Stopwatch</h2>
+        <ol>
+          <li>Click start to begin timing</li>
+          <li>Click lap to record split times while it keeps running</li>
+          <li>Click stop when you’re finished</li>
+          <li>Click reset to start over</li>
+        </ol>
+
+        <h2>Why Use an Online Stopwatch</h2>
+        <p>
+          A browser-based stopwatch is always available on any device with internet access,
+          with no app download required. It’s convenient for timing workouts, tasks, games,
+          or study sessions right from your laptop or phone browser.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Timing workouts, runs, or interval training</li>
+          <li>Tracking how long a task or study session takes</li>
+          <li>Timing games, competitions, or challenges</li>
+          <li>Recording lap times for practice sessions</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Does the stopwatch keep running if I switch tabs?</h3>
+        <p>
+          The stopwatch continues timing in the background as long as the page remains open
+          in your browser.
+        </p>
+
+        <h3>Can I record multiple lap times?</h3>
+        <p>
+          Yes, you can record as many lap times as you need while the stopwatch keeps
+          running, without stopping the overall timer.
+        </p>
+      </div>
     </main>
   );
 }

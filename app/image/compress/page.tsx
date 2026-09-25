@@ -78,6 +78,54 @@ export default function CompressImage() {
           )}
         </div>
       </div>
+
+      {/* SEO CONTENT */}
+      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
+        <h2>What is the Image Compressor?</h2>
+        <p>
+          The image compressor reduces the file size of your images while keeping them
+          looking as close to the original as possible. Smaller image files load faster on
+          websites, take up less storage, and are easier to send over email or messaging apps.
+        </p>
+
+        <h2>How to Use the Image Compressor</h2>
+        <ol>
+          <li>Upload the image you want to compress</li>
+          <li>Let the tool process and shrink the file size</li>
+          <li>Preview the compressed result</li>
+          <li>Download the compressed image to your device</li>
+        </ol>
+
+        <h2>Why Compress Images</h2>
+        <p>
+          Large image files can slow down websites, use up storage space, and be rejected by
+          upload limits on forms or email attachments. Compressing an image reduces its file
+          size significantly, often with little to no visible difference in quality, making
+          it easier to share, upload, and store.
+        </p>
+
+        <h2>Common Uses</h2>
+        <ul>
+          <li>Speeding up website load times by using smaller images</li>
+          <li>Fitting images within upload size limits for forms or email</li>
+          <li>Saving storage space on your phone or computer</li>
+          <li>Preparing images for social media posts</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Will compressing an image reduce its quality?</h3>
+        <p>
+          Compression reduces file size by simplifying image data. At moderate compression
+          levels, the difference is usually barely noticeable, though very high compression
+          can visibly reduce quality.
+        </p>
+
+        <h3>What image formats can I compress?</h3>
+        <p>
+          Most common formats like JPG and PNG can be compressed with this tool.
+        </p>
+      </div>
     </main>
   );
 }
