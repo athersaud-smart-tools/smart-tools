@@ -12,18 +12,61 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://smartedgetools.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smartedgetools.com"),
-  title: "Smart Tools - Free Online Image, PDF & Typing Tools",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "SmartEdgeTools — Free Online Tools for Everyday Tasks",
+    template: "%s | SmartEdgeTools",
+  },
   description:
-    "Free online tools to resize images, compress files, merge PDFs, and test typing speed. Fast, secure, and easy to use.",
+    "Use free online calculators, converters, generators, text tools, image tools, PDF tools, and productivity utilities. Fast, simple, and no signup required.",
+  applicationName: "SmartEdgeTools",
+  generator: "Next.js",
   keywords: [
-    "image resizer",
+    "free online tools",
+    "online calculators",
+    "unit converter",
+    "currency converter",
     "image compressor",
-    "pdf merge",
+    "image resizer",
+    "PDF tools",
+    "word counter",
+    "password generator",
+    "QR code generator",
     "typing test",
-    "online tools",
+    "AI text improver",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "SmartEdgeTools",
+    title: "SmartEdgeTools — Free Online Tools for Everyday Tasks",
+    description:
+      "Free calculators, converters, generators, image tools, PDF tools, text utilities, and more. No signup required.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "SmartEdgeTools — Free Online Tools",
+    description:
+      "Free online tools for calculations, conversions, text, images, PDFs, and everyday tasks.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   verification: {
     google: "K_-YbyZLqsDANY55cqnQnxbI6K9jxu4qd7b1SK0ip84",
   },
