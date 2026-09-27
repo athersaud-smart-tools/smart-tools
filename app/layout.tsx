@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "Use free online calculators, converters, generators, text tools, image tools, PDF tools, and productivity utilities. Fast, simple, and no signup required.",
   applicationName: "SmartEdgeTools",
   generator: "Next.js",
+  authors: [{ name: "SmartEdgeTools" }],
+  creator: "SmartEdgeTools",
+  publisher: "SmartEdgeTools",
   keywords: [
     "free online tools",
     "online calculators",
@@ -49,12 +52,21 @@ export const metadata: Metadata = {
     description:
       "Free calculators, converters, generators, image tools, PDF tools, text utilities, and more. No signup required.",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "SmartEdgeTools — Free Online Tools for Everyday Tasks",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "SmartEdgeTools — Free Online Tools",
     description:
       "Free online tools for calculations, conversions, text, images, PDFs, and everyday tasks.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -72,6 +84,27 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "SmartEdgeTools",
+      description:
+        "Free online calculators, converters, generators, text tools, image tools, PDF tools, and productivity utilities.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "SmartEdgeTools",
+      url: siteUrl,
+    },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -81,23 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: "SmartEdgeTools",
-                url: siteUrl,
-                logo: `${siteUrl}/favicon.ico`,
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                name: "SmartEdgeTools",
-                url: siteUrl,
-              },
-            ]),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
         <script

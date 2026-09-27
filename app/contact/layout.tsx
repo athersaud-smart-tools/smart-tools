@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Random Number Generator Online";
-const description = "Generate random numbers within a chosen range using the free SmartEdgeTools random number generator.";
-const canonical = "/random-number";
+const title = "Contact Smart Tools";
+const description = "Contact Smart Tools with questions, feedback, suggestions, or reports about the website and its online tools.";
+const canonical = "/contact";
 
 export const metadata: Metadata = {
   title,
@@ -12,4 +12,4 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) { return children; }
+export default function ContactLayout({ children }: { children: React.ReactNode }) { return children; }
