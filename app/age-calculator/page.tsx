@@ -3,9 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 
+type AgeResult = {
+  years: number;
+  months: number;
+  days: number;
+  totalDays: number;
+  totalWeeks: number;
+  totalMonths: number;
+  totalHours: number;
+  daysToNext: number;
+};
+
 export default function AgeCalculator() {
   const [dob, setDob] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<AgeResult | null>(null);
 
   const calculate = () => {
     if (!dob) return;

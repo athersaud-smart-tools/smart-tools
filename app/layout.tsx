@@ -80,6 +80,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "SmartEdgeTools",
+                url: siteUrl,
+                logo: `${siteUrl}/favicon.ico`,
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "SmartEdgeTools",
+                url: siteUrl,
+              },
+            ]),
+          }}
+        />
+
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8430178179260712"
           crossOrigin="anonymous"

@@ -3,11 +3,18 @@
 import { useState } from "react";
 import Link from "next/link";
 
+type LoanResult = {
+  monthly: string;
+  total: string;
+  interest: string;
+  percent: number;
+};
+
 export default function LoanCalculator() {
   const [amount, setAmount] = useState("");
   const [rate, setRate] = useState("");
   const [years, setYears] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<LoanResult | null>(null);
 
   const calculate = () => {
     const p = parseFloat(amount);

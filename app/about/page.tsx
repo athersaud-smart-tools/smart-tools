@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "About Smart Tools",
   description:
     "Learn about Smart Tools, a free online platform offering useful calculators, converters, generators, image tools, PDF tools, and productivity utilities.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

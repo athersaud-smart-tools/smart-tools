@@ -11,8 +11,8 @@ export default function ResizeImage() {
   const [lockRatio, setLockRatio] = useState(true);
   const [originalRatio, setOriginalRatio] = useState(1);
 
-  const handleUpload = (e: any) => {
-    const file = e.target.files[0];
+  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
       const url = URL.createObjectURL(file);
       setImage(url);
@@ -108,7 +108,8 @@ export default function ResizeImage() {
             <div style={{ marginTop: "1.5rem" }}>
               <label className="field-label">Preview</label>
               <div className="result-box" style={{ padding: "0.75rem", textAlign: "center" }}>
-                <img src={resizedImage} alt="resized" style={{ maxWidth: "100%", borderRadius: 8 }} />
+                {/* eslint-disable-next-line @next/next/no-img-element -- client-generated canvas data URL, not an optimizable remote asset */}
+                <img src={resizedImage} alt="Resized image preview" style={{ maxWidth: "100%", borderRadius: 8 }} />
               </div>
               <a href={resizedImage} download="resized.jpg">
                 <button className="btn btn-success">⬇️ Download Image</button>
