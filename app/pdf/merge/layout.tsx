@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
+const title = "PDF Merge Tool — Combine PDF Files Online Free | SmartTools";
+const description = "Merge multiple PDF files into one document online for free. No sign up, no watermark, works on all devices. Fast, private and secure PDF merger tool.";
+const canonical = "/pdf/merge";
+
 export const metadata: Metadata = {
-  title: "PDF Merge Tool — Combine PDF Files Online Free | SmartTools",
-  description:
-    "Merge multiple PDF files into one document online for free. No sign up, no watermark, works on all devices. Fast, private and secure PDF merger tool.",
+  title,
+  description,
   keywords: [
     "merge pdf",
     "combine pdf",
@@ -16,11 +19,9 @@ export const metadata: Metadata = {
     "combine pdf files",
     "merge pdf free no watermark",
   ],
-  alternates: {
-    canonical: "/pdf/merge",
-  },
+  alternates: { canonical },
+  openGraph: { type: "website", url: canonical, title, description, images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }] },
+  twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return children;
-}
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }
