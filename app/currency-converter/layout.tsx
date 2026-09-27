@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Currency Converter — Convert World Currencies";
+const title = "Currency Converter Online";
 const description = "Convert major world currencies with SmartEdgeTools. Choose your currencies, enter an amount, and get an exchange-rate calculation quickly.";
 const canonical = "/currency-converter";
 

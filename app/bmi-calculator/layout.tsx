@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "BMI Calculator — Calculate Body Mass Index";
+const title = "BMI Calculator — Body Mass Index";
 const description = "Calculate BMI from height and weight with the free SmartEdgeTools BMI calculator and learn what the result means.";
 const canonical = "/bmi-calculator";
 

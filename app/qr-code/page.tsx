@@ -1,19 +1,30 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import QRCode from "qrcode";
 
 export default function QRCodeGenerator() {
   const [text, setText] = useState("");
   const [qrUrl, setQrUrl] = useState("");
   const [generated, setGenerated] = useState(false);
+  const [error, setError] = useState("");
 
-  const generateQR = () => {
+  const generateQR = async () => {
     if (!text.trim()) return;
-    const encoded = encodeURIComponent(text);
-    const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encoded}`;
-    setQrUrl(url);
-    setGenerated(true);
+    try {
+      setError("");
+      // Generated entirely in the browser — nothing you type is sent to a server.
+      const dataUrl = await QRCode.toDataURL(text, {
+        width: 300,
+        margin: 1,
+      });
+      setQrUrl(dataUrl);
+      setGenerated(true);
+    } catch {
+      setError("Couldn't generate a QR code for that input. Try shorter text.");
+      setGenerated(false);
+    }
   };
 
   return (
@@ -47,17 +58,26 @@ export default function QRCodeGenerator() {
             ⚡ Generate QR Code
           </button>
 
+          {error && (
+            <p style={{ color: "var(--accent)", marginTop: "0.75rem", fontSize: "0.9rem" }}>
+              {error}
+            </p>
+          )}
+
           {generated && qrUrl && (
             <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
               <label className="field-label">Your QR Code</label>
               <div className="result-box" style={{ padding: "1.5rem", textAlign: "center" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- client-generated data URL, not an optimizable remote asset */}
                 <img
                   src={qrUrl}
-                  alt="QR Code"
+                  alt="Generated QR code"
+                  width={200}
+                  height={200}
                   style={{ width: 200, height: 200, borderRadius: 8 }}
                 />
               </div>
-              <a href={qrUrl} download="qrcode.png" target="_blank">
+              <a href={qrUrl} download="qrcode.png">
                 <button className="btn btn-success">⬇️ Download QR Code</button>
               </a>
             </div>

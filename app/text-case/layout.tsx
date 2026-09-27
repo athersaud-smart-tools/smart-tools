@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Case Converter — UPPER, lower and Title Case";
+const title = "Case Converter — Upper & Lower";
 const description = "Convert text between uppercase, lowercase, title case, and other common formats with the free SmartEdgeTools case converter.";
 const canonical = "/text-case";
 

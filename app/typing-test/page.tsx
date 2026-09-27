@@ -12,8 +12,16 @@ export default function TypingTest() {
   const [wpm, setWpm] = useState<number | null>(null);
   const [accuracy, setAccuracy] = useState<number | null>(null);
 
+  const calculateResults = () => {
+    const words = input.trim().split(/\s+/).filter(Boolean);
+    const correctChars = input.split("").filter((c, i) => c === sampleText[i]).length;
+    const acc = input.length > 0 ? Math.round((correctChars / input.length) * 100) : 0;
+    setWpm(words.length * 2);
+    setAccuracy(acc);
+  };
+
   useEffect(() => {
-    let timer: any;
+    let timer: ReturnType<typeof setInterval> | undefined;
     if (isActive && time > 0) {
       timer = setInterval(() => setTime((prev) => prev - 1), 1000);
     } else if (time === 0 && isActive) {
@@ -21,6 +29,7 @@ export default function TypingTest() {
       setIsActive(false);
     }
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActive, time, input]);
 
   const startTest = () => {
@@ -29,14 +38,6 @@ export default function TypingTest() {
     setInput("");
     setWpm(null);
     setAccuracy(null);
-  };
-
-  const calculateResults = () => {
-    const words = input.trim().split(/\s+/).filter(Boolean);
-    const correctChars = input.split("").filter((c, i) => c === sampleText[i]).length;
-    const acc = input.length > 0 ? Math.round((correctChars / input.length) * 100) : 0;
-    setWpm(words.length * 2);
-    setAccuracy(acc);
   };
 
   const progress = (input.length / sampleText.length) * 100;

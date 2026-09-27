@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Password Generator — Create Strong Passwords";
+const title = "Password Generator Online";
 const description = "Generate strong random passwords with customizable options using the free SmartEdgeTools password generator.";
 const canonical = "/password";
 

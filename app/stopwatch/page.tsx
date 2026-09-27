@@ -7,7 +7,7 @@ export default function Stopwatch() {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [laps, setLaps] = useState<number[]>([]);
-  const intervalRef = useRef<any>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   const start = () => {
     setRunning(true);

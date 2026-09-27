@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "PDF Merge Tool — Combine PDF Files Online Free | SmartTools";
+const title = "PDF Merge Tool — Combine Files Free";
 const description = "Merge multiple PDF files into one document online for free. No sign up, no watermark, works on all devices. Fast, private and secure PDF merger tool.";
 const canonical = "/pdf/merge";
 

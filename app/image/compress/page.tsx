@@ -8,8 +8,8 @@ export default function CompressImage() {
   const [compressedImage, setCompressedImage] = useState<string | null>(null);
   const [quality, setQuality] = useState(0.7);
 
-  const handleUpload = (e: any) => {
-    const file = e.target.files[0];
+  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) setImage(URL.createObjectURL(file));
   };
 
@@ -69,7 +69,8 @@ export default function CompressImage() {
             <div style={{ marginTop: "1.5rem" }}>
               <label className="field-label">Preview</label>
               <div className="result-box" style={{ padding: "0.75rem", textAlign: "center" }}>
-                <img src={compressedImage} alt="compressed" style={{ maxWidth: "100%", borderRadius: 8 }} />
+                {/* eslint-disable-next-line @next/next/no-img-element -- client-generated canvas data URL, not an optimizable remote asset */}
+                <img src={compressedImage} alt="Compressed image preview" style={{ maxWidth: "100%", borderRadius: 8 }} />
               </div>
               <a href={compressedImage} download="compressed.jpg">
                 <button className="btn btn-success">⬇️ Download Image</button>

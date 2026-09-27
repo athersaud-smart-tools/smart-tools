@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Unit Converter — Convert Length, Weight and More";
+const title = "Unit Converter — Length & Weight";
 const description = "Convert common units including length, weight, and temperature quickly with the free SmartEdgeTools unit converter.";
 const canonical = "/unit-converter";
 

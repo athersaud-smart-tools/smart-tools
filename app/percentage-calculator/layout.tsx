@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Percentage Calculator — Calculate Percentages";
+const title = "Percentage Calculator Online";
 const description = "Calculate percentages, percentage increases, decreases, and common percentage problems quickly with the free SmartEdgeTools calculator.";
 const canonical = "/percentage-calculator";
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Loan Calculator — Estimate Monthly Payments";
+const title = "Loan Calculator — Monthly Payments";
 const description = "Estimate loan payments, interest, and repayment amounts with the free SmartEdgeTools loan calculator.";
 const canonical = "/loan-calculator";
 

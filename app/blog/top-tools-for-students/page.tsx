@@ -1,3 +1,13 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Top Online Tools for Students in 2026",
+  description:
+    "The best free online tools students can use for calculations, writing, word counting, and managing PDFs and study materials.",
+  alternates: { canonical: "/blog/top-tools-for-students" },
+};
+
 export default function ArticlePage() {
   return (
     <main
@@ -8,6 +18,7 @@ export default function ArticlePage() {
         fontFamily: "Arial",
       }}
     >
+      <Link href="/blog" style={{ display: "inline-block", marginBottom: "20px" }}>← Back to Blog</Link>
 
       <h1>Top Online Tools for Students in 2026</h1>
 
@@ -41,29 +52,30 @@ export default function ArticlePage() {
 
       <p>
         Calculators help students solve math problems quickly and accurately.
-        Percentage calculators, scientific calculators, and unit converters are
-        especially useful for daily study tasks.
+        <Link href="/percentage-calculator"> Percentage calculators</Link> and
+        <Link href="/unit-converter"> unit converters</Link> are especially useful for daily
+        study tasks.
       </p>
 
       <h3>2. Word Counters</h3>
 
       <p>
-        Word counter tools help students track essay and assignment length.
-        These tools are commonly used for school and university writing tasks.
+        <Link href="/word-counter">Word counter tools</Link> help students track essay and
+        assignment length. These tools are commonly used for school and university writing tasks.
       </p>
 
       <h3>3. AI Writing Tools</h3>
 
       <p>
-        AI writing assistants can help improve grammar, rewrite sentences,
-        and make writing more clear and professional.
+        <Link href="/ai-rewrite">AI writing assistants</Link> can help improve grammar, rewrite
+        sentences, and make writing more clear and professional.
       </p>
 
       <h3>4. PDF Tools</h3>
 
       <p>
-        PDF merge and editing tools help students combine documents and manage
-        study materials efficiently.
+        <Link href="/pdf/merge">PDF merge and editing tools</Link> help students combine
+        documents and manage study materials efficiently.
       </p>
 
       <h2>Benefits of Browser-Based Learning Tools</h2>
@@ -97,6 +109,10 @@ export default function ArticlePage() {
         remain an important part of modern study methods.
       </p>
 
+      <hr style={{ margin: "30px 0" }} />
+      <p>
+        <Link href="/">← Explore all free tools</Link> or <Link href="/blog">read more guides on the blog</Link>.
+      </p>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "AI Text Improver — Rewrite and Improve Text";
+const title = "AI Text Improver — Rewrite Text";
 const description = "Improve, rewrite, and polish text with the SmartEdgeTools AI text improver for clearer and more natural writing.";
 const canonical = "/ai-rewrite";
 
