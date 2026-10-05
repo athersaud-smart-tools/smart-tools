@@ -62,7 +62,7 @@ export default function ColorPicker() {
         <div className="tool-container">
           <h1>🎨 Color Picker</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Pick any color and get its HEX, RGB and HSL values instantly!
+            Pick any color online and get HEX, RGB, and HSL values instantly with the free SmartEdgeTools color picker. No signup, just copy and use!
           </p>
 
           {/* Big color preview */}
