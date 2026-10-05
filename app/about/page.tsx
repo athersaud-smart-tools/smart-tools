@@ -2,9 +2,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Smart Tools",
+  title: "About SmartEdgeTools",
   description:
-    "Learn about Smart Tools, a free online platform offering useful calculators, converters, generators, image tools, PDF tools, and productivity utilities.",
+    "Learn about SmartEdgeTools, a free online platform offering useful calculators, converters, generators, image tools, PDF tools, and productivity utilities.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -62,9 +65,7 @@ export default function AboutPage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-gray-200 p-5">
-                <h3 className="font-semibold text-gray-900">
-                  Calculators
-                </h3>
+                <h3 className="font-semibold text-gray-900">Calculators</h3>
                 <p className="mt-2 text-sm leading-6 text-gray-600">
                   Tools for percentages, age calculations, loans, BMI, and
                   other everyday calculations.
@@ -72,9 +73,7 @@ export default function AboutPage() {
               </div>
 
               <div className="rounded-xl border border-gray-200 p-5">
-                <h3 className="font-semibold text-gray-900">
-                  Converters
-                </h3>
+                <h3 className="font-semibold text-gray-900">Converters</h3>
                 <p className="mt-2 text-sm leading-6 text-gray-600">
                   Conversion tools designed to help users quickly work with
                   common values and measurements.
@@ -86,8 +85,7 @@ export default function AboutPage() {
                   Image and Document Tools
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-gray-600">
-                  Browser-based utilities for common image and document
-                  tasks.
+                  Browser-based utilities for common image and document tasks.
                 </p>
               </div>
 

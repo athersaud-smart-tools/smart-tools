@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "Read the Smart Tools Terms of Use covering website access, online tools, content, disclaimers, third-party services, and acceptable use.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
@@ -140,14 +141,14 @@ export default function TermsPage() {
             </h2>
 
             <p className="leading-7">
-              Unless otherwise stated, the website's original text, design,
+              Unless otherwise stated, the website&apos;s original text, design,
               branding, and other original materials belong to Smart Tools or
               are used with appropriate permission.
             </p>
 
             <p className="leading-7">
               You may not copy, reproduce, republish, sell, or redistribute
-              substantial portions of the website's original content without
+              substantial portions of the website&apos;s original content without
               appropriate permission.
             </p>
           </section>

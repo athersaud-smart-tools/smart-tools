@@ -1,7 +1,18 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Free Online Tools in 2026",
+  description:
+    "Discover the most useful free online tools for productivity, calculations, image editing, and everyday tasks in 2026.",
+  alternates: { canonical: "/blog/best-online-tools-2026" },
+};
+
 export default function ArticlePage() {
   return (
     <main style={{ padding: "20px", maxWidth: "900px", margin: "auto", fontFamily: "Arial" }}>
-      
+      <Link href="/blog" style={{ display: "inline-block", marginBottom: "20px" }}>← Back to Blog</Link>
+
       <h1>Best Free Online Tools in 2026</h1>
 
       <p>
@@ -34,30 +45,30 @@ export default function ArticlePage() {
       <h3>1. Currency Converters</h3>
 
       <p>
-        Currency converters help users calculate live exchange rates quickly.
-        These tools are especially useful for travelers, freelancers, and
+        <Link href="/currency-converter">Currency converters</Link> help users calculate live
+        exchange rates quickly. These tools are especially useful for travelers, freelancers, and
         businesses working internationally.
       </p>
 
       <h3>2. BMI Calculators</h3>
 
       <p>
-        BMI calculators help users understand body mass index values using
-        height and weight information.
+        <Link href="/bmi-calculator">BMI calculators</Link> help users understand body mass index
+        values using height and weight information.
       </p>
 
       <h3>3. Password Generators</h3>
 
       <p>
-        Secure passwords are important for online safety. Password generators
-        create strong passwords instantly.
+        Secure passwords are important for online safety. <Link href="/password">Password
+        generators</Link> create strong passwords instantly.
       </p>
 
       <h3>4. QR Code Generators</h3>
 
       <p>
         QR codes are commonly used for websites, payments, menus, and marketing.
-        QR code generators help users create QR images instantly.
+        <Link href="/qr-code"> QR code generators</Link> help users create QR images instantly.
       </p>
 
       <h2>Benefits of Browser-Based Tools</h2>
@@ -91,6 +102,10 @@ export default function ArticlePage() {
         even more important in everyday digital tasks.
       </p>
 
+      <hr style={{ margin: "30px 0" }} />
+      <p>
+        <Link href="/">← Explore all free tools</Link> or <Link href="/blog">read more guides on the blog</Link>.
+      </p>
     </main>
   );
 }

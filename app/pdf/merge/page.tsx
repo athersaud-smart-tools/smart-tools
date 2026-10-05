@@ -9,8 +9,8 @@ export default function MergePDF() {
   const [mergedUrl, setMergedUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleUpload = (e: any) => {
-    setFiles(Array.from(e.target.files));
+  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFiles(e.target.files ? Array.from(e.target.files) : []);
     setMergedUrl(null);
   };
 
@@ -19,7 +19,7 @@ export default function MergePDF() {
     setLoading(true);
     try {
       const mergedPdf = await PDFDocument.create();
-      for (let file of files) {
+      for (const file of files) {
         const bytes = await file.arrayBuffer();
         const pdf = await PDFDocument.load(bytes);
         const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
@@ -33,6 +33,7 @@ export default function MergePDF() {
       const blob = new Blob([buffer], { type: "application/pdf" });
       setMergedUrl(URL.createObjectURL(blob));
     } catch (err) {
+      console.error("PDF merge failed:", err);
       alert("Error merging PDFs. Please try again.");
     } finally {
       setLoading(false);

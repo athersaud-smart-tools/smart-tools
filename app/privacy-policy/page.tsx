@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Read the Smart Tools privacy policy to understand how information, cookies, advertising, and third-party services may be handled.",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {
@@ -40,7 +41,7 @@ export default function PrivacyPolicyPage() {
               Some parts of the website may allow visitors to voluntarily
               provide information, such as when contacting Smart Tools.
               Information provided through a contact method may be used to
-              respond to the visitor's request.
+              respond to the visitor&apos;s request.
             </p>
 
             <p className="leading-7">
@@ -61,7 +62,7 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <p className="leading-7">
-              Cookies are small files that websites can store in a visitor's
+              Cookies are small files that websites can store in a visitor&apos;s
               browser. Visitors can manage or disable cookies through their
               browser settings, although some website features may not work as
               expected if cookies are disabled.
@@ -100,8 +101,8 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <p className="leading-7">
-              Visitors can learn more about Google's advertising practices and
-              available controls through Google's own privacy and advertising
+              Visitors can learn more about Google&apos;s advertising practices and
+              available controls through Google&apos;s own privacy and advertising
               resources.
             </p>
           </section>
@@ -122,7 +123,7 @@ export default function PrivacyPolicyPage() {
               may collect information about website usage, such as pages
               visited, approximate location, device information, browser
               information, and other usage statistics according to the
-              provider's own policies.
+              provider&apos;s own policies.
             </p>
           </section>
 
@@ -158,7 +159,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">
-              Children's privacy
+              Children&apos;s privacy
             </h2>
 
             <p className="leading-7">
@@ -175,7 +176,7 @@ export default function PrivacyPolicyPage() {
             </h2>
 
             <p className="leading-7">
-              This Privacy Policy may be updated when the website's features,
+              This Privacy Policy may be updated when the website&apos;s features,
               services, advertising, or data practices change. Any updated
               version will be published on this page.
             </p>

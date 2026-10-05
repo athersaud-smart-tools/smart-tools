@@ -1,71 +1,78 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const tools = [
-  { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Rewrite text instantly using AI.", category: "AI" },
-  { href: "/currency-converter", icon: "💱", title: "Currency Converter", desc: "Live exchange rates worldwide.", category: "Finance" },
-  { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Check your Body Mass Index.", category: "Health" },
-  { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Your exact age in every unit.", category: "Calculator" },
-  { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Monthly payments and interest.", category: "Finance" },
-  { href: "/percentage-calculator", icon: "%", title: "Percentage Calculator", desc: "Calculate any percentage fast.", category: "Calculator" },
-  { href: "/random-number", icon: "🎲", title: "Random Number", desc: "Generate random numbers.", category: "Calculator" },
-  { href: "/image/resize", icon: "🖼️", title: "Image Resizer", desc: "Resize images to any size.", category: "Image" },
-  { href: "/image/compress", icon: "⚡", title: "Image Compressor", desc: "Reduce image file size.", category: "Image" },
-  { href: "/qr-code", icon: "📷", title: "QR Code Generator", desc: "Create QR codes instantly.", category: "Generator" },
-  { href: "/password", icon: "🔐", title: "Password Generator", desc: "Strong secure passwords.", category: "Generator" },
-  { href: "/word-counter", icon: "🔡", title: "Word Counter", desc: "Count words and characters.", category: "Text" },
-  { href: "/color-picker", icon: "🎨", title: "Color Picker", desc: "Pick colors, get HEX & RGB.", category: "Design" },
-  { href: "/text-case", icon: "📝", title: "Case Converter", desc: "UPPER, lower, Title case.", category: "Text" },
-  { href: "/unit-converter", icon: "🔄", title: "Unit Converter", desc: "Length, weight, temperature.", category: "Calculator" },
-  { href: "/stopwatch", icon: "⏱️", title: "Stopwatch", desc: "Stopwatch with lap timer.", category: "Tools" },
-  { href: "/typing-test", icon: "⌨️", title: "Typing Speed Test", desc: "How fast do you type?", category: "Tools" },
-  { href: "/pdf/merge", icon: "📄", title: "PDF Merge", desc: "Combine PDFs into one file.", category: "PDF" },
+  { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Improve clarity, tone, and readability with AI.", category: "AI" },
+  { href: "/currency-converter", icon: "💱", title: "Currency Converter", desc: "Convert currencies quickly with current rates.", category: "Finance" },
+  { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Calculate Body Mass Index from height and weight.", category: "Health" },
+  { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Calculate your exact age from your date of birth.", category: "Calculator" },
+  { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Estimate monthly payments, interest, and total cost.", category: "Finance" },
+  { href: "/percentage-calculator", icon: "%", title: "Percentage Calculator", desc: "Calculate percentages, increases, decreases, and more.", category: "Calculator" },
+  { href: "/random-number", icon: "🎲", title: "Random Number Generator", desc: "Generate random numbers within your chosen range.", category: "Calculator" },
+  { href: "/image/resize", icon: "🖼️", title: "Image Resizer", desc: "Resize images to the dimensions you need.", category: "Image" },
+  { href: "/image/compress", icon: "⚡", title: "Image Compressor", desc: "Reduce image file size for easier sharing and faster pages.", category: "Image" },
+  { href: "/qr-code", icon: "📷", title: "QR Code Generator", desc: "Create QR codes for links, text, and useful information.", category: "Generator" },
+  { href: "/password", icon: "🔐", title: "Password Generator", desc: "Generate strong random passwords for your accounts.", category: "Generator" },
+  { href: "/word-counter", icon: "🔡", title: "Word Counter", desc: "Count words, characters, and text length instantly.", category: "Text" },
+  { href: "/color-picker", icon: "🎨", title: "Color Picker", desc: "Pick a color and get useful HEX and RGB values.", category: "Design" },
+  { href: "/text-case", icon: "📝", title: "Case Converter", desc: "Convert text to upper, lower, title, and other cases.", category: "Text" },
+  { href: "/unit-converter", icon: "🔄", title: "Unit Converter", desc: "Convert common length, weight, temperature, and other units.", category: "Calculator" },
+  { href: "/stopwatch", icon: "⏱️", title: "Stopwatch", desc: "Use a simple stopwatch with lap timing.", category: "Tools" },
+  { href: "/typing-test", icon: "⌨️", title: "Typing Speed Test", desc: "Measure typing speed and accuracy in your browser.", category: "Tools" },
+  { href: "/pdf/merge", icon: "📄", title: "PDF Merge", desc: "Combine multiple PDF files into one document.", category: "PDF" },
 ];
 
 const categories = ["All", "AI", "Finance", "Health", "Calculator", "Image", "Generator", "Text", "Design", "PDF", "Tools"];
+
+const articles = [
+  { href: "/blog/best-online-tools-2026", title: "Best Online Tools in 2026", desc: "A practical guide to useful browser-based tools." },
+  { href: "/blog/how-online-calculators-save-time", title: "How Online Calculators Save Time", desc: "Learn how simple calculators can make everyday tasks easier." },
+  { href: "/blog/best-free-image-tools", title: "Best Free Image Tools", desc: "Helpful ways to resize and compress images online." },
+];
 
 export default function Home() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
 
-  const filtered = tools.filter((t) => {
-    const matchCat = active === "All" || t.category === active;
-    const matchSearch =
-      t.title.toLowerCase().includes(search.toLowerCase()) ||
-      t.desc.toLowerCase().includes(search.toLowerCase());
-    return matchCat && matchSearch;
-  });
+  const filtered = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    return tools.filter((tool) => {
+      const matchCat = active === "All" || tool.category === active;
+      const matchSearch = !query || `${tool.title} ${tool.desc} ${tool.category}`.toLowerCase().includes(query);
+      return matchCat && matchSearch;
+    });
+  }, [active, search]);
 
   return (
     <main style={{ background: "var(--bg)", minHeight: "100vh" }}>
-
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <a href="/" className="navbar-logo">Smart<span>Tools</span></a>
+      <nav className="navbar" aria-label="Main navigation">
+        <Link href="/" className="navbar-logo" aria-label="SmartEdgeTools home">
+          Smart<span>EdgeTools</span>
+        </Link>
         <ul className="navbar-links">
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><Link href="/">Tools</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
       </nav>
 
-      {/* HERO */}
-      <div className="hero">
+      <header className="hero">
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-glow" aria-hidden="true" />
         <div className="hero-content">
-          <h1>
-            Free Online Tools for Everyday Tasks
-          </h1>
+          <div className="badge">Free online tools</div>
+          <h1>Simple tools for everyday tasks.</h1>
           <p>
-            Smart Tools offers free calculators, converters, generators,
-            and productivity tools. No signup required. Fast and easy to use.
+            Calculate, convert, create, edit, and organize online with SmartEdgeTools.
+            Fast browser-based utilities with no unnecessary signup.
           </p>
-
-          {/* Search */}
           <div className="search-wrap">
-            <span className="search-icon">🔍</span>
+            <span className="search-icon" aria-hidden="true">🔍</span>
             <input
+              aria-label="Search online tools"
               className="search-input"
               placeholder="Search tools..."
               value={search}
@@ -73,141 +80,98 @@ export default function Home() {
             />
           </div>
         </div>
+      </header>
+
+      <div className="stats-bar" aria-label="SmartEdgeTools highlights">
+        <div className="stat-item"><div className="stat-num">18+</div><div className="stat-label">Useful tools</div></div>
+        <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
+        <div className="stat-item"><div className="stat-num">24/7</div><div className="stat-label">Browser access</div></div>
       </div>
 
-      {/* SEO CONTENT (VERY IMPORTANT FOR ADSENSE) */}
-      <div className="section" style={{ maxWidth: "900px", margin: "auto" }}>
-        <h2>Why Use Smart Tools?</h2>
-        <p>
-          Smart Tools is a collection of free online utilities designed to help
-          users perform everyday tasks quickly and efficiently. Whether you need
-          a calculator, converter, or generator, our tools are built to be fast,
-          simple, and reliable.
-        </p>
+      <section className="section" style={{ maxWidth: "980px" }}>
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Free online tools for work and life</h2>
+            <p style={{ color: "var(--ink2)", marginTop: "0.45rem", lineHeight: 1.7 }}>
+              SmartEdgeTools brings practical calculators, converters, generators, text tools, image tools, PDF utilities, and productivity resources together in one place.
+            </p>
+          </div>
+        </div>
+        <div className="tools-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))" }}>
+          <Link href="/age-calculator" className="tool-card"><div className="tool-icon-wrap">🎂</div><h3>Calculators</h3><p>Age, percentage, loan, BMI, and everyday calculations.</p></Link>
+          <Link href="/currency-converter" className="tool-card"><div className="tool-icon-wrap">💱</div><h3>Converters</h3><p>Convert currencies, units, and common measurements.</p></Link>
+          <Link href="/image/resize" className="tool-card"><div className="tool-icon-wrap">🖼️</div><h3>Image & PDF Tools</h3><p>Resize, compress, and combine files in your browser.</p></Link>
+          <Link href="/word-counter" className="tool-card"><div className="tool-icon-wrap">✍️</div><h3>Text & Productivity</h3><p>Count words, improve text, test typing, and more.</p></Link>
+        </div>
+      </section>
 
-        <p>
-          Our platform is perfect for students, developers, and professionals
-          who need quick solutions without downloading software or creating
-          accounts.
-        </p>
-
-        <h3>Popular Uses</h3>
-        <ul>
-          <li>Calculate percentages and loans</li>
-          <li>Convert currencies and units</li>
-          <li>Generate secure passwords</li>
-          <li>Edit and process text instantly</li>
-        </ul>
-      </div>
-
-      {/* TOOLS */}
-      <div className="section">
-        <h2>All Tools</h2>
-
-        <div className="category-pills">
+      <section className="section" aria-labelledby="all-tools-heading">
+        <div className="section-header">
+          <h2 id="all-tools-heading" className="section-title">Explore all tools</h2>
+          <span className="section-tag">{filtered.length} available</span>
+        </div>
+        <div className="category-pills" aria-label="Tool categories">
           {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`pill ${active === cat ? "active" : ""}`}
-              onClick={() => setActive(cat)}
-            >
+            <button key={cat} type="button" className={`pill ${active === cat ? "active" : ""}`} onClick={() => setActive(cat)} aria-pressed={active === cat}>
               {cat}
             </button>
           ))}
         </div>
-
         <div className="tools-grid">
           {filtered.map((tool) => (
             <Link key={tool.href} href={tool.href} className="tool-card">
               <div className="tool-icon-wrap">{tool.icon}</div>
+              <span className="tool-card-arrow" aria-hidden="true">↗</span>
               <h3>{tool.title}</h3>
               <p>{tool.desc}</p>
             </Link>
           ))}
         </div>
-      </div>
+        {filtered.length === 0 && <p style={{ color: "var(--ink2)", padding: "2rem 0" }}>No tools matched your search. Try another word or category.</p>}
+      </section>
 
-      {/* BLOG PREVIEW (VERY IMPORTANT) */}
-      <div className="section" style={{ maxWidth: "900px", margin: "auto" }}>
-        <h2>Latest Articles</h2>
-
-        <ul>
-          <li><a href="/blog">Best Free Online Tools in 2026</a></li>
-          <li><a href="/blog">How to Use Online Calculators Efficiently</a></li>
-          <li><a href="/blog">Top Productivity Tools for everyone</a></li>
-        </ul>
-      </div>
-
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms">Terms</a>
+      <section className="section" style={{ maxWidth: "980px" }}>
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Helpful guides</h2>
+            <p style={{ color: "var(--ink2)", marginTop: "0.4rem" }}>Learn how to get more from everyday online tools.</p>
+          </div>
+          <Link href="/blog" style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>View all articles →</Link>
         </div>
-        © 2026 SmartTools — Free tools for everyone
+        <div className="tools-grid">
+          {articles.map((article) => (
+            <Link key={article.href} href={article.href} className="tool-card">
+              <h3>{article.title}</h3>
+              <p>{article.desc}</p>
+              <div style={{ marginTop: "1rem", color: "var(--accent)", fontWeight: 700, fontSize: "0.8rem" }}>Read guide →</div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-{/* ABOUT SECTION */}
-<section
-  style={{
-    maxWidth: "1000px",
-    margin: "60px auto",
-    padding: "20px",
-    lineHeight: "1.8",
-  }}
->
-  <h2>About Smart Tools</h2>
+      <section className="section" style={{ maxWidth: "900px" }}>
+        <h2 className="section-title">Why use SmartEdgeTools?</h2>
+        <div style={{ marginTop: "1rem", display: "grid", gap: "1rem" }}>
+          <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}><strong>Easy to use:</strong> Each tool is designed around a clear task, so you can get started without learning complicated software.</p>
+          <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}><strong>Browser based:</strong> Many tasks can be completed directly in your browser without installing a desktop program.</p>
+          <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}><strong>Useful across devices:</strong> The website is designed for desktop, tablet, and mobile screens.</p>
+          <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}><strong>Practical information:</strong> Our blog provides guides that explain common calculations, conversions, image tasks, and online-tool workflows.</p>
+        </div>
+      </section>
 
-  <p>
-    Smart Tools is a free online platform that provides useful browser-based
-    utilities for students, professionals, creators, and everyday users.
-  </p>
-
-  <p>
-    Our goal is to make online tools simple, fast, and accessible without
-    requiring downloads or account registration.
-  </p>
-
-  <p>
-    Users can access calculators, generators, image tools, PDF tools, and
-    productivity resources instantly from any device.
-  </p>
-
-  <h2>Why Use Smart Tools?</h2>
-
-  <ul>
-    <li>Free online tools</li>
-    <li>No sign-up required</li>
-    <li>Fast and responsive design</li>
-    <li>Works on desktop and mobile devices</li>
-    <li>Easy-to-use interface</li>
-  </ul>
-
-  <h2>Frequently Asked Questions</h2>
-
-  <h3>Are Smart Tools free?</h3>
-
-  <p>
-    Yes. All tools on Smart Tools are free to use.
-  </p>
-
-  <h3>Do I need to create an account?</h3>
-
-  <p>
-    No. Most tools work instantly without registration.
-  </p>
-
-  <h3>Can I use Smart Tools on mobile devices?</h3>
-
-  <p>
-    Yes. Smart Tools is designed to work on smartphones, tablets, and desktop
-    computers.
-  </p>
-</section>
-
+      <footer className="footer">
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div className="footer-links" style={{ flexWrap: "wrap" }}>
+            <Link href="/">Tools</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms">Terms</Link>
+          </div>
+          <p style={{ color: "#777", lineHeight: 1.7 }}>© 2026 SmartEdgeTools. Free online tools for everyday tasks.</p>
+        </div>
       </footer>
-
     </main>
   );
 }
