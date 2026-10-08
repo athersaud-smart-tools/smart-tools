@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Smart Tools Blog";
+const title = "SmartEdgeTools Guides";
 const description =
-  "Helpful guides, tutorials, and explanations about online tools, calculators, productivity, images, PDFs, and browser-based utilities.";
+  "Practical guides and explanations about online calculators, converters, productivity, image tools, PDF tools, and browser-based utilities.";
 const canonical = "/blog";
 
 export const metadata: Metadata = {
