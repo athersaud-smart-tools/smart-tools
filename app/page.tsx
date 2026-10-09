@@ -30,6 +30,7 @@ const articles = [
   { href: "/blog/best-online-tools-2026", title: "Best Online Tools in 2026", desc: "A practical guide to useful browser-based tools." },
   { href: "/blog/how-online-calculators-save-time", title: "How Online Calculators Save Time", desc: "Learn how simple calculators can make everyday tasks easier." },
   { href: "/blog/best-free-image-tools", title: "Best Free Image Tools", desc: "Helpful ways to resize and compress images online." },
+  { href: "/blog/resize-compress-images-for-websites", title: "How to Resize and Compress Images", desc: "Learn about image dimensions, formats, compression, and quality checks." },
 ];
 
 export default function Home() {
