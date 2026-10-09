@@ -36,6 +36,7 @@ const articles = [
 export default function Home() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -45,6 +46,13 @@ export default function Home() {
       return matchCat && matchSearch;
     });
   }, [active, search]);
+
+  useEffect(() => {
+    const updateBackToTop = () => setShowBackToTop(window.scrollY > 450);
+    updateBackToTop();
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    return () => window.removeEventListener("scroll", updateBackToTop);
+  }, []);
 
   useEffect(() => {
     if (!search.trim()) return;
@@ -207,6 +215,38 @@ export default function Home() {
           <p style={{ color: "#777", lineHeight: 1.7 }}>© 2026 SmartEdgeTools. Free online tools for everyday tasks.</p>
         </div>
       </footer>
+
+      {showBackToTop && (
+        <button
+          type="button"
+          aria-label="Back to top"
+          title="Back to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{
+            position: "fixed",
+            right: "clamp(16px, 3vw, 28px)",
+            bottom: "clamp(16px, 3vw, 28px)",
+            zIndex: 1000,
+            width: "48px",
+            height: "48px",
+            borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.28)",
+            background: "var(--accent)",
+            color: "#fff",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+            fontSize: "1.65rem",
+            fontWeight: 700,
+            lineHeight: 1,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "transform 180ms ease, box-shadow 180ms ease",
+          }}
+        >
+          ↑
+        </button>
+      )}
     </main>
   );
 }
