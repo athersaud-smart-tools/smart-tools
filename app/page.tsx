@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const tools = [
   { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Improve clarity, tone, and readability with AI.", category: "AI" },
@@ -45,6 +45,14 @@ export default function Home() {
       return matchCat && matchSearch;
     });
   }, [active, search]);
+
+  useEffect(() => {
+    if (!search.trim()) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById("all-tools-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 700);
+    return () => window.clearTimeout(timer);
+  }, [search]);
 
   return (
     <main style={{ background: "var(--bg)", minHeight: "100vh" }}>
@@ -106,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="all-tools-heading">
+      <section id="all-tools-section" className="section" aria-labelledby="all-tools-heading" style={{ scrollMarginTop: "24px" }}>
         <div className="section-header">
           <h2 id="all-tools-heading" className="section-title">Explore all tools</h2>
           <span className="section-tag">Browse and explore</span>
