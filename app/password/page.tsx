@@ -26,10 +26,13 @@ export default function PasswordGenerator() {
 
     if (!chars) { alert("Please select at least one option!"); return; }
 
-    let result = "";
-    for (let i = 0; i < length; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
+    // Use the browser's cryptographically secure random generator for passwords.
+    const randomValues = new Uint32Array(length);
+    crypto.getRandomValues(randomValues);
+    const result = Array.from(
+      randomValues,
+      (value) => chars.charAt(value % chars.length)
+    ).join("");
     setPassword(result);
     setCopied(false);
   };
