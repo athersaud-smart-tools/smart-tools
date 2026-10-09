@@ -94,8 +94,43 @@ export default function Home() {
               placeholder="Search tools..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") setSearch("");
+              }}
             />
+            {search && (
+              <button
+                type="button"
+                aria-label="Clear search"
+                title="Clear search"
+                onClick={() => setSearch("")}
+                style={{
+                  position: "absolute",
+                  right: "0.55rem",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: "32px",
+                  height: "32px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "#fff",
+                  fontSize: "1.15rem",
+                  cursor: "pointer",
+                }}
+              >
+                ×
+              </button>
+            )}
           </div>
+          <p aria-live="polite" style={{ color: "rgba(255,255,255,0.58)", fontSize: "0.78rem", marginTop: "0.8rem", minHeight: "1.2em" }}>
+            {search.trim()
+              ? `${filtered.length} ${filtered.length === 1 ? "tool" : "tools"} found · Press Esc to clear`
+              : "Find the right tool in seconds"}
+          </p>
         </div>
       </header>
 
@@ -125,7 +160,11 @@ export default function Home() {
       <section id="all-tools-section" className="section" aria-labelledby="all-tools-heading" style={{ scrollMarginTop: "24px" }}>
         <div className="section-header">
           <h2 id="all-tools-heading" className="section-title">Explore all tools</h2>
-          <span className="section-tag">Browse and explore</span>
+          <span className="section-tag" aria-live="polite">
+            {search.trim() || active !== "All"
+              ? `${filtered.length} ${filtered.length === 1 ? "tool" : "tools"} found`
+              : "18 useful tools"}
+          </span>
         </div>
         <div className="category-pills" aria-label="Tool categories">
           {categories.map((cat) => (
@@ -144,7 +183,20 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        {filtered.length === 0 && <p style={{ color: "var(--ink2)", padding: "2rem 0" }}>No tools matched your search. Try another word or category.</p>}
+        {filtered.length === 0 && (
+          <div style={{ textAlign: "center", padding: "2.5rem 1rem", border: "1px dashed var(--border)", borderRadius: "16px", background: "var(--card)" }}>
+            <div aria-hidden="true" style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>🔎</div>
+            <h3 style={{ fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.4rem" }}>No matching tools yet</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.7, marginBottom: "1rem" }}>Try a different keyword or clear your filters to see all available tools.</p>
+            <button
+              type="button"
+              className="pill active"
+              onClick={() => { setSearch(""); setActive("All"); }}
+            >
+              Show all tools
+            </button>
+          </div>
+        )}
       </section>
 
       <section className="section" style={{ maxWidth: "980px" }}>
