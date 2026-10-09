@@ -18,7 +18,7 @@ export default function ArticlePage() {
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">A Practical Study Workflow for Online Tools</h1>
           <p className="mt-4 text-lg leading-8 text-gray-600">
             The most useful study tools are the ones that remove small pieces of repetitive work without
-            replacing the student's own thinking.
+            replacing the student&apos;s own thinking.
           </p>
           <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
         </header>
@@ -54,7 +54,7 @@ export default function ArticlePage() {
             Formatting problems can become surprisingly time-consuming when text comes from different
             sources. A text-case utility can normalize capitalization, while an AI rewriting tool can help
             improve clarity. If you use an AI writing assistant, review every suggestion yourself and make
-            sure the final work reflects your own understanding and follows your school's academic rules.
+            sure the final work reflects your own understanding and follows your school&apos;s academic rules.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900">4. PDF tools for study materials</h2>
@@ -78,7 +78,7 @@ export default function ArticlePage() {
             <li>Use tools for repetitive work, not to avoid understanding the subject.</li>
             <li>Check the units and inputs before accepting a result.</li>
             <li>Keep your own notes about the method used to reach an answer.</li>
-            <li>Follow your school's rules about calculators, AI, and external assistance.</li>
+            <li>Follow your school&apos;s rules about calculators, AI, and external assistance.</li>
             <li>Protect personal information and avoid uploading confidential documents unnecessarily.</li>
           </ol>
 
@@ -86,7 +86,7 @@ export default function ArticlePage() {
           <p>
             A useful routine is to learn the concept first, complete the task, use a tool to check
             calculations or formatting, and then review the final work yourself. This keeps the tool as
-            an assistant rather than making it the source of the student's understanding.
+            an assistant rather than making it the source of the student&apos;s understanding.
           </p>
           <p>
             For example, if an assignment has a 750-word limit, draft the answer first, use the

@@ -27,7 +27,7 @@ export default function ArticlePage() {
           <p>
             An image can look sharp on your computer and still be unsuitable for a website form, an email attachment,
             or a social post. It may be much larger than the space where it will appear, or its file size may be too
-            large to upload quickly. Resizing changes the image's pixel dimensions; compression changes how much data
+            large to upload quickly. Resizing changes the image&apos;s pixel dimensions; compression changes how much data
             is needed to store it. They solve related but different problems.
           </p>
 
@@ -45,7 +45,7 @@ export default function ArticlePage() {
 
           <h2 className="text-2xl font-semibold text-gray-900">2. Understand pixels and aspect ratio</h2>
           <p>
-            Pixel dimensions describe the image's width and height, such as 1600 × 900. The aspect ratio is the
+            Pixel dimensions describe the image&apos;s width and height, such as 1600 × 900. The aspect ratio is the
             relationship between those numbers. A 1600 × 900 image has a 16:9 ratio. If you need a smaller version
             with the same shape, 800 × 450 preserves that ratio.
           </p>
@@ -64,7 +64,7 @@ export default function ArticlePage() {
           </ul>
           <p>
             There is no single best format for every image. A photograph, transparent logo, screenshot, and printable graphic
-            have different needs. Follow the destination's requirements first.
+            have different needs. Follow the destination&apos;s requirements first.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900">4. Compress gradually and compare</h2>
@@ -98,7 +98,7 @@ export default function ArticlePage() {
           <p>
             For a simple dimension change, try the <Link href="/image/resize" className="text-blue-600 hover:underline">SmartEdgeTools Image Resizer</Link>.
             If the dimensions are already correct but the file is too large, try the <Link href="/image/compress" className="text-blue-600 hover:underline">Image Compressor</Link>.
-            Check the tool's controls and the downloaded result before using it in a final submission.
+            Check the tool&apos;s controls and the downloaded result before using it in a final submission.
           </p>
           <p>
             Before using any online service with private photographs or confidential images, read its privacy information

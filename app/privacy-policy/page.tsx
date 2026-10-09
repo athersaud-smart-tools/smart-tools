@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
               SmartEdgeTools uses Microsoft Clarity for analytics and may use cookies or similar technologies
               for analytics, advertising, security, and service improvement. Microsoft Clarity may collect
               information about how pages are used. Google AdSense may use cookies or similar technologies if
-              advertising is enabled. Review the providers' privacy information for details about their data
+              advertising is enabled. Review the providers&apos; privacy information for details about their data
               practices and available controls.
             </p>
             <p className="leading-7">
@@ -85,10 +85,10 @@ export default function PrivacyPolicyPage() {
               If personalized ads are served to visitors in the EEA, UK, or Switzerland, Google requires
               publishers to use a Google-certified consent management platform integrated with the IAB
               Transparency and Consent Framework. Consent choices and available controls depend on the
-              advertising settings and the visitor's location.
+              advertising settings and the visitor&apos;s location.
             </p>
             <p className="leading-7">
-              For information about Google's advertising practices and available controls, review Google's
+              For information about Google&apos;s advertising practices and available controls, review Google&apos;s
               own privacy and advertising resources.
             </p>
           </section>
@@ -103,7 +103,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-gray-900">Children's privacy</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Children&apos;s privacy</h2>
             <p className="leading-7">
               SmartEdgeTools is a general-purpose website and does not intentionally request personal
               information from children. If you believe a child has provided personal information to us,

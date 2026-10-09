@@ -46,7 +46,7 @@ export default function ArticlePage() {
             percentage is one value of another? How much did a value increase or decrease?
           </p>
           <p>
-            SmartEdgeTools' <Link href="/percentage-calculator" className="text-blue-600 hover:underline">Percentage Calculator</Link>
+            SmartEdgeTools&apos; <Link href="/percentage-calculator" className="text-blue-600 hover:underline">Percentage Calculator</Link>
             {" "}puts several of these common calculations in one place, so the user can choose the
             operation instead of remembering which formula to use.
           </p>
@@ -75,7 +75,7 @@ export default function ArticlePage() {
           <h2 className="text-2xl font-semibold text-gray-900">Health-related calculations need context</h2>
           <p>
             A BMI calculator can quickly apply the BMI formula, but the number is only a screening measure
-            and does not describe every aspect of an individual's health. Factors such as muscle mass,
+            and does not describe every aspect of an individual&apos;s health. Factors such as muscle mass,
             age, medical history, and other characteristics can matter.
           </p>
           <p>
@@ -108,7 +108,7 @@ export default function ArticlePage() {
 
           <h2 className="text-2xl font-semibold text-gray-900">A simple way to use calculators responsibly</h2>
           <ol className="list-decimal space-y-3 pl-6">
-            <li>Read the tool's description so you understand what it calculates.</li>
+            <li>Read the tool&apos;s description so you understand what it calculates.</li>
             <li>Check every input before pressing Calculate.</li>
             <li>Look at the units, currency, and time period used by the result.</li>
             <li>For important decisions, repeat the calculation independently or use a second reliable source.</li>
@@ -127,7 +127,7 @@ export default function ArticlePage() {
           <p>
             Online calculators are useful because they turn repetitive formulas into simple workflows.
             The best experience combines a clear calculator with enough explanation to understand the
-            result and its limitations. Used that way, calculators save time without removing the user's
+            result and its limitations. Used that way, calculators save time without removing the user&apos;s
             responsibility to check important numbers.
           </p>
 

@@ -33,7 +33,7 @@ export default function ArticlePage() {
           <h2 className="text-2xl font-semibold text-gray-900">1. The setup is usually simpler</h2>
           <p>
             For a one-time task, installing software can feel like unnecessary work. A browser tool can
-            often be opened, used, and closed without changing the device's installed applications. This
+            often be opened, used, and closed without changing the device&apos;s installed applications. This
             is particularly convenient on shared computers, phones, tablets, or devices with limited storage.
           </p>
 
@@ -59,7 +59,7 @@ export default function ArticlePage() {
           </p>
           <p>
             For a confidential document, photograph, password, or other sensitive information, check the
-            service's privacy information before using it. Tools that perform an operation locally in the
+            service&apos;s privacy information before using it. Tools that perform an operation locally in the
             browser can be useful when keeping the data on the device is important.
           </p>
           <div className="overflow-x-auto">
@@ -74,7 +74,7 @@ export default function ArticlePage() {
             </table>
           </div>
           <p className="text-sm text-gray-600">
-            These details describe the current tool code. Review the <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link> for site analytics and advertising, which are separate from each tool's main operation.
+            These details describe the current tool code. Review the <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link> for site analytics and advertising, which are separate from each tool&apos;s main operation.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900">5. Focused tools can be easier to learn</h2>
@@ -88,7 +88,7 @@ export default function ArticlePage() {
           <ul className="list-disc space-y-3 pl-6">
             <li>You need advanced features that a small utility does not provide.</li>
             <li>You regularly work without an internet connection.</li>
-            <li>The task involves highly sensitive data and the service's data handling is unclear.</li>
+            <li>The task involves highly sensitive data and the service&apos;s data handling is unclear.</li>
             <li>You need a specialized desktop workflow or hardware integration.</li>
           </ul>
 

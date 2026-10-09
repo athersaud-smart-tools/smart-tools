@@ -79,7 +79,7 @@ export default function TermsPage() {
             <p className="leading-7">
               Unless otherwise stated, original SmartEdgeTools text, branding, design, and other original
               materials belong to SmartEdgeTools or are used with permission. Do not copy, republish,
-              sell, or redistribute substantial portions of the site's original content without permission.
+              sell, or redistribute substantial portions of the site&apos;s original content without permission.
             </p>
           </section>
 

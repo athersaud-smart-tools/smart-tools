@@ -39,7 +39,7 @@ export default function ArticlePage() {
           </p>
           <p>
             For estimates involving money, check the inputs and assumptions before using the result.
-            SmartEdgeTools' <Link href="/percentage-calculator" className="text-blue-600 hover:underline">Percentage Calculator</Link>
+            SmartEdgeTools&apos; <Link href="/percentage-calculator" className="text-blue-600 hover:underline">Percentage Calculator</Link>
             {" "}and <Link href="/loan-calculator" className="text-blue-600 hover:underline">Loan Calculator</Link> are intended
             for quick estimates, not professional financial advice.
           </p>
