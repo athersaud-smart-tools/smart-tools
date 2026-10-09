@@ -7,10 +7,12 @@ export default function Page() {
   const [inputText, setInputText] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleRewrite = async () => {
     if (!inputText.trim()) return;
     setLoading(true);
+    setError("");
     setOutput("");
     try {
       const res = await fetch("/api/rewrite", {
@@ -19,10 +21,11 @@ export default function Page() {
         body: JSON.stringify({ text: inputText }),
       });
       const data = await res.json();
-      if (!res.ok) { alert("Error: " + data.error); return; }
+      if (!res.ok) { setError(typeof data.error === "string" ? data.error : "The text could not be improved. Please try again."); return; }
       setOutput(data.result);
     } catch (err) {
       console.error("Frontend error:", err);
+      setError("Could not reach the rewrite service. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -55,6 +58,12 @@ export default function Page() {
           >
             {loading ? "Improving..." : "✨ Improve Text"}
           </button>
+
+          {error && (
+            <p role="alert" style={{ marginTop: "1rem", color: "#b42318", lineHeight: 1.6 }}>
+              {error}
+            </p>
+          )}
 
           {loading && (
             <div style={{ textAlign: "center", marginTop: "1rem", display: "flex", gap: 6, justifyContent: "center" }}>
