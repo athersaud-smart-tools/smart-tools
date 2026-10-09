@@ -160,6 +160,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" style={{ maxWidth: "900px" }} aria-labelledby="home-faq-heading">
+        <h2 id="home-faq-heading" className="section-title">Frequently asked questions</h2>
+        <div style={{ marginTop: "1.25rem", display: "grid", gap: "1.25rem" }}>
+          <div>
+            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are SmartEdgeTools free to use?</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>The tools are provided for general use without requiring an account. Some features may depend on third-party services or availability.</p>
+          </div>
+          <div>
+            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>How do I find the right tool?</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Use the search box or choose a category, then open a tool and follow the instructions on its page.</p>
+          </div>
+          <div>
+            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are results always exact?</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Results depend on the information you enter and the tool's method. Check important financial, health, or other consequential results independently.</p>
+          </div>
+          <div>
+            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are my files and text private?</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Data handling can differ between tools. Read the tool instructions and our <Link href="/privacy-policy" style={{ color: "var(--accent)", textDecoration: "underline" }}>Privacy Policy</Link> before entering sensitive information.</p>
+          </div>
+          <div>
+            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>How can I report a problem?</h3>
+            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Visit our <Link href="/contact" style={{ color: "var(--accent)", textDecoration: "underline" }}>Contact page</Link> and tell us which tool you used and what happened.</p>
+          </div>
+        </div>
+      </section>
+
       <footer className="footer">
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <div className="footer-links" style={{ flexWrap: "wrap" }}>
