@@ -131,7 +131,7 @@ export default function MergePDF() {
           <h2 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.25rem" }}>⭐ Why Use Our PDF Merge Tool?</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             {[
-              { icon: "🆓", title: "100% Free", desc: "No hidden fees, no subscriptions, completely free forever." },
+              { icon: "🆓", title: "Free to Use", desc: "Use the PDF merge tool without creating an account." },
               { icon: "🔒", title: "Private & Secure", desc: "Your files are never uploaded to any server. Everything happens in your browser." },
               { icon: "⚡", title: "Super Fast", desc: "Merge PDF files in seconds, no waiting required." },
               { icon: "📱", title: "Works on All Devices", desc: "Use on your phone, tablet, laptop or desktop computer." },
@@ -153,11 +153,11 @@ export default function MergePDF() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             {[
               { q: "How do I merge PDF files online for free?", a: "Simply upload your PDF files using the tool above, click the Merge PDFs button, and download your combined PDF. It is completely free with no sign up required." },
-              { q: "Is there a limit to how many PDFs I can merge?", a: "No! You can merge as many PDF files as you want. Our tool handles multiple files at once with no limits." },
-              { q: "Are my PDF files safe and private?", a: "Yes, 100%. Your files are never sent to any server. The merging happens entirely in your browser, so your documents stay completely private." },
-              { q: "Can I merge PDFs on my phone?", a: "Yes! Our PDF merge tool works perfectly on all devices including iPhone, Android phones, tablets and computers." },
+              { q: "Is there a limit to how many PDFs I can merge?", a: "There is no fixed file-count limit built into the tool, but very large files or batches can exceed your device’s available memory. If that happens, try smaller batches." },
+              { q: "Are my PDF files uploaded?", a: "The merging process runs in your browser, and the selected PDF file contents are processed locally by this page rather than uploaded to our merge API. Avoid using sensitive files on shared or untrusted devices." },
+              { q: "Can I merge PDFs on my phone?", a: "The tool can be used in modern mobile browsers, although performance depends on your device, browser, and the size of the PDFs." },
               { q: "Will the merged PDF have a watermark?", a: "No, never. Your merged PDF will be completely clean with no watermarks added." },
-              { q: "What is the best free tool to merge PDF files?", a: "SmartTools PDF Merger is one of the best free online tools to combine PDF files. It is fast, private, free and works on all devices without any sign up." },
+              { q: "What does this PDF merge tool do?", a: "It combines selected PDF files into one downloadable PDF in the order the files are processed. For large documents, check the result before sharing or submitting it." },
             ].map((faq, i) => (
               <div key={i} style={{ borderBottom: "1px solid var(--border)", paddingBottom: "1rem" }}>
                 <h3 style={{ fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.4rem", color: "var(--ink)" }}>{faq.q}</h3>
@@ -201,7 +201,7 @@ export default function MergePDF() {
         <h2>How to Use the PDF Merge Tool</h2>
         <ol>
           <li>Upload the PDF files you want to combine</li>
-          <li>Arrange them in the order you want them merged</li>
+          <li>Select the files in the order you want to combine them, where your device allows you to control selection order</li>
           <li>Click merge</li>
           <li>Download the single combined PDF file</li>
         </ol>
