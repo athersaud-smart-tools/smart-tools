@@ -117,8 +117,7 @@ export default function Page() {
 
         <h3>Will the rewritten text mean the same thing as my original?</h3>
         <p>
-          Yes, the goal is to preserve your original meaning while changing the wording and
-          structure. Always give it a quick read to make sure it matches what you intended.
+          The tool aims to preserve your intended meaning, but AI can change details or make mistakes. Review the result carefully before using it.
         </p>
 
         <h3>Is there a limit to how much text I can rewrite at once?</h3>
