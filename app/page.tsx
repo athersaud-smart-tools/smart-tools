@@ -163,7 +163,7 @@ export default function Home() {
           <span className="section-tag" aria-live="polite">
             {search.trim() || active !== "All"
               ? `${filtered.length} ${filtered.length === 1 ? "tool" : "tools"} found`
-              : "18 useful tools"}
+              : `${tools.length} useful tools`}
           </span>
         </div>
         <div className="category-pills" aria-label="Tool categories">
