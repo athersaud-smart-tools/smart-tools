@@ -62,6 +62,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      path: "/blog/resize-compress-images-for-websites",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({
