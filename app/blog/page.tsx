@@ -39,6 +39,12 @@ const articles = [
     excerpt:
       "How to choose image resizing, compression, color, and QR tools for common digital tasks.",
   },
+  {
+    href: "/blog/resize-compress-images-for-websites",
+    title: "How to Resize and Compress Images for Websites",
+    excerpt:
+      "A step-by-step guide to image dimensions, aspect ratios, file formats, compression, and quality checks.",
+  },
 ];
 
 export default function Blog() {
