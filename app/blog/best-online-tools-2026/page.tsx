@@ -101,6 +101,30 @@ export default function ArticlePage() {
             <li><strong>Prefer a simple workflow.</strong> Fewer unnecessary steps usually means fewer opportunities for mistakes.</li>
           </ol>
 
+          <h2 className="text-2xl font-semibold text-gray-900">A practical checklist before you use a tool</h2>
+          <p>
+            Before choosing a tool, write down what the finished result must look like. For an image upload,
+            that might mean a maximum file size, exact pixel dimensions, and an accepted format. For a loan
+            estimate, it means the amount borrowed, annual rate, repayment term, and whether fees are included.
+            For a PDF merge, it means the files are in the correct order and the resulting document opens as expected.
+          </p>
+          <ol className="list-decimal space-y-3 pl-6">
+            <li>Confirm the output requirement before entering anything.</li>
+            <li>Use a copy of the original file when editing or converting a document or image.</li>
+            <li>Check whether the tool works locally in your browser or sends information to a server.</li>
+            <li>Review the output, not just the success message. Open the downloaded file or verify the calculation.</li>
+            <li>For sensitive files or important decisions, stop if the tool's behavior or assumptions are unclear.</li>
+          </ol>
+
+          <h2 className="text-2xl font-semibold text-gray-900">Example: preparing an image for an upload</h2>
+          <p>
+            If a form accepts images up to 1 MB and recommends a width of 1200 pixels, first check the
+            form's exact requirements. Resize a copy to the required dimensions while keeping the aspect
+            ratio, then compress it gradually until it meets the file-size limit. Open the result at normal
+            viewing size to check for blur or compression artifacts. Do not assume that a smaller file is
+            automatically better if important details have become hard to read.
+          </p>
+
           <h2 className="text-2xl font-semibold text-gray-900">Final takeaway</h2>
           <p>
             Free online tools are most useful when they solve one clear problem well. Instead of looking
