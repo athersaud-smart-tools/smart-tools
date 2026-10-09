@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Top Online Tools for Students in 2026";
+const title = "A Practical Study Workflow for Online Tools";
 const description =
-  "Discover useful online calculators, word counters, writing tools, PDF tools, and productivity utilities for students in 2026.";
+  "A practical study workflow for checking calculations, formatting assignments, organizing PDFs, and using writing tools responsibly.";
 const canonical = "/blog/top-tools-for-students";
 
 export const metadata: Metadata = {

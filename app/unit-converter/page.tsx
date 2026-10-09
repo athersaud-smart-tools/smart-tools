@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 const categories = {
   Length: {
@@ -70,7 +71,7 @@ export default function UnitConverter() {
         <div className="tool-container">
           <h1>🔄 Unit Converter</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Convert between units of length, weight, temperature and more!
+            Convert common measurements of length, weight, temperature, speed, and area.
           </p>
 
           {/* Category selector */}
@@ -152,53 +153,8 @@ export default function UnitConverter() {
           )}
         </div>
       </div>
+      <ToolGuide guide="unit" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the Unit Converter?</h2>
-        <p>
-          The unit converter lets you convert values between different units of measurement,
-          such as length, weight, temperature, or volume, quickly and accurately.
-        </p>
-
-        <h2>How to Use the Unit Converter</h2>
-        <ol>
-          <li>Enter the value you want to convert</li>
-          <li>Select the unit you’re converting from</li>
-          <li>Select the unit you’re converting to</li>
-          <li>View the converted result instantly</li>
-        </ol>
-
-        <h2>Why Use an Online Unit Converter</h2>
-        <p>
-          Converting between measurement systems, like miles to kilometers or Celsius to
-          Fahrenheit, involves formulas that are easy to forget or miscalculate. A unit
-          converter handles the math instantly and accurately, which is especially useful
-          when dealing with recipes, travel, science, or international measurements.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Converting recipe measurements between metric and imperial units</li>
-          <li>Understanding temperatures when traveling to another country</li>
-          <li>Converting distances for travel or fitness tracking</li>
-          <li>Converting weights for shipping, cooking, or fitness goals</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>What types of units can I convert?</h3>
-        <p>
-          You can convert common measurement types including length, weight, volume, and
-          temperature, among others available in the tool.
-        </p>
-
-        <h3>Are the conversions precise?</h3>
-        <p>
-          Yes, the tool uses standard conversion formulas to give you accurate results for
-          everyday and professional use.
-        </p>
-      </div>
     </main>
   );
 }

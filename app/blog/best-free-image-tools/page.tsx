@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Free Online Image Tools in 2026",
+  title: "Choosing the Right Image Tool for the Job",
   description:
-    "A practical guide to choosing online image resizers, compressors, color tools, and QR code generators for everyday tasks.",
+    "Compare image resizing, JPEG compression, color sampling, and QR creation by output, quality, and privacy needs.",
   alternates: { canonical: "/blog/best-free-image-tools" },
 };
 
@@ -15,12 +15,12 @@ export default function ArticlePage() {
         <Link href="/blog" className="mb-8 inline-block text-sm font-medium text-blue-600 hover:underline">← Back to Guides</Link>
         <header>
           <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">Image Guide</p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">Best Free Online Image Tools in 2026</h1>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">Choosing the Right Image Tool for the Job</h1>
           <p className="mt-4 text-lg leading-8 text-gray-600">
             You often do not need a full image editor for a simple resize, compression job, color check,
             or QR code. The right focused tool can be faster and easier to use.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 8, 2026 · SmartEdgeTools Editorial Team</p>
+          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">
@@ -57,9 +57,9 @@ export default function ArticlePage() {
 
           <h2 className="text-2xl font-semibold text-gray-900">3. Color pickers</h2>
           <p>
-            Designers and developers often need the exact color represented by part of an image or screen.
-            A color picker can turn that visual choice into a HEX or RGB value that can be reused in a
-            design or stylesheet.
+            Designers and developers often need a chosen color in a reusable format. A color picker can
+            turn a selected color into HEX, RGB, or HSL values for a design or stylesheet. This site’s
+            picker lets you choose a color or enter HEX; it does not sample a pixel from an image or screen.
           </p>
           <p>
             The <Link href="/color-picker" className="text-blue-600 hover:underline">Color Picker</Link>

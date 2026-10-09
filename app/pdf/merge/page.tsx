@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 import { PDFDocument } from "pdf-lib";
 
 export default function MergePDF() {
@@ -131,12 +132,12 @@ export default function MergePDF() {
           <h2 style={{ fontSize: "1.3rem", fontWeight: 800, marginBottom: "1.25rem" }}>⭐ Why Use Our PDF Merge Tool?</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             {[
-              { icon: "🆓", title: "Free to Use", desc: "Use the PDF merge tool without creating an account." },
-              { icon: "🔒", title: "Private & Secure", desc: "Your files are never uploaded to any server. Everything happens in your browser." },
-              { icon: "⚡", title: "Super Fast", desc: "Merge PDF files in seconds, no waiting required." },
-              { icon: "📱", title: "Works on All Devices", desc: "Use on your phone, tablet, laptop or desktop computer." },
-              { icon: "🚫", title: "No Watermark", desc: "Download your merged PDF with no watermarks added." },
-              { icon: "✅", title: "No Sign Up Needed", desc: "No account or registration required. Just upload and merge!" },
+              { icon: "🆓", title: "No account required", desc: "Select your files and start a merge without creating an account." },
+              { icon: "🔒", title: "Browser-based merge", desc: "The selected PDF contents are read and merged in your browser, not uploaded to this site's API." },
+              { icon: "⚡", title: "Browser processing", desc: "Page copying runs on your device; large files can take longer or exceed available memory." },
+              { icon: "📄", title: "Page sequence", desc: "Pages are added in the order of the selected PDF files." },
+              { icon: "🚫", title: "No added watermark", desc: "The merge operation does not add a watermark to the output." },
+              { icon: "✅", title: "Simple workflow", desc: "Choose at least two PDFs, merge them, then download the result." },
             ].map((f) => (
               <div key={f.title} style={{ background: "var(--bg)", borderRadius: 10, padding: "1rem", border: "1.5px solid var(--border)" }}>
                 <div style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}>{f.icon}</div>
@@ -153,11 +154,11 @@ export default function MergePDF() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             {[
               { q: "How do I merge PDF files online for free?", a: "Simply upload your PDF files using the tool above, click the Merge PDFs button, and download your combined PDF. It is completely free with no sign up required." },
-              { q: "Is there a limit to how many PDFs I can merge?", a: "There is no fixed file-count limit built into the tool, but very large files or batches can exceed your device’s available memory. If that happens, try smaller batches." },
-              { q: "Are my PDF files uploaded?", a: "The merging process runs in your browser, and the selected PDF file contents are processed locally by this page rather than uploaded to our merge API. Avoid using sensitive files on shared or untrusted devices." },
-              { q: "Can I merge PDFs on my phone?", a: "The tool can be used in modern mobile browsers, although performance depends on your device, browser, and the size of the PDFs." },
+              { q: "Is there a limit to how many PDFs I can merge?", a: "There is no fixed count in the interface, but very large files or batches can exceed the memory available to your browser. Try smaller groups if merging fails." },
+              { q: "Are my PDF files uploaded?", a: "The merge operation reads the selected files in your browser and does not send their contents to this site's API. Avoid shared devices for confidential documents and keep your originals." },
+              { q: "Can I merge PDFs on my phone?", a: "You can try it in a modern mobile browser. Large files may be limited by the memory available on your device." },
               { q: "Will the merged PDF have a watermark?", a: "No, never. Your merged PDF will be completely clean with no watermarks added." },
-              { q: "What does this PDF merge tool do?", a: "It combines selected PDF files into one downloadable PDF in the order the files are processed. For large documents, check the result before sharing or submitting it." },
+              { q: "What does this merge tool preserve?", a: "It copies pages from the selected PDFs into a new document. It does not provide editing, OCR, compression, or a way to unlock protected files." },
             ].map((faq, i) => (
               <div key={i} style={{ borderBottom: "1px solid var(--border)", paddingBottom: "1rem" }}>
                 <h3 style={{ fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.4rem", color: "var(--ink)" }}>{faq.q}</h3>
@@ -188,54 +189,8 @@ export default function MergePDF() {
         </div>
 
       </div>
+      <ToolGuide guide="pdf-merge" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the PDF Merge Tool?</h2>
-        <p>
-          The PDF merge tool combines multiple separate PDF files into a single document, in
-          the order you choose. Instead of sending several attachments, you can hand over one
-          organized file.
-        </p>
-
-        <h2>How to Use the PDF Merge Tool</h2>
-        <ol>
-          <li>Upload the PDF files you want to combine</li>
-          <li>Select the files in the order you want to combine them, where your device allows you to control selection order</li>
-          <li>Click merge</li>
-          <li>Download the single combined PDF file</li>
-        </ol>
-
-        <h2>Why Merge PDFs</h2>
-        <p>
-          Merging PDFs is helpful when you have multiple related documents — like scanned
-          pages, reports, or forms — that need to be reviewed or submitted as one file. It
-          keeps everything organized and avoids the confusion of sending several separate
-          attachments.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Combining scanned pages into a single document</li>
-          <li>Merging separate reports or chapters into one file</li>
-          <li>Putting together application documents for submission</li>
-          <li>Creating a single portfolio or resume packet from multiple files</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is there a limit to how many PDFs I can merge?</h3>
-        <p>
-          You can merge multiple PDF files at once; for very large batches, merging in
-          smaller groups may work more smoothly.
-        </p>
-
-        <h3>Will merging affect the quality of my PDFs?</h3>
-        <p>
-          No, merging combines the files as they are without recompressing or altering the
-          content inside each page.
-        </p>
-      </div>
     </main>
   );
 }

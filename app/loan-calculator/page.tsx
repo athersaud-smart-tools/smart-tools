@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 type LoanResult = {
   monthly: string;
@@ -15,14 +16,21 @@ export default function LoanCalculator() {
   const [rate, setRate] = useState("");
   const [years, setYears] = useState("");
   const [result, setResult] = useState<LoanResult | null>(null);
+  const [error, setError] = useState("");
 
   const calculate = () => {
     const p = parseFloat(amount);
-    const r = parseFloat(rate) / 100 / 12;
-    const n = parseFloat(years) * 12;
-    if (!p || !r || !n) return;
+    const annualRate = parseFloat(rate) / 100;
+    const r = annualRate / 12;
+    const n = Math.round(parseFloat(years) * 12);
+    if (!Number.isFinite(p) || p <= 0 || !Number.isFinite(annualRate) || annualRate < 0 || !Number.isFinite(n) || n <= 0) {
+      setError("Enter a loan amount above zero, a non-negative annual rate, and a term of at least one month.");
+      setResult(null);
+      return;
+    }
+    setError("");
 
-    const monthly = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    const monthly = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
     const total = monthly * n;
     const interest = total - p;
 
@@ -47,21 +55,23 @@ export default function LoanCalculator() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.25rem" }}>
             <div>
               <label className="field-label">Loan Amount ($)</label>
-              <input type="number" className="input-field" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="10000" />
+              <input type="number" min="0.01" className="input-field" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="10000" />
             </div>
             <div>
               <label className="field-label">Annual Interest Rate (%)</label>
-              <input type="number" className="input-field" value={rate} onChange={(e) => setRate(e.target.value)} placeholder="5.5" step="0.1" />
+              <input type="number" min="0" className="input-field" value={rate} onChange={(e) => setRate(e.target.value)} placeholder="5.5" step="0.1" />
             </div>
             <div>
               <label className="field-label">Loan Term (Years)</label>
-              <input type="number" className="input-field" value={years} onChange={(e) => setYears(e.target.value)} placeholder="5" />
+              <input type="number" min="0.1" className="input-field" value={years} onChange={(e) => setYears(e.target.value)} placeholder="5" step="0.1" />
             </div>
           </div>
 
-          <button className="btn btn-primary" onClick={calculate} disabled={!amount || !rate || !years}>
+          <button className="btn btn-primary" onClick={calculate} disabled={!amount || rate === "" || !years}>
             🏦 Calculate Loan
           </button>
+
+          {error && <p role="alert" style={{ marginTop: "1rem", color: "var(--accent)" }}>{error}</p>}
 
           {result && (
             <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -97,56 +107,8 @@ export default function LoanCalculator() {
           )}
         </div>
       </div>
+      <ToolGuide guide="loan" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the Loan Calculator?</h2>
-        <p>
-          The loan calculator helps you estimate your monthly payment, total interest, and
-          overall repayment cost for a loan based on the amount borrowed, interest rate, and
-          repayment term. It’s useful for planning car loans, personal loans, or mortgages
-          before committing to one.
-        </p>
-
-        <h2>How to Use the Loan Calculator</h2>
-        <ol>
-          <li>Enter the loan amount you want to borrow</li>
-          <li>Enter the annual interest rate</li>
-          <li>Enter the loan term (how long you’ll take to repay it)</li>
-          <li>View your estimated monthly payment and total interest</li>
-        </ol>
-
-        <h2>Why Use a Loan Calculator</h2>
-        <p>
-          Loans can look very different depending on their interest rate and repayment term,
-          even if the borrowed amount is the same. A loan calculator lets you compare
-          different scenarios instantly, so you can see how a longer term or a lower rate
-          changes what you’ll actually pay over time.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Comparing monthly payments across different loan offers</li>
-          <li>Estimating total interest paid over the life of a loan</li>
-          <li>Planning a budget before applying for a car loan or mortgage</li>
-          <li>Understanding how changing the loan term affects payments</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Does this calculator give an exact payment amount from my lender?</h3>
-        <p>
-          This tool provides an estimate based on the numbers you enter. Your actual loan
-          terms, fees, and payment amount will be confirmed by your lender.
-        </p>
-
-        <h3>Why does a longer loan term mean more total interest?</h3>
-        <p>
-          A longer term spreads payments out, which usually lowers your monthly payment, but
-          you end up paying interest for a longer period of time, increasing the total
-          interest paid overall.
-        </p>
-      </div>
     </main>
   );
 }

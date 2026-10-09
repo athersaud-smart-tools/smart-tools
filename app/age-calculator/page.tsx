@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 type AgeResult = {
   years: number;
@@ -20,8 +21,10 @@ export default function AgeCalculator() {
 
   const calculate = () => {
     if (!dob) return;
-    const birth = new Date(dob);
     const today = new Date();
+    const [birthYear, birthMonth, birthDay] = dob.split("-").map(Number);
+    const birth = new Date(birthYear, birthMonth - 1, birthDay);
+    if (birth > new Date(today.getFullYear(), today.getMonth(), today.getDate())) return;
 
     let years = today.getFullYear() - birth.getFullYear();
     let months = today.getMonth() - birth.getMonth();
@@ -30,14 +33,16 @@ export default function AgeCalculator() {
     if (days < 0) { months--; days += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
     if (months < 0) { years--; months += 12; }
 
-    const totalDays = Math.floor((today.getTime() - birth.getTime()) / (1000 * 60 * 60 * 24));
+    const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+    const birthUtc = Date.UTC(birth.getFullYear(), birth.getMonth(), birth.getDate());
+    const totalDays = Math.floor((todayUtc - birthUtc) / (1000 * 60 * 60 * 24));
     const totalWeeks = Math.floor(totalDays / 7);
     const totalMonths = years * 12 + months;
     const totalHours = totalDays * 24;
 
     const nextBirthday = new Date(today.getFullYear(), birth.getMonth(), birth.getDate());
     if (nextBirthday < today) nextBirthday.setFullYear(today.getFullYear() + 1);
-    const daysToNext = Math.ceil((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    const daysToNext = Math.round((Date.UTC(nextBirthday.getFullYear(), nextBirthday.getMonth(), nextBirthday.getDate()) - todayUtc) / (1000 * 60 * 60 * 24));
 
     setResult({ years, months, days, totalDays, totalWeeks, totalMonths, totalHours, daysToNext });
   };
@@ -58,12 +63,12 @@ export default function AgeCalculator() {
         <div className="tool-container">
           <h1>🎂 Age Calculator</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Calculate your exact age in years, months, days, weeks and hours!
+            Calculate calendar age in years, months and days, with a separate total-day count.
           </p>
 
           <div style={{ marginBottom: "1.25rem" }}>
             <label className="field-label">Your Date of Birth</label>
-            <input type="date" className="input-field" value={dob} onChange={(e) => setDob(e.target.value)} max={new Date().toISOString().split("T")[0]} />
+            <input type="date" className="input-field" value={dob} onChange={(e) => setDob(e.target.value)} max={`${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, "0")}-${String(new Date().getDate()).padStart(2, "0")}`} />
           </div>
 
           <button className="btn btn-primary" onClick={calculate} disabled={!dob}>
@@ -73,7 +78,7 @@ export default function AgeCalculator() {
           {result && (
             <div style={{ marginTop: "1.5rem" }}>
               <div style={{ textAlign: "center", padding: "1.25rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)", marginBottom: "1rem" }}>
-                <div style={{ fontSize: "1rem", color: "var(--ink2)", marginBottom: "0.4rem" }}>You are exactly</div>
+                <div style={{ fontSize: "1rem", color: "var(--ink2)", marginBottom: "0.4rem" }}>Calendar age</div>
                 <div style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1.5rem", color: "var(--accent)" }}>
                   {result.years} years, {result.months} months & {result.days} days old
                 </div>
@@ -97,56 +102,8 @@ export default function AgeCalculator() {
           )}
         </div>
       </div>
+      <ToolGuide guide="age" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is an Age Calculator?</h2>
-        <p>
-          An age calculator works out exactly how old you are (or how old someone else is)
-          based on a date of birth. Instead of counting years by hand, it instantly gives you
-          your age in years, months, and days, plus fun extras like how many days are left
-          until your next birthday.
-        </p>
-
-        <h2>How to Use the Age Calculator</h2>
-        <ol>
-          <li>Enter the date of birth you want to calculate</li>
-          <li>Click calculate</li>
-          <li>Instantly see the exact age in years, months, and days</li>
-          <li>Check how many days remain until the next birthday</li>
-        </ol>
-
-        <h2>Why Use an Online Age Calculator</h2>
-        <p>
-          Calculating age manually means accounting for leap years, different month lengths,
-          and whether a birthday has already passed this year — it’s easy to make a small
-          mistake. An online age calculator does this instantly and accurately, which is
-          useful for filling out forms, checking eligibility requirements, or just settling
-          a birthday debate with a friend.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Filling out job applications or school enrollment forms</li>
-          <li>Checking age eligibility for events, sports, or services</li>
-          <li>Planning birthday celebrations</li>
-          <li>Satisfying simple curiosity about exact age in days</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Does the calculator account for leap years?</h3>
-        <p>
-          Yes. The calculator automatically accounts for leap years so your age in days and
-          months is accurate.
-        </p>
-
-        <h3>Can I calculate someone else’s age, not just mine?</h3>
-        <p>
-          Yes. You can enter any date of birth to calculate the current age for anyone,
-          including pets, historical figures, or upcoming due dates.
-        </p>
-      </div>
     </main>
   );
 }

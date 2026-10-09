@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
@@ -26,13 +27,17 @@ export default function PasswordGenerator() {
 
     if (!chars) { alert("Please select at least one option!"); return; }
 
-    // Use the browser's cryptographically secure random generator for passwords.
-    const randomValues = new Uint32Array(length);
-    crypto.getRandomValues(randomValues);
-    const result = Array.from(
-      randomValues,
-      (value) => chars.charAt(value % chars.length)
-    ).join("");
+    let result = "";
+    const limit = Math.floor(0x1_0000_0000 / chars.length) * chars.length;
+    for (let i = 0; i < length; i++) {
+      let value: number;
+      do {
+        const random = new Uint32Array(1);
+        window.crypto.getRandomValues(random);
+        value = random[0];
+      } while (value >= limit);
+      result += chars[value % chars.length];
+    }
     setPassword(result);
     setCopied(false);
   };
@@ -65,7 +70,7 @@ export default function PasswordGenerator() {
         <div className="tool-container">
           <h1>🔐 Password Generator</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Generate a strong, secure password instantly!
+            Create a random password using the character groups you choose.
           </p>
 
           <div style={{ marginBottom: "1.25rem" }}>
@@ -123,54 +128,8 @@ export default function PasswordGenerator() {
           )}
         </div>
       </div>
+      <ToolGuide guide="password" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the Password Generator?</h2>
-        <p>
-          The password generator creates strong, random passwords made up of a mix of
-          letters, numbers, and symbols. Strong passwords make it much harder for anyone to
-          guess or break into your accounts.
-        </p>
-
-        <h2>How to Use the Password Generator</h2>
-        <ol>
-          <li>Choose your desired password length</li>
-          <li>Select which character types to include (uppercase, numbers, symbols, etc.)</li>
-          <li>Generate a new password</li>
-          <li>Copy it and use it for your account</li>
-        </ol>
-
-        <h2>Why Use a Password Generator</h2>
-        <p>
-          Passwords like “123456” or a pet’s name are easy for attackers to guess. A password
-          generator creates random combinations that are extremely difficult to crack, which
-          significantly improves your account security compared to passwords you might come
-          up with yourself.
-        </p>
-
-        <h2>Tips for Strong Passwords</h2>
-        <ul>
-          <li>Use at least 12-16 characters when the account allows it</li>
-          <li>Include a mix of uppercase, lowercase, numbers, and symbols</li>
-          <li>Never reuse the same password across multiple accounts</li>
-          <li>Store passwords in a password manager rather than memorizing them all</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is it safe to use a randomly generated password?</h3>
-        <p>
-          Yes, in fact random passwords are generally safer than ones you create yourself,
-          since they don’t rely on predictable patterns or personal information.
-        </p>
-
-        <h3>Should I use the same generated password for every account?</h3>
-        <p>
-          No. Using a unique password for each account limits the damage if one account is
-          ever compromised, since attackers can’t reuse that password on your other accounts.
-        </p>
-      </div>
     </main>
   );
 }

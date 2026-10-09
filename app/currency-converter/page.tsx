@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 const currencies = [
   { code: "USD", name: "US Dollar" },
@@ -92,7 +93,7 @@ export default function CurrencyConverter() {
         <div className="tool-container">
           <h1>💱 Currency Converter</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Convert between world currencies with live exchange rates — completely free!
+            Estimate conversions using the latest rate available from an exchange-rate provider.
           </p>
 
           <div style={{ marginBottom: "1rem" }}>
@@ -117,7 +118,7 @@ export default function CurrencyConverter() {
           </div>
 
           <button className="btn btn-primary" onClick={convert} disabled={!amount || loading} style={{ opacity: !amount ? 0.6 : 1 }}>
-            {loading ? "Getting live rate..." : "💱 Convert Now"}
+            {loading ? "Getting latest rate..." : "💱 Convert Now"}
           </button>
 
           {loading && <div style={{ textAlign: "center", marginTop: "1rem", display: "flex", gap: 6, justifyContent: "center" }}><span className="loading-dot" /><span className="loading-dot" /><span className="loading-dot" /></div>}
@@ -126,7 +127,7 @@ export default function CurrencyConverter() {
             <div style={{ marginTop: "1.5rem", textAlign: "center", padding: "1.5rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)" }}>
               <div style={{ fontSize: "0.85rem", color: "var(--ink2)", marginBottom: "0.5rem" }}>{amount} {from} =</div>
               <div style={{ fontSize: "2.5rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent)" }}>{Number(result).toLocaleString()} {to}</div>
-              {rate && <div style={{ fontSize: "0.75rem", color: "var(--ink2)", marginTop: "0.5rem" }}>1 {from} = {rate} {to} (live rate)</div>}
+              {rate && <div style={{ fontSize: "0.75rem", color: "var(--ink2)", marginTop: "0.5rem" }}>Provider rate: 1 {from} = {rate} {to} (may lag the market)</div>}
               <button onClick={() => navigator.clipboard.writeText(result)} style={{ marginTop: "0.75rem", padding: "0.4rem 1rem", borderRadius: 6, border: "none", background: "var(--green)", color: "#fff", fontFamily: "Syne", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer" }}>📋 Copy</button>
             </div>
           )}
@@ -146,54 +147,8 @@ export default function CurrencyConverter() {
           </div>
         </div>
       </div>
+      <ToolGuide guide="currency" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the Currency Converter?</h2>
-        <p>
-          The currency converter lets you quickly convert an amount from one currency to
-          another using up-to-date exchange rates. It’s a simple way to see how much your
-          money is worth in a different currency without doing manual math.
-        </p>
-
-        <h2>How to Use the Currency Converter</h2>
-        <ol>
-          <li>Enter the amount you want to convert</li>
-          <li>Select the currency you’re converting from</li>
-          <li>Select the currency you’re converting to</li>
-          <li>View the converted amount instantly</li>
-        </ol>
-
-        <h2>Why Use an Online Currency Converter</h2>
-        <p>
-          Exchange rates change constantly, so manually calculating conversions is unreliable
-          unless you’re checking rates every time. A currency converter automatically applies
-          current rates, making it much easier to budget for travel, understand international
-          prices, or estimate the cost of an online purchase from another country.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Planning a travel budget before a trip abroad</li>
-          <li>Checking prices when shopping on international websites</li>
-          <li>Comparing costs of living between countries</li>
-          <li>Understanding freelance or remittance payments in another currency</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>How often are exchange rates updated?</h3>
-        <p>
-          Exchange rates fluctuate throughout the day based on global markets, so the tool
-          reflects rates as closely to real time as possible.
-        </p>
-
-        <h3>Can I convert between any two currencies?</h3>
-        <p>
-          Yes, you can select from a wide range of major world currencies and convert between
-          any pair available in the dropdown menus.
-        </p>
-      </div>
     </main>
   );
 }

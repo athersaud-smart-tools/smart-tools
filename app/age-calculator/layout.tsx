@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-const title = "Age Calculator — Calculate Your Exact Age";
-const description = "Calculate your exact age in years, months, days, weeks, and hours with the free SmartEdgeTools age calculator.";
+const title = "Age Calculator — Years, Months & Days";
+const description = "Calculate calendar age in years, months, and days, with total days, weeks, and estimated hours.";
 const canonical = "/age-calculator";
 
 export const metadata: Metadata = {

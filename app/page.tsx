@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 const tools = [
   { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Improve clarity, tone, and readability with AI.", category: "AI" },
   { href: "/currency-converter", icon: "💱", title: "Currency Converter", desc: "Convert currencies quickly with current rates.", category: "Finance" },
   { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Calculate Body Mass Index from height and weight.", category: "Health" },
-  { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Calculate your exact age from your date of birth.", category: "Calculator" },
+  { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Calculate years, months, and days from a birth date.", category: "Calculator" },
   { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Estimate monthly payments, interest, and total cost.", category: "Finance" },
   { href: "/percentage-calculator", icon: "%", title: "Percentage Calculator", desc: "Calculate percentages, increases, decreases, and more.", category: "Calculator" },
   { href: "/random-number", icon: "🎲", title: "Random Number Generator", desc: "Generate random numbers within your chosen range.", category: "Calculator" },
@@ -27,16 +27,14 @@ const tools = [
 const categories = ["All", "AI", "Finance", "Health", "Calculator", "Image", "Generator", "Text", "Design", "PDF", "Tools"];
 
 const articles = [
-  { href: "/blog/best-online-tools-2026", title: "Best Online Tools in 2026", desc: "A practical guide to useful browser-based tools." },
+  { href: "/blog/best-online-tools-2026", title: "Choosing an Online Tool for the Task", desc: "Compare tool workflows, data handling, and limitations before choosing." },
   { href: "/blog/how-online-calculators-save-time", title: "How Online Calculators Save Time", desc: "Learn how simple calculators can make everyday tasks easier." },
-  { href: "/blog/best-free-image-tools", title: "Best Free Image Tools", desc: "Helpful ways to resize and compress images online." },
-  { href: "/blog/resize-compress-images-for-websites", title: "How to Resize and Compress Images", desc: "Learn about image dimensions, formats, compression, and quality checks." },
+  { href: "/blog/best-free-image-tools", title: "Choosing the Right Image Tool", desc: "When to resize, compress, choose a color, or create a QR code." },
 ];
 
 export default function Home() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
-  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -46,21 +44,6 @@ export default function Home() {
       return matchCat && matchSearch;
     });
   }, [active, search]);
-
-  useEffect(() => {
-    const updateBackToTop = () => setShowBackToTop(window.scrollY > 450);
-    updateBackToTop();
-    window.addEventListener("scroll", updateBackToTop, { passive: true });
-    return () => window.removeEventListener("scroll", updateBackToTop);
-  }, []);
-
-  useEffect(() => {
-    if (!search.trim()) return;
-    const timer = window.setTimeout(() => {
-      document.getElementById("all-tools-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 700);
-    return () => window.clearTimeout(timer);
-  }, [search]);
 
   return (
     <main style={{ background: "var(--bg)", minHeight: "100vh" }}>
@@ -94,50 +77,15 @@ export default function Home() {
               placeholder="Search tools..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Escape") setSearch("");
-              }}
             />
-            {search && (
-              <button
-                type="button"
-                aria-label="Clear search"
-                title="Clear search"
-                onClick={() => setSearch("")}
-                style={{
-                  position: "absolute",
-                  right: "0.55rem",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: "32px",
-                  height: "32px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  border: "1px solid rgba(255,255,255,0.18)",
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.1)",
-                  color: "#fff",
-                  fontSize: "1.15rem",
-                  cursor: "pointer",
-                }}
-              >
-                ×
-              </button>
-            )}
           </div>
-          <p aria-live="polite" style={{ color: "rgba(255,255,255,0.58)", fontSize: "0.78rem", marginTop: "0.8rem", minHeight: "1.2em" }}>
-            {search.trim()
-              ? `${filtered.length} ${filtered.length === 1 ? "tool" : "tools"} found · Press Esc to clear`
-              : "Find the right tool in seconds"}
-          </p>
         </div>
       </header>
 
       <div className="stats-bar" aria-label="SmartEdgeTools highlights">
-        <div className="stat-item"><div className="stat-label">Useful online tools</div></div>
-        <div className="stat-item"><div className="stat-label">Free to use</div></div>
-        <div className="stat-item"><div className="stat-label">Browser access</div></div>
+        <div className="stat-item"><div className="stat-num">18+</div><div className="stat-label">Useful tools</div></div>
+        <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
+        <div className="stat-item"><div className="stat-num">No app</div><div className="stat-label">Browser access</div></div>
       </div>
 
       <section className="section" style={{ maxWidth: "980px" }}>
@@ -157,14 +105,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="all-tools-section" className="section" aria-labelledby="all-tools-heading" style={{ scrollMarginTop: "24px" }}>
+      <section className="section" aria-labelledby="all-tools-heading">
         <div className="section-header">
           <h2 id="all-tools-heading" className="section-title">Explore all tools</h2>
-          <span className="section-tag" aria-live="polite">
-            {search.trim() || active !== "All"
-              ? `${filtered.length} ${filtered.length === 1 ? "tool" : "tools"} found`
-              : `${tools.length} useful tools`}
-          </span>
+          <span className="section-tag">{filtered.length} available</span>
         </div>
         <div className="category-pills" aria-label="Tool categories">
           {categories.map((cat) => (
@@ -183,20 +127,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        {filtered.length === 0 && (
-          <div style={{ textAlign: "center", padding: "2.5rem 1rem", border: "1px dashed var(--border)", borderRadius: "16px", background: "var(--card)" }}>
-            <div aria-hidden="true" style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>🔎</div>
-            <h3 style={{ fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.4rem" }}>No matching tools yet</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.7, marginBottom: "1rem" }}>Try a different keyword or clear your filters to see all available tools.</p>
-            <button
-              type="button"
-              className="pill active"
-              onClick={() => { setSearch(""); setActive("All"); }}
-            >
-              Show all tools
-            </button>
-          </div>
-        )}
+        {filtered.length === 0 && <p style={{ color: "var(--ink2)", padding: "2rem 0" }}>No tools matched your search. Try another word or category.</p>}
       </section>
 
       <section className="section" style={{ maxWidth: "980px" }}>
@@ -228,29 +159,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" style={{ maxWidth: "900px" }} aria-labelledby="home-faq-heading">
-        <h2 id="home-faq-heading" className="section-title">Frequently asked questions</h2>
-        <div style={{ marginTop: "1.25rem", display: "grid", gap: "1.25rem" }}>
-          <div>
-            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are SmartEdgeTools free to use?</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>The tools are provided for general use without requiring an account. Some features may depend on third-party services or availability.</p>
-          </div>
-          <div>
-            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>How do I find the right tool?</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Use the search box or choose a category, then open a tool and follow the instructions on its page.</p>
-          </div>
-          <div>
-            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are results always exact?</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Results depend on the information you enter and the tool's method. Check important financial, health, or other consequential results independently.</p>
-          </div>
-          <div>
-            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>Are my files and text private?</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Data handling can differ between tools. Read the tool instructions and our <Link href="/privacy-policy" style={{ color: "var(--accent)", textDecoration: "underline" }}>Privacy Policy</Link> before entering sensitive information.</p>
-          </div>
-          <div>
-            <h3 style={{ fontWeight: 700, marginBottom: "0.35rem" }}>How can I report a problem?</h3>
-            <p style={{ color: "var(--ink2)", lineHeight: 1.8 }}>Visit our <Link href="/contact" style={{ color: "var(--accent)", textDecoration: "underline" }}>Contact page</Link> and tell us which tool you used and what happened.</p>
-          </div>
+      <section className="section" style={{ maxWidth: "980px" }} aria-labelledby="tool-examples-heading">
+        <h2 id="tool-examples-heading" className="section-title">Examples you can check</h2>
+        <p style={{ color: "var(--ink2)", marginTop: "0.45rem", lineHeight: 1.7 }}>
+          A useful result should be explainable. These examples show the kind of calculation or file operation each tool performs.
+        </p>
+        <div className="tools-grid" style={{ marginTop: "1rem" }}>
+          <Link href="/percentage-calculator" className="tool-card"><h3>Percentage example</h3><p>20% of 500 is 100. The calculator also handles percentage change, adding a percentage, and subtracting a percentage.</p></Link>
+          <Link href="/bmi-calculator" className="tool-card"><h3>BMI example</h3><p>At 70 kg and 175 cm, BMI is 22.9. BMI is a screening measure, not a diagnosis.</p></Link>
+          <Link href="/image/resize" className="tool-card"><h3>Image output</h3><p>The resizer exports a JPEG from a browser canvas. Keep the original if you need transparency or another format.</p></Link>
+          <Link href="/pdf/merge" className="tool-card"><h3>PDF handling</h3><p>The merge tool copies pages from selected PDFs in the browser and creates a new file in the order you selected them.</p></Link>
         </div>
       </section>
 
@@ -267,38 +185,6 @@ export default function Home() {
           <p style={{ color: "#777", lineHeight: 1.7 }}>© 2026 SmartEdgeTools. Free online tools for everyday tasks.</p>
         </div>
       </footer>
-
-      {showBackToTop && (
-        <button
-          type="button"
-          aria-label="Back to top"
-          title="Back to top"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{
-            position: "fixed",
-            right: "clamp(16px, 3vw, 28px)",
-            bottom: "clamp(16px, 3vw, 28px)",
-            zIndex: 1000,
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.28)",
-            background: "var(--accent)",
-            color: "#fff",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-            fontSize: "1.65rem",
-            fontWeight: 700,
-            lineHeight: 1,
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "transform 180ms ease, box-shadow 180ms ease",
-          }}
-        >
-          ↑
-        </button>
-      )}
     </main>
   );
 }

@@ -31,6 +31,13 @@ export default function PrivacyPolicyPage() {
               Most SmartEdgeTools utilities can be used without creating an account. If you contact us,
               the information you choose to provide may be used to understand and respond to your request.
             </p>
+            <p className="leading-7">
+              Some tools work entirely in your browser, including PDF merging, image resizing, image compression,
+              text counting, case conversion, and basic calculations. The AI Text Improver sends text you submit
+              to our server and to OpenRouter and an available language model to produce a rewrite. The Currency
+              Converter requests exchange-rate data from third-party providers. Do not enter confidential or
+              sensitive information into tools unless you are comfortable with those data flows.
+            </p>
           </section>
 
           <section className="space-y-4">
@@ -55,9 +62,11 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">Cookies and analytics</h2>
             <p className="leading-7">
-              SmartEdgeTools may use cookies or similar technologies for essential functionality, analytics,
-              security, and service improvement. Analytics services may collect information about how pages
-              are used so that we can understand performance and improve the user experience.
+              SmartEdgeTools uses Microsoft Clarity for analytics and may use cookies or similar technologies
+              for analytics, advertising, security, and service improvement. Microsoft Clarity may collect
+              information about how pages are used. Google AdSense may use cookies or similar technologies if
+              advertising is enabled. Review the providers' privacy information for details about their data
+              practices and available controls.
             </p>
             <p className="leading-7">
               You can manage cookies through your browser settings. Disabling certain cookies may affect
@@ -71,6 +80,12 @@ export default function PrivacyPolicyPage() {
               SmartEdgeTools may display advertising from third-party providers, including Google AdSense
               if the site is approved and advertising is enabled. Advertising providers may use cookies or
               similar technologies in accordance with their own policies.
+            </p>
+            <p className="leading-7">
+              If personalized ads are served to visitors in the EEA, UK, or Switzerland, Google requires
+              publishers to use a Google-certified consent management platform integrated with the IAB
+              Transparency and Consent Framework. Consent choices and available controls depend on the
+              advertising settings and the visitor's location.
             </p>
             <p className="leading-7">
               For information about Google's advertising practices and available controls, review Google's

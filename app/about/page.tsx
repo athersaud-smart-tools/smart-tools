@@ -84,22 +84,16 @@ export default function AboutPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-gray-900">Our content and correction approach</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Corrections and tool notes</h2>
             <p className="leading-7">
-              Our guides focus on practical tasks that visitors can try for themselves, such as checking a
-              percentage calculation, preparing an image for an upload, or combining PDF files. We aim to
-              explain the steps, relevant assumptions, and common limitations rather than simply listing tools.
+              Tool explanations describe the features and limits available on each page. Some results depend on
+              third-party services, while other operations happen in your browser; the relevant page explains
+              which applies. If you find a calculation issue, outdated explanation, or accessibility problem,
+              please send the page address and details through our <Link href="/contact" className="text-blue-600 hover:underline">Contact page</Link>.
             </p>
             <p className="leading-7">
-              Tool results can depend on the values entered, browser behavior, or data supplied by an external
-              service. We encourage visitors to check important results and to tell us when an explanation,
-              example, or feature appears incorrect. Feedback helps us identify what needs to be reviewed or
-              clarified; it does not mean every page has been independently certified by a specialist.
-            </p>
-            <p className="leading-7">
-              To report a possible error or suggest an improvement, please use our{" "}
-              <Link href="/contact" className="font-medium text-blue-600 hover:underline">Contact page</Link>.
-              Include the page address and, where possible, the steps that led to the issue.
+              SmartEdgeTools is published under the site name. We do not claim that these general-purpose tools
+              replace professional advice, formal assessments, or independent verification for consequential decisions.
             </p>
           </section>
 

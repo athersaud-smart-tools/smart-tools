@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Best Free Online Tools in 2026";
+const title = "Choosing an Online Tool for the Task";
 const description =
-  "Discover useful free online tools for calculations, conversions, image tasks, writing, productivity, and everyday digital work.";
+  "A task-based guide to comparing online calculators, converters, image utilities, PDF tools, and writing tools by workflow, data handling, and limitations.";
 const canonical = "/blog/best-online-tools-2026";
 
 export const metadata: Metadata = {

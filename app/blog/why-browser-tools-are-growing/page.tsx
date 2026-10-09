@@ -20,7 +20,7 @@ export default function ArticlePage() {
             Browser tools are convenient for focused jobs, but convenience is only one part of the decision.
             Privacy, reliability, device support, and the type of data involved also matter.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 8, 2026 · SmartEdgeTools Editorial Team</p>
+          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">
@@ -61,6 +61,20 @@ export default function ArticlePage() {
             For a confidential document, photograph, password, or other sensitive information, check the
             service's privacy information before using it. Tools that perform an operation locally in the
             browser can be useful when keeping the data on the device is important.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-left text-sm">
+              <thead><tr className="border-b border-gray-300"><th className="px-3 py-3">SmartEdgeTools feature</th><th className="px-3 py-3">Where the main operation happens</th><th className="px-3 py-3">What to keep in mind</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">PDF merge</td><td className="px-3 py-3">In the browser with the selected file bytes</td><td className="px-3 py-3">Large files use device memory; document-level features may not transfer</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Image resize and compression</td><td className="px-3 py-3">In the browser using a canvas</td><td className="px-3 py-3">The downloaded output is JPEG, so transparency is lost</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">AI Text Improver</td><td className="px-3 py-3">Text is sent to the site API, OpenRouter, and an available model</td><td className="px-3 py-3">Do not submit confidential text; verify every change</td></tr>
+                <tr><td className="px-3 py-3">Currency Converter</td><td className="px-3 py-3">Rate requests go to third-party providers</td><td className="px-3 py-3">Provider rates can lag and may differ from the rate you pay</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-600">
+            These details describe the current tool code. Review the <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link> for site analytics and advertising, which are separate from each tool's main operation.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900">5. Focused tools can be easier to learn</h2>

@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 export default function PercentageCalculator() {
   const [mode, setMode] = useState(0);
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [result, setResult] = useState<string | null>(null);
+  const [error, setError] = useState("");
 
   const modes = [
     { label: "X% of Y", desc: "What is 20% of 500?" },
@@ -21,6 +23,14 @@ export default function PercentageCalculator() {
     const x = parseFloat(a);
     const y = parseFloat(b);
     if (isNaN(x) || isNaN(y)) return;
+    if ((mode === 1 && y === 0) || (mode === 2 && x === 0)) {
+      setResult(null);
+      setError(mode === 1
+        ? "The total must be different from zero to calculate a percentage."
+        : "Percentage change is undefined when the starting value is zero.");
+      return;
+    }
+    setError("");
     let res = 0;
     switch (mode) {
       case 0: res = (x / 100) * y; break;
@@ -57,7 +67,7 @@ export default function PercentageCalculator() {
               {modes.map((m, i) => (
                 <button
                   key={i}
-                  onClick={() => { setMode(i); setResult(null); setA(""); setB(""); }}
+                  onClick={() => { setMode(i); setResult(null); setError(""); setA(""); setB(""); }}
                   style={{ padding: "0.75rem 1rem", borderRadius: 8, border: "1.5px solid", textAlign: "left", borderColor: mode === i ? "var(--accent)" : "var(--border)", background: mode === i ? "rgba(232,93,47,0.06)" : "var(--bg)", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                 >
                   <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.875rem", color: mode === i ? "var(--accent)" : "var(--ink)" }}>{m.label}</span>
@@ -82,6 +92,8 @@ export default function PercentageCalculator() {
             Calculate
           </button>
 
+          {error && <p role="alert" style={{ marginTop: "1rem", color: "var(--accent)" }}>{error}</p>}
+
           {result !== null && (
             <div style={{ marginTop: "1.5rem", textAlign: "center", padding: "1.5rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)" }}>
               <div style={{ fontSize: "0.85rem", color: "var(--ink2)", marginBottom: "0.5rem" }}>Result</div>
@@ -98,55 +110,8 @@ export default function PercentageCalculator() {
           )}
         </div>
       </div>
+      <ToolGuide guide="percentage" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the Percentage Calculator?</h2>
-        <p>
-          The percentage calculator helps you quickly work out percentages, such as finding
-          what percent one number is of another, calculating a percentage increase or
-          decrease, or figuring out a discount amount.
-        </p>
-
-        <h2>How to Use the Percentage Calculator</h2>
-        <ol>
-          <li>Choose the type of percentage calculation you need</li>
-          <li>Enter the numbers involved</li>
-          <li>Click calculate</li>
-          <li>View the result instantly</li>
-        </ol>
-
-        <h2>Why Use a Percentage Calculator</h2>
-        <p>
-          Percentage math shows up constantly in everyday life — discounts while shopping,
-          tips at restaurants, grades in school, or interest on savings. A percentage
-          calculator removes the risk of manual math errors and gives you accurate results
-          in seconds.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Calculating a discount or sale price while shopping</li>
-          <li>Working out a tip amount at a restaurant</li>
-          <li>Figuring out grade percentages from test scores</li>
-          <li>Calculating percentage increase or decrease between two numbers</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>How do I calculate a percentage increase?</h3>
-        <p>
-          A percentage increase is found by subtracting the original number from the new
-          number, dividing that by the original number, and multiplying by 100. The
-          calculator does this automatically when you select that option.
-        </p>
-
-        <h3>Can I use this to calculate a discount price?</h3>
-        <p>
-          Yes, you can use it to figure out the discount amount as well as the final price
-          after the discount is applied.
-        </p>
-      </div>
     </main>
   );
 }

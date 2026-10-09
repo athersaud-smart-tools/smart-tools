@@ -20,7 +20,7 @@ export default function ArticlePage() {
             Calculators are most valuable when they remove repetitive arithmetic while still showing the
             user enough context to understand the result.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 8, 2026 · SmartEdgeTools Editorial Team</p>
+          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">

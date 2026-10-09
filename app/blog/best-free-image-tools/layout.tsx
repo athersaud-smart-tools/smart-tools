@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Best Free Online Image Tools in 2026";
+const title = "Choosing the Right Image Tool for the Job";
 const description =
-  "Learn about useful free online image tools for resizing, compression, color picking, QR codes, and everyday image tasks.";
+  "Compare image resizing, JPEG compression, color selection, and QR creation by output, quality, and privacy needs.";
 const canonical = "/blog/best-free-image-tools";
 
 export const metadata: Metadata = {

@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Free Online Tools in 2026",
+  title: "Choosing an Online Tool for the Task",
   description:
-    "A practical guide to choosing free browser-based calculators, converters, image utilities, QR tools, and productivity tools in 2026.",
+    "A task-based guide to comparing online calculators, converters, image utilities, PDF tools, and writing tools by workflow, data handling, and limitations.",
   alternates: { canonical: "/blog/best-online-tools-2026" },
 };
 
@@ -15,12 +15,12 @@ export default function ArticlePage() {
         <Link href="/blog" className="mb-8 inline-block text-sm font-medium text-blue-600 hover:underline">← Back to Guides</Link>
         <header>
           <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">Guide</p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">Best Free Online Tools in 2026</h1>
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">Choosing an Online Tool for the Task</h1>
           <p className="mt-4 text-lg leading-8 text-gray-600">
             The best online tool is not necessarily the one with the most features. It is the one that
             solves the specific task clearly, safely, and with as little unnecessary work as possible.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 8, 2026 · SmartEdgeTools Editorial Team</p>
+          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">
@@ -101,29 +101,18 @@ export default function ArticlePage() {
             <li><strong>Prefer a simple workflow.</strong> Fewer unnecessary steps usually means fewer opportunities for mistakes.</li>
           </ol>
 
-          <h2 className="text-2xl font-semibold text-gray-900">A practical checklist before you use a tool</h2>
-          <p>
-            Before choosing a tool, write down what the finished result must look like. For an image upload,
-            that might mean a maximum file size, exact pixel dimensions, and an accepted format. For a loan
-            estimate, it means the amount borrowed, annual rate, repayment term, and whether fees are included.
-            For a PDF merge, it means the files are in the correct order and the resulting document opens as expected.
-          </p>
-          <ol className="list-decimal space-y-3 pl-6">
-            <li>Confirm the output requirement before entering anything.</li>
-            <li>Use a copy of the original file when editing or converting a document or image.</li>
-            <li>Check whether the tool works locally in your browser or sends information to a server.</li>
-            <li>Review the output, not just the success message. Open the downloaded file or verify the calculation.</li>
-            <li>For sensitive files or important decisions, stop if the tool's behavior or assumptions are unclear.</li>
-          </ol>
-
-          <h2 className="text-2xl font-semibold text-gray-900">Example: preparing an image for an upload</h2>
-          <p>
-            If a form accepts images up to 1 MB and recommends a width of 1200 pixels, first check the
-            form's exact requirements. Resize a copy to the required dimensions while keeping the aspect
-            ratio, then compress it gradually until it meets the file-size limit. Open the result at normal
-            viewing size to check for blur or compression artifacts. Do not assume that a smaller file is
-            automatically better if important details have become hard to read.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900">A practical comparison by task</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-left text-sm">
+              <thead><tr className="border-b border-gray-300"><th className="px-3 py-3">Task</th><th className="px-3 py-3">Useful capability</th><th className="px-3 py-3">Check before relying on it</th></tr></thead>
+              <tbody>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Estimate a fixed-rate payment</td><td className="px-3 py-3">Loan calculator with principal, rate, and term inputs</td><td className="px-3 py-3">Fees, taxes, payment timing, and lender terms</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Prepare an image for an upload</td><td className="px-3 py-3">Resize to target pixel dimensions</td><td className="px-3 py-3">Aspect ratio and whether JPEG output changes transparency</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Combine documents</td><td className="px-3 py-3">Merge pages in a chosen file order</td><td className="px-3 py-3">Page sequence, protected files, and browser memory</td></tr>
+                <tr><td className="px-3 py-3">Rewrite a short passage</td><td className="px-3 py-3">Generate alternate phrasing</td><td className="px-3 py-3">External AI processing and factual accuracy</td></tr>
+              </tbody>
+            </table>
+          </div>
 
           <h2 className="text-2xl font-semibold text-gray-900">Final takeaway</h2>
           <p>

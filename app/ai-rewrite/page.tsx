@@ -2,17 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolGuide from "@/app/components/ToolGuide";
 
 export default function Page() {
   const [inputText, setInputText] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const handleRewrite = async () => {
     if (!inputText.trim()) return;
     setLoading(true);
-    setError("");
     setOutput("");
     try {
       const res = await fetch("/api/rewrite", {
@@ -21,11 +20,10 @@ export default function Page() {
         body: JSON.stringify({ text: inputText }),
       });
       const data = await res.json();
-      if (!res.ok) { setError(typeof data.error === "string" ? data.error : "The text could not be improved. Please try again."); return; }
+      if (!res.ok) { alert("Error: " + data.error); return; }
       setOutput(data.result);
     } catch (err) {
       console.error("Frontend error:", err);
-      setError("Could not reach the rewrite service. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -59,12 +57,6 @@ export default function Page() {
             {loading ? "Improving..." : "✨ Improve Text"}
           </button>
 
-          {error && (
-            <p role="alert" style={{ marginTop: "1rem", color: "#b42318", lineHeight: 1.6 }}>
-              {error}
-            </p>
-          )}
-
           {loading && (
             <div style={{ textAlign: "center", marginTop: "1rem", display: "flex", gap: 6, justifyContent: "center" }}>
               <span className="loading-dot" />
@@ -87,54 +79,8 @@ export default function Page() {
           )}
         </div>
       </div>
+      <ToolGuide guide="ai-rewrite" />
 
-      {/* SEO CONTENT */}
-      <div style={{ maxWidth: "900px", margin: "50px auto", padding: "20px", lineHeight: "1.8" }}>
-        <h2>What is the AI Rewrite Tool?</h2>
-        <p>
-          The AI Rewrite tool takes a piece of text you already have and rewrites it so it
-          reads differently while keeping the same meaning. It’s useful for improving
-          clarity, changing tone, fixing awkward phrasing, or simply getting a fresh way to
-          say the same thing.
-        </p>
-
-        <h2>How to Use the AI Rewrite Tool</h2>
-        <ol>
-          <li>Paste or type the text you want rewritten into the box</li>
-          <li>Click the rewrite button</li>
-          <li>Review the new version</li>
-          <li>Copy the result to use wherever you need it</li>
-        </ol>
-
-        <h2>Why Use an AI Rewriter</h2>
-        <p>
-          Whether you’re a student polishing an essay, a professional refining an email, or
-          a content creator looking to avoid repetitive phrasing, a rewriting tool saves time
-          compared to manually reworking every sentence. It can help make writing sound
-          clearer, more natural, or more professional in seconds.
-        </p>
-
-        <h2>Common Uses</h2>
-        <ul>
-          <li>Improving emails and messages before sending</li>
-          <li>Rewording sentences that feel clunky or repetitive</li>
-          <li>Getting a different phrasing for social media captions or descriptions</li>
-          <li>Simplifying complex or wordy paragraphs</li>
-        </ul>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Will the rewritten text mean the same thing as my original?</h3>
-        <p>
-          The tool aims to preserve your intended meaning, but AI can change details or make mistakes. Review the result carefully before using it.
-        </p>
-
-        <h3>Is there a limit to how much text I can rewrite at once?</h3>
-        <p>
-          The tool works best with shorter passages like paragraphs or short articles. For
-          very long documents, try rewriting section by section for the best results.
-        </p>
-      </div>
     </main>
   );
 }

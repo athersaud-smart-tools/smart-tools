@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 const articles = [
   {
     href: "/blog/best-online-tools-2026",
-    title: "Best Free Online Tools in 2026",
+    title: "Choosing an Online Tool for the Task",
     excerpt:
-      "A practical guide to choosing browser-based calculators, converters, image utilities, QR tools, and other everyday tools.",
+      "Compare tool workflows, data handling, and limitations before choosing a calculator, image utility, PDF tool, or writing assistant.",
   },
   {
     href: "/blog/how-online-calculators-save-time",
@@ -29,15 +29,15 @@ const articles = [
   },
   {
     href: "/blog/top-tools-for-students",
-    title: "Top Online Tools for Students in 2026",
+    title: "A Practical Study Workflow for Online Tools",
     excerpt:
-      "Practical ways students can use calculators, converters, word counters, PDFs, and writing utilities without adding unnecessary software.",
+      "A repeatable way to check calculations, format assignments, organize PDFs, and use writing tools responsibly.",
   },
   {
     href: "/blog/best-free-image-tools",
-    title: "Best Free Online Image Tools in 2026",
+    title: "Choosing the Right Image Tool for the Job",
     excerpt:
-      "How to choose image resizing, compression, color, and QR tools for common digital tasks.",
+      "When to resize, compress, sample a color, or create a QR code—and what to check in the output.",
   },
   {
     href: "/blog/resize-compress-images-for-websites",

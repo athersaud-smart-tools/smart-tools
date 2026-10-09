@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "PDF Merge Tool — Combine Files Free";
-const description = "Combine selected PDF files into one downloadable document in your browser, with no account required. Performance depends on your device and file sizes.";
+const description = "Combine selected PDF pages into one document in your browser. No account is required; large files may be limited by device memory.";
 const canonical = "/pdf/merge";
 
 export const metadata: Metadata = {
