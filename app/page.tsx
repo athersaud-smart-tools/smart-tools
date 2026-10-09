@@ -84,9 +84,9 @@ export default function Home() {
       </header>
 
       <div className="stats-bar" aria-label="SmartEdgeTools highlights">
-        <div className="stat-item"><div className="stat-num">18+</div><div className="stat-label">Useful tools</div></div>
-        <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
-        <div className="stat-item"><div className="stat-num">24/7</div><div className="stat-label">Browser access</div></div>
+        <div className="stat-item"><div className="stat-label">Useful online tools</div></div>
+        <div className="stat-item"><div className="stat-label">Free to use</div></div>
+        <div className="stat-item"><div className="stat-label">Browser access</div></div>
       </div>
 
       <section className="section" style={{ maxWidth: "980px" }}>
@@ -109,7 +109,7 @@ export default function Home() {
       <section className="section" aria-labelledby="all-tools-heading">
         <div className="section-header">
           <h2 id="all-tools-heading" className="section-title">Explore all tools</h2>
-          <span className="section-tag">{filtered.length} available</span>
+          <span className="section-tag">Browse and explore</span>
         </div>
         <div className="category-pills" aria-label="Tool categories">
           {categories.map((cat) => (
