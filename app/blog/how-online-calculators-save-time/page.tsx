@@ -84,6 +84,28 @@ export default function ArticlePage() {
             should be discussed with a qualified healthcare professional.
           </p>
 
+          <h2 className="text-2xl font-semibold text-gray-900">Worked example: checking a discount</h2>
+          <p>
+            Imagine a jacket is marked at 240 and the shop offers 15% off. To calculate the discount,
+            multiply 240 by 0.15: the discount is 36. Subtract 36 from 240 and the price before any tax
+            or additional fees is 204. A percentage calculator can check both steps, but you should still
+            confirm whether the shop applies the discount before tax, after tax, or under other conditions.
+          </p>
+          <p>
+            This example also shows why choosing the correct operation matters. “What is 15% of 240?”
+            asks for the discount amount; “what is the final price after 15% off?” asks for the original
+            amount minus that discount. The numbers are related, but they are not the same answer.
+          </p>
+
+          <h2 className="text-2xl font-semibold text-gray-900">Worked example: comparing a loan estimate</h2>
+          <p>
+            Suppose you compare two loan offers for the same amount. Enter the principal, annual interest
+            rate, and repayment term for each offer, then compare the estimated monthly payment and total
+            paid over the full term. A lower monthly payment does not automatically mean a cheaper loan:
+            a longer term can reduce each payment while increasing the total interest. Compare like-for-like
+            terms and check lender fees and conditions before making a decision.
+          </p>
+
           <h2 className="text-2xl font-semibold text-gray-900">A simple way to use calculators responsibly</h2>
           <ol className="list-decimal space-y-3 pl-6">
             <li>Read the tool's description so you understand what it calculates.</li>
