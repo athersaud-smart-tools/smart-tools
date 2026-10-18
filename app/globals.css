@@ -55,6 +55,9 @@ h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
 }
 
 .navbar-logo span { color: var(--accent); }
+.brand-mark { width: 36px; height: 36px; flex: none; }
+.navbar-logo .navbar-wordmark { color: var(--ink); }
+.navbar-logo .navbar-wordmark span { color: var(--accent); }
 
 .navbar-links { display: flex; gap: 0.25rem; list-style: none; }
 
