@@ -43,7 +43,7 @@ export function SiteHeader() {
         <summary aria-label="Open navigation menu">Menu</summary>
         <ul className="mobile-menu-links">
           {links.map((link) => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}
-          <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
           <li><Link href="/terms">Terms</Link></li>
         </ul>
       </details>
@@ -60,7 +60,7 @@ export function SiteFooter() {
           <Link href="/blog">Blog</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
-          <Link href="/privacy-policy">Privacy Policy</Link>
+          <a href="/privacy-policy">Privacy Policy</a>
           <Link href="/terms">Terms</Link>
         </nav>
         <p>© {new Date().getFullYear()} SmartEdgeTools. Free online tools for everyday tasks.</p>

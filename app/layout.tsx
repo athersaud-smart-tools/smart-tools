@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import TrackingScripts from "./components/TrackingScripts";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -115,51 +116,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${plusJakarta.variable} ${outfit.variable} ${syne.variable} h-full antialiased`}
     >
       <head>
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ELZ9V0DN5R"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){window.dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-ELZ9V0DN5R');
-            `,
-          }}
-        />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8430178179260712"
-          crossOrigin="anonymous"
-        />
-
-        {/* Microsoft Clarity */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "yo6pqwd7q7");
-            `,
-          }}
         />
       </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader />
         {children}
         <SiteFooter />
+        <TrackingScripts />
       </body>
     </html>
   );

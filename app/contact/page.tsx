@@ -71,7 +71,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold text-gray-900">Other useful pages</h2>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/about" className="font-medium text-blue-600 hover:underline">About SmartEdgeTools →</Link>
-              <Link href="/privacy-policy" className="font-medium text-blue-600 hover:underline">Privacy Policy →</Link>
+              <a href="/privacy-policy" className="font-medium text-blue-600 hover:underline">Privacy Policy →</a>
               <Link href="/terms" className="font-medium text-blue-600 hover:underline">Terms of Use →</Link>
               <Link href="/blog" className="font-medium text-blue-600 hover:underline">Read the Guides →</Link>
             </div>

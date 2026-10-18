@@ -74,7 +74,7 @@ export default function ArticlePage() {
             </table>
           </div>
           <p className="text-sm text-gray-600">
-            These details describe the current tool code. Review the <Link href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link> for site analytics and advertising, which are separate from each tool&apos;s main operation.
+            These details describe the current tool code. Review the <a href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</a> for site analytics and advertising, which are separate from each tool&apos;s main operation.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900">5. Focused tools can be easier to learn</h2>

@@ -31,4 +31,4 @@ The AI text improver requires `OPENROUTER_API_KEY`. Without it, the route return
 
 The rewrite route currently uses an in-memory per-instance rate limit. It reduces repeated requests handled by the same running instance, but it is not a shared limit across serverless instances. Configure an edge firewall rule or shared rate-limit store before relying on it to control production spend.
 
-Google AdSense, Google Analytics, and Microsoft Clarity are configured in the root layout. Configure the required consent message and vendor behavior in the relevant provider dashboards before serving visitors in regions where consent is required.
+Google AdSense, Google Analytics, and Microsoft Clarity are loaded by `app/components/TrackingScripts.tsx`. The Google consent defaults cover the EEA, UK, and Switzerland, and tracking scripts are omitted from the privacy-policy page. Keep the European regulations message published in AdSense and enable advertising and analytics consent mode in its Privacy & messaging settings. Clarity reads the Google consent mode signals automatically.
