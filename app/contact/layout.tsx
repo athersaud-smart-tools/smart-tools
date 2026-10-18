@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Contact SmartEdgeTools";
+const title = "Contact";
 const description = "Contact SmartEdgeTools about technical problems, feedback, suggestions, content questions, or other website issues.";
 const canonical = "/contact";
 

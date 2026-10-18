@@ -97,11 +97,11 @@ export default function ColorPicker() {
           <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "1.5rem" }}>
             {colorFormats.map((fmt) => (
               <div key={fmt.label} style={{ display: "flex", alignItems: "center", gap: "0.75rem", background: "var(--bg)", borderRadius: 10, padding: "0.75rem 1rem", border: "1.5px solid var(--border)" }}>
-                <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.75rem", color: "var(--ink2)", textTransform: "uppercase", minWidth: 36 }}>{fmt.label}</span>
+                <span style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.75rem", color: "var(--ink2)", textTransform: "uppercase", minWidth: 36 }}>{fmt.label}</span>
                 <span style={{ flex: 1, fontFamily: "monospace", fontSize: "0.9rem" }}>{fmt.value}</span>
                 <button
                   onClick={() => copy(fmt.value, fmt.label)}
-                  style={{ background: copied === fmt.label ? "var(--green)" : "var(--accent)", color: "#fff", border: "none", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", cursor: "pointer", fontFamily: "Syne", fontWeight: 700 }}
+                  style={{ background: copied === fmt.label ? "var(--green)" : "var(--accent)", color: "#fff", border: "none", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", cursor: "pointer", fontFamily: "var(--font-syne)", fontWeight: 700 }}
                 >
                   {copied === fmt.label ? "✅" : "Copy"}
                 </button>

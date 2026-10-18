@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ToolGuide from "@/app/components/ToolGuide";
 
@@ -11,12 +11,22 @@ export default function ResizeImage() {
   const [height, setHeight] = useState(300);
   const [lockRatio, setLockRatio] = useState(true);
   const [originalRatio, setOriginalRatio] = useState(1);
+  const [error, setError] = useState("");
+  const imageUrlRef = useRef<string | null>(null);
+
+  useEffect(() => () => {
+    if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
+  }, []);
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
       const url = URL.createObjectURL(file);
+      imageUrlRef.current = url;
       setImage(url);
+      setResizedImage(null);
+      setError("");
       const img = new Image();
       img.src = url;
       img.onload = () => {
@@ -40,6 +50,11 @@ export default function ResizeImage() {
 
   const resizeImage = () => {
     if (!image) return;
+    if (!Number.isSafeInteger(width) || !Number.isSafeInteger(height) || width < 1 || height < 1 || width * height > 40_000_000) {
+      setError("Enter positive whole-number dimensions with a combined size of 40 megapixels or less.");
+      return;
+    }
+    setError("");
     const img = new Image();
     img.src = image;
     img.onload = () => {
@@ -47,9 +62,11 @@ export default function ResizeImage() {
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext("2d");
-      ctx?.drawImage(img, 0, 0, width, height);
-      setResizedImage(canvas.toDataURL("image/jpeg"));
+      if (!ctx) { setError("Your browser could not prepare this image. Try another browser or a smaller size."); return; }
+      ctx.drawImage(img, 0, 0, width, height);
+      setResizedImage(canvas.toDataURL("image/png"));
     };
+    img.onerror = () => setError("This image could not be opened. Try a different image file.");
   };
 
   return (
@@ -78,7 +95,7 @@ export default function ResizeImage() {
                 type="number"
                 min="1"
                 value={width}
-                onChange={(e) => handleWidthChange(Number(e.target.value))}
+                onChange={(e) => handleWidthChange(e.target.value === "" ? Number.NaN : Number(e.target.value))}
                 className="input-field"
               />
             </div>
@@ -88,7 +105,7 @@ export default function ResizeImage() {
                 type="number"
                 min="1"
                 value={height}
-                onChange={(e) => handleHeightChange(Number(e.target.value))}
+                onChange={(e) => handleHeightChange(e.target.value === "" ? Number.NaN : Number(e.target.value))}
                 className="input-field"
               />
             </div>
@@ -106,6 +123,7 @@ export default function ResizeImage() {
           <button onClick={resizeImage} className="btn btn-primary" disabled={!image}>
             Resize Image
           </button>
+          {error && <p role="alert" style={{ color: "#a93200", marginTop: "1rem" }}>{error}</p>}
 
           {resizedImage && (
             <div style={{ marginTop: "1.5rem" }}>
@@ -114,7 +132,7 @@ export default function ResizeImage() {
                 {/* eslint-disable-next-line @next/next/no-img-element -- client-generated canvas data URL, not an optimizable remote asset */}
                 <img src={resizedImage} alt="Resized image preview" style={{ maxWidth: "100%", borderRadius: 8 }} />
               </div>
-              <a href={resizedImage} download="resized.jpg">
+              <a href={resizedImage} download="resized.png">
                 <button className="btn btn-success">⬇️ Download Image</button>
               </a>
             </div>

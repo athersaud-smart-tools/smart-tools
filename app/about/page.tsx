@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About SmartEdgeTools",
+  title: "About",
   description:
     "Learn about SmartEdgeTools, a free online platform for practical calculators, converters, text, image, PDF, and productivity tools.",
   alternates: { canonical: "/about" },

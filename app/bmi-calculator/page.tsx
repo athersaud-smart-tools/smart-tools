@@ -52,7 +52,7 @@ export default function BMICalculator() {
               <button
                 key={u}
                 onClick={() => { setUnit(u); setBmi(null); setWeight(""); setHeight(""); }}
-                style={{ flex: 1, padding: "0.6rem", borderRadius: 8, border: "1.5px solid", borderColor: unit === u ? "var(--accent)" : "var(--border)", background: unit === u ? "var(--accent)" : "var(--bg)", color: unit === u ? "#fff" : "var(--ink)", fontFamily: "Syne", fontWeight: 700, fontSize: "0.875rem", cursor: "pointer" }}
+                style={{ flex: 1, padding: "0.6rem", borderRadius: 8, border: "1.5px solid", borderColor: unit === u ? "var(--accent)" : "var(--border)", background: unit === u ? "var(--accent)" : "var(--bg)", color: unit === u ? "#fff" : "var(--ink)", fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.875rem", cursor: "pointer" }}
               >
                 {u === "metric" ? "Metric (kg/cm)" : "Imperial (lb/in)"}
               </button>
@@ -77,8 +77,8 @@ export default function BMICalculator() {
           {bmi && category && (
             <div style={{ marginTop: "1.5rem" }}>
               <div style={{ textAlign: "center", padding: "1.5rem", background: "var(--bg)", borderRadius: 12, border: `1.5px solid ${category.color}`, marginBottom: "1rem" }}>
-                <div style={{ fontSize: "3rem", fontWeight: 800, fontFamily: "Syne", color: category.color }}>{bmi}</div>
-                <div style={{ fontSize: "1.1rem", fontWeight: 700, fontFamily: "Syne", color: category.color }}>{category.label}</div>
+                <div style={{ fontSize: "3rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: category.color }}>{bmi}</div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 700, fontFamily: "var(--font-syne)", color: category.color }}>{category.label}</div>
               </div>
 
               {/* BMI scale */}

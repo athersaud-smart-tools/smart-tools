@@ -126,9 +126,9 @@ export default function CurrencyConverter() {
           {result && (
             <div style={{ marginTop: "1.5rem", textAlign: "center", padding: "1.5rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)" }}>
               <div style={{ fontSize: "0.85rem", color: "var(--ink2)", marginBottom: "0.5rem" }}>{amount} {from} =</div>
-              <div style={{ fontSize: "2.5rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent)" }}>{Number(result).toLocaleString()} {to}</div>
+              <div style={{ fontSize: "2.5rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--accent)" }}>{Number(result).toLocaleString()} {to}</div>
               {rate && <div style={{ fontSize: "0.75rem", color: "var(--ink2)", marginTop: "0.5rem" }}>Provider rate: 1 {from} = {rate} {to} (may lag the market)</div>}
-              <button onClick={() => navigator.clipboard.writeText(result)} style={{ marginTop: "0.75rem", padding: "0.4rem 1rem", borderRadius: 6, border: "none", background: "var(--green)", color: "#fff", fontFamily: "Syne", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer" }}>📋 Copy</button>
+              <button onClick={() => navigator.clipboard.writeText(result)} style={{ marginTop: "0.75rem", padding: "0.4rem 1rem", borderRadius: 6, border: "none", background: "var(--green)", color: "#fff", fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer" }}>📋 Copy</button>
             </div>
           )}
 
@@ -139,7 +139,7 @@ export default function CurrencyConverter() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
               {popularPairs.map((pair) => (
                 <button key={`${pair.from}-${pair.to}`} onClick={() => { setFrom(pair.from); setTo(pair.to); setResult(null); setRate(null); }}
-                  style={{ padding: "0.5rem", borderRadius: 8, border: "1.5px solid", borderColor: from === pair.from && to === pair.to ? "var(--accent)" : "var(--border)", background: from === pair.from && to === pair.to ? "rgba(232,93,47,0.08)" : "var(--bg)", cursor: "pointer", fontSize: "0.8rem", fontFamily: "Syne", fontWeight: 700, color: from === pair.from && to === pair.to ? "var(--accent)" : "var(--ink2)" }}>
+                  style={{ padding: "0.5rem", borderRadius: 8, border: "1.5px solid", borderColor: from === pair.from && to === pair.to ? "var(--accent)" : "var(--border)", background: from === pair.from && to === pair.to ? "rgba(232,93,47,0.08)" : "var(--bg)", cursor: "pointer", fontSize: "0.8rem", fontFamily: "var(--font-syne)", fontWeight: 700, color: from === pair.from && to === pair.to ? "var(--accent)" : "var(--ink2)" }}>
                   {pair.from} → {pair.to}
                 </button>
               ))}

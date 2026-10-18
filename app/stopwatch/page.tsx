@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import ToolGuide from "@/app/components/ToolGuide";
 
@@ -9,15 +9,25 @@ export default function Stopwatch() {
   const [running, setRunning] = useState(false);
   const [laps, setLaps] = useState<number[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
+  const startedAtRef = useRef<number | null>(null);
+  const elapsedBeforeStartRef = useRef(0);
+
+  useEffect(() => () => clearInterval(intervalRef.current), []);
 
   const start = () => {
     setRunning(true);
-    intervalRef.current = setInterval(() => setTime((t) => t + 10), 10);
+    startedAtRef.current = performance.now();
+    intervalRef.current = setInterval(() => {
+      setTime(elapsedBeforeStartRef.current + performance.now() - (startedAtRef.current ?? performance.now()));
+    }, 30);
   };
 
   const pause = () => {
     setRunning(false);
     clearInterval(intervalRef.current);
+    if (startedAtRef.current !== null) elapsedBeforeStartRef.current += performance.now() - startedAtRef.current;
+    startedAtRef.current = null;
+    setTime(elapsedBeforeStartRef.current);
   };
 
   const reset = () => {
@@ -25,6 +35,8 @@ export default function Stopwatch() {
     clearInterval(intervalRef.current);
     setTime(0);
     setLaps([]);
+    elapsedBeforeStartRef.current = 0;
+    startedAtRef.current = null;
   };
 
   const lap = () => setLaps((prev) => [...prev, time]);
@@ -45,7 +57,7 @@ export default function Stopwatch() {
 
           {/* Timer display */}
           <div style={{ textAlign: "center", padding: "2rem 1rem", background: "var(--ink)", borderRadius: 16, marginBottom: "1.5rem" }}>
-            <div style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "3.5rem", color: running ? "#4ade80" : "#fff", letterSpacing: "0.05em", fontVariantNumeric: "tabular-nums" }}>
+            <div style={{ fontFamily: "var(--font-syne)", fontWeight: 800, fontSize: "3.5rem", color: running ? "#4ade80" : "#fff", letterSpacing: "0.05em", fontVariantNumeric: "tabular-nums" }}>
               {format(time)}
             </div>
           </div>
@@ -88,7 +100,7 @@ export default function Stopwatch() {
                   const lapTime = lapNum > 1 ? lap - laps[lapNum - 2] : lap;
                   return (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "0.6rem 0.875rem", background: "var(--bg)", borderRadius: 8, border: "1.5px solid var(--border)" }}>
-                      <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.85rem", color: "var(--ink2)" }}>Lap {lapNum}</span>
+                      <span style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.85rem", color: "var(--ink2)" }}>Lap {lapNum}</span>
                       <span style={{ fontFamily: "monospace", fontSize: "0.9rem", color: "var(--ink)" }}>{format(lapTime)}</span>
                       <span style={{ fontFamily: "monospace", fontSize: "0.9rem", color: "var(--accent)" }}>{format(lap)}</span>
                     </div>

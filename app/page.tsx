@@ -50,30 +50,6 @@ export default function Home() {
 
   return (
     <main style={{ background: "var(--bg)", minHeight: "100vh" }}>
-      <nav className="navbar" aria-label="Main navigation">
-        <Link href="/" className="navbar-logo" aria-label="SmartEdgeTools home">
-          <svg className="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-            <defs>
-              <linearGradient id="brand-mark-gradient" x1="5" y1="35" x2="35" y2="5" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#c43b00" />
-                <stop offset="1" stopColor="#ff783f" />
-              </linearGradient>
-            </defs>
-            <rect x="1" y="1" width="38" height="38" rx="12" fill="#171615" />
-            <path d="M11 12.5 20 7l9 5.5v10L20 28l-9-5.5v-10Z" fill="url(#brand-mark-gradient)" />
-            <path d="m17 19 3-8 3 8h-2l-1 4-1-4h-2Z" fill="#fff" />
-            <path d="m20 28 9-5.5v5L20 33l-9-5.5v-5L20 28Z" fill="#2878e8" />
-          </svg>
-          <span className="navbar-wordmark"><span>Smart</span>EdgeTools</span>
-        </Link>
-        <ul className="navbar-links">
-          <li><Link href="/">Tools</Link></li>
-          <li><Link href="/blog">Blog</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-      </nav>
-
       <header className="hero">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
@@ -117,7 +93,7 @@ export default function Home() {
           <Link href="/currency-converter" className="tool-card"><div className="tool-icon-wrap">💱</div><h3>Converters</h3><p>Convert currencies, units, and common measurements.</p></Link>
           <Link href="/image/resize" className="tool-card"><div className="tool-icon-wrap">🖼️</div><h3>Image & PDF Tools</h3><p>Resize, compress, and combine files in your browser.</p></Link>
           <Link href="/word-counter" className="tool-card"><div className="tool-icon-wrap">✍️</div><h3>Text & Productivity</h3><p>Count words, improve text, test typing, and more.</p></Link>
-          <Link href="/json-formatter" className="tool-card"><div className="tool-icon-wrap">{ }</div><h3>Developer tools</h3><p>Format and validate JSON data directly in your browser.</p></Link>
+          <Link href="/json-formatter" className="tool-card"><div className="tool-icon-wrap" aria-hidden="true">{"{}"}</div><h3>Developer tools</h3><p>Format and validate JSON data directly in your browser.</p></Link>
         </div>
       </section>
 
@@ -188,19 +164,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <div className="footer-links" style={{ flexWrap: "wrap" }}>
-            <Link href="/">Tools</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/terms">Terms</Link>
-          </div>
-          <p style={{ color: "#777", lineHeight: 1.7 }}>© 2026 SmartEdgeTools. Free online tools for everyday tasks.</p>
-        </div>
-      </footer>
     </main>
   );
 }

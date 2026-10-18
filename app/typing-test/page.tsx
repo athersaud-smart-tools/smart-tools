@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import ToolGuide from "@/app/components/ToolGuide";
 
-const sampleText = "The quick brown fox jumps over the lazy dog and the dog barked loudly at the fox running away";
+const sampleText = "The quick brown fox jumps over the lazy dog while a gentle breeze moved through the trees. Learning to type accurately takes practice, patience, and steady rhythm. Keep your hands relaxed, watch the text, and focus on consistent keystrokes rather than rushing through every sentence.";
 
 export default function TypingTest() {
   const [input, setInput] = useState("");
@@ -12,30 +12,34 @@ export default function TypingTest() {
   const [isActive, setIsActive] = useState(false);
   const [wpm, setWpm] = useState<number | null>(null);
   const [accuracy, setAccuracy] = useState<number | null>(null);
+  const inputRef = useRef("");
+  const deadlineRef = useRef<number | null>(null);
 
-  const calculateResults = () => {
-    const words = input.trim().split(/\s+/).filter(Boolean);
-    const correctChars = input.split("").filter((c, i) => c === sampleText[i]).length;
-    const acc = input.length > 0 ? Math.round((correctChars / input.length) * 100) : 0;
-    setWpm(words.length * 2);
+  const calculateResults = (typed: string) => {
+    const correctChars = typed.split("").filter((c, i) => c === sampleText[i]).length;
+    const acc = typed.length > 0 ? Math.round((correctChars / typed.length) * 100) : 0;
+    setWpm(Math.round(correctChars / 5 / 0.5));
     setAccuracy(acc);
   };
 
   useEffect(() => {
-    let timer: ReturnType<typeof setInterval> | undefined;
-    if (isActive && time > 0) {
-      timer = setInterval(() => setTime((prev) => prev - 1), 1000);
-    } else if (time === 0 && isActive) {
-      calculateResults();
-      setIsActive(false);
-    }
+    if (!isActive) return;
+    const timer = setInterval(() => {
+      const remaining = Math.max(0, Math.ceil(((deadlineRef.current ?? Date.now()) - Date.now()) / 1000));
+      setTime(remaining);
+      if (remaining === 0) {
+        calculateResults(inputRef.current);
+        setIsActive(false);
+      }
+    }, 100);
     return () => clearInterval(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isActive, time, input]);
+  }, [isActive]);
 
   const startTest = () => {
     setIsActive(true);
     setTime(30);
+    inputRef.current = "";
+    deadlineRef.current = Date.now() + 30_000;
     setInput("");
     setWpm(null);
     setAccuracy(null);
@@ -55,15 +59,15 @@ export default function TypingTest() {
           {/* Stats row */}
           <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem" }}>
             <div style={{ flex: 1, background: "var(--bg)", borderRadius: 12, padding: "1rem", textAlign: "center", border: "1.5px solid var(--border)" }}>
-              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "Syne", color: timeColor }}>{time}s</div>
+              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: timeColor }}>{time}s</div>
               <div style={{ fontSize: "0.75rem", color: "var(--ink2)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Time Left</div>
             </div>
             <div style={{ flex: 1, background: "var(--bg)", borderRadius: 12, padding: "1rem", textAlign: "center", border: "1.5px solid var(--border)" }}>
-              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent2)" }}>{wpm ?? "—"}</div>
+              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--accent2)" }}>{wpm ?? "—"}</div>
               <div style={{ fontSize: "0.75rem", color: "var(--ink2)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>WPM</div>
             </div>
             <div style={{ flex: 1, background: "var(--bg)", borderRadius: 12, padding: "1rem", textAlign: "center", border: "1.5px solid var(--border)" }}>
-              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "Syne", color: "var(--green)" }}>{accuracy !== null ? accuracy + "%" : "—"}</div>
+              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--green)" }}>{accuracy !== null ? accuracy + "%" : "—"}</div>
               <div style={{ fontSize: "0.75rem", color: "var(--ink2)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Accuracy</div>
             </div>
           </div>
@@ -90,7 +94,7 @@ export default function TypingTest() {
             <label className="field-label">Your Input</label>
             <textarea
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => { inputRef.current = e.target.value; setInput(e.target.value); }}
               disabled={!isActive}
               className="input-field"
               rows={3}
@@ -104,7 +108,7 @@ export default function TypingTest() {
 
           {wpm !== null && (
             <div style={{ marginTop: "1rem", padding: "1rem", background: "rgba(26,140,91,0.08)", borderRadius: 10, textAlign: "center", border: "1.5px solid var(--green)" }}>
-              <p style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "1.1rem", color: "var(--green)" }}>
+              <p style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "1.1rem", color: "var(--green)" }}>
                 🎉 You typed {wpm} WPM with {accuracy}% accuracy!
               </p>
             </div>

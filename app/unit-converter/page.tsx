@@ -7,11 +7,11 @@ import ToolGuide from "@/app/components/ToolGuide";
 const categories = {
   Length: {
     units: ["Meter", "Kilometer", "Mile", "Yard", "Foot", "Inch", "Centimeter", "Millimeter"],
-    toBase: { Meter: 1, Kilometer: 1000, Mile: 1609.34, Yard: 0.9144, Foot: 0.3048, Inch: 0.0254, Centimeter: 0.01, Millimeter: 0.001 },
+    toBase: { Meter: 1, Kilometer: 1000, Mile: 1609.344, Yard: 0.9144, Foot: 0.3048, Inch: 0.0254, Centimeter: 0.01, Millimeter: 0.001 },
   },
   Weight: {
-    units: ["Kilogram", "Gram", "Pound", "Ounce", "Ton"],
-    toBase: { Kilogram: 1, Gram: 0.001, Pound: 0.453592, Ounce: 0.0283495, Ton: 1000 },
+    units: ["Kilogram", "Gram", "Pound (avoirdupois)", "Ounce (avoirdupois)", "Metric tonne"],
+    toBase: { Kilogram: 1, Gram: 0.001, "Pound (avoirdupois)": 0.45359237, "Ounce (avoirdupois)": 0.028349523125, "Metric tonne": 1000 },
   },
   Temperature: {
     units: ["Celsius", "Fahrenheit", "Kelvin"],
@@ -19,11 +19,11 @@ const categories = {
   },
   Speed: {
     units: ["km/h", "mph", "m/s", "knot"],
-    toBase: { "km/h": 1, "mph": 1.60934, "m/s": 3.6, "knot": 1.852 },
+    toBase: { "km/h": 1, "mph": 1.609344, "m/s": 3.6, "knot": 1.852 },
   },
   Area: {
     units: ["Square Meter", "Square Kilometer", "Square Mile", "Square Foot", "Acre", "Hectare"],
-    toBase: { "Square Meter": 1, "Square Kilometer": 1e6, "Square Mile": 2.59e6, "Square Foot": 0.092903, "Acre": 4046.86, "Hectare": 10000 },
+    toBase: { "Square Meter": 1, "Square Kilometer": 1e6, "Square Mile": 2_589_988.110336, "Square Foot": 0.09290304, "Acre": 4046.8564224, "Hectare": 10000 },
   },
 };
 
@@ -37,7 +37,7 @@ export default function UnitConverter() {
 
   const convert = () => {
     const val = parseFloat(input);
-    if (isNaN(val)) return "";
+    if (!Number.isFinite(val)) return "";
 
     if (category === "Temperature") {
       if (fromUnit === "Celsius" && toUnit === "Fahrenheit") return ((val * 9) / 5 + 32).toFixed(4);
@@ -51,7 +51,7 @@ export default function UnitConverter() {
 
     const toBase = categories[category].toBase as Record<string, number>;
     const inBase = val * (toBase[fromUnit] || 1);
-    return (inBase / (toBase[toUnit] || 1)).toFixed(6).replace(/\.?0+$/, "");
+      return (inBase / (toBase[toUnit] || 1)).toPrecision(10).replace(/(?:\.0+|(?:(\.\d*?)0+))$/, "$1");
   };
 
   const handleCategoryChange = (cat: CategoryKey) => {
@@ -89,7 +89,7 @@ export default function UnitConverter() {
                     borderColor: category === cat ? "var(--accent)" : "var(--border)",
                     background: category === cat ? "var(--accent)" : "var(--bg)",
                     color: category === cat ? "#fff" : "var(--ink)",
-                    fontFamily: "Syne",
+                    fontFamily: "var(--font-syne)",
                     fontWeight: 700,
                     fontSize: "0.85rem",
                     cursor: "pointer",
@@ -146,8 +146,8 @@ export default function UnitConverter() {
           {/* Result */}
           {result && (
             <div style={{ background: "var(--bg)", borderRadius: 12, padding: "1.25rem", textAlign: "center", border: "1.5px solid var(--accent)" }}>
-              <div style={{ fontSize: "0.8rem", color: "var(--ink2)", fontFamily: "Syne", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.4rem" }}>Result</div>
-              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent)" }}>{result}</div>
+              <div style={{ fontSize: "0.8rem", color: "var(--ink2)", fontFamily: "var(--font-syne)", fontWeight: 700, textTransform: "uppercase", marginBottom: "0.4rem" }}>Result</div>
+              <div style={{ fontSize: "2rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--accent)" }}>{result}</div>
               <div style={{ fontSize: "0.9rem", color: "var(--ink2)" }}>{toUnit}</div>
             </div>
           )}

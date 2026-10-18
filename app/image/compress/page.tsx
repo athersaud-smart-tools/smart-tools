@@ -12,6 +12,7 @@ export default function CompressImage() {
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [quality, setQuality] = useState(0.7);
+  const [outputType, setOutputType] = useState("image/jpeg");
   const imageUrlRef = useRef<string | null>(null);
   const compressedUrlRef = useRef<string | null>(null);
 
@@ -51,6 +52,11 @@ export default function CompressImage() {
         setError("Your browser could not prepare this image. Try another browser or a smaller file.");
         return;
       }
+      const nextOutputType = file?.type === "image/png" ? "image/webp" : "image/jpeg";
+      if (nextOutputType === "image/jpeg") {
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
       ctx.drawImage(img, 0, 0);
       canvas.toBlob((blob) => {
         if (!blob) {
@@ -63,7 +69,8 @@ export default function CompressImage() {
         setCompressedImageUrl(nextCompressedUrl);
         setCompressedSize(blob.size);
         setDimensions({ width: img.width, height: img.height });
-      }, "image/jpeg", quality);
+        setOutputType(nextOutputType);
+      }, nextOutputType, quality);
     };
   };
 
@@ -85,7 +92,7 @@ export default function CompressImage() {
         <div className="tool-container">
           <h1>⚡ Image Compressor</h1>
           <p style={{ color: "var(--ink2)", margin: "0.75rem 0 1.5rem", lineHeight: 1.6 }}>
-            Compress an image in your browser, compare its file size before and after, and download the JPEG when the result suits your needs. The original stays unchanged.
+            Compress an image in your browser, compare its file size before and after, and download the result. PNG transparency is preserved in WebP; other formats are saved as JPEG on a white background. The original stays unchanged.
           </p>
 
           <div style={{ marginBottom: "1rem" }}>
@@ -134,7 +141,7 @@ export default function CompressImage() {
               <dl style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "0.5rem 1rem", color: "var(--ink2)" }}>
                 <dt>Original</dt><dd>{formatBytes(file.size)}</dd>
                 {compressedSize !== null && <>
-                  <dt>Compressed JPEG</dt><dd>{formatBytes(compressedSize)}</dd>
+                  <dt>Compressed {outputType === "image/webp" ? "WebP" : "JPEG"}</dt><dd>{formatBytes(compressedSize)}</dd>
                   <dt>Change</dt>
                   <dd style={{ fontWeight: 700, color: savingsPercent !== null && savingsPercent > 0 ? "var(--green)" : "var(--accent)" }}>
                     {savingsPercent !== null && savingsPercent > 0
@@ -156,12 +163,12 @@ export default function CompressImage() {
 
           {compressedImageUrl && (
             <div style={{ marginTop: "1.5rem" }}>
-              <label className="field-label">Compressed JPEG preview</label>
+              <label className="field-label">Compressed {outputType === "image/webp" ? "WebP" : "JPEG"} preview</label>
               <div className="result-box" style={{ padding: "0.75rem", textAlign: "center" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- client-generated blob URL, not an optimizable remote asset */}
                 <img src={compressedImageUrl} alt="Compressed image preview" style={{ maxWidth: "100%", borderRadius: 8 }} />
               </div>
-              <a href={compressedImageUrl} download="compressed.jpg">
+              <a href={compressedImageUrl} download={outputType === "image/webp" ? "compressed.webp" : "compressed.jpg"}>
                 <button className="btn btn-success">⬇️ Download Image</button>
               </a>
             </div>

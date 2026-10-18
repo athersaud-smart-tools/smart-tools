@@ -36,7 +36,7 @@ export default function WordCounter() {
               { label: "Read Time", value: `${readTime} min`, color: "var(--ink2)" },
             ].map((stat) => (
               <div key={stat.label} style={{ background: "var(--bg)", borderRadius: 10, padding: "0.875rem", textAlign: "center", border: "1.5px solid var(--border)" }}>
-                <div style={{ fontSize: "1.6rem", fontWeight: 800, fontFamily: "Syne", color: stat.color }}>{stat.value}</div>
+                <div style={{ fontSize: "1.6rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: stat.color }}>{stat.value}</div>
                 <div style={{ fontSize: "0.75rem", color: "var(--ink2)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>{stat.label}</div>
               </div>
             ))}

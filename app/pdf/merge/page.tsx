@@ -9,15 +9,18 @@ export default function MergePDF() {
   const [files, setFiles] = useState<File[]>([]);
   const [mergedUrl, setMergedUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFiles(e.target.files ? Array.from(e.target.files) : []);
     setMergedUrl(null);
+    setError("");
   };
 
   const mergePDFs = async () => {
-    if (files.length < 2) { alert("Please upload at least 2 PDFs"); return; }
+    if (files.length < 2) { setError("Please select at least two PDF files."); return; }
     setLoading(true);
+    setError("");
     try {
       const mergedPdf = await PDFDocument.create();
       for (const file of files) {
@@ -35,7 +38,7 @@ export default function MergePDF() {
       setMergedUrl(URL.createObjectURL(blob));
     } catch (err) {
       console.error("PDF merge failed:", err);
-      alert("Error merging PDFs. Please try again.");
+      setError("The PDFs could not be merged. Check that each file is a valid, unencrypted PDF and try again.");
     } finally {
       setLoading(false);
     }
@@ -86,6 +89,7 @@ export default function MergePDF() {
           >
             {loading ? "Merging..." : "🔗 Merge PDFs Now"}
           </button>
+          {error && <p role="alert" style={{ color: "#a93200", marginTop: "1rem" }}>{error}</p>}
 
           {loading && (
             <div style={{ textAlign: "center", marginTop: "1rem", display: "flex", gap: 6, justifyContent: "center" }}>
@@ -97,7 +101,7 @@ export default function MergePDF() {
 
           {mergedUrl && (
             <div style={{ marginTop: "1rem", padding: "1rem", background: "rgba(26,140,91,0.08)", borderRadius: 10, textAlign: "center", border: "1.5px solid var(--green)" }}>
-              <p style={{ fontFamily: "Syne", fontWeight: 700, color: "var(--green)", marginBottom: "0.75rem" }}>
+              <p style={{ fontFamily: "var(--font-syne)", fontWeight: 700, color: "var(--green)", marginBottom: "0.75rem" }}>
                 ✅ PDFs merged successfully!
               </p>
               <a href={mergedUrl} download="merged.pdf">
@@ -117,7 +121,7 @@ export default function MergePDF() {
               { step: "3", title: "Download Your Merged PDF", desc: "Once done, click the Download button to save your merged PDF file to your device for free." },
             ].map((item) => (
               <div key={item.step} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
-                <div style={{ minWidth: 36, height: 36, borderRadius: "50%", background: "var(--accent)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Syne", fontWeight: 800, fontSize: "1rem" }}>{item.step}</div>
+                <div style={{ minWidth: 36, height: 36, borderRadius: "50%", background: "var(--accent)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-syne)", fontWeight: 800, fontSize: "1rem" }}>{item.step}</div>
                 <div>
                   <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.25rem" }}>{item.title}</h3>
                   <p style={{ color: "var(--ink2)", fontSize: "0.9rem", lineHeight: 1.6 }}>{item.desc}</p>

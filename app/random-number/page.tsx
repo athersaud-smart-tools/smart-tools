@@ -11,23 +11,53 @@ export default function RandomNumberGenerator() {
   const [unique, setUnique] = useState(false);
   const [numbers, setNumbers] = useState<number[]>([]);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
 
   const generate = () => {
-    const minN = parseInt(min);
-    const maxN = parseInt(max);
-    const countN = Math.min(parseInt(count), 100);
-    if (isNaN(minN) || isNaN(maxN) || minN >= maxN) return;
+    const minN = Number(min);
+    const maxN = Number(max);
+    const countN = Number(count);
+    setError("");
+    if (!Number.isSafeInteger(minN) || !Number.isSafeInteger(maxN) || minN > maxN) {
+      setError("Enter whole numbers within the safe integer range, with the minimum no greater than the maximum.");
+      return;
+    }
+    if (!Number.isInteger(countN) || countN < 1 || countN > 100) {
+      setError("Choose a quantity from 1 to 100.");
+      return;
+    }
+    const range = BigInt(maxN) - BigInt(minN) + 1n;
+    if (unique && BigInt(countN) > range) {
+      setError("The range does not contain enough distinct numbers for that quantity.");
+      return;
+    }
+
+    const randomBelow = (limit: bigint) => {
+      const bitLength = limit.toString(2).length;
+      const byteLength = Math.ceil(bitLength / 8);
+      const excessBits = byteLength * 8 - bitLength;
+      const bytes = new Uint8Array(byteLength);
+      let value: bigint;
+      do {
+        window.crypto.getRandomValues(bytes);
+        if (excessBits) bytes[0] &= 0xff >> excessBits;
+        value = 0n;
+        for (const byte of bytes) value = (value << 8n) | BigInt(byte);
+      } while (value >= limit);
+      return value;
+    };
 
     const result: number[] = [];
     if (unique) {
-      const pool = Array.from({ length: maxN - minN + 1 }, (_, i) => i + minN);
-      for (let i = 0; i < Math.min(countN, pool.length); i++) {
-        const idx = Math.floor(Math.random() * pool.length);
-        result.push(pool.splice(idx, 1)[0]);
+      const chosen = new Set<bigint>();
+      for (let j = range - BigInt(countN); j < range; j++) {
+        const candidate = randomBelow(j + 1n);
+        chosen.add(chosen.has(candidate) ? j : candidate);
       }
+      result.push(...Array.from(chosen, (offset) => Number(BigInt(minN) + offset)));
     } else {
       for (let i = 0; i < countN; i++) {
-        result.push(Math.floor(Math.random() * (maxN - minN + 1)) + minN);
+        result.push(Number(BigInt(minN) + randomBelow(range)));
       }
     }
     setNumbers(result);
@@ -71,6 +101,7 @@ export default function RandomNumberGenerator() {
             No duplicate numbers (unique only)
           </label>
 
+          {error && <p role="alert" style={{ color: "#a93200", marginBottom: "1rem" }}>{error}</p>}
           <button className="btn btn-primary" onClick={generate}>
             🎲 Generate Numbers
           </button>
@@ -79,14 +110,14 @@ export default function RandomNumberGenerator() {
             <div style={{ marginTop: "1.5rem" }}>
               {numbers.length === 1 ? (
                 <div style={{ textAlign: "center", padding: "2rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)" }}>
-                  <div style={{ fontSize: "5rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent)" }}>{numbers[0]}</div>
+                  <div style={{ fontSize: "5rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--accent)" }}>{numbers[0]}</div>
                 </div>
               ) : (
                 <div>
                   <label className="field-label">Generated Numbers ({numbers.length})</label>
                   <div className="result-box" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                     {numbers.map((n, i) => (
-                      <span key={i} style={{ background: "var(--accent)", color: "#fff", borderRadius: 6, padding: "4px 10px", fontFamily: "Syne", fontWeight: 700, fontSize: "0.9rem" }}>{n}</span>
+                      <span key={i} style={{ background: "var(--accent)", color: "#fff", borderRadius: 6, padding: "4px 10px", fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.9rem" }}>{n}</span>
                     ))}
                   </div>
                 </div>

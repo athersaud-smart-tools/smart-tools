@@ -70,7 +70,7 @@ export default function PercentageCalculator() {
                   onClick={() => { setMode(i); setResult(null); setError(""); setA(""); setB(""); }}
                   style={{ padding: "0.75rem 1rem", borderRadius: 8, border: "1.5px solid", textAlign: "left", borderColor: mode === i ? "var(--accent)" : "var(--border)", background: mode === i ? "rgba(232,93,47,0.06)" : "var(--bg)", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                 >
-                  <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.875rem", color: mode === i ? "var(--accent)" : "var(--ink)" }}>{m.label}</span>
+                  <span style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.875rem", color: mode === i ? "var(--accent)" : "var(--ink)" }}>{m.label}</span>
                   <span style={{ fontSize: "0.75rem", color: "var(--ink2)" }}>{m.desc}</span>
                 </button>
               ))}
@@ -97,12 +97,12 @@ export default function PercentageCalculator() {
           {result !== null && (
             <div style={{ marginTop: "1.5rem", textAlign: "center", padding: "1.5rem", background: "var(--bg)", borderRadius: 12, border: "1.5px solid var(--accent)" }}>
               <div style={{ fontSize: "0.85rem", color: "var(--ink2)", marginBottom: "0.5rem" }}>Result</div>
-              <div style={{ fontSize: "3rem", fontWeight: 800, fontFamily: "Syne", color: "var(--accent)" }}>
+              <div style={{ fontSize: "3rem", fontWeight: 800, fontFamily: "var(--font-syne)", color: "var(--accent)" }}>
                 {result}{mode === 1 || mode === 2 ? "%" : ""}
               </div>
               <button
                 onClick={() => navigator.clipboard.writeText(result)}
-                style={{ marginTop: "0.75rem", padding: "0.4rem 1rem", borderRadius: 6, border: "none", background: "var(--green)", color: "#fff", fontFamily: "Syne", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer" }}
+                style={{ marginTop: "0.75rem", padding: "0.4rem 1rem", borderRadius: 6, border: "none", background: "var(--green)", color: "#fff", fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer" }}
               >
                 📋 Copy
               </button>

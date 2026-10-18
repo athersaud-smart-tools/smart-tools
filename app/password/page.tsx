@@ -12,6 +12,7 @@ export default function PasswordGenerator() {
   const [useNumbers, setUseNumbers] = useState(true);
   const [useSymbols, setUseSymbols] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
 
   const generate = () => {
     const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -25,7 +26,8 @@ export default function PasswordGenerator() {
     if (useNumbers) chars += numbers;
     if (useSymbols) chars += symbols;
 
-    if (!chars) { alert("Please select at least one option!"); return; }
+    if (!chars) { setError("Choose at least one character group."); return; }
+    setError("");
 
     let result = "";
     const limit = Math.floor(0x1_0000_0000 / chars.length) * chars.length;
@@ -55,8 +57,8 @@ export default function PasswordGenerator() {
     if (useNumbers) score++;
     if (useSymbols) score++;
     if (length >= 16) score++;
-    if (score <= 2) return { label: "Weak", color: "var(--accent)" };
-    if (score <= 3) return { label: "Medium", color: "#e8a52f" };
+    if (score <= 2 || length < 12) return { label: "Weak", color: "var(--accent)" };
+    if (score <= 4 || length < 16) return { label: "Medium", color: "#a05a00" };
     return { label: "Strong", color: "var(--green)" };
   };
 
@@ -108,12 +110,13 @@ export default function PasswordGenerator() {
 
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: "0.5rem" }}>
             <label className="field-label" style={{ margin: 0 }}>Strength:</label>
-            <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.85rem", color: strength.color }}>{strength.label}</span>
+            <span style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.85rem", color: strength.color }}>{strength.label}</span>
           </div>
 
           <button className="btn btn-primary" onClick={generate}>
             🔐 Generate Password
           </button>
+          {error && <p role="alert" style={{ color: "#a93200", marginTop: "1rem" }}>{error}</p>}
 
           {password && (
             <div style={{ marginTop: "1.5rem" }}>

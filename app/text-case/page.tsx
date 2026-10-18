@@ -13,7 +13,7 @@ export default function TextCaseConverter() {
       case "upper": return text.toUpperCase();
       case "lower": return text.toLowerCase();
       case "title": return text.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
-      case "sentence": return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+      case "sentence": return text.toLowerCase().replace(/(^\s*|[.!?]\s+)([\p{L}])/gu, (_, boundary: string, letter: string) => boundary + letter.toUpperCase());
       case "camel": return text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase());
       case "snake": return text.toLowerCase().replace(/\s+/g, "_");
       case "kebab": return text.toLowerCase().replace(/\s+/g, "-");
@@ -72,10 +72,10 @@ export default function TextCaseConverter() {
                   style={{ display: "flex", alignItems: "center", gap: "0.75rem", background: "var(--bg)", borderRadius: 10, padding: "0.75rem 1rem", border: "1.5px solid var(--border)", cursor: text ? "pointer" : "default" }}
                   onClick={() => text && copy(result, conv.label)}
                 >
-                  <span style={{ fontFamily: "Syne", fontWeight: 700, fontSize: "0.75rem", color: "var(--ink2)", textTransform: "uppercase", minWidth: 100 }}>{conv.label}</span>
+                  <span style={{ fontFamily: "var(--font-syne)", fontWeight: 700, fontSize: "0.75rem", color: "var(--ink2)", textTransform: "uppercase", minWidth: 100 }}>{conv.label}</span>
                   <span style={{ flex: 1, fontFamily: "monospace", fontSize: "0.875rem", color: isExample ? "var(--ink2)" : "var(--ink)", fontStyle: isExample ? "italic" : "normal" }}>{result}</span>
                   {text && (
-                    <span style={{ background: copied === conv.label ? "var(--green)" : "var(--accent)", color: "#fff", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", fontFamily: "Syne", fontWeight: 700, whiteSpace: "nowrap" }}>
+                    <span style={{ background: copied === conv.label ? "var(--green)" : "var(--accent)", color: "#fff", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", fontFamily: "var(--font-syne)", fontWeight: 700, whiteSpace: "nowrap" }}>
                       {copied === conv.label ? "✅ Copied" : "Copy"}
                     </span>
                   )}
