@@ -7,8 +7,10 @@ const tools = [
   { href: "/ai-rewrite", icon: "🤖", title: "AI Text Improver", desc: "Improve clarity, tone, and readability with AI.", category: "AI" },
   { href: "/currency-converter", icon: "💱", title: "Currency Converter", desc: "Convert currencies quickly with current rates.", category: "Finance" },
   { href: "/bmi-calculator", icon: "⚖️", title: "BMI Calculator", desc: "Calculate Body Mass Index from height and weight.", category: "Health" },
+  { href: "/birth-chart", icon: "🌙", title: "Birth Chart Calculator", desc: "Explore your natal chart, planetary placements, and houses.", category: "Astrology" },
   { href: "/age-calculator", icon: "🎂", title: "Age Calculator", desc: "Calculate years, months, and days from a birth date.", category: "Calculator" },
   { href: "/loan-calculator", icon: "🏦", title: "Loan Calculator", desc: "Estimate monthly payments, interest, and total cost.", category: "Finance" },
+  { href: "/final-grade-calculator", icon: "🎓", title: "Final Grade Calculator", desc: "Calculate a weighted grade or find the score needed on your final.", category: "Calculator" },
   { href: "/percentage-calculator", icon: "%", title: "Percentage Calculator", desc: "Calculate percentages, increases, decreases, and more.", category: "Calculator" },
   { href: "/random-number", icon: "🎲", title: "Random Number Generator", desc: "Generate random numbers within your chosen range.", category: "Calculator" },
   { href: "/image/resize", icon: "🖼️", title: "Image Resizer", desc: "Resize images to the dimensions you need.", category: "Image" },
@@ -18,13 +20,14 @@ const tools = [
   { href: "/word-counter", icon: "🔡", title: "Word Counter", desc: "Count words, characters, and text length instantly.", category: "Text" },
   { href: "/color-picker", icon: "🎨", title: "Color Picker", desc: "Pick a color and get useful HEX and RGB values.", category: "Design" },
   { href: "/text-case", icon: "📝", title: "Case Converter", desc: "Convert text to upper, lower, title, and other cases.", category: "Text" },
+  { href: "/json-formatter", icon: "{ }", title: "JSON Formatter & Validator", desc: "Format, minify, and validate JSON in your browser.", category: "Developer" },
   { href: "/unit-converter", icon: "🔄", title: "Unit Converter", desc: "Convert common length, weight, temperature, and other units.", category: "Calculator" },
   { href: "/stopwatch", icon: "⏱️", title: "Stopwatch", desc: "Use a simple stopwatch with lap timing.", category: "Tools" },
   { href: "/typing-test", icon: "⌨️", title: "Typing Speed Test", desc: "Measure typing speed and accuracy in your browser.", category: "Tools" },
   { href: "/pdf/merge", icon: "📄", title: "PDF Merge", desc: "Combine multiple PDF files into one document.", category: "PDF" },
 ];
 
-const categories = ["All", "AI", "Finance", "Health", "Calculator", "Image", "Generator", "Text", "Design", "PDF", "Tools"];
+const categories = ["All", "AI", "Finance", "Health", "Astrology", "Calculator", "Developer", "Image", "Generator", "Text", "Design", "PDF", "Tools"];
 
 const articles = [
   { href: "/blog/best-online-tools-2026", title: "Choosing an Online Tool for the Task", desc: "Compare tool workflows, data handling, and limitations before choosing." },
@@ -83,7 +86,7 @@ export default function Home() {
       </header>
 
       <div className="stats-bar" aria-label="SmartEdgeTools highlights">
-        <div className="stat-item"><div className="stat-num">18+</div><div className="stat-label">Useful tools</div></div>
+        <div className="stat-item"><div className="stat-num">21+</div><div className="stat-label">Useful tools</div></div>
         <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
         <div className="stat-item"><div className="stat-num">No app</div><div className="stat-label">Browser access</div></div>
       </div>
@@ -98,10 +101,11 @@ export default function Home() {
           </div>
         </div>
         <div className="tools-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))" }}>
-          <Link href="/age-calculator" className="tool-card"><div className="tool-icon-wrap">🎂</div><h3>Calculators</h3><p>Age, percentage, loan, BMI, and everyday calculations.</p></Link>
+          <Link href="/age-calculator" className="tool-card"><div className="tool-icon-wrap">🎂</div><h3>Calculators</h3><p>Age, percentage, final grade, loan, BMI, and everyday calculations.</p></Link>
           <Link href="/currency-converter" className="tool-card"><div className="tool-icon-wrap">💱</div><h3>Converters</h3><p>Convert currencies, units, and common measurements.</p></Link>
           <Link href="/image/resize" className="tool-card"><div className="tool-icon-wrap">🖼️</div><h3>Image & PDF Tools</h3><p>Resize, compress, and combine files in your browser.</p></Link>
           <Link href="/word-counter" className="tool-card"><div className="tool-icon-wrap">✍️</div><h3>Text & Productivity</h3><p>Count words, improve text, test typing, and more.</p></Link>
+          <Link href="/json-formatter" className="tool-card"><div className="tool-icon-wrap">{ }</div><h3>Developer tools</h3><p>Format and validate JSON data directly in your browser.</p></Link>
         </div>
       </section>
 

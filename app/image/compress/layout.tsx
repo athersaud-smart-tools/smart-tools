@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Image Compressor — Compress Images Online";
-const description = "Compress JPG, PNG, and other images online to reduce file size with the free SmartEdgeTools image compressor.";
+const description = "Compress an image in your browser, compare the original and JPEG file sizes, and download the result. Choose a quality setting while keeping the original unchanged.";
 const canonical = "/image/compress";
 
 export const metadata: Metadata = {
