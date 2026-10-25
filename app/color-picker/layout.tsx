@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Color Picker — Get HEX, RGB and HSL Codes Online";
+const title = "Color Picker — HEX, RGB & HSL Codes";
 const description =
   "Pick any color online and get HEX, RGB, and HSL values instantly with the free SmartEdgeTools color picker. No signup, just copy and use.";
 const canonical = "/color-picker";

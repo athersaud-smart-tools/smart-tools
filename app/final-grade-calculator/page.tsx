@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import ToolExtras from "../components/ToolExtras";
 
 type Row = { score: string; weight: string };
 const inputStyle = { display: "grid", gap: "0.35rem" };
@@ -79,6 +80,7 @@ export default function FinalGradeCalculator() {
         <div><h4 className="font-semibold">Does the calculator determine my letter grade or GPA?</h4><p>No. Schools use different grading scales and policies. This tool reports percentage results only; check your syllabus for letter-grade boundaries and GPA conversions.</p></div>
         <div><h4 className="font-semibold">Are my grades uploaded?</h4><p>The calculations run in this page in your browser. Do not use a shared device if you do not want your entries left in its open page.</p></div>
       </section>
+      <ToolExtras href="/final-grade-calculator" />
     </main>
   );
 }

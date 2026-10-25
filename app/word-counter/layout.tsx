@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Word Counter — Count Words and Characters";
-const description = "Count words, characters, and text quickly with the free SmartEdgeTools online word counter.";
+const description = "Count words, characters, sentences, paragraphs, and reading time as you type. Text is counted in your browser and isn't sent to a server.";
 const canonical = "/word-counter";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Typing Speed Test — Check Your WPM";
-const description = "Test your typing speed and accuracy online with the free SmartEdgeTools typing speed test.";
+const description = "Take a 30-second typing test to estimate your words per minute and accuracy, and see exactly how the score is calculated.";
 const canonical = "/typing-test";
 
 export const metadata: Metadata = {

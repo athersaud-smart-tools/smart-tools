@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "SmartEdgeTools Guides";
+const title = "Blog — Guides on Online Tools & Calculators";
 const description =
-  "Practical guides and explanations about online calculators, converters, productivity, image tools, PDF tools, and browser-based utilities.";
+  "Practical guides and explanations about online calculators, converters, image tools, PDF tools, writing utilities, and browser-based productivity.";
 const canonical = "/blog";
 
 export const metadata: Metadata = {
@@ -24,27 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const blogSchema = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  name: title,
-  description,
-  url: `https://smartedgetools.com${canonical}`,
-  publisher: {
-    "@type": "Organization",
-    name: "SmartEdgeTools",
-    url: "https://smartedgetools.com",
-  },
-};
-
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
-      />
-      {children}
-    </>
-  );
+  return children;
 }

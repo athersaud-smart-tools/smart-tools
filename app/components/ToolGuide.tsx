@@ -1,8 +1,18 @@
+import ToolExtras from "./ToolExtras";
+
 type GuideKey =
   | "age" | "ai-rewrite" | "bmi" | "color" | "currency" | "loan"
   | "percentage" | "random" | "image-resize" | "image-compress" | "qr"
   | "password" | "word-count" | "text-case" | "unit" | "stopwatch"
   | "typing" | "pdf-merge";
+
+const guideRoutes: Record<GuideKey, string> = {
+  age: "/age-calculator", "ai-rewrite": "/ai-rewrite", bmi: "/bmi-calculator", color: "/color-picker",
+  currency: "/currency-converter", loan: "/loan-calculator", percentage: "/percentage-calculator",
+  random: "/random-number", "image-resize": "/image/resize", "image-compress": "/image/compress",
+  qr: "/qr-code", password: "/password", "word-count": "/word-counter", "text-case": "/text-case",
+  unit: "/unit-converter", stopwatch: "/stopwatch", typing: "/typing-test", "pdf-merge": "/pdf/merge",
+};
 
 const guides: Record<GuideKey, { title: string; intro: string; sections: { heading: string; body: string }[] }> = {
   age: { title: "Age calculation: calendar years and elapsed days", intro: "This page reports a calendar age (years, months, and days) alongside an elapsed-day total. Those are different ways to describe the same date interval.", sections: [
@@ -37,9 +47,9 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
     { heading: "Examples", body: "20% of 500 = 100. 15 is 25% of 60. A change from 80 to 100 is a 25% increase: (100 − 80) ÷ 80 × 100. Adding 20% to 100 gives 120; subtracting 20% from 100 gives 80." },
     { heading: "Choosing the right operation", body: "For an increase or decrease, the first value is the starting value and the second is the ending value. The starting value cannot be zero because percentage change divides by the starting value. “Subtract 20%” here means subtract 20% of the entered number, not subtract 20 percentage points." },
   ] },
-  random: { title: "Random numbers and appropriate uses", intro: "This generator is intended for casual number selection, classroom activities, and simple simulations where cryptographic security is not required.", sections: [
+  random: { title: "Random numbers and appropriate uses", intro: "This generator is intended for everyday number selection, classroom activities, and simple simulations.", sections: [
     { heading: "Define the range first", body: "Choose a minimum below the maximum; both endpoints are included. The tool can return up to 100 values. With duplicates disabled, it draws without replacement and returns no more distinct values than the range contains." },
-    { heading: "Randomness limitation", body: "The page uses JavaScript Math.random(), which is suitable for casual use but is not a cryptographic or independently audited random source. Do not use it to award valuable prizes, run an official drawing, or make security-sensitive choices. Use a documented, auditable method for consequential selections." },
+    { heading: "How the numbers are generated", body: "The page asks your browser for random bytes through the Web Crypto API (crypto.getRandomValues) and discards out-of-range values, so every number in your range is equally likely. The code has not been independently audited, so do not use it to award valuable prizes, run an official drawing, or make security-sensitive choices. Use a documented, auditable method for consequential selections." },
   ] },
   "image-resize": { title: "Image dimensions, aspect ratio, and output", intro: "The resizer draws the selected image onto a browser canvas at the requested pixel dimensions and downloads the canvas output as a JPEG file.", sections: [
     { heading: "Preserve proportions", body: "With the ratio lock enabled, changing one dimension adjusts the other to keep the original width-to-height proportion. Unlock it only when stretching is acceptable. Resizing upward cannot restore detail that the source image does not contain." },
@@ -88,6 +98,7 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
 export default function ToolGuide({ guide }: { guide: GuideKey }) {
   const content = guides[guide];
   return (
+    <>
     <section aria-labelledby={`${guide}-guide-title`} className="mx-auto my-12 max-w-4xl space-y-5 px-6 leading-7 text-gray-700">
       <h2 id={`${guide}-guide-title`} className="text-2xl font-semibold text-gray-900">{content.title}</h2>
       <p>{content.intro}</p>
@@ -99,5 +110,7 @@ export default function ToolGuide({ guide }: { guide: GuideKey }) {
       ))}
       <p className="border-t border-gray-200 pt-3 text-sm text-gray-500">Tool notes are based on the current implementation and are provided for general information. Review important outputs before relying on them.</p>
     </section>
+    <ToolExtras href={guideRoutes[guide]} />
+    </>
   );
 }

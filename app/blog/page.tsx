@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { JsonLd, SITE_URL, breadcrumbSchema } from "../lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Blog — Guides on Online Tools & Calculators",
@@ -47,9 +48,28 @@ const articles = [
   },
 ];
 
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      name: "SmartEdgeTools Guides",
+      description: "Practical guides that explain how online tools work, when they are useful, and what to consider before relying on their results.",
+      url: `${SITE_URL}/blog`,
+      inLanguage: "en",
+      publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "SmartEdgeTools", url: SITE_URL },
+    },
+    breadcrumbSchema([
+      { name: "Tools", path: "/" },
+      { name: "Guides", path: "/blog" },
+    ]),
+  ],
+};
+
 export default function Blog() {
   return (
     <main className="min-h-screen bg-white px-6 py-12 text-gray-800">
+      <JsonLd data={blogSchema} />
       <div className="mx-auto max-w-4xl">
         <Link href="/" className="mb-8 inline-block text-sm font-medium text-blue-600 hover:underline">
           ← Back to SmartEdgeTools

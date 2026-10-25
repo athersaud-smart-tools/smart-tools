@@ -1,12 +1,4 @@
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How to Resize and Compress Images for Websites",
-  description:
-    "A practical guide to choosing image dimensions, file formats, and compression settings for websites, forms, email, and social media.",
-  alternates: { canonical: "/blog/resize-compress-images-for-websites" },
-};
 
 export default function ArticlePage() {
   return (

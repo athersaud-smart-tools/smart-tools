@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact SmartEdgeTools",
+  title: "Contact Us",
   description:
     "Contact SmartEdgeTools about technical problems, suggestions, feedback, content questions, or other website issues.",
   alternates: { canonical: "/contact" },
