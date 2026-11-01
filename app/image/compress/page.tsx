@@ -155,7 +155,7 @@ export default function CompressImage() {
               </dl>
               {compressedSize !== null && savingsPercent !== null && savingsPercent <= 0 && (
                 <p style={{ marginTop: "0.75rem", fontSize: "0.85rem", lineHeight: 1.6 }}>
-                  This JPEG is not smaller than the original. Try a lower quality setting or keep the original file.
+                  This output is not smaller than the original. Try a lower quality setting or keep the original file.
                 </p>
               )}
             </div>
