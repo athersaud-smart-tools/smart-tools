@@ -23,6 +23,7 @@ export default function PrivacyPolicyPage() {
               This policy explains how SmartEdgeTools may handle information when you use the website,
               including cookies, analytics, advertising, and information you voluntarily provide.
             </p>
+            <p className="mt-2 text-sm text-gray-500">Last updated: November 1, 2026</p>
           </header>
 
           <section className="space-y-4">
@@ -37,6 +38,13 @@ export default function PrivacyPolicyPage() {
               to our server and to OpenRouter and an available language model to produce a rewrite. The Currency
               Converter requests exchange-rate data from third-party providers. Do not enter confidential or
               sensitive information into tools unless you are comfortable with those data flows.
+            </p>
+            <p className="leading-7">
+              The AI Text Improver sends the text you submit to the site&apos;s rewrite endpoint. That endpoint
+              forwards the text to OpenRouter and an available language model to produce the requested
+              rewrite. The site code does not save that text to local storage. Image resizing, image
+              compression, and PDF merging use browser APIs to process the selected files; those tool
+              operations do not upload the file contents to the site.
             </p>
           </section>
 
@@ -62,15 +70,18 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">Cookies and analytics</h2>
             <p className="leading-7">
-              SmartEdgeTools uses Microsoft Clarity for analytics and may use cookies or similar technologies
-              for analytics, advertising, security, and service improvement. Microsoft Clarity may collect
-              information about how pages are used. Google AdSense may use cookies or similar technologies if
-              advertising is enabled. Review the providers&apos; privacy information for details about their data
-              practices and available controls.
+              The site loads Google Analytics (measurement ID G-ELZ9V0DN5R), Microsoft Clarity, and the
+              Google AdSense script on pages other than this Privacy Policy page. These third-party services
+              may process information about site visits and interactions and may use cookies or similar
+              technologies. The site code does not read or write browser local storage or set first-party
+              cookies for the tools. Google consent mode is initialized with analytics and advertising
+              storage denied by default for listed European regions, but the site does not provide a
+              visitor-facing consent banner or controls in its current code. Third-party services may still
+              process technical request data as described by their own policies.
             </p>
             <p className="leading-7">
-              You can manage cookies through your browser settings. Disabling certain cookies may affect
-              some website features.
+              You can manage cookies through your browser settings. Blocking them may affect third-party
+              service features or measurement.
             </p>
           </section>
 
@@ -80,6 +91,13 @@ export default function PrivacyPolicyPage() {
               SmartEdgeTools may display advertising from third-party providers, including Google AdSense
               if the site is approved and advertising is enabled. Advertising providers may use cookies or
               similar technologies in accordance with their own policies.
+            </p>
+            <p className="leading-7">
+              Third-party vendors, including Google, may use cookies to serve ads based on a visitor&apos;s
+              visits to this site or other sites. Learn about Google&apos;s advertising technologies in the{" "}
+              <a className="text-blue-600 hover:underline" href="https://policies.google.com/technologies/ads">Google advertising technologies policy</a>{" "}
+              and review available ad settings at{" "}
+              <a className="text-blue-600 hover:underline" href="https://www.google.com/settings/ads">Google Ads Settings</a>.
             </p>
             <p className="leading-7">
               If personalized ads are served to visitors in the EEA, UK, or Switzerland, Google requires
@@ -122,8 +140,9 @@ export default function PrivacyPolicyPage() {
           <section className="rounded-xl border border-gray-200 bg-gray-50 p-6">
             <h2 className="text-xl font-semibold text-gray-900">Questions about privacy</h2>
             <p className="mt-2 leading-7 text-gray-700">
-              If you have a privacy question or request, contact SmartEdgeTools through the{" "}
-              <Link href="/contact" className="font-medium text-blue-600 hover:underline">Contact page</Link>.
+              If you have a privacy question or request, email{" "}
+              <a href="mailto:support@smartedgetools.com" className="font-medium text-blue-600 hover:underline">support@smartedgetools.com</a>{" "}
+              or use the <Link href="/contact" className="font-medium text-blue-600 hover:underline">Contact page</Link>.
             </p>
           </section>
         </article>
