@@ -37,7 +37,7 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
   ] },
   currency: { title: "How to use a currency estimate", intro: "The converter requests a rate from external exchange-rate APIs and multiplies your amount by the returned rate. It tries more than one provider if an earlier request fails.", sections: [
     { heading: "Example", body: "If the returned rate is 1 USD = 3.75 SAR, entering 20 USD gives an estimate of 75 SAR before rounding. The rate displayed by the tool is the provider's quote, not a promise that a bank or card issuer will use the same rate." },
-    { heading: "Rate timing and fees", body: "Exchange-rate providers may update at different intervals, and the tool does not show a timestamp for the quote. Banks, remittance services, and card networks may apply their own rates, spreads, or fees. Check the provider's current quote before making a transaction." },
+    { heading: "Rate timing and fees", body: "The result identifies the provider and shows its returned rate date or timestamp when available; if it supplies no timestamp, the page shows when the rate was fetched. Banks, remittance services, and card networks may apply their own rates, spreads, or fees. Check the provider's current quote before making a transaction." },
     { heading: "If a result is unavailable", body: "The tool depends on third-party APIs and an internet connection. If all providers fail or do not return the selected currency, try again later and compare with a trusted financial provider." },
   ] },
   loan: { title: "Loan payment method and assumptions", intro: "This calculator estimates equal monthly payments for a fixed-rate, fully amortizing loan. It treats the annual rate as a nominal rate divided into monthly periods.", sections: [
@@ -98,7 +98,7 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
 
 type ExtraGuide = { examples: string[]; checks: string; notes?: string; faqs: { q: string; a: string }[] };
 
-const extraGuides: Record<GuideKey, ExtraGuide> = {
+const extraGuides: Partial<Record<GuideKey, ExtraGuide>> = {
   age: {
     examples: [
       "On November 1, 2026, a birth date of January 1, 2000 gives a calendar age of 26 years, 10 months, and 0 days. The separate elapsed total is 9,801 days, or 1,400 whole weeks; the hours figure is 235,224.",
@@ -115,7 +115,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "Can I use this for an official age requirement?", a: "Use the organization’s rules for cutoff dates, timezone, and legal age. This page provides general calendar arithmetic and is not an official eligibility decision." }
     ]
   },
-  "ai-rewrite": { examples: [], checks: "", faqs: [] },
   bmi: {
     examples: [
       "With metric units, 70 kg and 175 cm means 70 ÷ 1.75² = 22.857..., displayed as BMI 22.9. The shown adult category is Normal weight because the rounded result falls between 18.5 and 24.9.",
@@ -130,19 +129,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "What do the category labels mean?", a: "They reflect the adult BMI bands shown on the page: below 18.5, 18.5–24.9, 25–29.9, and 30 or above. They are screening categories, not a diagnosis." },
       { q: "Can BMI describe my health on its own?", a: "No. It uses height and weight only and does not account for all individual characteristics. Discuss personal health questions with a qualified clinician." },
       { q: "Why might my result differ from another calculator?", a: "Check the units and rounding. Some calculators also use different conventions or display more decimal places, while this page rounds to one decimal." }
-    ]
-  },
-  color: {
-    examples: [
-      "For HEX #336699, the red, green, and blue channels are 51, 102, and 153. That corresponds to RGB(51, 102, 153) and HSL(210°, 50%, 40%).",
-      "Changing the picker to #ff0000 gives RGB(255, 0, 0), the digital red primary. Copy the format you need for the design tool or stylesheet.",
-      "A lighter or darker shade generated from a selected color is a starting point. Compare it against its background in the actual interface before using it for small text."
-    ],
-    checks: "Enter a valid six-digit HEX value or use the browser color control. HEX and RGB describe the same screen color in different notations; HSL describes hue, saturation, and lightness. Similar colors may look different on different displays. The page does not inspect a photo or check whether text contrast meets an accessibility requirement, so test foreground and background together in context.",
-    faqs: [
-      { q: "Can this tool pick a color from an image?", a: "No. It selects a color through the browser color input or a HEX value entered on the page." },
-      { q: "What do HEX and RGB mean?", a: "HEX is a compact hexadecimal representation of the red, green, and blue channels. RGB lists those channel values directly from 0 to 255." },
-      { q: "Does a color value guarantee readable text?", a: "No. Readability depends on the foreground and background together, text size, weight, and display conditions. Check contrast separately." }
     ]
   },
   currency: {
@@ -193,19 +179,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "What is the difference between percent and percentage points?", a: "A percent change compares a difference to a starting value. Percentage points are the arithmetic difference between two percentages, such as 12% minus 10% = 2 percentage points." }
     ]
   },
-  random: {
-    examples: [
-      "Choose a minimum of 1 and maximum of 6 with quantity 1 to get one whole number from 1 through 6, including either endpoint. The exact result changes each time.",
-      "Set the range to 10–20 and request 3 values with duplicates disabled. The generator returns three distinct values from that inclusive range.",
-      "A range of 1–2 cannot provide 3 distinct numbers. With duplicates disabled, the page shows a validation error instead of returning too few values."
-    ],
-    checks: "Both endpoints are included. Use whole numbers within JavaScript’s safe integer range, and request between 1 and 100 values. If you turn off duplicates, make sure the range contains enough distinct integers. The generator uses the browser Web Crypto API and rejection sampling, but it has not been independently audited for high-stakes drawings or security decisions. Use a documented process when results have material consequences.",
-    faqs: [
-      { q: "Are the minimum and maximum included?", a: "Yes. The range is inclusive, so either endpoint can be returned." },
-      { q: "Can the generator return the same number more than once?", a: "Yes, when duplicates are enabled. When disabled, each result is unique and the range must contain enough values." },
-      { q: "Is this suitable for an official prize drawing?", a: "The code uses browser cryptographic randomness, but it is not presented as an audited drawing system. Use a documented, auditable method for consequential selections." }
-    ]
-  },
   "image-resize": {
     examples: [
       "A 2400 × 1600 image has a 3:2 ratio. With the ratio lock on, setting the width to 1200 adjusts the height to 800; the download is a 1200 × 800 PNG.",
@@ -238,32 +211,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "Can I guarantee an output under 100 KB?", a: "No fixed target is guaranteed. Adjust quality, compress, and check the actual displayed size; the result depends on the image and browser encoder." }
     ]
   },
-  qr: {
-    examples: [
-      "Entering https://example.com creates a code that stores that exact address. Scan the downloaded image and check the destination before printing or sharing it.",
-      "Entering “Room 204” creates a code containing those words rather than a web link. A scanner may display the text instead of opening a page.",
-      "A long paragraph contains more data than a short URL and can make a code denser. Test the exported code at the final print size and scanning distance."
-    ],
-    checks: "The code stores the text you entered; it does not verify that a URL is safe or that its destination will remain available. Check spelling, spaces, and redirects, then scan the result with a phone before sharing. Keep contrast strong and a clear margin around the code. A complex pattern, small print size, or damaged image can make scanning harder.",
-    faqs: [
-      { q: "Does the QR tool check whether a link is safe?", a: "No. It encodes the submitted text or URL. Verify the destination independently before distributing the code." },
-      { q: "Can I put plain text in a QR code?", a: "Yes. The encoded content can be text as well as a web address." },
-      { q: "Why might a printed code fail to scan?", a: "Small size, low contrast, missing quiet space, image damage, or a long dense payload can make scanning difficult. Test a print at its intended size." }
-    ]
-  },
-  password: {
-    examples: [
-      "Choose a length of 12 and enable lowercase letters and digits. The tool generates a 12-character password from those selected groups; the exact string is random each time.",
-      "Choose 16 characters and enable all available groups. The generated string has 16 characters drawn from the selected uppercase, lowercase, number, and symbol sets.",
-      "If every character group is switched off, the generator cannot form an output and displays an error. Select at least one group before generating."
-    ],
-    checks: "Use a unique password for each account and choose a length accepted by the service. Some sites reject particular symbols or impose their own length rules, so review the generated value before saving it. The generator is a browser utility and has not been independently audited as a security product. A password manager can store unique credentials; multi-factor authentication adds a separate account safeguard.",
-    faqs: [
-      { q: "Can the same password be generated again?", a: "It is possible by chance, but each click requests a fresh random string using the browser’s cryptographic random API." },
-      { q: "What if a website rejects a symbol?", a: "Regenerate with only the character groups that site accepts, and follow its stated length requirements." },
-      { q: "Should I use one generated password for several accounts?", a: "No. Use a distinct password per account so one exposed credential does not directly unlock other accounts." }
-    ]
-  },
   "word-count": {
     examples: [
       "For “Quick test.” the counter reports 2 words, 11 characters, 10 characters without whitespace, 1 sentence, 1 paragraph, and a 1-minute reading estimate.",
@@ -275,19 +222,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "How are words counted?", a: "The text is trimmed and split wherever there is whitespace. Punctuation stays attached to its word." },
       { q: "What does characters without spaces remove?", a: "It removes all whitespace characters, including spaces, tabs, and line breaks, from the character count." },
       { q: "How is reading time estimated?", a: "The page assumes 200 words per minute and rounds any nonzero result up to a whole minute. It is only an estimate." }
-    ]
-  },
-  "text-case": {
-    examples: [
-      "The input “hello world” becomes “HELLO WORLD” in uppercase, “Hello World” in Title Case, and “hello_world” in snake_case.",
-      "The input “hello. world” becomes “Hello. World” in sentence case. Capitalization rules are simple, so names and abbreviations may need a manual correction.",
-      "The input “Hello World” becomes “dlroW olleH” in reverse mode. This reverses the string’s characters; it does not reverse word order alone."
-    ],
-    checks: "Case conversion changes characters according to the selected transformation; it does not proofread or translate. Title case uses a basic word pattern, camelCase removes punctuation and joins words, and snake_case/kebab-case replace whitespace with separators. Review acronyms, names, punctuation, and non-English text. When converting code identifiers, inspect punctuation and symbols because the tool’s transformations may remove or rearrange them.",
-    faqs: [
-      { q: "Does Title Case follow an editorial style guide?", a: "It applies a simple capitalization rule and does not implement a publication’s specific title-case style. Review short words, names, and acronyms." },
-      { q: "What does reverse do?", a: "It reverses the sequence of characters in the entered string, including spaces and punctuation." },
-      { q: "Will it preserve my original text?", a: "The input remains in the text box, and each displayed format is generated from it. Copy the version you need and keep a separate source if required." }
     ]
   },
   unit: {
@@ -304,32 +238,6 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
       { q: "How many decimal places are shown?", a: "The code formats temperature to four decimal places. Other categories use a precision-based format that can retain up to ten significant digits." },
       { q: "Why does my result differ from a rounded chart?", a: "Quick-reference charts often round conversion factors. This tool calculates from its internal factors and then formats the result for display." },
       { q: "Can I convert volume here?", a: "No. Volume is not one of the available categories; use a dedicated volume conversion source for that task." }
-    ]
-  },
-  stopwatch: {
-    examples: [
-      "Start the watch, wait about 30 seconds, and pause. The display records elapsed time; if the tab was active and device awake, it should be near 00:00:30.",
-      "Tap Lap after 1 minute and again after 2 minutes to record two splits. The lap values are snapshots of the elapsed display at each tap.",
-      "Press Reset after timing to return the display and lap list to their initial state."
-    ],
-    checks: "The stopwatch is for casual timing. Browser scheduling can be delayed when a tab is backgrounded or a device sleeps, so do not use it as precision timing equipment. Decide in advance what counts as the start and stop point, and use the same method when comparing intervals. Reset removes the current timing state and lap list.",
-    faqs: [
-      { q: "Does the stopwatch continue if I switch tabs?", a: "It tracks elapsed time using browser time, but background timers can be delayed. A sleeping or throttled device may update the display late." },
-      { q: "What does Lap record?", a: "Lap records a split from the elapsed time shown at that moment, leaving the stopwatch running." },
-      { q: "Is this suitable for official sports timing?", a: "No precision claim is made. Use dedicated timing equipment when measurement accuracy matters." }
-    ]
-  },
-  typing: {
-    examples: [
-      "If 100 typed characters match the sample at the same positions, the code calculates 100 ÷ 5 ÷ 0.5 = 40 WPM and 100% accuracy.",
-      "If 100 characters are typed and 90 match the sample positions, the tool calculates 36 WPM from the 90 correct characters and 90% accuracy from 90 ÷ 100.",
-      "If the input includes extra characters after the sample, they can lower accuracy because they have no matching sample character; they do not increase the correct-character WPM score."
-    ],
-    checks: "The test lasts 30 seconds. Its WPM calculation uses correct character matches divided by five characters per word and by half a minute; it is not a standard words-separated count. Accuracy compares each entered character with the sample character at that position. It is a short practice snapshot, and results are most comparable when you use the same keyboard, sample, and conditions.",
-    faqs: [
-      { q: "How long does the test last?", a: "The test runs for 30 seconds from the moment you start it." },
-      { q: "How does this page calculate WPM?", a: "It divides correct character matches by five, then divides by 0.5 minutes. This is the implementation’s scoring method." },
-      { q: "Do mistakes reduce the score?", a: "Incorrect characters do not count as correct matches for WPM and lower the accuracy percentage. Extra characters also affect accuracy." }
     ]
   },
   "pdf-merge": {
@@ -349,7 +257,7 @@ const extraGuides: Record<GuideKey, ExtraGuide> = {
 
 export default function ToolGuide({ guide }: { guide: GuideKey }) {
   const content = guides[guide];
-  const extra = extraGuides[guide];
+  const extra = extraGuides[guide] ?? { examples: [], checks: "", faqs: [] };
   const faqSchema = extra.faqs.length ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
