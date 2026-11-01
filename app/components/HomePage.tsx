@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { categories, tools } from "../lib/tools";
 
+const homepageTools = tools.filter((tool) => tool.href !== "/ai-rewrite" && tool.href !== "/birth-chart");
+const homepageCategories = categories.filter((category) => category !== "AI" && category !== "Astrology");
 
 
 const articles = [
@@ -18,7 +20,7 @@ export default function HomePage() {
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
-    return tools.filter((tool) => {
+    return homepageTools.filter((tool) => {
       const matchCat = active === "All" || tool.category === active;
       const matchSearch = !query || `${tool.title} ${tool.desc} ${tool.category}`.toLowerCase().includes(query);
       return matchCat && matchSearch;
@@ -51,7 +53,7 @@ export default function HomePage() {
       </header>
 
       <div className="stats-bar" aria-label="SmartEdgeTools highlights">
-        <div className="stat-item"><div className="stat-num">21+</div><div className="stat-label">Useful tools</div></div>
+          <div className="stat-item"><div className="stat-num">19</div><div className="stat-label">Useful tools</div></div>
         <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
         <div className="stat-item"><div className="stat-num">No app</div><div className="stat-label">Browser access</div></div>
       </div>
@@ -62,6 +64,9 @@ export default function HomePage() {
             <h2 className="section-title">Free online tools for work and life</h2>
             <p style={{ color: "var(--ink2)", marginTop: "0.45rem", lineHeight: 1.7 }}>
               SmartEdgeTools brings practical calculators, converters, generators, text tools, image tools, PDF utilities, and productivity resources together in one place.
+            </p>
+            <p style={{ color: "var(--ink2)", marginTop: "0.45rem", lineHeight: 1.7 }}>
+              I’m Ather Saud, and I made SmartEdgeTools for students and everyday users who need quick, simple tools. Read more about why I built the site on the <Link href="/about" style={{ color: "var(--accent)", textDecoration: "underline" }}>About page</Link>.
             </p>
           </div>
         </div>
@@ -80,7 +85,7 @@ export default function HomePage() {
           <span className="section-tag">{filtered.length} available</span>
         </div>
         <div className="category-pills" aria-label="Tool categories">
-          {categories.map((cat) => (
+          {homepageCategories.map((cat) => (
             <button key={cat} type="button" className={`pill ${active === cat ? "active" : ""}`} onClick={() => setActive(cat)} aria-pressed={active === cat}>
               {cat}
             </button>
@@ -136,7 +141,7 @@ export default function HomePage() {
         <div className="tools-grid" style={{ marginTop: "1rem" }}>
           <Link href="/percentage-calculator" className="tool-card"><h3>Percentage example</h3><p>20% of 500 is 100. The calculator also handles percentage change, adding a percentage, and subtracting a percentage.</p></Link>
           <Link href="/bmi-calculator" className="tool-card"><h3>BMI example</h3><p>At 70 kg and 175 cm, BMI is 22.9. BMI is a screening measure, not a diagnosis.</p></Link>
-          <Link href="/image/resize" className="tool-card"><h3>Image output</h3><p>The resizer exports a JPEG from a browser canvas. Keep the original if you need transparency or another format.</p></Link>
+          <Link href="/image/resize" className="tool-card"><h3>Image output</h3><p>The resizer exports PNG. The compressor exports WebP for PNG uploads and JPEG for other image types, with transparent areas filled white. Keep the original file.</p></Link>
           <Link href="/pdf/merge" className="tool-card"><h3>PDF handling</h3><p>The merge tool copies pages from selected PDFs in the browser and creates a new file in the order you selected them.</p></Link>
         </div>
       </section>
