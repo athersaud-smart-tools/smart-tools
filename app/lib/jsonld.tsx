@@ -49,7 +49,7 @@ export function articleSchema(article: { title: string; description: string; pat
     image: `${SITE_URL}/opengraph-image`,
     inLanguage: "en",
     dateModified: article.dateModified,
-    author: { "@type": "Organization", name: "SmartEdgeTools", url: SITE_URL },
+    author: { "@type": "Person", name: "Ather Saud" },
     publisher: ORG,
   };
 }

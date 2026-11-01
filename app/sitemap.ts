@@ -70,6 +70,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    { path: "/blog/calculate-monthly-loan-payments", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/percentage-increase-decrease", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/compress-image-under-100-kb", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/exchange-rates-and-bank-rates", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/calculate-age-years-months-days", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/bmi-calculation-limits", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/merge-pdf-files-safely", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/convert-common-units", changeFrequency: "monthly", priority: 0.7 },
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({

@@ -20,7 +20,7 @@ export default function ArticlePage() {
             The best online tool is not necessarily the one with the most features. It is the one that
             solves the specific task clearly, safely, and with as little unnecessary work as possible.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
+          <p className="mt-3 text-sm text-gray-500">By Ather Saud · Updated on November 1, 2026</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">
@@ -107,7 +107,7 @@ export default function ArticlePage() {
               <thead><tr className="border-b border-gray-300"><th className="px-3 py-3">Task</th><th className="px-3 py-3">Useful capability</th><th className="px-3 py-3">Check before relying on it</th></tr></thead>
               <tbody>
                 <tr className="border-b border-gray-200"><td className="px-3 py-3">Estimate a fixed-rate payment</td><td className="px-3 py-3">Loan calculator with principal, rate, and term inputs</td><td className="px-3 py-3">Fees, taxes, payment timing, and lender terms</td></tr>
-                <tr className="border-b border-gray-200"><td className="px-3 py-3">Prepare an image for an upload</td><td className="px-3 py-3">Resize to target pixel dimensions</td><td className="px-3 py-3">Aspect ratio and whether JPEG output changes transparency</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Prepare an image for an upload</td><td className="px-3 py-3">Resize to target pixel dimensions</td><td className="px-3 py-3">The resizer exports PNG; check dimensions and the destination’s file requirements</td></tr>
                 <tr className="border-b border-gray-200"><td className="px-3 py-3">Combine documents</td><td className="px-3 py-3">Merge pages in a chosen file order</td><td className="px-3 py-3">Page sequence, protected files, and browser memory</td></tr>
                 <tr><td className="px-3 py-3">Rewrite a short passage</td><td className="px-3 py-3">Generate alternate phrasing</td><td className="px-3 py-3">External AI processing and factual accuracy</td></tr>
               </tbody>

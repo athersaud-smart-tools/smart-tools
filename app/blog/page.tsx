@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd, SITE_URL, breadcrumbSchema } from "../lib/jsonld";
+import { newArticles } from "./new-articles";
 
 export const metadata: Metadata = {
   title: "Blog — Guides on Online Tools & Calculators",
@@ -46,6 +47,11 @@ const articles = [
     excerpt:
       "A step-by-step guide to image dimensions, aspect ratios, file formats, compression, and quality checks.",
   },
+  ...newArticles.map((article) => ({
+    href: `/blog/${article.slug}`,
+    title: article.title,
+    excerpt: article.description,
+  })),
 ];
 
 const blogSchema = {

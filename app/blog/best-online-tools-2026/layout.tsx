@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
 };
 
-// dateModified matches the visible "Updated October 9, 2026" line on the page.
+// dateModified matches the visible "Updated on November 1, 2026" line on the page.
 // datePublished is intentionally omitted: the original publication date is not recorded in the repository.
-const dateModified = "2026-10-09";
+const dateModified = "2026-11-01";
 
 export default function ArticleLayout({ children }: { children: React.ReactNode }) {
   return (
