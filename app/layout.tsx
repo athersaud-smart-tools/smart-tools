@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Standard Google Analytics tag, loaded in head on every page. */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ELZ9V0DN5R"
+          src="https://www.googletagmanager.com/gtag/js?id=G-KRMPNVW2R8"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -126,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               wait_for_update: 500
             });
             gtag('js', new Date());
-            gtag('config', 'G-ELZ9V0DN5R');
+            gtag('config', 'G-KRMPNVW2R8');
           `}
         </Script>
         <Script
