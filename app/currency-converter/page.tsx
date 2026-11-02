@@ -8,7 +8,6 @@ const currencies = [
   { code: "USD", name: "US Dollar" },
   { code: "EUR", name: "Euro" },
   { code: "GBP", name: "British Pound" },
-  { code: "PKR", name: "Pakistani Rupee" },
   { code: "INR", name: "Indian Rupee" },
   { code: "AED", name: "UAE Dirham" },
   { code: "SAR", name: "Saudi Riyal" },
@@ -34,7 +33,7 @@ const currencies = [
 export default function CurrencyConverter() {
   const [amount, setAmount] = useState("");
   const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("PKR");
+  const [to, setTo] = useState("EUR");
   const [result, setResult] = useState(null as string | null);
   const [rate, setRate] = useState(null as number | null);
   const [rateProvider, setRateProvider] = useState("");
@@ -134,10 +133,10 @@ export default function CurrencyConverter() {
   const formatAmount = (value: number) => value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const popularPairs = [
-    { from: "USD", to: "PKR" }, { from: "AED", to: "PKR" },
-    { from: "SAR", to: "PKR" }, { from: "GBP", to: "USD" },
-    { from: "USD", to: "EUR" }, { from: "USD", to: "INR" },
-    { from: "KWD", to: "PKR" }, { from: "EUR", to: "GBP" },
+    { from: "USD", to: "EUR" }, { from: "EUR", to: "USD" },
+    { from: "GBP", to: "USD" }, { from: "USD", to: "GBP" },
+    { from: "USD", to: "INR" }, { from: "USD", to: "CAD" },
+    { from: "EUR", to: "GBP" }, { from: "USD", to: "JPY" },
   ];
 
   return (

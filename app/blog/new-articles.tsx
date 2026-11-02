@@ -25,7 +25,7 @@ export const newArticles: NewArticle[] = [
       ]},
       { heading: "Worked examples", paragraphs: [
         "Example one: borrow $10,000 at 5.5% annually for five years. The term is 60 monthly payments and the monthly rate is 0.055 ÷ 12. Substituting those values gives an estimated payment of $191.01. Multiplying the unrounded payment by 60 gives a total of $11,460.70, or about $1,460.70 in interest. The displayed monthly amount is rounded to cents, so multiplying the rounded display may differ by a few cents.",
-        "Example two: suppose the principal is PKR 1,000,000, the annual rate is 12%, and the term is three years. The monthly rate is 0.01 and there are 36 payments. The formula gives about PKR 33,214.31 per month, about PKR 1,195,715.15 total, and about PKR 195,715.15 in interest. In the SmartEdgeTools calculator, choose Rs for a PKR principal so the results are labelled in rupees. That label is for your own figures; it is not a currency conversion."
+        "Example two: suppose the principal is $50,000, the annual rate is 8%, and the term is four years. The monthly rate is 0.08 ÷ 12 and there are 48 payments. The formula gives about $1,220.65 per month, about $58,591.01 total, and about $8,591.01 in interest. The SmartEdgeTools calculator shows results in dollars."
       ]},
       { heading: "Compare more than the monthly amount", paragraphs: [
         "A lower payment can come from a longer repayment term. That may make each month easier to budget, but it also means more payments are made. When comparing offers, enter the same principal and use each offer’s rate and term. Record the monthly payment, total repayment, and total interest. Then compare those estimates with the lender’s disclosed fees and payment schedule.",
@@ -40,7 +40,7 @@ export const newArticles: NewArticle[] = [
         "The calculator is useful for “what if” comparisons: changing only the term shows how payment size and total interest move under the same formula. Changing several inputs at once makes it harder to see why the result changed, so compare one scenario at a time and keep a short note of each set of inputs."
       ]}
     ],
-    table: { caption: "Worked examples using a fixed annual rate and monthly payments", headers: ["Principal", "Annual rate", "Term", "Estimated monthly payment"], rows: [["$10,000", "5.5%", "5 years", "$191.01"], ["PKR 1,000,000", "12%", "3 years", "PKR 33,214.31"]] },
+    table: { caption: "Worked examples using a fixed annual rate and monthly payments", headers: ["Principal", "Annual rate", "Term", "Estimated monthly payment"], rows: [["$10,000", "5.5%", "5 years", "$191.01"], ["$50,000", "8%", "4 years", "$1,220.65"]] },
     takeaways: ["Use the monthly rate and total number of payments in the formula.", "Compare total repayment as well as the monthly payment.", "Confirm fees, rate rules, and the lender’s written schedule."],
     faq: [
       { question: "What happens if the interest rate is zero?", answer: "Divide the principal by the number of monthly payments. The tool handles a zero rate separately from the interest-bearing formula." },
@@ -137,7 +137,7 @@ export const newArticles: NewArticle[] = [
     intro: "An exchange-rate result is an estimate of how one currency compares with another at a particular time. It can help you understand a price or compare scenarios, but it may not match the amount charged by a bank, card issuer, cash exchange, or remittance service. This guide explains how to read a currency pair and what to check before making a payment.",
     sections: [
       { heading: "Read the pair in the right direction", paragraphs: [
-        "A quote such as 1 USD = 276.75 PKR says one US dollar is estimated to equal 276.75 Pakistani rupees at the quoted rate. To convert 10 USD, multiply 10 by 276.75, which gives 2,767.50 PKR before any fees. Reversing the pair changes the operation: one rupee is worth approximately the reciprocal of that quote in dollars, not 276.75 dollars.",
+        "A quote such as 1 USD = 0.92 EUR says one US dollar is estimated to equal 0.92 euros at the quoted rate. To convert 10 USD, multiply 10 by 0.92, which gives 9.20 EUR before any fees. Reversing the pair changes the operation: one euro is worth approximately the reciprocal of that quote in dollars, not 0.92 dollars.",
         "Currency converters usually calculate an amount by multiplying the source amount by the rate for the selected pair. The pair labels therefore matter as much as the number. Always check which currency is the “from” value and which is the “to” value before copying the result."
       ]},
       { heading: "What a mid-market rate represents", paragraphs: [
@@ -149,9 +149,9 @@ export const newArticles: NewArticle[] = [
         "For a card purchase, the transaction may be converted under the network or issuer’s rules rather than at the moment you view a reference rate. For a remittance, compare the amount the recipient receives after fees. For cash, ask whether the displayed rate is a buy or sell quote and whether a commission is added. Check the provider’s confirmation screen before you approve a transaction."
       ]},
       { heading: "Worked examples", paragraphs: [
-        "Using a returned reference quote of 1 USD = 276.745272 PKR, 10 USD converts to 2,767.45272 PKR, displayed as 2,767.45 when rounded to two decimal places. This is the arithmetic result from the rate; it does not include a bank or card adjustment.",
+        "Using a returned reference quote of 1 USD = 0.918543 EUR, 10 USD converts to 9.18543 EUR, displayed as 9.19 when rounded to two decimal places. This is the arithmetic result from the rate; it does not include a bank or card adjustment.",
         "At a quoted 1 EUR = 1.08 USD, 50 EUR converts to 54 USD. If the provider’s customer rate instead were 1 EUR = 1.05 USD, the same 50 EUR would convert to 52.50 USD before fees. The examples show why the quote used matters; they do not promise that either rate is available when you transact.",
-        "Suppose a provider quotes 1 USD = 280 PKR but charges an additional 500 PKR transfer fee. The converter can estimate the exchange portion of 10 USD as 2,800 PKR, but that amount alone does not describe the recipient’s net amount. Confirm whether the fee is paid separately or deducted from the transfer."
+        "Suppose a provider quotes 1 USD = 0.92 EUR but charges an additional $5 transfer fee. The converter can estimate the exchange portion of 10 USD as 9.20 EUR, but that amount alone does not describe the recipient’s net amount. Confirm whether the fee is paid separately or deducted from the transfer."
       ]},
       { heading: "Use a converter as a comparison tool", paragraphs: [
         "Select the source and target currencies, enter an amount, and read the provider name, rate, and date or timestamp returned with the quote. Use the common-amount table to see how the same rate scales for several amounts. That table is an arithmetic extension of one quote, not five separate live quotes.",
@@ -162,7 +162,7 @@ export const newArticles: NewArticle[] = [
         "A small rate difference can have a larger effect on a larger transfer, and a fixed fee can matter more on a small transfer. Calculate the final received amount when possible. The exchange-rate APIs used by this page can be temporarily unavailable, and rates can be missing for a selected pair; if the page reports an error, try again later or check the provider that will handle your transaction."
       ]}
     ],
-    table: { caption: "Illustrative conversions before transaction fees", headers: ["Rate", "Source amount", "Calculated amount"], rows: [["1 USD = 276.745272 PKR", "10 USD", "2,767.45 PKR"], ["1 EUR = 1.08 USD", "50 EUR", "54 USD"], ["1 USD = 280 PKR", "10 USD", "2,800 PKR"]] },
+    table: { caption: "Illustrative conversions before transaction fees", headers: ["Rate", "Source amount", "Calculated amount"], rows: [["1 USD = 0.918543 EUR", "10 USD", "9.19 EUR"], ["1 EUR = 1.08 USD", "50 EUR", "54 USD"], ["1 USD = 0.92 EUR", "10 USD", "9.20 EUR"]] },
     takeaways: ["Read the pair direction and timestamp before using a quote.", "A reference rate can differ from a customer rate and exclude fees.", "Compare the final amount charged or received before confirming a transaction."],
     faq: [
       { question: "Is the mid-market rate the rate my bank will charge?", answer: "Not necessarily. The bank or card provider may use its own rate, apply a spread, or add fees." },
