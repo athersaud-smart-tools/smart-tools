@@ -443,6 +443,301 @@ export const newArticles: NewArticle[] = [
       { question: "Should I practise speed or accuracy first?", answer: "Accuracy first. Once accuracy is steady, increase pace gradually and keep checking that accuracy does not fall sharply." }
     ],
     related: [{ href: "/typing-test", label: "Typing Speed Test" }, { href: "/word-counter", label: "Word Counter" }, { href: "/stopwatch", label: "Stopwatch" }]
+  },
+  {
+    slug: "calculate-final-grade-needed",
+    title: "How to Calculate Your Final Grade and the Score You Need",
+    description: "Use weighted grades and the score-needed formula to plan for a final exam, with worked examples.",
+    intro: "A final grade calculator answers two different questions. First, what is your grade so far when categories have different weights? Second, what score do you need on the remaining work to reach a target? The SmartEdgeTools Final Grade Calculator has a mode for each question, and this guide explains the maths behind both, so you can check the result against your syllabus.",
+    sections: [
+      { heading: "Weighted grade: combine categories by weight", paragraphs: [
+        "A weighted grade multiplies each score by its weight, adds those products, and divides by the total weight: weighted grade = sum(score x weight) / sum(weight). Weights are usually percentages, but the tool normalises the result, so if the weights you enter add to less than 100%, the result is still the average across the categories you supplied.",
+        "For example, 88% on work weighted 40% and 92% on work weighted 60% gives (88 x 40 + 92 x 60) / 100 = 90.4%. A high score in a small category cannot outweigh a low score in a large category, which is why checking the weights matters more than averaging the scores directly."
+      ]},
+      { heading: "Score needed: work backwards from your target", paragraphs: [
+        "For the remaining work, the formula is: required score = (target - current grade x (1 - remaining weight)) / remaining weight, where weights are fractions. If your current grade is 82%, the final is worth 30%, and your target is 85%, you need (85 - 82 x 0.70) / 0.30 = 92%.",
+        "Another example: a current grade of 75%, remaining work worth 40%, and a target of 80% needs (80 - 75 x 0.60) / 0.40 = 87.5%. If the required score is above 100%, the target is not reachable with those inputs, and the tool says so. If it is 0% or below, you have already met the target on these inputs."
+      ]},
+      { heading: "How to use the tool", paragraphs: [
+        "In Weighted grade mode, add a row for each category, enter its score from 0 to 100 and a weight greater than zero, and add more rows as needed. In Score needed on final mode, enter your current grade before the exam, the remaining weight as a percentage up to 100%, and your target grade from 0 to 100. All calculation runs in your browser.",
+        "Use the grade that represents completed work only for the current grade. Do not include the final exam in both the current grade and the remaining weight, or the result will be wrong. If your course drops the lowest score, gives extra credit, or rounds grades, apply that policy separately, because the tool does not know your school's rules."
+      ]},
+      { heading: "Common mistakes", paragraphs: [
+        "The most common mistake is taking a simple average of scores and ignoring weights. Another is entering weights that do not match the syllabus, such as using 20% for homework when the syllabus says 10%. A third is treating a target as guaranteed: the calculator shows the maths, not a promise from your instructor.",
+        "Also check whether scores are percentages or points. The tool expects percentages from 0 to 100. If your gradebook uses points, convert each score to a percentage first, or use the same point scale consistently and check the result by hand."
+      ]}
+    ],
+    table: { caption: "Worked final-grade examples", headers: ["Situation", "Calculation", "Result"], rows: [["88% at 40% and 92% at 60%", "(88 x 40 + 92 x 60) / 100", "90.4% weighted grade"], ["Current 82%, final 30%, target 85%", "(85 - 82 x 0.70) / 0.30", "92% needed on the final"], ["Current 75%, remaining 40%, target 80%", "(80 - 75 x 0.60) / 0.40", "87.5% needed"]] },
+    takeaways: ["Weighted grade = sum(score x weight) / sum(weight).", "Required score = (target - current x (1 - remaining weight)) / remaining weight.", "Check weights against your syllabus and your school's rounding and dropped-score rules."],
+    faq: [
+      { question: "What if my weights do not add to 100%?", answer: "The tool normalises across the categories you entered, so the result is the weighted average of those categories. For a full course grade, enter all categories so the weights add to 100%." },
+      { question: "What does a required score above 100% mean?", answer: "It means the target cannot be reached with the current grade and remaining weight you entered. Lower the target, or check whether the inputs match your syllabus." },
+      { question: "Does the calculator know my letter grade?", answer: "No. It reports a percentage. Letter-grade boundaries differ by school and course, so check your syllabus for the boundary that applies to you." },
+      { question: "Is my grade data uploaded?", answer: "The calculation runs in your browser. The tool does not ask you to create an account to calculate a grade." }
+    ],
+    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/percentage-calculator", label: "Percentage Calculator" }, { href: "/word-counter", label: "Word Counter" }]
+  },
+  {
+    slug: "generate-random-numbers",
+    title: "How to Generate Random Numbers in a Range (With or Without Duplicates)",
+    description: "Understand ranges, duplicates, and fair random generation, and use the tool for draws, sampling, and decisions.",
+    intro: "A random number generator picks numbers from a range you choose, such as 1 to 100. The SmartEdgeTools generator lets you choose how many numbers to generate, up to 100, and whether duplicates are allowed. This guide explains what those choices mean, how the tool generates numbers in your browser, and when a random draw is, and is not, the right method.",
+    sections: [
+      { heading: "Set a clear range and quantity", paragraphs: [
+        "Enter a minimum and a maximum as whole numbers, with the minimum no greater than the maximum. The default is 1 to 100 with one number, but you can generate up to 100 numbers in one run. Every number in the range, including both endpoints, can be picked. If you need a single winner, generate one number. If you need a sample, generate the quantity you need in one run and keep the list together.",
+        "Check the range before you draw. A draw from 1 to 10 is not the same as a draw from 0 to 10, and a draw from 1 to 100 gives each number a much smaller chance than a draw from 1 to 6. The tool rejects a quantity outside 1 to 100 and a minimum greater than the maximum, so fix those inputs before generating again."
+      ]},
+      { heading: "Duplicates on or off", paragraphs: [
+        "With duplicates allowed, the same number can appear more than once, just as rolling a die can repeat a value. That is correct for independent draws, such as simulating dice or repeated random choices. With No duplicate numbers selected, each number appears at most once, which is correct for a raffle, a lottery-style draw, or choosing distinct items.",
+        "Unique draws have a limit: you cannot ask for more distinct numbers than the range contains. For example, you cannot generate 11 unique numbers from 1 to 10, and the tool reports that the range does not contain enough distinct numbers. Widen the range or reduce the quantity, then draw again."
+      ]},
+      { heading: "How the numbers are generated", paragraphs: [
+        "The tool runs in your browser and uses the browser's cryptographic random values, with a rejection step that discards values outside the range so that each number in the range has an equal chance. That is different from a simple pattern or a predictable sequence, and it does not need a seed from you.",
+        "Random does not mean evenly spread in a small sample. Five draws from 1 to 100 can cluster, repeat when duplicates are allowed, or leave large gaps, and that is still random. Do not re-draw until you get a result you like and call it random, because that changes the process from a draw to a choice."
+      ]},
+      { heading: "Fair uses and limits", paragraphs: [
+        "Use random draws for fair selection, practice data, games, and sampling when every option should have an equal chance. For a formal lottery, gambling, security keys, or a legal draw, use the rules and audited system required for that purpose, not a general browser tool. The tool also does not shuffle a list you paste in; it generates numbers, so map each number to an item yourself if you are picking from a list.",
+        "Keep a record of the draw if it matters: the range, the quantity, whether duplicates were allowed, and the generated list, which you can copy as a comma-separated list. If you need the same result again later, save the list, because a new draw will give a different result."
+      ]}
+    ],
+    table: { caption: "Which random setting to choose", headers: ["Task", "Duplicates", "Example"], rows: [["Pick one winner", "Either, quantity 1", "1 number from 1 to 100"], ["Draw a raffle with no repeat winners", "Unique only", "5 distinct numbers from 1 to 50"], ["Simulate dice rolls", "Duplicates allowed", "10 numbers from 1 to 6, repeats possible"]] },
+    takeaways: ["Both endpoints of the range can be picked.", "Unique draws cannot exceed the size of the range.", "A small random sample can cluster; that does not mean it was unfair."],
+    faq: [
+      { question: "Can the same number appear twice?", answer: "Yes, when duplicates are allowed. Turn on No duplicate numbers if each result must be distinct." },
+      { question: "Why did my unique draw fail?", answer: "The quantity was larger than the number of distinct values in the range. Widen the range or reduce the quantity." },
+      { question: "How many numbers can I generate at once?", answer: "From 1 to 100 numbers per run." },
+      { question: "Is the result saved?", answer: "No. Copy the generated list if you need it later, because a new draw will differ." }
+    ],
+    related: [{ href: "/random-number", label: "Random Number Generator" }, { href: "/password", label: "Password Generator" }, { href: "/qr-code", label: "QR Code Generator" }]
+  },
+  {
+    slug: "create-qr-code",
+    title: "How to Create a QR Code That Scans Reliably",
+    description: "Create a QR code for a link or text, test it, and avoid the mistakes that make codes hard to scan.",
+    intro: "A QR code stores text or a link in a pattern a phone camera can read. The SmartEdgeTools QR Code Generator creates the code entirely in your browser as a 300-pixel PNG image you can download. This guide explains what to put in a code, how to test it, and how to print or share it so it still scans.",
+    sections: [
+      { heading: "What to put in the code", paragraphs: [
+        "Enter the exact text or URL you want the scanner to receive, then select Generate QR Code. For a website, use the full address, including https://, and check for typos before generating, because a small typo sends people to the wrong page or to no page at all. For plain text, keep it short: the tool reports an error for input it cannot encode and suggests shorter text.",
+        "Do not put passwords, private keys, or sensitive personal data in a QR code. Anyone who can see the printed code can scan it and read the contents. For a link that may change, use a stable page you control rather than a temporary address, or be ready to reprint the code when the address changes."
+      ]},
+      { heading: "Test before you print or share", paragraphs: [
+        "Scan the generated code with a phone camera and with a second phone if possible, and confirm it opens the intended page or shows the intended text. Test at the size and distance people will actually use: a code that scans on a large screen may fail when printed small, and a code on a curved or glossy surface may fail from glare.",
+        "Keep good contrast and a clear margin around the code. The tool uses a margin of 1 module around the pattern. Do not cover the centre with a large logo, do not stretch the image so the squares become rectangles, and do not place text or graphics over the pattern."
+      ]},
+      { heading: "Size, download, and printing", paragraphs: [
+        "Select Download QR Code to save the image as qrcode.png, a 300-pixel square image. That size is suitable for screens and for small print, such as a card or a label. For a large poster, a 300-pixel image may look soft when enlarged, so test a printed copy at the final size before producing many copies.",
+        "If the printed code fails, print it larger, increase contrast, use matte paper if glare is a problem, and test again. If the content is long, shorten the URL or the text where possible, because shorter content generally produces a simpler, easier-to-scan pattern."
+      ]},
+      { heading: "What a QR code does not do", paragraphs: [
+        "A QR code does not check that a link is safe, does not hide its contents, and does not track scans by itself. A scanner will show the link or text before opening it in most cases, so check the destination before following an unfamiliar code. The generator does not create a tracking link, a login page, or a payment page; it only encodes the text you enter."
+      ]}
+    ],
+    table: { caption: "QR code checklist", headers: ["Check", "Good practice", "Avoid"], rows: [["Content", "Full, checked URL or short text", "Typos, passwords, or private data"], ["Test", "Scan on a phone at real size and distance", "Sharing without a test scan"], ["Print", "High contrast, clear margin, tested final size", "Stretching, covering, or tiny printing"]] },
+    takeaways: ["Use the full, checked URL and keep text short.", "Test the code at the size and distance people will use.", "The download is a 300-pixel PNG, so test large prints before mass printing."],
+    faq: [
+      { question: "What file do I get when I download a QR code?", answer: "A PNG image named qrcode.png, 300 pixels square, generated in your browser." },
+      { question: "Why does my QR code not scan?", answer: "Common causes are low contrast, a code printed too small, glare, a covered pattern, or a stretched image. Print larger, restore contrast and margin, and test again." },
+      { question: "Can I put a password in a QR code?", answer: "You should not. Anyone who sees the code can scan it, so treat QR contents as visible to anyone with the image." },
+      { question: "Is my QR text uploaded?", answer: "The code is generated in the browser, and the tool's code does not send the text you enter to a server to create the image." }
+    ],
+    related: [{ href: "/qr-code", label: "QR Code Generator" }, { href: "/password", label: "Password Generator" }, { href: "/image/resize", label: "Image Resizer" }]
+  },
+  {
+    slug: "use-color-picker-hex-rgb-hsl",
+    title: "How to Use a Color Picker: HEX, RGB, and HSL Explained",
+    description: "Pick a colour, copy its HEX, RGB, and HSL values, choose shades, and check contrast before you use it.",
+    intro: "A colour picker gives you a reusable value for a colour, not just a visual swatch. The SmartEdgeTools Color Picker shows the selected colour in HEX, RGB, and HSL, and offers nine lighter and darker-looking shades to copy. This guide explains what each format means, how to use the shades, and how to check that text on that colour stays readable.",
+    sections: [
+      { heading: "Pick a colour two ways", paragraphs: [
+        "Use the browser colour control to pick visually, or enter a six-digit HEX code directly. The tool starts with #E85D2F, a warm orange-red. When you change the colour, all formats update together, so copy the format your tool needs rather than retyping a value from another format and risking a typo.",
+        "HEX is the most common value in CSS and design tools. RGB gives the red, green, and blue channels as numbers. HSL gives hue as an angle, saturation as a percentage, and lightness as a percentage, which is often easier for adjusting how vivid or light a colour feels."
+      ]},
+      { heading: "Worked example: #E85D2F", paragraphs: [
+        "For the starting colour #E85D2F, the red channel is 232, green is 93, and blue is 47, so the RGB value is rgb(232, 93, 47). In HSL, the hue is about 15 degrees, saturation about 80%, and lightness about 55%, written hsl(15, 80%, 55%). The exact rounded values shown by the tool are the ones to copy for your design.",
+        "HEX uses pairs of hexadecimal digits for red, green, and blue. E8 is 232 in decimal, 5D is 93, and 2F is 47. That is why the same colour can be written in three different notations without changing how it looks."
+      ]},
+      { heading: "Use the shades, but check them", paragraphs: [
+        "The shade row shows nine variations from darker to lighter, made by scaling the colour, and clicking a shade copies it. Shades are useful for hover states, backgrounds, borders, and accents that should feel related without being identical. Do not assume a shade is automatically readable for text: a light shade may be fine for a background but poor for small white text, and a dark shade may be fine for text but too heavy for a large background.",
+        "Name colours in your design system when you reuse them, such as brand orange, brand orange dark, and brand orange light, and record the HEX value with each name. That prevents small variations from spreading across pages."
+      ]},
+      { heading: "Contrast is a separate check", paragraphs: [
+        "A colour value alone does not guarantee readable text. Check the contrast between the text colour and the background colour at the size and weight where it will appear, and do not use colour as the only way to communicate meaning, such as red for error with no icon or text. A colour that looks clear on your screen may be harder to read on a phone in bright light or for a person with low vision.",
+        "For important text, test the combination with a contrast checker and test it on a real device. For decorative elements, such as a border or a large illustration, exact contrast matters less, but keep the design consistent and avoid combinations that vibrate or strain the eye."
+      ]}
+    ],
+    table: { caption: "Colour formats at a glance", headers: ["Format", "Example for #E85D2F", "Common use"], rows: [["HEX", "#E85D2F", "CSS and most design tools"], ["RGB", "rgb(232, 93, 47)", "When channel values are needed"], ["HSL", "hsl(15, 80%, 55%)", "Adjusting vividness and lightness"]] },
+    takeaways: ["HEX, RGB, and HSL describe the same colour in different notations.", "Copy the format your tool needs, and copy shades directly to avoid typos.", "Check text contrast separately; a colour value alone does not guarantee readability."],
+    faq: [
+      { question: "What is the difference between HEX and RGB?", answer: "HEX writes the red, green, and blue channels as hexadecimal pairs. RGB writes the same three channels as decimal numbers. Both describe the same colour." },
+      { question: "Can the picker sample a colour from a photo?", answer: "No. It shows values for the colour you pick or enter, and shades of that colour. It does not sample colours from an image or from another part of your screen." },
+      { question: "How do I copy a shade?", answer: "Click the shade in the shade row. The tool copies that shade value for you to paste into your design." },
+      { question: "Why does my colour look different on another screen?", answer: "Screens differ in brightness, calibration, and colour settings, so the same value can look slightly different. Check important colours on the devices your audience will use." }
+    ],
+    related: [{ href: "/color-picker", label: "Color Picker" }, { href: "/image/resize", label: "Image Resizer" }, { href: "/qr-code", label: "QR Code Generator" }]
+  },
+  {
+    slug: "use-stopwatch-laps",
+    title: "How to Use a Stopwatch and Read Lap Times",
+    description: "Start, pause, resume, and record laps, and understand the difference between a lap time and total elapsed time.",
+    intro: "A stopwatch measures elapsed time, and laps let you split that time into parts. The SmartEdgeTools Stopwatch shows time as minutes, seconds, and hundredths of a second, and records laps while it runs. This guide explains how to use it for practice, workouts, cooking, and timing tasks, and how to read the two times shown for each lap.",
+    sections: [
+      { heading: "Start, pause, resume, and reset", paragraphs: [
+        "Press Start to begin, Pause to stop the count without losing it, and Start again to resume from the paused time. The button label changes to Resume when there is a paused time. Press Reset to clear the time and all laps and return to 00:00.00. Reset does not save the laps, so note any times you need before resetting.",
+        "The display format is MM:SS.CS, where CS is hundredths of a second. For example, 01:23.45 means 1 minute, 23 seconds, and 45 hundredths. The timer updates about every 30 milliseconds in the browser, and the display rounds down to hundredths, so very short intervals should be treated as approximate."
+      ]},
+      { heading: "How laps work", paragraphs: [
+        "Press Lap only while the stopwatch is running; the button is disabled when it is paused or at zero. Each lap row shows two times: the lap duration, which is the time since the previous lap, and the total elapsed time at that lap. The first lap duration equals the total time at that lap, because there is no previous lap.",
+        "For example, if Lap 1 is pressed at 00:30.00 and Lap 2 at 01:10.00, Lap 2 lasted 40 seconds, while the total time at Lap 2 was 1 minute 10 seconds. Use lap durations to compare parts of a task, and total times to check progress against a deadline or a target."
+      ]},
+      { heading: "Practical timing tips", paragraphs: [
+        "Decide what counts as the start and finish before you start, especially when timing people or tasks. For a race or a practice run, use Lap at each checkpoint rather than stopping and restarting, so the total time stays continuous. For cooking or a work task, use Pause when you are interrupted, so the paused time does not count as working time.",
+        "Keep the page open while timing. The stopwatch runs in the browser page, and closing or refreshing the page will lose the current time and laps. If a time matters for a record, write it down or take a screenshot as soon as you finish."
+      ]},
+      { heading: "Accuracy limits", paragraphs: [
+        "A browser stopwatch is suitable for practice, study, workouts, and everyday timing, but it is not a certified timing device. Browser timers, device load, and human reaction time when pressing Start, Lap, or Pause all add small errors. For official races, laboratory measurements, or legal timing, use the timing system required for that purpose.",
+        "For fair comparisons, use the same device, the same start and finish rules, and the same lap points each time. A difference of a few hundredths of a second between runs may be reaction time, not a real change in performance."
+      ]}
+    ],
+    table: { caption: "Stopwatch example: two laps", headers: ["Lap", "Lap duration", "Total elapsed time"], rows: [["Lap 1", "00:30.00", "00:30.00"], ["Lap 2", "00:40.00", "01:10.00"], ["Lap 3", "00:25.00", "01:35.00"]] },
+    takeaways: ["Time is shown as minutes, seconds, and hundredths: MM:SS.CS.", "Each lap shows both its own duration and the total time at that lap.", "Pause keeps the time; Reset clears time and laps, so save times first."],
+    faq: [
+      { question: "What is the difference between lap time and total time?", answer: "Lap time is the duration since the previous lap. Total time is the elapsed time from the start to that lap." },
+      { question: "Can I record a lap while paused?", answer: "No. The Lap button is disabled when the stopwatch is not running. Resume first, then press Lap." },
+      { question: "Does the stopwatch keep running if I close the page?", answer: "No. It runs in the browser page, so closing or refreshing the page loses the current time and laps." },
+      { question: "Is a browser stopwatch exact?", answer: "It is suitable for everyday timing, but browser timing and human reaction time add small errors. It is not a certified timing device." }
+    ],
+    related: [{ href: "/stopwatch", label: "Stopwatch" }, { href: "/typing-test", label: "Typing Speed Test" }, { href: "/random-number", label: "Random Number Generator" }]
+  },
+  {
+    slug: "count-words-characters-reading-time",
+    title: "How to Count Words, Characters, and Reading Time",
+    description: "Understand how word, character, sentence, paragraph, and reading-time counts are calculated, and when each one matters.",
+    intro: "Word counts matter for essays, articles, captions, and forms, but different tools count slightly differently. The SmartEdgeTools Word Counter shows words, characters, characters without spaces, sentences, paragraphs, and estimated reading time as you type or paste. This guide explains exactly how each count is calculated here, so you can check a result instead of guessing.",
+    sections: [
+      { heading: "How each count is calculated", paragraphs: [
+        "Words are counted by trimming the text and splitting on whitespace, so a word separated by spaces, tabs, or line breaks counts once, and extra spaces do not create extra words. Characters count every character in the text, including spaces and line breaks. Characters without spaces remove all whitespace first, then count what remains.",
+        "Sentences are counted by splitting on groups of ., !, and ? and keeping only non-empty parts, so an abbreviation with periods or an ellipsis can affect the count. Paragraphs are counted by splitting on line breaks and keeping only non-empty blocks. If your text has no line breaks, it counts as one paragraph, even if it is long."
+      ]},
+      { heading: "Reading time: a rough estimate", paragraphs: [
+        "Reading time is calculated as words divided by 200, rounded up to whole minutes, and shown as minutes. For example, 400 words gives 2 minutes, and 401 words gives 3 minutes, because the tool rounds up. Zero words gives 0 minutes.",
+        "Treat reading time as a rough guide, not a promise. Real reading speed varies with topic, language, layout, and whether the reader is skimming or studying. A technical text will usually take longer than the estimate, and a simple list may take less time."
+      ]},
+      { heading: "Which count to use for which task", paragraphs: [
+        "Use words for essays, articles, and assignments that set a word limit. Use characters, or characters without spaces, for captions, bios, and forms that set a character limit, and check whether the limit includes spaces before you submit. Use sentences and paragraphs to check structure: very long sentences and very long paragraphs are often harder to read, even if the word count is correct.",
+        "For a draft, check the counts after you finish editing, not only while you write. Cutting filler, splitting long sentences, and breaking long paragraphs can change the counts without changing the main ideas, and that is often an improvement."
+      ]},
+      { heading: "Why counts differ between tools", paragraphs: [
+        "Tools differ on edge cases: hyphenated words, numbers, abbreviations, URLs, and words joined by punctuation. One tool may count hello-world as one word and another as two, and one tool may count an abbreviation as several sentences. That does not mean one tool is broken; it means the counting rule differs.",
+        "For a formal limit, follow the rule of the organisation that set it, and check the result with their tool or method if they provide one. For everyday writing, use the same counter for drafts and final checks, so the counts are comparable."
+      ]}
+    ],
+    table: { caption: "Worked word-counter examples", headers: ["Text", "Words", "Reading time"], rows: [["Hello world", "2", "1 min (rounded up)"], ["400 words of text", "400", "2 min"], ["401 words of text", "401", "3 min (rounded up)"]] },
+    takeaways: ["Words split on whitespace; characters include spaces unless you use the no-spaces count.", "Reading time is words / 200, rounded up to whole minutes.", "Counts differ between tools on hyphens, abbreviations, and punctuation; follow the limit-setter's rule for formal work."],
+    faq: [
+      { question: "Do extra spaces add words?", answer: "No. The tool trims the text and splits on whitespace, so extra spaces do not create extra words." },
+      { question: "What is the difference between characters and characters without spaces?", answer: "Characters count everything, including spaces and line breaks. Characters without spaces remove all whitespace first." },
+      { question: "Why is reading time rounded up?", answer: "The tool divides words by 200 and rounds up to a whole minute, so 401 words shows as 3 minutes, not 2 minutes." },
+      { question: "Is my text uploaded to count it?", answer: "The counter runs in your browser as you type or paste. It does not ask you to create an account to count text." }
+    ],
+    related: [{ href: "/word-counter", label: "Word Counter" }, { href: "/text-case", label: "Case Converter" }, { href: "/typing-test", label: "Typing Speed Test" }]
+  },
+  {
+    slug: "convert-text-case",
+    title: "How to Convert Text Case: Uppercase, Title Case, camelCase, and More",
+    description: "Choose the right case for headings, code, file names, and prose, and avoid the mistakes each format can cause.",
+    intro: "Text case changes how words look, and in code it can also change meaning. The SmartEdgeTools Case Converter shows eight formats at once from the text you enter, and clicking a format copies it. This guide explains each format, when to use it, and when a case change can break something.",
+    sections: [
+      { heading: "Formats for ordinary writing", paragraphs: [
+        "UPPERCASE makes every letter capital, which is useful for short labels, warnings, or acronyms, but hard to read in long text and often read as shouting online. lowercase makes every letter small, which is useful for email addresses and some identifiers, but not for normal sentences. Title Case capitalises the first letter of each word, as in Hello World, and is common for headings. Sentence case capitalises only the first letter of the sentence, as in Hello world, and is common for body text and descriptions.",
+        "For headings, follow the style of the publication or organisation you are writing for, because title case rules differ on small words such as and, of, and the. The tool applies a simple first-letter rule; it does not apply a full publishing style guide, so check headings that contain small words or proper names."
+      ]},
+      { heading: "Formats for code and file names", paragraphs: [
+        "camelCase joins words with no spaces and capitalises each word after the first, as in helloWorld, and is common for variable and function names in many programming languages. snake_case joins words with underscores, as in hello_world, and is common for file names, database fields, and Python identifiers. kebab-case joins words with hyphens, as in hello-world, and is common for URLs, file names, and CSS class names.",
+        "In code, case usually matters: helloWorld, HelloWorld, and hello_world can be three different names. Do not change case in code without checking the language and the existing names, and do not change case in passwords, URLs, or file paths without checking, because those can also be case-sensitive."
+      ]},
+      { heading: "Reverse case: a special case", paragraphs: [
+        "The reverse format flips the case of each letter, so Hello World becomes hELLO wORLD, and the tool labels it esreveR as an example of the effect. It is useful for fixing text typed with Caps Lock on, or for a playful effect, but it is not a standard format for publishing or code. If you typed a whole paragraph with Caps Lock on, converting to sentence case or lowercase first, then fixing the first letter, is usually cleaner than reversing every letter."
+      ]},
+      { heading: "How to use the tool safely", paragraphs: [
+        "Enter your text, read all eight results, and click the format you want to copy. Check the result before pasting, especially for proper names, acronyms, and words with apostrophes, because a simple case rule can change McDonald, NASA, or don't in a way you do not want. For a long document, convert in sections and review each section, rather than converting everything at once and assuming it is correct.",
+        "The conversion runs in your browser and does not need an account. For sensitive text, still avoid pasting passwords or private data into any website, even for a simple format change."
+      ]}
+    ],
+    table: { caption: "Text case formats for Hello World", headers: ["Format", "Result", "Common use"], rows: [["UPPERCASE", "HELLO WORLD", "Short labels and acronyms"], ["lowercase", "hello world", "Email and some identifiers"], ["Title Case", "Hello World", "Headings"], ["Sentence case", "Hello world", "Body text"], ["camelCase", "helloWorld", "Code names"], ["snake_case", "hello_world", "File and field names"], ["kebab-case", "hello-world", "URLs and CSS classes"], ["Reverse", "hELLO wORLD", "Fixing Caps Lock text"]] },
+    takeaways: ["Title Case is for headings; Sentence case is for body text.", "In code, case usually matters, so check names before changing them.", "Always review proper names and acronyms after a case conversion."],
+    faq: [
+      { question: "Does Title Case capitalise every word?", answer: "The tool capitalises the first letter of each word. Full publishing style guides have extra rules for small words, so check headings against the style you follow." },
+      { question: "What is the difference between snake_case and kebab-case?", answer: "snake_case joins words with underscores, as in hello_world. kebab-case joins words with hyphens, as in hello-world." },
+      { question: "Can changing case break code?", answer: "Yes. In many languages, variable and function names are case-sensitive, so helloWorld and HelloWorld can be different names." },
+      { question: "How do I copy a converted result?", answer: "Click the format you want. The tool copies that result, and shows Copied for that format." }
+    ],
+    related: [{ href: "/text-case", label: "Case Converter" }, { href: "/word-counter", label: "Word Counter" }, { href: "/json-formatter", label: "JSON Formatter & Validator" }]
+  },
+  {
+    slug: "improve-text-ai-safely",
+    title: "How to Improve Text With AI Without Losing Meaning",
+    description: "Use the AI Text Improver for clearer, professional text, check every change, and keep sensitive text out.",
+    intro: "The SmartEdgeTools AI Text Improver rewrites text in a professional and clear way, keeping the intended meaning and without adding facts. It is useful for emails, updates, and drafts that need to sound clearer, but a rewrite can still change emphasis or drop a qualification. This guide explains how to use it well, what its limits are, and what not to submit.",
+    sections: [
+      { heading: "What the tool does", paragraphs: [
+        "Enter text up to 8,000 characters, and the tool sends it to the site's rewrite endpoint, which forwards it to OpenRouter and an available language model using the openrouter/auto model. The instruction is fixed: rewrite in a professional and clear way, keep the intended meaning, do not add facts, and return only the rewritten text. There are no tone controls in the current tool.",
+        "The endpoint limits requests to 5 per minute per IP address, with a 60-second retry wait after that limit, and times out after 25 seconds. If you see a rate-limit or unavailable message, wait and try again, or split a long text into smaller sections under 8,000 characters."
+      ]},
+      { heading: "Write good input, then check the output", paragraphs: [
+        "Short passages with a clear audience are easier to review. Include only details that should remain, and keep numbers, dates, names, and conditions exact in the input, because a rewrite can round a number, soften a condition, or drop a caveat without making the text obviously wrong. After you get the result, compare it line by line with your source, restore any missing facts, and check tone: professional and clear is not the same as formal, friendly, or legally precise.",
+        "Do not use the output for legal, medical, financial, or safety-critical text without a qualified human review. The tool does not know your contract, your policy, or your audience's requirements, and it cannot verify facts. For school or work, follow their rules for AI assistance and disclose AI help where required."
+      ]},
+      { heading: "What not to submit", paragraphs: [
+        "Because text is sent to an external AI service, do not submit passwords, personal records, confidential business material, health information, or other sensitive information. The tool's own page warns about this, and the Privacy Policy describes analytics and advertising separately. If a passage contains sensitive details, remove them before rewriting, or rewrite it yourself.",
+        "Also avoid submitting text you do not have the right to use, such as copyrighted work you are not permitted to adapt. A rewrite does not make someone else's work yours, and it does not remove copyright or attribution requirements."
+      ]},
+      { heading: "When AI rewriting is not the right tool", paragraphs: [
+        "Use the AI improver for clarity, not for research, calculation, or fact-checking. It does not browse the web, does not verify a claim, and is instructed not to add facts, but it can still misread an ambiguous sentence. For a factual answer, use a calculator, a converter, or a trusted source, and for a creative draft, use the rewrite as a starting point that you edit in your own voice.",
+        "If the tool is temporarily unavailable, the page shows an unavailable message. That can happen when the AI service key is not configured on the server or when the service fails; it does not mean your text was saved. Try again later, or edit the text manually in the meantime."
+      ]}
+    ],
+    table: { caption: "AI rewrite: good and risky uses", headers: ["Use", "Good for AI rewrite", "Needs human review"], rows: [["Email or update", "Clearer wording, same facts", "Dates, amounts, and commitments"], ["Draft description", "Shorter, more professional text", "Claims about a product or service"], ["Sensitive or legal text", "No, do not submit it", "Yes, use a qualified human"]] },
+    takeaways: ["The tool rewrites up to 8,000 characters in a professional, clear style, without adding facts.", "Compare the output with the source and restore any dropped qualifications.", "Never submit passwords, personal records, or confidential material to an external AI service."],
+    faq: [
+      { question: "How long can my text be?", answer: "Up to 8,000 characters. For longer content, rewrite it in smaller sections." },
+      { question: "Why did I get a too-many-requests message?", answer: "The endpoint allows 5 rewrite requests per minute per IP address. Wait a minute and try again." },
+      { question: "Does the improver add facts?", answer: "It is instructed not to add facts, but it can still misread a sentence or drop a qualification, so check the output against your source." },
+      { question: "Is my text sent to an external service?", answer: "Yes. The tool forwards your text to OpenRouter and an available language model, so do not submit sensitive information." }
+    ],
+    related: [{ href: "/ai-rewrite", label: "AI Text Improver" }, { href: "/word-counter", label: "Word Counter" }, { href: "/text-case", label: "Case Converter" }]
+  },
+  {
+    slug: "understand-birth-chart",
+    title: "How to Understand a Birth Chart: Signs, Planets, and Houses",
+    description: "Learn what a natal chart shows, why charts differ between sites, and why astrology is not a science.",
+    intro: "A birth chart, also called a natal chart, is a map of the sky from a specific place at the moment of birth, as interpreted by astrology. The SmartEdgeTools Birth Chart Calculator shows that chart through an embedded widget from AstroWay. This guide explains the main parts of a chart, why the same birth details can give different charts on different sites, and what a chart cannot do.",
+    sections: [
+      { heading: "What the chart shows", paragraphs: [
+        "Enter your birth date, time, and place in the widget to explore planetary placements and houses. Astrologers read a chart using three building blocks: the zodiac signs, the planets and other points, and the houses, which are divisions of the sky based on time and place. The Ascendant, or rising sign, is the sign on the eastern horizon at birth. The Midheaven is the point highest in the sky at birth, often linked in astrology to public life and career.",
+        "Aspects are the angles between planets, such as conjunctions and oppositions, which astrologers use to describe how themes interact. Retrograde means a planet appears to move backward from Earth's point of view; that is an optical effect, not a real reversal of the planet's motion."
+      ]},
+      { heading: "Why birth time and place matter in astrology", paragraphs: [
+        "In astrology, the exact time and place change the Ascendant and the houses, because the sky turns during the day. A chart made without a birth time, or with a rounded time, can still show planetary signs, which change more slowly, but its houses and Ascendant will be uncertain. If you do not know your birth time, treat the house and Ascendant parts as uncertain rather than exact, and do not use them for decisions.",
+        "Different sites can also give different charts for the same details because astrologers use different house systems, such as Placidus and Whole Sign, and different zodiac conventions, such as tropical or sidereal. A difference between sites does not necessarily mean one site made a calculation error; it may mean the systems differ."
+      ]},
+      { heading: "Astrology is not science", paragraphs: [
+        "Astrology is a cultural and reflective tradition, not a science, and scientific studies have not shown that birth charts predict personality or events. Use a chart for interest and self-reflection if you enjoy it, and do not base medical, financial, legal, or major life decisions on it. If a chart reading causes worry, talk to a trusted person or a qualified professional, not to the chart alone.",
+        "Be careful with readings that claim to predict a specific event, a person's character, or compatibility with certainty. A general statement that could apply to many people can feel personal even when it is not specific, and that feeling does not make it a prediction."
+      ]},
+      { heading: "Who provides the chart, and what happens to your details", paragraphs: [
+        "The chart is generated by an embedded widget from AstroWay, a third-party service, rather than by SmartEdgeTools code. The page states that AstroWay says birth details entered in the widget stay in the visitor's browser and are not sent to its server, and the widget is loaded from AstroWay's site. If the widget does not load, check your connection or try again later, and remember that SmartEdgeTools cannot fix a third-party widget from its own code.",
+        "Even with that statement, avoid entering more personal detail than the widget needs, and do not enter passwords, account details, or other sensitive information in a birth chart widget. The chart needs only birth date, time, and place to produce its usual output."
+      ]}
+    ],
+    table: { caption: "Birth chart terms", headers: ["Term", "Meaning in astrology", "Caution"], rows: [["Ascendant", "Sign on the eastern horizon at birth", "Needs an accurate birth time"], ["Midheaven", "Point highest in the sky at birth", "Interpretation, not a measurement"], ["Houses", "Divisions of the sky by time and place", "Varies by house system"], ["Retrograde", "Planet appears to move backward", "Optical effect, not a real reversal"]] },
+    takeaways: ["A natal chart maps signs, planets, and houses for a birth time and place.", "House system and zodiac convention can change the chart, so charts can differ between sites.", "Astrology is not science; do not base medical, financial, or legal decisions on a chart."],
+    faq: [
+      { question: "Why does my chart look different on another website?", answer: "Sites use different house systems, such as Placidus and Whole Sign, and different zodiac conventions, such as tropical or sidereal, so the same birth details can produce different charts." },
+      { question: "Can a birth chart predict my future?", answer: "No. Astrology is a cultural and reflective tradition, not a science, and studies have not shown that birth charts predict personality or events." },
+      { question: "Who provides the chart calculation?", answer: "An embedded widget from AstroWay, a third-party service, rather than SmartEdgeTools code. If the widget does not load, check your connection or try again later." },
+      { question: "Do I need an exact birth time?", answer: "For houses and the Ascendant, yes. Without an accurate time, treat those parts as uncertain, while planetary signs change more slowly." }
+    ],
+    related: [{ href: "/birth-chart", label: "Birth Chart Calculator" }, { href: "/age-calculator", label: "Age Calculator" }, { href: "/random-number", label: "Random Number Generator" }]
   }
 ];
 

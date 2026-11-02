@@ -81,6 +81,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/create-strong-password", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/format-json-validate", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/typing-speed-test-improve-wpm", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/calculate-final-grade-needed", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/generate-random-numbers", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/create-qr-code", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/use-color-picker-hex-rgb-hsl", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/use-stopwatch-laps", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/count-words-characters-reading-time", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/convert-text-case", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/improve-text-ai-safely", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/understand-birth-chart", changeFrequency: "monthly", priority: 0.7 },
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({
