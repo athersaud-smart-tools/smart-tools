@@ -25,7 +25,7 @@ export const newArticles: NewArticle[] = [
       ]},
       { heading: "Worked examples", paragraphs: [
         "Example one: borrow $10,000 at 5.5% annually for five years. The term is 60 monthly payments and the monthly rate is 0.055 ÷ 12. Substituting those values gives an estimated payment of $191.01. Multiplying the unrounded payment by 60 gives a total of $11,460.70, or about $1,460.70 in interest. The displayed monthly amount is rounded to cents, so multiplying the rounded display may differ by a few cents.",
-        "Example two: suppose the principal is PKR 1,000,000, the annual rate is 12%, and the term is three years. The monthly rate is 0.01 and there are 36 payments. The formula gives about PKR 33,214.31 per month, about PKR 1,195,715.15 total, and about PKR 195,715.15 in interest. The SmartEdgeTools calculator labels its output with a dollar sign, so when you use a PKR principal, interpret the displayed figures as PKR rather than as a currency conversion."
+        "Example two: suppose the principal is PKR 1,000,000, the annual rate is 12%, and the term is three years. The monthly rate is 0.01 and there are 36 payments. The formula gives about PKR 33,214.31 per month, about PKR 1,195,715.15 total, and about PKR 195,715.15 in interest. In the SmartEdgeTools calculator, choose Rs for a PKR principal so the results are labelled in rupees. That label is for your own figures; it is not a currency conversion."
       ]},
       { heading: "Compare more than the monthly amount", paragraphs: [
         "A lower payment can come from a longer repayment term. That may make each month easier to budget, but it also means more payments are made. When comparing offers, enter the same principal and use each offer’s rate and term. Record the monthly payment, total repayment, and total interest. Then compare those estimates with the lender’s disclosed fees and payment schedule.",
@@ -329,6 +329,42 @@ export const newArticles: NewArticle[] = [
       { question: "Why is a quick-reference answer slightly different?", answer: "Quick-reference tables round values. The converter may show more digits from its internal factor and display formatting." }
     ],
     related: [{ href: "/unit-converter", label: "Unit Converter" }, { href: "/currency-converter", label: "Currency Converter" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
+  },
+  {
+    slug: "create-strong-password",
+    title: "How to Create a Strong Password You Can Actually Remember",
+    description: "Use length, varied characters, and a password manager habit to create passwords that are hard to guess and practical to use.",
+    intro: "A strong password is usually long, unpredictable, and unique to one account. Short, familiar words are easy to guess even when a number or symbol is added. This guide explains what makes a password hard to attack, how to use the SmartEdgeTools Password Generator, and how to store the result safely without reusing it across accounts.",
+    sections: [
+      { heading: "Length matters more than a clever word", paragraphs: [
+        "Each extra character multiplies the number of possible combinations. That is why a 16-character random password is far harder to guess by trying combinations than an 8-character one, even if the shorter password looks complicated. The SmartEdgeTools generator offers lengths from 8 to 32 characters, with 16 as its starting length. For an important account, choose at least 16 characters unless the service sets a lower limit.",
+        "A password made from a single dictionary word, a name, or a date is vulnerable to guessing lists, even with a capital letter or a digit at the end. Attackers try common words, names, keyboard patterns, and leaked passwords first. Random characters from several groups do not follow those patterns, which is why a generator is useful for accounts you do not need to type from memory every day."
+      ]},
+      { heading: "Use several character groups, and check the service rules", paragraphs: [
+        "The generator lets you include uppercase letters, lowercase letters, numbers, and symbols such as !@#$%^&*()_+-=[]{}|;:,.<>? . Using all four groups increases the possible characters at each position. Its strength label calls a password Weak when it is short or uses few groups, Medium in the middle range, and Strong when it is longer and uses more groups. Treat that label as a rough guide, not a guarantee: a long random password is strong because of length and unpredictability, not because a label says so.",
+        "Some websites limit length or symbols. If a generated password is rejected, keep the length as high as the service allows and keep several character groups enabled, rather than falling back to a short familiar word. Do not remove symbols and shorten the password at the same time unless the service requires it."
+      ]},
+      { heading: "Generate it in the browser, then store it safely", paragraphs: [
+        "In the Password Generator, set the length, choose the character groups, and select Generate Password. Copy the result into the account or into a password manager. The page generates the password in your browser using the browser's cryptographic random values; it does not ask you to create an account on SmartEdgeTools to generate one.",
+        "For everyday use, a password manager is the practical way to keep a different long password for each account. If you write a password down, keep it in a private place that only you can access, and do not store it in a shared document, a photo, or an email draft. Never share a password in a chat message or send it to a support agent who asks for it."
+      ]},
+      { heading: "One account, one password", paragraphs: [
+        "Reusing the same password means one leak can open several accounts. If a service reports a breach, change that account's password first, then check whether the same password was used anywhere else and change those too. Use two-factor authentication where it is offered, especially for email, banking, and accounts that can reset other passwords.",
+        "Email deserves special care: anyone who controls your email can often reset passwords on other services. Give your email account a long, unique password and turn on its strongest available second factor."
+      ]},
+      { heading: "What not to do", paragraphs: [
+        "Avoid birthdays, pet names, school names, favourite teams, and simple sequences, even with substitutions such as replacing a letter with a similar-looking number. Avoid reusing a work password for a personal account, and avoid a password that is only a slight variation of an older one, such as adding 1 at the end. If you must remember a password without a manager, use a long passphrase made from several unrelated words and add numbers and symbols, and keep it unique to that account."
+      ]}
+    ],
+    table: { caption: "Stronger choices for common password habits", headers: ["Instead of", "Try", "Why it helps"], rows: [["A short familiar word with 123", "16+ random characters from several groups", "Length and unpredictability make guessing far harder"], ["The same password everywhere", "A unique password per account, stored in a manager", "One leak does not open other accounts"], ["Changing only the last digit", "A completely new random password", "Small variations are easy to predict"]] },
+    takeaways: ["Use at least 16 characters for important accounts when the service allows it.", "Combine uppercase, lowercase, numbers, and symbols, and keep the password unique.", "Store generated passwords in a password manager and enable two-factor authentication where offered."],
+    faq: [
+      { question: "How long should a password be?", answer: "At least 16 characters for important accounts when the service allows it. Longer random passwords are harder to guess by trying combinations." },
+      { question: "Is a password with symbols automatically strong?", answer: "No. Symbols help, but length and unpredictability matter more. A short password with one symbol can still be weak." },
+      { question: "Does the SmartEdgeTools generator upload my password?", answer: "The generator runs in your browser and creates the password there. Copy it into the account or password manager you trust, and do not share it." },
+      { question: "What should I do after a data breach?", answer: "Change the affected account's password to a new, unique one, check for reuse on other accounts, and review the account's security settings." }
+    ],
+    related: [{ href: "/password", label: "Password Generator" }, { href: "/qr-code", label: "QR Code Generator" }, { href: "/word-counter", label: "Word Counter" }]
   }
 ];
 
