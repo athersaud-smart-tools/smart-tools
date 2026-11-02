@@ -70,8 +70,8 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">Cookies and analytics</h2>
             <p className="leading-7">
-              The site loads Google Analytics (measurement ID G-ELZ9V0DN5R), Microsoft Clarity, and the
-              Google AdSense script on pages other than this Privacy Policy page. These third-party services
+              The site loads Google Analytics (measurement ID G-KRMPNVW2R8), Microsoft Clarity, and the
+              Google AdSense script on every page, including this Privacy Policy page. These third-party services
               may process information about site visits and interactions and may use cookies or similar
               technologies. The site code does not read or write browser local storage or set first-party
               cookies for the tools. Google consent mode is initialized with analytics and advertising
