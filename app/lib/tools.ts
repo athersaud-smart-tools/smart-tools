@@ -58,10 +58,10 @@ export const toolRelations: Record<
   "/word-counter": { schemaCategory: "UtilitiesApplication", related: ["/text-case", "/ai-rewrite", "/typing-test"], guides: ["/blog/top-tools-for-students"] },
   "/color-picker": { schemaCategory: "DesignApplication", related: ["/image/resize", "/qr-code"], guides: ["/blog/best-free-image-tools"] },
   "/text-case": { schemaCategory: "UtilitiesApplication", related: ["/word-counter", "/ai-rewrite", "/json-formatter"], guides: ["/blog/top-tools-for-students"] },
-  "/json-formatter": { schemaCategory: "DeveloperApplication", related: ["/text-case", "/word-counter"] },
+  "/json-formatter": { schemaCategory: "DeveloperApplication", related: ["/text-case", "/word-counter"], guides: ["/blog/format-json-validate"] },
   "/unit-converter": { schemaCategory: "UtilitiesApplication", related: ["/currency-converter", "/percentage-calculator", "/bmi-calculator"], guides: ["/blog/convert-common-units", "/blog/how-online-calculators-save-time"] },
   "/stopwatch": { schemaCategory: "UtilitiesApplication", related: ["/typing-test", "/random-number"], guides: ["/blog/top-tools-for-students"] },
-  "/typing-test": { schemaCategory: "EducationalApplication", related: ["/word-counter", "/stopwatch"], guides: ["/blog/top-tools-for-students"] },
+  "/typing-test": { schemaCategory: "EducationalApplication", related: ["/word-counter", "/stopwatch"], guides: ["/blog/typing-speed-test-improve-wpm", "/blog/top-tools-for-students"] },
   "/pdf/merge": { schemaCategory: "BusinessApplication", related: ["/image/compress", "/image/resize"], guides: ["/blog/merge-pdf-files-safely", "/blog/top-tools-for-students"] },
 };
 
@@ -81,4 +81,6 @@ export const guideTitles: Record<string, string> = {
   "/blog/merge-pdf-files-safely": "How to Merge PDF Files Without Uploading Them",
   "/blog/convert-common-units": "How to Convert Common Units",
   "/blog/create-strong-password": "How to Create a Strong Password You Can Actually Remember",
+  "/blog/format-json-validate": "How to Format and Validate JSON (With Examples)",
+  "/blog/typing-speed-test-improve-wpm": "How to Take a Typing Speed Test and Improve Your WPM",
 };

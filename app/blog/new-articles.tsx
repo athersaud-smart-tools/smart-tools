@@ -365,6 +365,84 @@ export const newArticles: NewArticle[] = [
       { question: "What should I do after a data breach?", answer: "Change the affected account's password to a new, unique one, check for reuse on other accounts, and review the account's security settings." }
     ],
     related: [{ href: "/password", label: "Password Generator" }, { href: "/qr-code", label: "QR Code Generator" }, { href: "/word-counter", label: "Word Counter" }]
+  },
+  {
+    slug: "format-json-validate",
+    title: "How to Format and Validate JSON (With Examples)",
+    description: "Learn JSON syntax, how formatting and minifying work, and how to find and fix common validation errors.",
+    intro: "JSON is a text format for structured data used by APIs, configuration files, and web applications. A JSON value can be an object, an array, a string, a number, true, false, or null. Formatting makes that text easier to read, minifying makes it compact, and validating checks whether the text follows JSON rules at all. This guide explains all three, using the SmartEdgeTools JSON Formatter and Validator as the example tool.",
+    sections: [
+      { heading: "What valid JSON looks like", paragraphs: [
+        "An object uses curly brackets, with double-quoted keys, a colon, and values separated by commas, for example {\"name\":\"Mina\",\"items\":[1,2]}. An array uses square brackets. Strings must use double quotes, not single quotes. Numbers do not use quotes. True, false, and null are written in lower case.",
+        "Whitespace between tokens does not change the data. That is why the same JSON can be written on one long line or spread over many lines. Formatting only changes whitespace and indentation; it does not rename fields, reorder data in a meaningful way, or change values."
+      ]},
+      { heading: "Format, minify, and choose indentation", paragraphs: [
+        "Paste a JSON value into the tool, choose an indent of 2 spaces, 4 spaces, or a tab, then select Format & validate. The tool parses the input and prints the same data with consistent indentation, so nested objects and arrays are easier to follow. Select Minify instead to remove insignificant whitespace for a compact copy.",
+        "The tool also offers a Load example button, which fills in {\"name\":\"SmartEdgeTools\",\"features\":[\"format\",\"validate\"],\"active\":true}. Try formatting that first, then minifying the result, to see that both operations keep the same fields and values. Copy the output only after it validates."
+      ]},
+      { heading: "How to read a validation error", paragraphs: [
+        "If the input is invalid, the tool shows an error message and, when the parser reports a position, a line and column hint. Use that hint as a starting point, not as a perfect pointer: the actual mistake is often just before the reported position, such as a missing comma or bracket on the previous line.",
+        "Check the structure around that point. Count opening and closing brackets, check that every object key is quoted, and check that commas separate items but do not follow the last item. Fix one error at a time and run the tool again, because a single early error can hide later ones."
+      ]},
+      { heading: "Common errors and how to fix them", paragraphs: [
+        "Single quotes are the most common cause: {'name':'Mina'} is not JSON, even though it looks similar in other languages. Change single quotes to double quotes. Unquoted keys, such as {name:\"Mina\"}, are also invalid; quote the key. A trailing comma, such as {\"a\":1,}, is invalid; remove the comma after the last item.",
+        "A missing comma, a missing closing bracket, or a value such as undefined, NaN, or a date written without quotes will also fail. JSON has no comments, so a line starting with // inside JSON is invalid. If you need a note, keep it outside the JSON value."
+      ]},
+      { heading: "What the formatter does not do", paragraphs: [
+        "The formatter does not repair broken JSON and does not guess at a correction. That is deliberate: guessing could change a value without you noticing. It also does not check whether the data is correct for your application, only whether the text is valid JSON. A valid JSON value can still contain the wrong field name, the wrong number, or a missing item for your task.",
+        "Processing happens in your browser, and the formatter code does not send the text you enter to a server. That is useful for ordinary API responses and configuration, but still avoid pasting secrets, passwords, or highly sensitive personal data into any website, especially on a shared device."
+      ]},
+      { heading: "A practical workflow", paragraphs: [
+        "Copy the JSON from your API response, file, or error message, paste the complete value, and format it. Read the nested structure, check the fields you need, and copy the formatted or minified version as required. If the tool reports an error, fix the syntax, validate again, and only then use the result in your application or configuration.",
+        "For a large file, work on a copy and keep the original unchanged until the formatted version validates. If a value is very large, check that you pasted the complete value, because a cut-off ending will look like a missing bracket error."
+      ]}
+    ],
+    table: { caption: "Common JSON errors and fixes", headers: ["Invalid example", "Problem", "Fix"], rows: [["{'name':'Mina'}", "Single quotes", "Use double quotes: {\"name\":\"Mina\"}"], ["{name:\"Mina\"}", "Unquoted key", "Quote the key: {\"name\":\"Mina\"}"], ["{\"a\":1,}", "Trailing comma", "Remove the last comma: {\"a\":1}"], ["{\"items\":[1,2]} // note", "Comment in JSON", "Remove the comment or keep it outside the JSON"]] },
+    takeaways: ["JSON requires double-quoted strings and keys, and no trailing commas.", "Formatting changes whitespace only; minifying removes it. Neither changes values.", "Use the error line and column as a starting point, fix one error at a time, and validate again."],
+    faq: [
+      { question: "What is the difference between formatting and minifying JSON?", answer: "Formatting adds consistent indentation to make JSON readable. Minifying removes insignificant whitespace to make it compact. Both keep the same data." },
+      { question: "Why is my JSON invalid if it looks correct?", answer: "Common causes are single quotes, unquoted keys, a trailing comma, a missing comma or bracket, and comments. Check the reported line and column, then check just before that position." },
+      { question: "Can the formatter fix my JSON automatically?", answer: "No. It reports the error but does not guess a correction, so that values are not changed unexpectedly." },
+      { question: "Is my JSON uploaded when I use the tool?", answer: "The formatter runs in the browser and its code does not send the entered JSON to a server. Avoid sensitive data on a shared device." }
+    ],
+    related: [{ href: "/json-formatter", label: "JSON Formatter & Validator" }, { href: "/word-counter", label: "Word Counter" }, { href: "/text-case", label: "Case Converter" }]
+  },
+  {
+    slug: "typing-speed-test-improve-wpm",
+    title: "How to Take a Typing Speed Test and Improve Your WPM",
+    description: "Understand how WPM and accuracy are calculated in a 30-second test, and practise in a way that improves both.",
+    intro: "A typing speed test measures how much text you can type correctly in a set time. The SmartEdgeTools test lasts 30 seconds and uses one fixed passage. This guide explains exactly how its WPM and accuracy are calculated, how to take the test fairly, and how to practise without building bad habits.",
+    sections: [
+      { heading: "How this test works", paragraphs: [
+        "Press Start Test, then type the passage shown on the page into the input box. The timer counts down from 30 seconds, and a progress bar shows how far through the passage your typing has reached. Characters you type correctly appear in green, and characters that do not match appear in the accent colour, so you can see mistakes as you go.",
+        "The input is disabled until you press Start Test, and pressing Start Test again restarts the test with a fresh 30 seconds. The result appears when the timer reaches zero. The test does not save your result or compare it with other people; it reports only the result for that run."
+      ]},
+      { heading: "How WPM and accuracy are calculated here", paragraphs: [
+        "WPM is based on correct characters only, not on everything you typed. The tool counts correct characters, divides by 5 to estimate words, and divides by 0.5 minutes, because the test lasts 30 seconds. In symbols: WPM = correct characters ÷ 5 ÷ 0.5.",
+        "Accuracy is correct characters divided by all characters you typed, multiplied by 100 and rounded to a whole percent. For example, if you type 160 characters and 150 of them match the passage, accuracy is 150 ÷ 160 × 100 = 93.75%, shown as 94%, and WPM is 150 ÷ 5 ÷ 0.5 = 60."
+      ]},
+      { heading: "Why the same person can get different scores", paragraphs: [
+        "Scores depend on the passage, the duration, and whether you correct mistakes. A short, familiar passage, a longer test, or a test that allows backspacing and corrections will give a different result. That is why you should compare runs of the same test, with the same passage and the same 30 seconds, rather than comparing a result here directly with a result from a different website.",
+        "Typing extra characters beyond the passage, or skipping ahead, also affects the score. Characters typed past the end of the sample have no matching sample character, so they are not counted as correct, and they lower accuracy because they increase the total typed count."
+      ]},
+      { heading: "Practise accuracy first, then speed", paragraphs: [
+        "Speed built on errors is hard to use, because you spend time fixing mistakes. Practise at a pace where most characters are correct, even if that feels slow at first. Keep your hands relaxed, look at the passage rather than at your hands when you can, and aim for a steady rhythm instead of bursts followed by pauses.",
+        "Short, regular practice is more useful than one long session when you are tired. Take the 30-second test, note both WPM and accuracy, and practise the specific problem: if accuracy is low, slow down; if accuracy is high but WPM is low, increase pace gradually while keeping accuracy steady."
+      ]},
+      { heading: "Common mistakes to avoid", paragraphs: [
+        "Do not rush the first words and then stall, and do not ignore the colour feedback. If many characters are marked wrong, stop, restart, and type more slowly. Do not memorise one passage and treat that score as your general typing speed; the skill that transfers is accurate, rhythmic typing on new text, not recall of one paragraph.",
+        "Also avoid practising only on a phone keyboard if you need to type on a computer keyboard, or only in short bursts if you need to type longer documents. Match practice to the keyboard and the task you actually need."
+      ]}
+    ],
+    table: { caption: "Worked typing examples for a 30-second test", headers: ["Correct characters", "Typed characters", "WPM", "Accuracy"], rows: [["150", "160", "60", "94%"], ["100", "110", "40", "91%"], ["200", "205", "80", "98%"]] },
+    takeaways: ["WPM here is correct characters ÷ 5 ÷ 0.5 minutes, for a 30-second test.", "Accuracy is correct characters ÷ typed characters × 100.", "Compare runs of the same test, practise accuracy first, then increase speed gradually."],
+    faq: [
+      { question: "How long is the SmartEdgeTools typing test?", answer: "30 seconds. Press Start Test, type the passage, and the result appears when the timer reaches zero." },
+      { question: "Does WPM count characters I typed incorrectly?", answer: "No. WPM uses correct characters only. Incorrect characters lower accuracy and do not add to WPM." },
+      { question: "Why is my score different on another website?", answer: "Passages, durations, and rules for corrections differ between tests. Compare results only when the test conditions match." },
+      { question: "Should I practise speed or accuracy first?", answer: "Accuracy first. Once accuracy is steady, increase pace gradually and keep checking that accuracy does not fall sharply." }
+    ],
+    related: [{ href: "/typing-test", label: "Typing Speed Test" }, { href: "/word-counter", label: "Word Counter" }, { href: "/stopwatch", label: "Stopwatch" }]
   }
 ];
 
