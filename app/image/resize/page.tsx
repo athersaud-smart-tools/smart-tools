@@ -13,9 +13,11 @@ export default function ResizeImage() {
   const [originalRatio, setOriginalRatio] = useState(1);
   const [error, setError] = useState("");
   const imageUrlRef = useRef<string | null>(null);
+  const resizedImageUrlRef = useRef<string | null>(null);
 
   useEffect(() => () => {
     if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
+    if (resizedImageUrlRef.current) URL.revokeObjectURL(resizedImageUrlRef.current);
   }, []);
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +26,8 @@ export default function ResizeImage() {
       if (imageUrlRef.current) URL.revokeObjectURL(imageUrlRef.current);
       const url = URL.createObjectURL(file);
       imageUrlRef.current = url;
+      if (resizedImageUrlRef.current) URL.revokeObjectURL(resizedImageUrlRef.current);
+      resizedImageUrlRef.current = null;
       setImage(url);
       setResizedImage(null);
       setError("");
@@ -64,7 +68,16 @@ export default function ResizeImage() {
       const ctx = canvas.getContext("2d");
       if (!ctx) { setError("Your browser could not prepare this image. Try another browser or a smaller size."); return; }
       ctx.drawImage(img, 0, 0, width, height);
-      setResizedImage(canvas.toDataURL("image/png"));
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          setError("The resized image could not be created. Try a different image or smaller dimensions.");
+          return;
+        }
+        if (resizedImageUrlRef.current) URL.revokeObjectURL(resizedImageUrlRef.current);
+        const url = URL.createObjectURL(blob);
+        resizedImageUrlRef.current = url;
+        setResizedImage(url);
+      }, "image/png");
     };
     img.onerror = () => setError("This image could not be opened. Try a different image file.");
   };
@@ -129,11 +142,11 @@ export default function ResizeImage() {
             <div style={{ marginTop: "1.5rem" }}>
               <label className="field-label">Preview</label>
               <div className="result-box" style={{ padding: "0.75rem", textAlign: "center" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element -- client-generated canvas data URL, not an optimizable remote asset */}
+                {/* eslint-disable-next-line @next/next/no-img-element -- client-generated object URL, not an optimizable remote asset */}
                 <img src={resizedImage} alt="Resized image preview" style={{ maxWidth: "100%", borderRadius: 8 }} />
               </div>
-              <a href={resizedImage} download="resized.png">
-                <button className="btn btn-success">⬇️ Download Image</button>
+              <a className="btn btn-success" href={resizedImage} download="resized.png">
+                ⬇️ Download Image
               </a>
             </div>
           )}

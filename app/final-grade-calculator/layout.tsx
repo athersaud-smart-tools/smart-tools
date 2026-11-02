@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Final Grade Calculator — Weighted Grade & Score Needed";
+const title = "Final Grade & Weighted Grade Calculator";
 const description = "Calculate a weighted course grade or find the exam score needed to reach your target. Free final grade calculator with clear formulas and instant results.";
 const canonical = "/final-grade-calculator";
 

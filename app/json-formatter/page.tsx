@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ToolExtras from "../components/ToolExtras";
 
 const sample = '{"name":"SmartEdgeTools","features":["format","validate"],"active":true}';
 
@@ -76,6 +77,7 @@ export default function JsonFormatter() {
         <div><h4 className="font-semibold">Is my JSON uploaded or stored?</h4><p>The formatter and validator run in the browser and their code does not send the entered JSON to a server. Avoid using sensitive data in a shared device or a page you do not trust.</p></div>
         <div><h4 className="font-semibold">Can the formatter repair broken JSON?</h4><p>No. It reports a parsing error but does not guess at a correction. Fix the source deliberately so that values are not changed unexpectedly.</p></div>
       </section>
+      <ToolExtras href="/json-formatter" />
     </main>
   );
 }

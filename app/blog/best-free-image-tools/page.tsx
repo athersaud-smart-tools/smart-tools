@@ -20,7 +20,7 @@ export default function ArticlePage() {
             You often do not need a full image editor for a simple resize, compression job, color check,
             or QR code. The right focused tool can be faster and easier to use.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
+          <p className="mt-3 text-sm text-gray-500">By Ather Saud · Updated on November 1, 2026</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">

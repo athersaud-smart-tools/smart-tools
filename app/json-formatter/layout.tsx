@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "JSON Formatter & Validator — Free Online JSON Beautifier";
+const title = "JSON Formatter & Validator Online";
 const description = "Format, beautify, minify, and validate JSON online. Get readable syntax errors and process your JSON locally in your browser with this free tool.";
 const canonical = "/json-formatter";
 

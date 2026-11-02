@@ -20,7 +20,7 @@ export default function ArticlePage() {
             Browser tools are convenient for focused jobs, but convenience is only one part of the decision.
             Privacy, reliability, device support, and the type of data involved also matter.
           </p>
-          <p className="mt-3 text-sm text-gray-500">Updated October 9, 2026 · SmartEdgeTools</p>
+          <p className="mt-3 text-sm text-gray-500">By Ather Saud · Updated on November 1, 2026</p>
         </header>
 
         <div className="mt-10 space-y-7 leading-8">
@@ -67,7 +67,7 @@ export default function ArticlePage() {
               <thead><tr className="border-b border-gray-300"><th className="px-3 py-3">SmartEdgeTools feature</th><th className="px-3 py-3">Where the main operation happens</th><th className="px-3 py-3">What to keep in mind</th></tr></thead>
               <tbody>
                 <tr className="border-b border-gray-200"><td className="px-3 py-3">PDF merge</td><td className="px-3 py-3">In the browser with the selected file bytes</td><td className="px-3 py-3">Large files use device memory; document-level features may not transfer</td></tr>
-                <tr className="border-b border-gray-200"><td className="px-3 py-3">Image resize and compression</td><td className="px-3 py-3">In the browser using a canvas</td><td className="px-3 py-3">The downloaded output is JPEG, so transparency is lost</td></tr>
+                <tr className="border-b border-gray-200"><td className="px-3 py-3">Image resize and compression</td><td className="px-3 py-3">In the browser using a canvas</td><td className="px-3 py-3">Resizing exports PNG; compression exports WebP for PNG input and JPEG for other image types</td></tr>
                 <tr className="border-b border-gray-200"><td className="px-3 py-3">AI Text Improver</td><td className="px-3 py-3">Text is sent to the site API, OpenRouter, and an available model</td><td className="px-3 py-3">Do not submit confidential text; verify every change</td></tr>
                 <tr><td className="px-3 py-3">Currency Converter</td><td className="px-3 py-3">Rate requests go to third-party providers</td><td className="px-3 py-3">Provider rates can lag and may differ from the rate you pay</td></tr>
               </tbody>

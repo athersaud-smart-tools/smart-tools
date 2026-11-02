@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Age Calculator — Years, Months & Days";
-const description = "Calculate calendar age in years, months, and days, with total days, weeks, and estimated hours.";
+const description = "Calculate exact age in years, months, and days from a birth date, plus total days, weeks, and estimated hours. Runs in your browser.";
 const canonical = "/age-calculator";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Random Number Generator Online";
-const description = "Generate random numbers within a chosen range using the free SmartEdgeTools random number generator.";
+const description = "Generate up to 100 random numbers in a range you choose, with an option to avoid duplicates. Uses your browser's secure random generator.";
 const canonical = "/random-number";
 
 export const metadata: Metadata = {

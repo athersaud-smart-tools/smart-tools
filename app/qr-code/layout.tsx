@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "QR Code Generator Online";
-const description = "Create QR codes online from text or links with the free SmartEdgeTools QR code generator.";
+const description = "Create a QR code from a link or text, preview it, and download it as a PNG. Includes tips for testing and printing codes that scan reliably.";
 const canonical = "/qr-code";
 
 export const metadata: Metadata = {

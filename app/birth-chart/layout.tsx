@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-const title = "Birth Chart Calculator — Free Natal Chart Online";
-const description = "Explore your natal chart, planetary placements, and houses with the SmartEdgeTools birth chart calculator.";
+const title = "Birth Chart (Natal Chart) Calculator";
+const description = "Generate a natal birth chart from your birth date, time, and place, and learn what the planets, signs, houses, and rising sign mean.";
 const canonical = "/birth-chart";
 
 export const metadata: Metadata = {

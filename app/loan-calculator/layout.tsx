@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Loan Calculator — Monthly Payments";
-const description = "Estimate loan payments, interest, and repayment amounts with the free SmartEdgeTools loan calculator.";
+const description = "Estimate the monthly payment, total cost, and total interest on a fixed-rate loan. Includes the formula, a worked example, and what is excluded.";
 const canonical = "/loan-calculator";
 
 export const metadata: Metadata = {

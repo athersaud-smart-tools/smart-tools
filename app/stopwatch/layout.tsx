@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Online Stopwatch — Free Lap Timer";
-const description = "Use a simple free online stopwatch with lap timing from SmartEdgeTools on desktop or mobile.";
+const description = "Use a free online stopwatch with lap timing for cooking, workouts, and study sessions. Runs in your browser; keep the tab active for best accuracy.";
 const canonical = "/stopwatch";
 
 export const metadata: Metadata = {

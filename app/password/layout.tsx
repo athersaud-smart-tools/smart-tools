@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const title = "Password Generator Online";
-const description = "Generate strong random passwords with customizable options using the free SmartEdgeTools password generator.";
+const description = "Generate random passwords with the length and character types you choose, right in your browser. Includes tips for safer account habits.";
 const canonical = "/password";
 
 export const metadata: Metadata = {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { JsonLd, articleSchema, breadcrumbSchema } from "../../lib/jsonld";
 
 const title = "How Online Calculators Save Time";
 const description =
@@ -24,26 +25,25 @@ export const metadata: Metadata = {
   },
 };
 
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: title,
-  description,
-  url: `https://smartedgetools.com${canonical}`,
-  mainEntityOfPage: `https://smartedgetools.com${canonical}`,
-  publisher: {
-    "@type": "Organization",
-    name: "SmartEdgeTools",
-    url: "https://smartedgetools.com",
-  },
-};
+// dateModified matches the visible "Updated on November 1, 2026" line on the page.
+// datePublished is intentionally omitted: the original publication date is not recorded in the repository.
+const dateModified = "2026-11-01";
 
 export default function ArticleLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            articleSchema({ title, description, path: canonical, dateModified }),
+            breadcrumbSchema([
+              { name: "Tools", path: "/" },
+              { name: "Guides", path: "/blog" },
+              { name: title, path: canonical },
+            ]),
+          ],
+        }}
       />
       {children}
     </>
