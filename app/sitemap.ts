@@ -78,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/bmi-calculation-limits", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/merge-pdf-files-safely", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/convert-common-units", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/create-strong-password", changeFrequency: "monthly", priority: 0.7 },
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({

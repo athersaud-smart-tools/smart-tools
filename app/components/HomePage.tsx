@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { categories, tools } from "../lib/tools";
 
-const homepageTools = tools.filter((tool) => tool.href !== "/ai-rewrite" && tool.href !== "/birth-chart");
-const homepageCategories = categories.filter((category) => category !== "AI" && category !== "Astrology");
+// Show every tool in the sitemap on the homepage, so navigation, search and
+// the sitemap agree. Hiding tools here previously made AI and Birth Chart
+// unreachable from the homepage while still indexed.
+const homepageTools = tools;
+const homepageCategories = categories;
 
 
 const articles = [
@@ -53,7 +56,7 @@ export default function HomePage() {
       </header>
 
       <div className="stats-bar" aria-label="SmartEdgeTools highlights">
-          <div className="stat-item"><div className="stat-num">19</div><div className="stat-label">Useful tools</div></div>
+          <div className="stat-item"><div className="stat-num">{tools.length}</div><div className="stat-label">Useful tools</div></div>
         <div className="stat-item"><div className="stat-num">Free</div><div className="stat-label">To use</div></div>
         <div className="stat-item"><div className="stat-num">No app</div><div className="stat-label">Browser access</div></div>
       </div>

@@ -54,7 +54,7 @@ export const toolRelations: Record<
   "/image/resize": { schemaCategory: "MultimediaApplication", related: ["/image/compress", "/color-picker", "/qr-code"], guides: ["/blog/resize-compress-images-for-websites", "/blog/best-free-image-tools"] },
   "/image/compress": { schemaCategory: "MultimediaApplication", related: ["/image/resize", "/pdf/merge", "/qr-code"], guides: ["/blog/compress-image-under-100-kb", "/blog/resize-compress-images-for-websites", "/blog/best-free-image-tools"] },
   "/qr-code": { schemaCategory: "UtilitiesApplication", related: ["/image/resize", "/image/compress", "/color-picker"], guides: ["/blog/best-free-image-tools"] },
-  "/password": { schemaCategory: "SecurityApplication", related: ["/random-number", "/qr-code"], guides: ["/blog/best-online-tools-2026"] },
+  "/password": { schemaCategory: "SecurityApplication", related: ["/random-number", "/qr-code"], guides: ["/blog/create-strong-password", "/blog/best-online-tools-2026"] },
   "/word-counter": { schemaCategory: "UtilitiesApplication", related: ["/text-case", "/ai-rewrite", "/typing-test"], guides: ["/blog/top-tools-for-students"] },
   "/color-picker": { schemaCategory: "DesignApplication", related: ["/image/resize", "/qr-code"], guides: ["/blog/best-free-image-tools"] },
   "/text-case": { schemaCategory: "UtilitiesApplication", related: ["/word-counter", "/ai-rewrite", "/json-formatter"], guides: ["/blog/top-tools-for-students"] },
@@ -80,4 +80,5 @@ export const guideTitles: Record<string, string> = {
   "/blog/bmi-calculation-limits": "How BMI Is Calculated and What It Does and Does Not Tell You",
   "/blog/merge-pdf-files-safely": "How to Merge PDF Files Without Uploading Them",
   "/blog/convert-common-units": "How to Convert Common Units",
+  "/blog/create-strong-password": "How to Create a Strong Password You Can Actually Remember",
 };
