@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
               This policy explains how SmartEdgeTools may handle information when you use the website,
               including cookies, analytics, advertising, and information you voluntarily provide.
             </p>
-            <p className="mt-2 text-sm text-gray-500">Last updated: November 1, 2026</p>
+            <p className="mt-2 text-sm text-gray-500">Last updated: November 3, 2026</p>
           </header>
 
           <section className="space-y-4">
@@ -70,14 +70,22 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">Cookies and analytics</h2>
             <p className="leading-7">
-              The site loads Google Analytics (measurement ID G-KRMPNVW2R8), Microsoft Clarity, and the
-              Google AdSense script on every page, including this Privacy Policy page. These third-party services
-              may process information about site visits and interactions and may use cookies or similar
-              technologies. The site code does not read or write browser local storage or set first-party
-              cookies for the tools. Google consent mode is initialized with analytics and advertising
-              storage denied by default for listed European regions, but the site does not provide a
-              visitor-facing consent banner or controls in its current code. Third-party services may still
-              process technical request data as described by their own policies.
+              On most pages, the site loads Google Analytics (measurement ID G-KRMPNVW2R8), Microsoft
+              Clarity, and the Google AdSense script. These third-party services may process information
+              about site visits and interactions and may use cookies or similar technologies. Those
+              scripts are not loaded on this Privacy Policy page or on the Terms of Use page. The site
+              code does not read or write browser local storage or set first-party cookies for the tools.
+              Third-party services may still process technical request data as described by their own
+              policies.
+            </p>
+            <p className="leading-7">
+              For visitors in the European Economic Area, the United Kingdom, and Switzerland, the site
+              presents Google&apos;s consent message — a Google-certified consent management platform
+              message published for this site through Google AdSense (Privacy &amp; messaging → European
+              regulations). The message lets visitors choose Consent or open Manage options to set
+              granular preferences before advertising and analytics storage is enabled for them. Google
+              consent mode is initialized with analytics and advertising storage denied by default for
+              those regions until a visitor makes a choice.
             </p>
             <p className="leading-7">
               You can manage cookies through your browser settings. Blocking them may affect third-party
@@ -100,10 +108,12 @@ export default function PrivacyPolicyPage() {
               <a className="text-blue-600 hover:underline" href="https://www.google.com/settings/ads">Google Ads Settings</a>.
             </p>
             <p className="leading-7">
-              If personalized ads are served to visitors in the EEA, UK, or Switzerland, Google requires
-              publishers to use a Google-certified consent management platform integrated with the IAB
-              Transparency and Consent Framework. Consent choices and available controls depend on the
-              advertising settings and the visitor&apos;s location.
+              For visitors in the EEA, UK, and Switzerland, consent for personalized advertising is
+              collected through the Google-certified consent message described above, which is
+              integrated with the IAB Transparency and Consent Framework. Visitors in those regions
+              can consent or manage their options when the message is shown, and can also review
+              Google&apos;s controls at Google Ads Settings. Consent choices and available controls
+              depend on the advertising settings and the visitor&apos;s location.
             </p>
             <p className="leading-7">
               For information about Google&apos;s advertising practices and available controls, review Google&apos;s
