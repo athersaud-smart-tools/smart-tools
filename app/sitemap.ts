@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/color-picker", changeFrequency: "monthly", priority: 0.8 },
     { path: "/currency-converter", changeFrequency: "daily", priority: 0.9 },
     { path: "/final-grade-calculator", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/gpa-calculator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/image/compress", changeFrequency: "monthly", priority: 0.8 },
     { path: "/image/resize", changeFrequency: "monthly", priority: 0.8 },
     { path: "/loan-calculator", changeFrequency: "monthly", priority: 0.8 },
@@ -82,6 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/format-json-validate", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/typing-speed-test-improve-wpm", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/calculate-final-grade-needed", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/calculate-gpa", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/generate-random-numbers", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/create-qr-code", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/use-color-picker-hex-rgb-hsl", changeFrequency: "monthly", priority: 0.7 },
@@ -92,8 +94,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/understand-birth-chart", changeFrequency: "monthly", priority: 0.7 },
   ];
 
+  // Pages whose content was materially updated on 2026-11-03 (expanded tool
+  // guides for eight tools, plus the new GPA calculator and its guide).
+  // Everything else carries the site's previous content update, 2026-11-01.
+  const updatedPaths = new Set([
+    "/ai-rewrite", "/color-picker", "/password", "/qr-code",
+    "/random-number", "/stopwatch", "/text-case", "/typing-test",
+    "/gpa-calculator", "/blog/calculate-gpa",
+  ]);
+
   return routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
+    lastModified: new Date(updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
