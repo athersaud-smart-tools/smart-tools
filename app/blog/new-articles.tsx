@@ -738,6 +738,47 @@ export const newArticles: NewArticle[] = [
       { question: "Do I need an exact birth time?", answer: "For houses and the Ascendant, yes. Without an accurate time, treat those parts as uncertain, while planetary signs change more slowly." }
     ],
     related: [{ href: "/birth-chart", label: "Birth Chart Calculator" }, { href: "/age-calculator", label: "Age Calculator" }, { href: "/random-number", label: "Random Number Generator" }]
+  },
+  {
+    slug: "calculate-gpa",
+    title: "How to Calculate Your GPA: Grade Points, Credits, and Worked Examples",
+    description: "Calculate GPA on the 4.0 scale step by step: convert letter grades to points, weight them by credit hours, and check the result with worked examples.",
+    intro: "Your GPA is a weighted average, not a simple average of your grades. Each letter grade becomes a number of grade points, courses with more credit hours count more heavily, and the final figure is total quality points divided by total credit hours. This guide shows the conversion scale, works through a full term by hand, and explains the school rules that can change an official result.",
+    sections: [
+      { heading: "The grade point scale", paragraphs: [
+        "On the standard unweighted 4.0 scale, A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, D- = 0.7, and F = 0.0. An A+ is also 4.0 on this scale, because 4.0 is the maximum. Not every school uses this exact scale: some have no plus and minus grades, some use a 4.3 scale, and weighted high-school GPAs can exceed 4.0 because honours and AP courses are given extra weight. Confirm which scale your school uses before comparing figures.",
+        "Two numbers come out of each course. Grade points are the per-credit value of the letter grade, and quality points are grade points multiplied by the course's credit hours. Quality points are what actually get added together."
+      ]},
+      { heading: "The formula, step by step", paragraphs: [
+        "First, convert every letter grade to grade points using the scale above. Second, multiply each course's grade points by its credit hours to get its quality points. Third, add all quality points together and add all credit hours together. Finally, divide total quality points by total credit hours. The result is normally reported to two decimal places.",
+        "In symbols: GPA = Σ(grade points × credit hours) ÷ Σ(credit hours). The credit-hour weighting is the part people most often miss. Averaging the grade points directly gives the right answer only when every course carries the same number of credits."
+      ]},
+      { heading: "Worked example: one term, four courses", paragraphs: [
+        "Take a term with English A for 3 credits, Mathematics B+ for 4 credits, History A- for 3 credits, and Biology C for 3 credits. English contributes 4.0 × 3 = 12.0 quality points. Mathematics contributes 3.3 × 4 = 13.2. History contributes 3.7 × 3 = 11.1. Biology contributes 2.0 × 3 = 6.0.",
+        "The totals are 42.3 quality points and 13 credit hours, so GPA = 42.3 ÷ 13 = 3.25. Notice that the B+ in the 4-credit Mathematics course contributed more quality points than the A in the 3-credit English course would have at the same grade — credit hours decide how much each grade moves the average. A simple average of the four grade points (4.0, 3.3, 3.7, 2.0) would give 3.25 here only by coincidence of these particular numbers; with different credit hours the two methods diverge, and the weighted method is the correct one."
+      ]},
+      { heading: "Cumulative GPA across several terms", paragraphs: [
+        "A cumulative GPA uses every course from every term, weighted in exactly the same way. The reliable method is to keep running totals: add each new term's quality points to the previous total quality points, add its credit hours to the previous total credit hours, and divide. Averaging the GPA of each term is only correct if every term has the same total credit hours, which is rarely true.",
+        "For example, a term GPA of 3.60 over 12 credits followed by a term GPA of 3.00 over 15 credits does not average to 3.30. The quality points are 43.2 and 45.0, so the cumulative GPA is 88.2 ÷ 27 = 3.27. The second term counts more because it contains more credits."
+      ]},
+      { heading: "Common mistakes and things to check", paragraphs: [
+        "The most common error is averaging grade points without weighting by credits. Others include leaving out a course you would rather forget (an F still counts, with 0.0 points but its credit hours still in the denominator), entering a pass/fail course as if it had a letter grade, and mixing two different scales, such as entering weighted honours points into an unweighted calculation.",
+        "School policies also matter. A repeated course may replace the earlier grade, count both attempts, or average them, depending on the institution. Rounding differs too: some schools truncate rather than round, so a calculated 3.249 may appear as 3.24 on an official transcript. Use a calculator for planning and estimates, and treat the official transcript as the record."
+      ]},
+      { heading: "Using a calculator without fooling yourself", paragraphs: [
+        "Enter every course in the term, including the ones with low grades, and use the credit hours from your official timetable rather than guessing. If you are forecasting, label the result as an estimate: change one expected grade at a time so you can see how much difference it makes, and pay attention to high-credit courses, where a grade change moves the GPA most.",
+        "The SmartEdgeTools GPA Calculator follows the scale and formula in this guide, runs in your browser, and shows the quality points and credit hours behind the result so you can check its arithmetic against your own."
+      ]}
+    ],
+    table: { caption: "Worked example: quality points by course", headers: ["Course", "Grade", "Grade points", "Credits", "Quality points"], rows: [["English", "A", "4.0", "3", "12.0"], ["Mathematics", "B+", "3.3", "4", "13.2"], ["History", "A-", "3.7", "3", "11.1"], ["Biology", "C", "2.0", "3", "6.0"], ["Total", "—", "—", "13", "42.3 (GPA 3.25)"]] },
+    takeaways: ["Convert each letter grade to grade points, then multiply by credit hours.", "Divide total quality points by total credit hours — never average grade points directly unless all credits are equal.", "Check your school's scale, repeat-course, and rounding rules before treating a result as official."],
+    faq: [
+      { question: "What is a good GPA?", answer: "On a 4.0 scale, 3.0 is a B average and 3.5 sits between B+ and A-. What counts as good depends on your school, programme, and goals; many honours designations start around 3.5, but requirements are set by each institution." },
+      { question: "Does an F count in GPA?", answer: "Yes, at most schools. An F is worth 0.0 grade points, but its credit hours still count in the total, which is why one F lowers a GPA substantially." },
+      { question: "How do I raise my GPA fastest?", answer: "Focus on high-credit courses, where each grade step changes the most quality points, and remember that the more credits you have already completed, the more new quality points are needed to move the average." },
+      { question: "Is a weighted GPA the same thing?", answer: "No. A weighted GPA adds extra points for honours, AP, or advanced courses and can exceed 4.0. This guide and the SmartEdgeTools calculator use the standard unweighted 4.0 scale." }
+    ],
+    related: [{ href: "/gpa-calculator", label: "GPA Calculator" }, { href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
   }
 ];
 
