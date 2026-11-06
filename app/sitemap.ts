@@ -102,10 +102,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/random-number", "/stopwatch", "/text-case", "/typing-test",
     "/gpa-calculator", "/blog/calculate-gpa",
   ]);
+  // Materially updated on 2026-11-06: expanded JSON Formatter and Word
+  // Counter guides ahead of the AdSense review request.
+  const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
 
   return routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
+    lastModified: new Date(updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
