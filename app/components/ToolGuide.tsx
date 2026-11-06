@@ -213,15 +213,18 @@ const extraGuides: Partial<Record<GuideKey, ExtraGuide>> = {
   },
   "word-count": {
     examples: [
-      "For “Quick test.” the counter reports 2 words, 11 characters, 10 characters without whitespace, 1 sentence, 1 paragraph, and a 1-minute reading estimate.",
-      "For “One\nTwo!” it reports 2 words, 8 characters, 6 without whitespace, 1 sentence, 2 paragraphs, and 1 minute of estimated reading time.",
-      "A 450-word passage is shown as a 3-minute estimate because the calculation assumes 200 words per minute and rounds up."
+      "The single sentence “The quick brown fox jumps over the lazy dog.” gives 9 words, 44 characters, 36 characters with no spaces, 1 sentence, 1 paragraph, and a 1-minute reading time. The character total includes the spaces and the final full stop; the no-spaces total removes the 8 spaces.",
+      "Paste two short paragraphs — “First paragraph has five words.”, a blank line, then “Second one is here!” — and the counter reports 9 words in total, 2 sentences, and 2 paragraphs. The two line breaks count as characters (52 in total) but not as words.",
+      "A 450-word essay shows a reading time of 3 minutes: 450 ÷ 200 = 2.25, and the tool always rounds up to the next whole minute. The same rounding means a single word also displays as 1 minute, and 201 words display as 2 minutes."
     ],
-    checks: "Words are split on whitespace, while characters count JavaScript string length, including spaces and line breaks. Sentences are split around periods, exclamation marks, and question marks; paragraphs are separated by one or more newlines. These are practical counts rather than a universal editorial standard. If a school or publisher defines its own rules for hyphens, citations, or headings, use that destination’s count as the final check.",
+    checks: "This counter splits words on runs of whitespace after trimming the text, so a hyphenated compound such as “well-known” or “state-of-the-art” counts as one word here — some school and publishing systems count it as two or three, which is the most common reason totals disagree. Sentence counting splits the text at every full stop, exclamation mark, and question mark, so abbreviations and decimals inflate it: “Dr. Smith paid 3.5 dollars.” counts as 3 sentences here even though a reader sees one. A final sentence with no ending punctuation still counts as one. Extra spaces, tabs, and blank lines never create extra words or paragraphs, and empty text reports zero for every count, including 0 minutes of reading time. The reading-time figure assumes an average silent reading speed of 200 words per minute; reading aloud is usually slower (roughly 130–160 words per minute), so allow more time when the text is a speech or presentation script.",
+    notes: "The Characters figure is the full length of the text exactly as typed, including spaces, punctuation, and line breaks. No Spaces removes every whitespace character, including line breaks, so the gap between the two figures tells you how much of the text is spacing. Paragraphs are separated by line breaks: consecutive non-empty lines count as separate paragraphs whether or not a blank line sits between them.",
     faqs: [
-      { q: "How are words counted?", a: "The text is trimmed and split wherever there is whitespace. Punctuation stays attached to its word." },
-      { q: "What does characters without spaces remove?", a: "It removes all whitespace characters, including spaces, tabs, and line breaks, from the character count." },
-      { q: "How is reading time estimated?", a: "The page assumes 200 words per minute and rounds any nonzero result up to a whole minute. It is only an estimate." }
+      { q: "How does this word counter count words?", a: "It trims the text and splits it wherever one or more whitespace characters (spaces, tabs, or line breaks) appear. Each resulting token is one word, so hyphenated words and contractions each count as a single word." },
+      { q: "Why is my sentence count higher than I expected?", a: "The counter ends a sentence at every full stop, exclamation mark, or question mark. Abbreviations such as “Dr.” and decimals such as “3.5” contain full stops, so they add extra sentence breaks. Count those cases manually if an exact figure matters." },
+      { q: "What is the difference between Characters and No Spaces?", a: "Characters is the total length of the text including spaces, punctuation, and line breaks. No Spaces removes all whitespace characters, leaving only the visible characters and punctuation." },
+      { q: "How is the reading time calculated?", a: "The word total is divided by 200 words per minute and rounded up to the next whole minute. Empty text shows 0 minutes. It is an estimate for silent reading; speaking the same text aloud usually takes longer." },
+      { q: "Is there a limit to how much text I can count?", a: "The tool sets no word limit; it counts whatever is in the box. Extremely large pastes (such as a whole book) can make the browser respond slowly on a low-powered device, so split very large documents into chapters if the page feels sluggish." }
     ]
   },
   unit: {

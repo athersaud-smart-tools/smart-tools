@@ -3,8 +3,23 @@
 import Link from "next/link";
 import { useState } from "react";
 import ToolExtras from "../components/ToolExtras";
+import { JsonLd } from "../lib/jsonld";
 
 const sample = '{"name":"SmartEdgeTools","features":["format","validate"],"active":true}';
+
+// Matches the questions and answers shown in the FAQ section below.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What does a JSON formatter do?", acceptedAnswer: { "@type": "Answer", text: "It parses valid JSON and prints the same data with consistent whitespace, making nested objects and arrays easier to inspect." } },
+    { "@type": "Question", name: "How do I validate JSON online?", acceptedAnswer: { "@type": "Answer", text: "Paste the complete JSON value and select Format & validate. A successful result appears in the output area; invalid syntax produces an error message." } },
+    { "@type": "Question", name: "How do I minify JSON?", acceptedAnswer: { "@type": "Answer", text: "Select Minify to remove formatting whitespace. The resulting compact JSON keeps its data values and structure." } },
+    { "@type": "Question", name: "Why is my JSON invalid?", acceptedAnswer: { "@type": "Answer", text: "Common causes include single quotes, unquoted object keys, a missing comma or bracket, and a trailing comma. JSON requires double-quoted strings and keys." } },
+    { "@type": "Question", name: "Is my JSON uploaded or stored?", acceptedAnswer: { "@type": "Answer", text: "The formatter and validator run in the browser and their code does not send the entered JSON to a server. Avoid using sensitive data in a shared device or a page you do not trust." } },
+    { "@type": "Question", name: "Can the formatter repair broken JSON?", acceptedAnswer: { "@type": "Answer", text: "No. It reports a parsing error but does not guess at a correction. Fix the source deliberately so that values are not changed unexpectedly." } },
+  ],
+};
 
 export default function JsonFormatter() {
   const [source, setSource] = useState("");
@@ -62,6 +77,7 @@ export default function JsonFormatter() {
           <p aria-live="polite" style={{ minHeight: "1.4rem", marginTop: "0.4rem", color: "var(--green)", fontSize: "0.85rem" }}>{status}</p>
         </div>
       </div>
+      <JsonLd data={faqSchema} />
       <section className="mx-auto my-10 max-w-4xl space-y-5 px-6 leading-7 text-gray-700" aria-labelledby="json-guide">
         <h2 id="json-guide" className="text-2xl font-semibold text-gray-900">How to format and validate JSON</h2>
         <p>JSON (JavaScript Object Notation) is a text format for structured data used by APIs, configuration files, and web applications. Paste a JSON value above and choose <strong>Format &amp; validate</strong> to check its syntax and add indentation, or choose <strong>Minify</strong> to remove insignificant whitespace.</p>
@@ -69,6 +85,13 @@ export default function JsonFormatter() {
         <h3 className="text-lg font-semibold text-gray-900">Example</h3>
         <p>The compact input <code>{'{"name":"Mina","items":[1,2]}'}</code> becomes readable on separate lines when formatted. Minifying reverses the whitespace change; it does not rename fields or alter values. JSON strings require double quotes, object keys must be quoted, and trailing commas are not allowed.</p>
         <p>Need to work with ordinary prose instead? Try our <Link href="/word-counter" style={{ color: "var(--accent)" }}>word counter</Link> or <Link href="/text-case" style={{ color: "var(--accent)" }}>text case converter</Link>.</p>
+        <h3 className="text-lg font-semibold text-gray-900">Worked examples</h3>
+        <p><strong>Formatting the built-in example.</strong> Use <strong>Load example</strong> to insert <code>{'{"name":"SmartEdgeTools","features":["format","validate"],"active":true}'}</code>, then choose <strong>Format &amp; validate</strong> with the 2-space indent. The one-line input becomes a nine-line document: the opening brace, a line for <code>name</code>, the <code>features</code> array opened across its own lines with one item per line, a line for <code>active</code>, and the closing brace. Nothing about the data changes — only the whitespace.</p>
+        <p><strong>Minifying.</strong> Paste indented JSON and choose <strong>Minify</strong>, and the same data comes back as a single line with no spaces after the colons or commas. Minifying the nine-line example above returns exactly the original one-line input, with the keys in the same order.</p>
+        <p><strong>An invalid input.</strong> <code>{'{"name":"Mina",}'}</code> fails validation because of the trailing comma after the last property. The tool shows an “Invalid JSON” error — with a line and column hint when the browser&apos;s own error message reports a position — and produces no output until you fix the input. The same happens with single quotes: <code>{'{\'name\':\'Mina\'}'}</code> is not JSON, because JSON strings and keys must use double quotes.</p>
+        <h3 className="text-lg font-semibold text-gray-900">Common mistakes and things to check</h3>
+        <p>Most validation failures come from a short list of causes. Object keys must be quoted strings, and all strings must use double quotes — single quotes and unquoted keys are the two most frequent errors. JSON does not allow trailing commas, comments, or the values <code>NaN</code>, <code>Infinity</code>, and <code>undefined</code>. Numbers cannot have leading zeros, so write <code>0.5</code>, not <code>00.5</code>. The whole input must be exactly one JSON value: extra text before or after it makes the input invalid, although that single value does not have to be an object — a lone array, string, number, <code>true</code>, or <code>null</code> is valid JSON too. When the error gives a line and column, look slightly before that position as well as at it: a missing comma or closing bracket earlier in the text is often reported at the next token.</p>
+        <p>Formatting works by parsing the input and printing the value again, so a few harmless-looking changes are normal. Numbers may be rewritten in a shorter form — <code>1.50</code> becomes <code>1.5</code> and <code>1e3</code> becomes <code>1000</code> — and very long integers can lose precision because values are held as JavaScript numbers, so do not use a formatter to preserve exact 20-digit identifiers; keep those as quoted strings. If an object repeats the same key twice, the parser keeps the last value and the earlier one is dropped from the output. Key order otherwise follows the order in the input.</p>
         <h3 className="text-lg font-semibold text-gray-900">Frequently asked questions</h3>
         <div><h4 className="font-semibold">What does a JSON formatter do?</h4><p>It parses valid JSON and prints the same data with consistent whitespace, making nested objects and arrays easier to inspect.</p></div>
         <div><h4 className="font-semibold">How do I validate JSON online?</h4><p>Paste the complete JSON value and select Format &amp; validate. A successful result appears in the output area; invalid syntax produces an error message.</p></div>
