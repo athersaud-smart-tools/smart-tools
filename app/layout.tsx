@@ -71,6 +71,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "K_-YbyZLqsDANY55cqnQnxbI6K9jxu4qd7b1SK0ip84",
+    other: {
+      // Pinterest domain claim for @smartedgetools (added 2026-11-08).
+      "p:domain_verify": "a702ab94f5735641560d2f16ae339396",
+    },
   },
 };
 
