@@ -3,6 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import ToolGuide from "@/app/components/ToolGuide";
+import { categories as conversionCategories, pairs as conversionPairs, pairPath } from "@/app/lib/conversions";
+
+const popularSlugs = [
+  "cm-to-inches", "kg-to-lbs", "celsius-to-fahrenheit", "miles-to-km",
+  "liters-to-gallons", "inches-to-cm", "lbs-to-kg", "fahrenheit-to-celsius",
+  "km-to-miles", "meters-to-feet", "ml-to-cups", "mph-to-kmh",
+];
 
 const categories = {
   Length: {
@@ -24,6 +31,10 @@ const categories = {
   Area: {
     units: ["Square Meter", "Square Kilometer", "Square Mile", "Square Foot", "Acre", "Hectare"],
     toBase: { "Square Meter": 1, "Square Kilometer": 1e6, "Square Mile": 2_589_988.110336, "Square Foot": 0.09290304, "Acre": 4046.8564224, "Hectare": 10000 },
+  },
+  Volume: {
+    units: ["Liter", "Milliliter", "Gallon (US)", "Cup (US)", "Fluid Ounce (US)"],
+    toBase: { Liter: 1, Milliliter: 0.001, "Gallon (US)": 3.785411784, "Cup (US)": 0.2365882365, "Fluid Ounce (US)": 0.0295735295625 },
   },
 };
 
@@ -71,7 +82,7 @@ export default function UnitConverter() {
         <div className="tool-container">
           <h1>🔄 Unit Converter</h1>
           <p style={{ color: "var(--ink2)", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            Convert common measurements of length, weight, temperature, speed, and area.
+            Convert common measurements of length, weight, temperature, speed, area, and volume.
           </p>
 
           {/* Category selector */}
@@ -153,6 +164,36 @@ export default function UnitConverter() {
           )}
         </div>
       </div>
+      <section className="mx-auto my-12 max-w-4xl space-y-5 px-6 leading-7 text-gray-700">
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900">Browse conversions by category</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-3">
+            {conversionCategories.map((c) => (
+              <li key={c.id} className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-center">
+                <Link href={`/unit-converter/${c.id}`} className="text-blue-600 hover:underline">
+                  {c.name} converter
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900">Popular conversions</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {popularSlugs.map((slug) => {
+              const pair = conversionPairs.find((p) => p.slug === slug);
+              if (!pair) return null;
+              return (
+                <li key={slug} className="rounded-lg border border-gray-200 bg-white px-3 py-2">
+                  <Link href={pairPath(pair)} className="text-blue-600 hover:underline">
+                    {slug.replace(/-/g, " ").replace("to", "→")}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
       <ToolGuide guide="unit" />
 
     </main>
