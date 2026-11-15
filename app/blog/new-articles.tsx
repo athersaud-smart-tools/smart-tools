@@ -462,6 +462,10 @@ export const newArticles: NewArticle[] = [
         "In Weighted grade mode, add a row for each category, enter its score from 0 to 100 and a weight greater than zero, and add more rows as needed. In Score needed on final mode, enter your current grade before the exam, the remaining weight as a percentage up to 100%, and your target grade from 0 to 100. All calculation runs in your browser.",
         "Use the grade that represents completed work only for the current grade. Do not include the final exam in both the current grade and the remaining weight, or the result will be wrong. If your course drops the lowest score, gives extra credit, or rounds grades, apply that policy separately, because the tool does not know your school's rules."
       ]},
+      { heading: "Combining two semesters (and a separate final exam)", paragraphs: [
+        "Some courses report a year grade built from two semester grades. If the semesters count equally, the year grade is their simple average: semester grades of 86% and 90% give (86 + 90) / 2 = 88%. If a separate final exam also counts, treat each part as a weighted category instead: semesters weighted 40% each and a final exam weighted 20% turns 86%, 90% and a 78% exam score into 86 x 0.40 + 90 x 0.40 + 78 x 0.20 = 86.0%.",
+        "To run that in the calculator, use Weighted grade mode with one row per semester or exam and the weights from your syllabus. If your school weights the semesters unequally — 45% and 55%, say — enter those weights; the method is identical. The full step-by-step method, including what to do when weights do not add to 100%, is covered in our guide to calculating weighted grades."
+      ]},
       { heading: "Common mistakes", paragraphs: [
         "The most common mistake is taking a simple average of scores and ignoring weights. Another is entering weights that do not match the syllabus, such as using 20% for homework when the syllabus says 10%. A third is treating a target as guaranteed: the calculator shows the maths, not a promise from your instructor.",
         "Also check whether scores are percentages or points. The tool expects percentages from 0 to 100. If your gradebook uses points, convert each score to a percentage first, or use the same point scale consistently and check the result by hand."
@@ -475,7 +479,48 @@ export const newArticles: NewArticle[] = [
       { question: "Does the calculator know my letter grade?", answer: "No. It reports a percentage. Letter-grade boundaries differ by school and course, so check your syllabus for the boundary that applies to you." },
       { question: "Is my grade data uploaded?", answer: "The calculation runs in your browser. The tool does not ask you to create an account to calculate a grade." }
     ],
-    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/percentage-calculator", label: "Percentage Calculator" }, { href: "/word-counter", label: "Word Counter" }]
+    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/how-to-calculate-weighted-grades", label: "How to Calculate Weighted Grades" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
+  },
+  {
+    slug: "how-to-calculate-weighted-grades",
+    title: "How to Calculate Weighted Grades (Step by Step, With Examples)",
+    description: "Calculate a weighted grade by hand or with a calculator: the formula, a full worked example, what to do when weights do not add to 100%, and how points-based grades convert.",
+    intro: "A weighted grade is how most courses actually combine your work: homework might count for 10% of the course while tests count for 40%, so the two scores cannot simply be averaged. This guide shows the formula, works a complete course example by hand, and covers the two situations that trip people up — weights that do not add to 100% yet, and gradebooks that record points instead of percentages.",
+    sections: [
+      { heading: "Why a simple average gives the wrong answer", paragraphs: [
+        "If homework counts for 10% of your course and tests count for 40%, a simple average treats them as equals: it pretends a homework score moves your grade as much as a test score four times its weight. Teachers weight categories because the categories are not equal — more important or more difficult work counts for more. A weighted grade respects those proportions, which is why it is the number on your syllabus and the number your gradebook shows.",
+        "The practical consequence: improving a heavily weighted category moves your grade far more than the same improvement in a light one. Raising a test average by 5 points in a 40% category adds 2 points to your course grade; the same 5 points in a 10% category adds half a point. Weighted maths tells you where your effort pays off."
+      ]},
+      { heading: "The weighted grade formula", paragraphs: [
+        "Multiply each category score by its weight, add all of those products together, then divide by the total weight: weighted grade = sum(score x weight) / sum(weight). Weights can be entered as percentages (10, 20, 40) or as fractions (0.10, 0.20, 0.40) — the result is the same as long as you use one style consistently, because the division by the total weight cancels the scale out.",
+        "Each product, score x weight, is that category's contribution to the final grade. Reading the contributions one by one is a good check: a category can never contribute more than its weight, so if tests are worth 40% and you scored 82%, the tests contribute at most 40 points and in this case 32.8 of them."
+      ]},
+      { heading: "Worked example: a full course, calculated by hand", paragraphs: [
+        "Take a course with four categories. Homework: 95%, weight 10%. Quizzes: 88%, weight 20%. Tests: 82%, weight 40%. Final exam: 76%, weight 30%. The weights add to 100%, so the course is complete and the result is the final grade.",
+        "Multiply each score by its weight as a fraction: homework 95 x 0.10 = 9.5; quizzes 88 x 0.20 = 17.6; tests 82 x 0.40 = 32.8; final exam 76 x 0.30 = 22.8. Add the contributions: 9.5 + 17.6 + 32.8 + 22.8 = 82.7. The weighted grade is 82.7%. A simple average of the four scores would give 85.25% — nearly three points too high, because it over-rewards the strong homework score and under-counts the weaker, heavier test and exam scores."
+      ]},
+      { heading: "If your weights do not add up to 100%", paragraphs: [
+        "Mid-course, they usually do not: the final exam has not happened yet, so the graded categories might add to 70% or 80%. The formula handles this without any change — you still divide by the total weight you entered, which rescales the result onto a 0–100 scale. That figure is your grade so far, across the work graded to date.",
+        "Example: tests at 84% with weight 50 and homework at 96% with weight 30 are the only graded categories so far. The weighted grade so far is (84 x 50 + 96 x 30) / (50 + 30) = 7,080 / 80 = 88.5%. That is not your final course grade — the missing 20% of weight will still move it — but it is the correct standing for the work completed, and it is the current grade you would feed into a score-needed calculation for the remaining work."
+      ]},
+      { heading: "When your gradebook uses points, not percentages", paragraphs: [
+        "Some gradebooks record points earned out of points possible instead of a percentage per category. Convert each category to a percentage first: divide the points you earned by the points possible and multiply by 100. A category with 450 points earned out of 500 possible is 90%; one with 170 out of 200 is 85%.",
+        "Then weight the percentages as usual. If the 90% category carries weight 40% and the 85% category carries 60%, the weighted grade is 90 x 0.40 + 85 x 0.60 = 36 + 51 = 87.0%. Do not weight the raw points directly unless the categories share the same points-possible scale — 450 points and 170 points are not comparable until each is expressed as a percentage of its own total."
+      ]},
+      { heading: "Weighted grade, final grade and GPA are three different numbers", paragraphs: [
+        "A weighted grade is the percentage for one course, built from that course's categories. A final grade is that same percentage once every category is graded (or the target you work backwards from to find the score you need on the remaining work). A GPA is a different scale entirely: each course's final grade is converted to grade points (an A is usually 4.0) and averaged across courses, weighted by credit hours. Calculate the weighted grade first, the course final grade second, and the GPA last — each one feeds the next."
+      ]}
+    ],
+    table: { caption: "The worked example, category by category", headers: ["Category", "Score", "Weight", "Contribution (score x weight)"], rows: [["Homework", "95%", "10%", "9.5"], ["Quizzes", "88%", "20%", "17.6"], ["Tests", "82%", "40%", "32.8"], ["Final exam", "76%", "30%", "22.8"], ["Total", "—", "100%", "82.7% weighted grade"]] },
+    takeaways: ["Weighted grade = sum(score x weight) / sum(weight) — never a simple average when weights differ.", "Weights below 100% are fine mid-course: the result is your grade so far on the graded work.", "Convert points to a percentage per category before weighting them."],
+    faq: [
+      { question: "Do the weights have to add up to 100%?", answer: "No. The formula divides by the total weight entered, so weights adding to 80% give your weighted average across those categories — your grade so far. For the final course grade, include every category so the weights total 100%." },
+      { question: "How do I calculate a weighted grade by hand?", answer: "Multiply each score by its weight (as a fraction), add the products, and that sum is the grade when weights total 100%. If they total less, divide the sum by the total weight as a fraction. The worked example above shows every step." },
+      { question: "What is the difference between a weighted grade and a GPA?", answer: "A weighted grade is one course's percentage, combined from weighted categories. A GPA converts each course's final grade to grade points on a 4.0 scale and averages them across courses, weighted by credit hours." },
+      { question: "My scores are in points. Can I still weight them?", answer: "Yes — convert each category to a percentage first (points earned / points possible x 100), then apply the weights. Weighting raw points from categories with different totals gives a wrong answer." },
+      { question: "Can a weighted grade be above 100%?", answer: "Only if a score above 100% is entered, which happens with extra credit. The maths allows it; whether your school counts it is a syllabus question." }
+    ],
+    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/calculate-final-grade-needed", label: "How to Calculate Your Final Grade and the Score You Need" }, { href: "/gpa-calculator", label: "GPA Calculator" }]
   },
   {
     slug: "generate-random-numbers",
