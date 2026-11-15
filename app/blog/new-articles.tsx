@@ -482,6 +482,46 @@ export const newArticles: NewArticle[] = [
     related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/how-to-calculate-weighted-grades", label: "How to Calculate Weighted Grades" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
   },
   {
+    slug: "how-many-days-between-two-dates",
+    title: "How Many Days Between Two Dates? (And How to Count Them)",
+    description: "Count the days between two dates exactly: the by-hand method, the inclusive vs exclusive off-by-one question, leap years, and converting a day count into weeks and months.",
+    intro: "Counting days between two dates sounds trivial until the answer matters — a deadline, a countdown, a rental, a project plan — and two people counting the same span get answers that differ by one. This guide shows how the count works, works the examples by hand, and explains the one decision that causes almost every disagreement: whether the end date itself is counted.",
+    sections: [
+      { heading: "What the count means", paragraphs: [
+        "The standard count is the number of midnights you cross travelling from the start date to the end date — equivalently, the end date minus the start date. From 1 January to 2 January is 1 day, not 2: you have slept once. This is the count behind hotel nights, rental days, countdown timers and most deadlines, and it is what the SmartEdgeTools Days Between Dates calculator reports.",
+        "Worked example: from 1 January 2026 to 15 March 2026. January contributes 31 days to reach 1 February, February 2026 contributes 28 days to reach 1 March, and 14 more days reach 15 March: 31 + 28 + 14 = 73 days. In other units that is 10 weeks and 3 days, or a calendar span of 2 months and 14 days — the calculator shows all three readings, because different questions want different units."
+      ]},
+      { heading: "How to count by hand", paragraphs: [
+        "Break the span at month boundaries. Count the days from the start date to the same day-of-month in the next month (that is the length of the starting month, measured from your start date), then whole months, then the final partial month. The 73-day example above is exactly this: a 31-day step, a 28-day step, and a 14-day remainder.",
+        "For a short span inside one or two months, counting on a calendar works the same way: from 24 December 2026 to 2 January 2027, count 7 days to 31 December and 2 more into January — 9 days. That is also 9 hotel nights for a stay checking in on the 24th and out on the 2nd, which is why the standard count and the nights count agree."
+      ]},
+      { heading: "The off-by-one question: should the end date count?", paragraphs: [
+        "Sometimes people want every calendar day the span touches, including both the first and the last. That inclusive count is always exactly one more than the standard count: the 24 December to 2 January span touches 10 calendar days but contains 9 midnights. Neither is wrong — they answer different questions. 'How many nights is the stay?' wants 9. 'On how many different days will the event be running, if it runs from the 24th through the 2nd?' wants 10.",
+        "Most disagreements between two calculators, or between a calculator and a hand count, are this one-day difference and nothing more. The calculator has an 'include the end date' option for the inclusive reading; leave it off for the standard count used by deadlines and countdowns. When you state a result, state which count you used."
+      ]},
+      { heading: "Leap years change the answer", paragraphs: [
+        "A span that crosses the end of February depends on whether that February has 29 days. From 28 February to 1 March is 2 days in 2028 (a leap year, with 29 February in between) and 1 day in 2027. Over a full year the same effect appears at scale: 1 January 2028 to 1 January 2029 is 366 days, while the same span in 2026–2027 is 365.",
+        "Leap years follow the calendar rule — years divisible by 4, except century years not divisible by 400 — and a date calculator applies it automatically. When you count by hand across a February, check the year first; a forgotten leap day is the second most common counting error after the inclusive/exclusive mix-up."
+      ]},
+      { heading: "Converting a day count into weeks and months", paragraphs: [
+        "Weeks are exact: divide by 7. A 90-day span — 1 March to 30 May 2026, for example — is 12 weeks and 6 days. Months are not exact, because months have 28 to 31 days: a 'month' of a span is a calendar step from a date to the same day-of-month in the next month, which is why the calculator reports a calendar breakdown (such as 2 months and 14 days) rather than a decimal number of months. If a contract or plan says 'within 3 months', it almost always means the calendar reading, not 90 days — check which one your situation uses."
+      ]},
+      { heading: "Common mistakes", paragraphs: [
+        "Counting both endpoints when the question wants nights or elapsed days, or the reverse. Assuming every month has 30 days, which drifts by days over a long span. Forgetting 29 February in a leap year. And treating a business-days question ('how many working days until the deadline?') as a calendar-days question — this calculator counts calendar days; working days exclude weekends and holidays and need a different count."
+      ]}
+    ],
+    table: { caption: "Worked examples (standard count, end date not included)", headers: ["From", "To", "Days", "Also"], rows: [["1 Jan 2026", "15 Mar 2026", "73", "10 weeks 3 days"], ["24 Dec 2026", "2 Jan 2027", "9", "9 hotel nights"], ["28 Feb 2028", "1 Mar 2028", "2", "leap year — 29 Feb inside"], ["15 Nov 2026", "25 Dec 2026", "40", "a Christmas countdown"], ["1 Mar 2026", "30 May 2026", "90", "12 weeks 6 days"]] },
+    takeaways: ["The standard count is end minus start — the number of midnights crossed; hotel nights use the same count.", "The inclusive count (both endpoints) is always exactly one more; most one-day disagreements are this, not an error.", "Check for 29 February in any span crossing February, and remember months are calendar steps, not 30-day blocks."],
+    faq: [
+      { question: "How many days until Christmas?", answer: "It depends on today's date: count from today to 25 December. From 15 November 2026, for example, the count is 40 days. Enter today's date and 25 December into the calculator for the current figure." },
+      { question: "Do you count the start day or the end day?", answer: "The standard count includes neither as a full day — it measures the distance between the dates, so 1 January to 2 January is 1 day. If you want both endpoints counted (every calendar day the span touches), use the calculator's include-end-date option, which adds exactly 1." },
+      { question: "Why does another calculator give an answer one day higher?", answer: "Almost always because it is reporting the inclusive count while this one reports the standard count, or the other way round. Check which reading each is showing before assuming one is wrong." },
+      { question: "How many days are in a year-long span?", answer: "365 days, or 366 if the span includes a 29 February. 1 January 2026 to 1 January 2027 is 365 days; the same span across 2028 is 366." },
+      { question: "Does the calculator count working days?", answer: "No — it counts calendar days, including weekends. Working-day counts also depend on which holidays apply, so they need a dedicated count for your country and calendar." }
+    ],
+    related: [{ href: "/days-between-dates", label: "Days Between Dates Calculator" }, { href: "/age-calculator", label: "Age Calculator" }, { href: "/blog/calculate-age-years-months-days", label: "How to Calculate Age in Years, Months and Days" }]
+  },
+  {
     slug: "how-to-calculate-tip",
     title: "How to Calculate a Tip (Including In Your Head)",
     description: "Calculate any tip with one formula, a worked example, the 10% method for working tips out in your head, and how to split the tip and total fairly.",
