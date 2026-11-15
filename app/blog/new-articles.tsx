@@ -482,6 +482,46 @@ export const newArticles: NewArticle[] = [
     related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/how-to-calculate-weighted-grades", label: "How to Calculate Weighted Grades" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
   },
   {
+    slug: "how-to-calculate-tip",
+    title: "How to Calculate a Tip (Including In Your Head)",
+    description: "Calculate any tip with one formula, a worked example, the 10% method for working tips out in your head, and how to split the tip and total fairly.",
+    intro: "A tip is just a percentage of a bill, but doing percentages at a table, under time pressure, is where people either overpay nervously or underpay accidentally. This guide gives you the one formula behind every tip, a fully worked example, the mental shortcut that handles 15%, 18% and 20% without a phone, and the clean way to split both the tip and the total between friends.",
+    sections: [
+      { heading: "The tip formula", paragraphs: [
+        "Tip = bill x percentage. Total = bill + tip. For an 18% tip, multiply the bill by 0.18; for 20%, by 0.20. That is the entire calculation — everything else in this guide is speed, splitting, and deciding which amount the percentage should apply to.",
+        "Worked example: an $86.40 restaurant bill with an 18% tip. The tip is 86.40 x 0.18 = $15.55, and the total is 86.40 + 15.55 = $101.95. If four people split it equally, each pays 101.95 / 4 = $25.49, of which $3.89 is their share of the tip. The SmartEdgeTools Tip Calculator runs exactly these steps and lets you change the percentage, the bill, and the number of people."
+      ]},
+      { heading: "How to calculate a tip in your head", paragraphs: [
+        "Anchor on 10%, because 10% is just the decimal point moved one place left. On a $64 bill, 10% is $6.40. From there: 20% is double the 10% figure ($12.80). 15% is the 10% figure plus half of it ($6.40 + $3.20 = $9.60). 18% is the 20% figure minus a tenth of the bill's 10% twice over — or, more practically, 10% + 10% - 2%: $6.40 + $6.40 - $1.28 = $11.52. Most people simply use 15% or 20% in their head and leave the exact percentages to a calculator.",
+        "A second example on an uneven bill: $47.50. Ten percent is $4.75, so 20% is $9.50 and 15% is $4.75 + $2.38 = $7.13. Rounding the tip up to the next whole dollar is common and harmless — it is a tip, not a tax return — but rounding should be your choice, not a surprise."
+      ]},
+      { heading: "Splitting the bill and the tip", paragraphs: [
+        "Split the total, not just the bill. If each person works out their own tip on their own share, the percentages come out the same only when everyone tips the same rate and the shares are equal. The reliable order is: add the tip to the bill first, then divide the total by the number of people. On a $120 bill with a 20% tip split between two people: tip $24, total $144, $72 each.",
+        "When the split is not equal — one person had the expensive main, another only a starter — split the bill by what each person ordered, then apply the same tip percentage to each share. The maths per person is identical to the formula above; only the bill amount changes."
+      ]},
+      { heading: "Tip on the pre-tax or post-tax amount?", paragraphs: [
+        "Custom differs. Many people tip on the pre-tax subtotal, reasoning that tax is not part of the service; others tip on the final total for simplicity. The difference is real but modest: on an $80 subtotal with 8% tax, the bill total is $86.40. An 18% tip on the subtotal is $14.40; on the total, $15.55 — a difference of $1.15. Either basis is defensible; what matters is choosing deliberately. A calculator applies the percentage to whatever amount you enter, so enter the subtotal if that is your basis.",
+        "One situation is different: if the bill already includes a service charge, check before adding a full tip on top, or you may tip twice for the same service. Menus and bills usually state when a service charge is included."
+      ]},
+      { heading: "How much should the tip be?", paragraphs: [
+        "There is no formula for this part — it is custom, and it varies by country, by type of service, and by quality. For table service in the United States, 15–20% of the bill is the widely used range, with 18% or 20% common for good service. In many other countries the custom is smaller, service may be included in prices, or tipping may not be expected at all. Treat any percentage as a starting point shaped by local custom, not a rule this guide can set for you."
+      ]},
+      { heading: "Common mistakes", paragraphs: [
+        "Calculating the tip and then splitting only the bill, which leaves the tip itself unpaid by all but whoever settles up. Tipping on a total that already includes a service charge. Moving the decimal the wrong way — 10% of $86.40 is $8.64, not $0.86 or $86.40. And splitting the total, then rounding every person's share down, which quietly underpays the bill; round shares up and let the last person pay the small remainder."
+      ]}
+    ],
+    table: { caption: "Tips at common percentages for typical bills", headers: ["Bill", "15%", "18%", "20%"], rows: [["$40.00", "$6.00", "$7.20", "$8.00"], ["$64.00", "$9.60", "$11.52", "$12.80"], ["$86.40", "$12.96", "$15.55", "$17.28"], ["$120.00", "$18.00", "$21.60", "$24.00"]] },
+    takeaways: ["Tip = bill x percentage; split the total (bill + tip), never the bill alone.", "In your head: find 10% by moving the decimal, then double it for 20% or add half for 15%.", "Decide pre-tax or post-tax deliberately — and check the bill for an included service charge."],
+    faq: [
+      { question: "How do I calculate a 20% tip quickly?", answer: "Find 10% by moving the decimal point one place left, then double it. On an $86.40 bill: 10% is $8.64, so 20% is $17.28." },
+      { question: "How much is an 18% tip on $86.40?", answer: "$15.55. The total with the tip is $101.95, and split between four people that is $25.49 each." },
+      { question: "Should I tip on the amount before or after tax?", answer: "Both customs exist. Tipping on the pre-tax subtotal is the more traditional basis; tipping on the total is simpler and slightly more generous. On an $80 subtotal with 8% tax, the difference at 18% is $1.15." },
+      { question: "How do I split a tip between friends?", answer: "Add the tip to the bill first, then divide the total by the number of people. Splitting the bill and the tip separately invites rounding gaps that leave the bill underpaid." },
+      { question: "What if a service charge is already on the bill?", answer: "Check the bill first. If a service charge is included, an additional full tip would pay for the same service twice; anything extra is then purely at your discretion." }
+    ],
+    related: [{ href: "/tip-calculator", label: "Tip Calculator" }, { href: "/percentage-calculator", label: "Percentage Calculator" }, { href: "/blog/how-to-calculate-mortgage-payment", label: "How to Calculate a Mortgage Payment" }]
+  },
+  {
     slug: "how-to-calculate-mortgage-payment",
     title: "How to Calculate a Mortgage Payment (Formula + Worked Example)",
     description: "Calculate a monthly mortgage payment from the loan amount, rate and term, then add property tax and insurance to see the full monthly cost, with a 30-year vs 15-year comparison.",
