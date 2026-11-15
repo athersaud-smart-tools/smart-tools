@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { categories as conversionCategories, pairs as conversionPairs, pairPath } from "./lib/conversions";
 
 const siteUrl = "https://smartedgetools.com";
 
@@ -106,10 +107,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Counter guides ahead of the AdSense review request.
   const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
 
-  return routes.map(({ path, changeFrequency, priority }) => ({
+  const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
     lastModified: new Date(updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
+
+  // Unit-converter expansion (Phase 0, built 2026-11-08): category hubs and
+  // pair pages are generated from app/lib/conversions.ts so this list can
+  // never drift from the pages that exist. NOTE: these URLs must only reach
+  // production after the AdSense gate in the expansion plan is passed.
+  const conversionRoutes: MetadataRoute.Sitemap = [
+    ...conversionCategories.map((c) => ({
+      url: `${siteUrl}/unit-converter/${c.id}`,
+      lastModified: new Date("2026-11-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...conversionPairs.map((p) => ({
+      url: `${siteUrl}${pairPath(p)}`,
+      lastModified: new Date("2026-11-08"),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...base, ...conversionRoutes];
 }
