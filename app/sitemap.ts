@@ -106,10 +106,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Materially updated on 2026-11-06: expanded JSON Formatter and Word
   // Counter guides ahead of the AdSense review request.
   const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
+  // Materially updated on 2026-11-15 (Batch 7): Birth Chart rebuilt with an
+  // own-code calculator (was a third-party widget); its guide article updated.
+  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
+    lastModified: new Date(updatedNov15.has(path) ? "2026-11-15" : updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
