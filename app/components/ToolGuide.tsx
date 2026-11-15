@@ -5,7 +5,7 @@ type GuideKey =
   | "age" | "ai-rewrite" | "bmi" | "color" | "currency" | "loan"
   | "percentage" | "random" | "image-resize" | "image-compress" | "qr"
   | "password" | "word-count" | "text-case" | "unit" | "stopwatch"
-  | "typing" | "pdf-merge";
+  | "typing" | "pdf-merge" | "tip" | "days-between" | "mortgage";
 
 const guideRoutes: Record<GuideKey, string> = {
   age: "/age-calculator", "ai-rewrite": "/ai-rewrite", bmi: "/bmi-calculator", color: "/color-picker",
@@ -13,6 +13,7 @@ const guideRoutes: Record<GuideKey, string> = {
   random: "/random-number", "image-resize": "/image/resize", "image-compress": "/image/compress",
   qr: "/qr-code", password: "/password", "word-count": "/word-counter", "text-case": "/text-case",
   unit: "/unit-converter", stopwatch: "/stopwatch", typing: "/typing-test", "pdf-merge": "/pdf/merge",
+  tip: "/tip-calculator", "days-between": "/days-between-dates", mortgage: "/mortgage-calculator",
 };
 
 const guides: Record<GuideKey, { title: string; intro: string; sections: { heading: string; body: string }[] }> = {
@@ -43,6 +44,18 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
   loan: { title: "Loan payment method and assumptions", intro: "This calculator estimates equal monthly payments for a fixed-rate, fully amortizing loan. It treats the annual rate as a nominal rate divided into monthly periods.", sections: [
     { heading: "Worked example", body: "For a $10,000 principal, 5.5% annual interest, and a five-year term, the monthly rate is 0.055 ÷ 12 and there are 60 payments. The estimated payment is about $191.01; totals can differ by a few cents because payments are rounded for display. A fractional-year term is rounded to the nearest whole month." },
     { heading: "What is excluded", body: "The estimate does not include origination fees, taxes, insurance, variable rates, payment-date effects, or lender-specific rounding. It is not a lender quote or financial advice. Compare the full annual percentage rate and written loan terms before borrowing." },
+  ] },
+  mortgage: { title: "How a mortgage payment is built", intro: "A monthly mortgage payment is usually quoted as one number, but it is really four parts collected together: principal and interest on the loan, plus monthly shares of the yearly property tax and home insurance bills, which the lender holds in escrow. This calculator shows each part separately so you can see what is loan cost and what is not.", sections: [
+    { heading: "The loan part: principal and interest", body: "The amount you actually borrow is the home price minus your down payment. That principal is repaid in equal monthly instalments at a fixed rate using the standard amortisation formula: payment = principal × r × (1+r)^n ÷ ((1+r)^n − 1), where r is the annual rate divided by 12 and n is the number of monthly payments. Early payments are mostly interest; later payments are mostly principal." },
+    { heading: "What is not in the estimate", body: "The estimate excludes private mortgage insurance (PMI), HOA fees, closing costs, and any rate changes on an adjustable-rate loan. Property tax and insurance are spread evenly over 12 months; a real escrow account can start with a cushion and adjust yearly. This is an estimate for planning, not a lender quote or financial advice — compare the lender's official Loan Estimate, including APR, before committing." },
+  ] },
+  tip: { title: "How tipping maths works", intro: "A tip is a percentage of the bill: tip = bill × percentage ÷ 100. The total you hand over is the bill plus the tip, and splitting simply divides that total by the number of people. The only judgement call is which amount the percentage applies to.", sections: [
+    { heading: "Tip on the pre-tax or post-tax amount?", body: "Custom differs. Many people tip on the pre-tax subtotal, because the tax is not part of the service; others tip on the final total for simplicity. On an $86.40 bill that already includes tax the difference is small, but on large bills it is worth deciding deliberately rather than by habit. This calculator applies the percentage to the bill amount you enter, so enter the pre-tax subtotal if that is the basis you prefer." },
+    { heading: "Common percentages", body: "In the United States, 15% is a traditional baseline for table service, 18–20% is common for good service, and 25% or more is generous. Counter service, delivery, and other countries follow different customs — in much of Europe a service charge is already included and rounding up is enough. Treat the presets as shortcuts, not rules." },
+  ] },
+  "days-between": { title: "How day counting works", intro: "This calculator counts whole days between two calendar dates using UTC date arithmetic, so daylight-saving clock changes can never add or steal an hour and bend the result. The same interval is then expressed three ways: total days, weeks plus leftover days, and a calendar breakdown in years, months, and days.", sections: [
+    { heading: "Why the end date is not counted by default", body: "Date subtraction answers 'how much time passes between the two dates', so 1 January to 2 January is one day, not two. Counting both endpoints — common for hotel stays, rental periods, and 'days remaining including today' — gives one more. The include-end-date option adds that day, and the calendar breakdown is measured the same way so the two results always agree." },
+    { heading: "Leap years", body: "A year is a leap year when it is divisible by 4, except century years, which must be divisible by 400 — so 2000 was a leap year but 1900 and 2100 are not. An interval that crosses 29 February contains one more day than the same dates in a non-leap year. The calculator uses real calendar dates throughout, so this is handled automatically." },
   ] },
   percentage: { title: "Five percentage questions, with examples", intro: "The calculator keeps several common percentage operations separate because the input order and formula change with the question.", sections: [
     { heading: "Examples", body: "20% of 500 = 100. 15 is 25% of 60. A change from 80 to 100 is a 25% increase: (100 − 80) ÷ 80 × 100. Adding 20% to 100 gives 120; subtracting 20% from 100 gives 80." },
@@ -161,6 +174,54 @@ const extraGuides: Partial<Record<GuideKey, ExtraGuide>> = {
       { q: "Why is the total interest only an estimate?", a: "The estimate excludes lender fees, insurance, taxes, rate changes, and payment-date rules. The displayed monthly amount is rounded to cents." },
       { q: "Does the calculator convert currencies?", a: "No. It calculates in dollars. Use the Currency Converter if you need to convert an amount first, then enter the dollar amount here." },
       { q: "What happens with a term such as 2.5 years?", a: "The tool multiplies years by 12 and rounds to the nearest whole monthly payment count. Its formula then uses that integer number of payments." }
+    ]
+  },
+  mortgage: {
+    examples: [
+      "A $350,000 home with a $70,000 down payment (20%) leaves a $280,000 loan. At 6.5% fixed over 30 years the principal-and-interest payment is $1,769.79 a month, and the interest over the full term adds up to $357,124.57 — more than the amount borrowed. Adding property tax of $4,200 a year ($350 a month) and insurance of $1,800 a year ($150 a month) brings the total monthly payment to $2,269.79.",
+      "The same maths over a shorter term: a $200,000 loan at 5% over 15 years costs $1,581.59 a month — more per month than the 30-year example on a smaller loan — but only $84,685.71 of interest in total. Term length is the biggest lever on total interest after the rate itself.",
+      "At 0% interest the formula divides evenly: a $120,000 loan over 10 years is $1,000 a month with no interest at all. Real mortgages are never 0%, but the example shows the formula behaves sensibly at the edge."
+    ],
+    checks: "Enter the down payment as an amount, not a percentage — the result card shows the percentage it works out to. The rate is the loan's nominal annual rate; the calculator divides it by 12 for monthly payments and does not model APR, points, or closing costs. Tax and insurance fields take yearly amounts and are split by 12; leave them at zero to see the loan-only payment. A down payment below 20% usually means the lender also charges private mortgage insurance (PMI) until the balance falls, which this estimate does not include, so a low-down-payment quote from a lender will be higher than the figure here. Figures are in dollars and are estimates for comparison, not a quote, an offer, or financial advice.",
+    notes: "Two loans with the same monthly payment can cost very different amounts in total, which is why the calculator always shows total interest next to the payment. On a 30-year loan, most of each early payment is interest because it is charged on a large remaining balance; the balance falls slowly at first and faster later. Extra principal payments early in the term remove interest from every remaining month, which is why even small overpayments change the total so much — this calculator assumes no overpayments, so treat its total interest as the no-overpayment path.",
+    faqs: [
+      { q: "How is the monthly payment calculated?", a: "With the amortisation formula payment = principal × r × (1+r)^n ÷ ((1+r)^n − 1), where r is the annual rate divided by 12 and n is the number of monthly payments. Tax and insurance, if entered, are added as yearly amount ÷ 12." },
+      { q: "Why is total interest so high on a 30-year mortgage?", a: "Interest is charged every month on the remaining balance for 360 months. On the $280,000 example at 6.5%, that compounds to $357,124.57 — a shorter term or lower rate reduces it sharply." },
+      { q: "Does this include PMI, HOA fees, or closing costs?", a: "No. It includes principal, interest, and optionally property tax and home insurance. PMI, HOA dues, and closing costs must be added separately." },
+      { q: "What down payment should I enter?", a: "The amount you plan to pay upfront, in dollars. 20% of the price is a common benchmark because it usually avoids PMI, but the calculator accepts any amount below the price." },
+      { q: "Is this a quote I can rely on?", a: "No. It is a planning estimate using the figures you enter. A lender's official Loan Estimate reflects your actual rate, fees, and escrow rules." }
+    ]
+  },
+  tip: {
+    examples: [
+      "A bill of $86.40 with an 18% tip: the tip is 86.40 × 0.18 = $15.55 after rounding, and the total is $101.95. Split four ways, each person pays $25.49, of which $3.89 is their share of the tip.",
+      "A $120 bill with a 20% tip split between two people: tip $24.00, total $144.00, and exactly $72.00 each — round numbers are a good sign the maths is right.",
+      "Tipping 15% on a $64 bill gives a $9.60 tip and a $73.60 total. A quick mental check for 15% is 10% of the bill ($6.40) plus half of that ($3.20)."
+    ],
+    checks: "Decide whether your percentage applies to the pre-tax subtotal or the taxed total, and enter that amount as the bill — the calculator applies the percentage to exactly what you type. When splitting, remember the result divides the whole total evenly; if one person ordered much more than the others, an even split is a social choice, not a maths result. Rounded per-person shares can add up to a cent or two more or less than the total, because each share is rounded to the nearest cent; collecting the rounded amount from everyone may leave the tip a cent short or over, which is normal. A mandatory service charge added by the restaurant is not the same as a tip you choose — check the bill before adding a full tip on top of one.",
+    notes: "Tipping customs vary widely by country and by type of service. The percentages in this tool reflect common United States restaurant practice. In many countries a service charge is included in the price or in the bill, and in some places tipping is uncommon. The calculator's job is only the arithmetic: turning the percentage you choose into amounts and fair shares.",
+    faqs: [
+      { q: "How do I calculate a tip quickly?", a: "Multiply the bill by the percentage and divide by 100. For 18% on $86.40: 86.40 × 18 ÷ 100 = $15.55 after rounding." },
+      { q: "Should I tip on the amount before or after tax?", a: "Either is practised; tipping on the pre-tax subtotal is the more traditional reading, since tax is not part of the service. Enter whichever amount you choose as the bill." },
+      { q: "How does splitting work?", a: "The tip and total are calculated first, then the total is divided by the number of people. The per-person tip share is shown too." },
+      { q: "What is a standard tip percentage?", a: "In US restaurants, 15% is a traditional baseline, 18–20% is common for good service, and 25%+ is generous. Customs differ in other countries and for counter or delivery service." },
+      { q: "Why do the shares not add up exactly?", a: "Each share is rounded to the nearest cent, so the shares can total a cent or two above or below the exact amount. That rounding difference is unavoidable with cash amounts." }
+    ]
+  },
+  "days-between": {
+    examples: [
+      "From 1 January 2026 to 15 March 2026 is 73 days: 31 days remaining in January's count (to 1 February), 28 days of February 2026 (not a leap year), and 14 days into March. The calculator also reports this as 10 weeks and 3 days, or a calendar breakdown of 2 months and 14 days.",
+      "From 24 December 2026 to 2 January 2027 is 9 days — a reminder that a date range crossing New Year is still plain subtraction once the calendar is handled properly.",
+      "Leap years change real answers: 28 February to 1 March is 2 days in 2028 (a leap year, so 29 February sits between them) but only 1 day in 2027."
+    ],
+    checks: "Be clear about which counting rule your situation uses. Deadlines, notice periods, and age rules often specify whether the start or end day counts, and a one-day difference can matter; this tool's default counts the time between the dates (end not included), and the checkbox adds the end date. Times of day are not considered — the count is between calendar dates, not 24-hour periods from a specific hour. If you enter the end date before the start date, the tool swaps them and says so, because the distance is the same either way; check that is what you intended before quoting the number.",
+    notes: "The calendar breakdown (years, months, days) is not a simple division of the total, because months have different lengths. It is measured by stepping forward from the start date in whole months — clamping to the end of shorter months, so 31 January plus one month lands on 28 or 29 February — and then counting the remaining days. That is the same convention the Age Calculator uses, so the two tools agree on shared examples.",
+    faqs: [
+      { q: "Does the result include both the start and end dates?", a: "Not by default. The default counts the days between the dates (1 January to 2 January = 1 day). Tick 'Include the end date' to count both endpoints, which gives one more day." },
+      { q: "How are leap years handled?", a: "Automatically. The calculation uses real calendar dates, so any 29 February inside the range adds its day. Leap years are divisible by 4, except century years, which need divisibility by 400." },
+      { q: "Why do the total days and the months/days breakdown look different?", a: "They describe the same interval differently. Months vary in length, so the breakdown steps in whole calendar months from the start date and counts leftover days; it is not the total divided by 30." },
+      { q: "What happens if I enter the dates in reverse order?", a: "The tool swaps them and tells you, then reports the distance between them. The count is the same in either direction." },
+      { q: "Can I count business days only?", a: "Not in this tool — it counts calendar days. For working-day deadlines, count the calendar days first, then subtract the weekends inside the range manually." }
     ]
   },
   percentage: {
