@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Tools
     { path: "/age-calculator", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/days-between-dates", changeFrequency: "monthly", priority: 0.8 },
     { path: "/ai-rewrite", changeFrequency: "weekly", priority: 0.9 },
     { path: "/bmi-calculator", changeFrequency: "monthly", priority: 0.9 },
     { path: "/birth-chart", changeFrequency: "monthly", priority: 0.8 },
@@ -28,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/image/compress", changeFrequency: "monthly", priority: 0.8 },
     { path: "/image/resize", changeFrequency: "monthly", priority: 0.8 },
     { path: "/loan-calculator", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/mortgage-calculator", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/tip-calculator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/json-formatter", changeFrequency: "monthly", priority: 0.8 },
     { path: "/password", changeFrequency: "monthly", priority: 0.8 },
     { path: "/pdf/merge", changeFrequency: "monthly", priority: 0.8 },
@@ -108,7 +111,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
   // Materially updated on 2026-11-15 (Batch 7): Birth Chart rebuilt with an
   // own-code calculator (was a third-party widget); its guide article updated.
-  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart"]);
+  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import BirthChartCalculator from "../components/BirthChartCalculator";
 import ToolExtras from "../components/ToolExtras";
-import { JsonLd, webApplicationSchema } from "../lib/jsonld";
+import { JsonLd } from "../lib/jsonld";
 
 const faqs = [
   {
@@ -38,13 +38,6 @@ export default function BirthChartPage() {
         data={{
           "@context": "https://schema.org",
           "@graph": [
-            webApplicationSchema({
-              name: "Birth Chart Calculator",
-              path: "/birth-chart",
-              description:
-                "Calculate your Sun, Moon, and rising signs from your birth date, time, and place — computed in your browser by SmartEdgeTools.",
-              category: "LifestyleApplication",
-            }),
             {
               "@type": "FAQPage",
               mainEntity: faqs.map((f) => ({
