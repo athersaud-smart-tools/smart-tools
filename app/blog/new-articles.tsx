@@ -482,6 +482,47 @@ export const newArticles: NewArticle[] = [
     related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/how-to-calculate-weighted-grades", label: "How to Calculate Weighted Grades" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
   },
   {
+    slug: "how-to-calculate-mortgage-payment",
+    title: "How to Calculate a Mortgage Payment (Formula + Worked Example)",
+    description: "Calculate a monthly mortgage payment from the loan amount, rate and term, then add property tax and insurance to see the full monthly cost, with a 30-year vs 15-year comparison.",
+    intro: "A mortgage payment is not the home price divided by the number of months — interest changes the maths, and the loan is only part of what leaves your account each month. This guide shows the standard payment formula, works a complete example on a $350,000 home, adds property tax and insurance to get the real monthly cost, and compares a 30-year term with a 15-year term on the same loan. Every figure is an estimate for planning; a lender's quote on your actual loan is the number that counts.",
+    sections: [
+      { heading: "Start with the loan amount, not the home price", paragraphs: [
+        "The formula works on the amount you borrow: the home price minus your down payment. A $350,000 home with $70,000 down means a $280,000 loan, and every calculation that follows uses $280,000. Using the full price instead of the loan amount is the most common mortgage maths mistake — it overstates the payment and the interest by exactly the down payment's share.",
+        "Your monthly bill is also more than the loan payment. Lenders usually collect property tax and homeowner's insurance alongside it (often into an escrow account), so the amount that leaves your account is principal + interest + tax + insurance. Calculate the loan payment first, then add the other two as monthly amounts: yearly tax divided by 12, yearly insurance divided by 12."
+      ]},
+      { heading: "The mortgage payment formula", paragraphs: [
+        "For a fixed-rate mortgage with equal monthly payments, the formula is M = P x r x (1 + r)^n / ((1 + r)^n - 1). M is the monthly principal-and-interest payment, P is the loan amount, r is the monthly interest rate (the annual rate divided by 100, then divided by 12), and n is the total number of monthly payments (the term in years times 12). It is the same amortizing formula used for other fixed loans; a mortgage applies it to a home loan and then adds tax and insurance on top.",
+        "The formula spreads each payment between interest and principal so the balance reaches zero with the last payment. Early payments are mostly interest; later payments are mostly principal. That is why the total interest over a long term is so large even when the rate looks modest."
+      ]},
+      { heading: "Worked example: a $350,000 home", paragraphs: [
+        "Price $350,000, down payment $70,000, loan $280,000, rate 6.5%, term 30 years. The monthly rate is 6.5 / 100 / 12 = 0.0054167 and n is 360 payments. Substituting into the formula gives a principal-and-interest payment of $1,769.79 per month. Over 360 payments that is $637,124.57 in total, of which $357,124.57 is interest — more than the loan itself, which is normal for a 30-year term at this rate and worth seeing before you sign, not after.",
+        "Now add the rest of the bill. Property tax of $4,200 a year is $350 a month; homeowner's insurance of $1,800 a year is $150 a month. The full monthly cost is $1,769.79 + $350 + $150 = $2,269.79. Budgeting on the $1,769.79 figure alone understates the real cost by $500 a month, which is why the SmartEdgeTools Mortgage Calculator asks for tax and insurance as well as the loan details."
+      ]},
+      { heading: "30 years vs 15 years on the same loan", paragraphs: [
+        "Keep the loan at $280,000 and the rate at 6.5%, but shorten the term to 15 years (180 payments). The formula now gives $2,439.10 per month — $669.31 more each month — but the total interest falls to $159,038.11. Compared with the 30-year term, that is $198,086.46 less interest over the life of the loan.",
+        "Neither term is automatically better. The 15-year term costs far less overall but demands a higher payment every month for 15 years; the 30-year term costs far more overall but leaves more room in a monthly budget. The honest comparison is both numbers side by side — monthly payment and total interest — which is what the table below shows."
+      ]},
+      { heading: "What the formula leaves out", paragraphs: [
+        "Private mortgage insurance (PMI): if your down payment is under 20% of the price, lenders commonly add PMI to the monthly bill until your equity reaches that level. It is not part of the formula and varies by lender, so treat any payment estimate without it as a floor, not a quote. Homeowners association (HOA) fees, where they apply, are also separate.",
+        "Adjustable-rate mortgages change the rate after an initial period, so a single fixed-rate calculation only describes the opening years. And tax and insurance amounts themselves change over time — your escrowed bill can rise even though the loan payment never does. Recheck the full monthly cost whenever the tax assessment or insurance premium changes."
+      ]},
+      { heading: "Common mistakes", paragraphs: [
+        "Using the home price instead of the loan amount. Comparing two loans by monthly payment only, when the cheaper-looking payment may just be a longer term with far more total interest. Forgetting tax and insurance in the budget, which understated the example above by $500 a month. And treating an estimate as a quote: the formula assumes a fixed rate and on-time payments, and a lender's figures include fees and exact dates that a general calculator cannot know."
+      ]}
+    ],
+    table: { caption: "Same loan, two terms: $280,000 at 6.5% (principal and interest only)", headers: ["Term", "Monthly payment", "Total interest", "Total paid"], rows: [["30 years (360 payments)", "$1,769.79", "$357,124.57", "$637,124.57"], ["15 years (180 payments)", "$2,439.10", "$159,038.11", "$439,038.11"]] },
+    takeaways: ["Calculate on the loan amount (price minus down payment), never the full price.", "The real monthly cost is principal + interest + monthly tax + monthly insurance.", "A shorter term raises the monthly payment and cuts total interest dramatically — compare both numbers."],
+    faq: [
+      { question: "How do I calculate a mortgage payment by hand?", answer: "Use M = P x r x (1 + r)^n / ((1 + r)^n - 1), where P is the loan amount, r is the annual rate divided by 1200, and n is the term in months. The worked example above substitutes a $280,000 loan at 6.5% over 30 years and gets $1,769.79 a month in principal and interest." },
+      { question: "Does a mortgage payment include property tax and insurance?", answer: "The loan payment itself is principal and interest. Most lenders add monthly shares of property tax and homeowner's insurance to the same bill through escrow, so the amount you actually pay each month is higher — $2,269.79 in the worked example, versus $1,769.79 for the loan alone." },
+      { question: "Why is total interest so high on a 30-year mortgage?", answer: "Because the balance falls slowly: early payments are mostly interest, and interest is charged on the remaining balance every month for 360 months. On the example loan, total interest is $357,124.57 — more than the $280,000 borrowed." },
+      { question: "Is a 15-year mortgage always better than a 30-year?", answer: "It costs much less in total interest ($159,038.11 versus $357,124.57 on the example loan) but the monthly payment is $669.31 higher. Which suits you depends on your monthly budget and other debts; compare both figures rather than assuming." },
+      { question: "Is this financial advice?", answer: "No. This guide explains the standard calculation and gives estimates for planning. For a decision about an actual mortgage, use a lender's full quote and, where appropriate, a qualified financial adviser." }
+    ],
+    related: [{ href: "/mortgage-calculator", label: "Mortgage Calculator" }, { href: "/loan-calculator", label: "Loan Calculator" }, { href: "/blog/calculate-monthly-loan-payments", label: "How to Calculate Monthly Loan Payments" }]
+  },
+  {
     slug: "how-to-calculate-weighted-grades",
     title: "How to Calculate Weighted Grades (Step by Step, With Examples)",
     description: "Calculate a weighted grade by hand or with a calculator: the formula, a full worked example, what to do when weights do not add to 100%, and how points-based grades convert.",
