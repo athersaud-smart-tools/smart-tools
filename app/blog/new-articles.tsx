@@ -68,6 +68,10 @@ export const newArticles: NewArticle[] = [
         "Percent describes a relative amount, while percentage points describe the arithmetic gap between two percentages. If a rate rises from 10% to 12%, the difference is 2 percentage points. Relative to the starting 10%, the increase is 20% because 2 ÷ 10 × 100 = 20%. The two descriptions answer different questions.",
         "When you read a report or compare a grade, check whether it asks for a percentage-point difference or percentage change. Avoid describing a move from 10% to 12% as simply a “2% increase,” because that phrase can be read in more than one way."
       ]},
+      { heading: "Percentage of a number — the basic question underneath", paragraphs: [
+        "Many percentage questions are not about change at all, but about finding a percentage of a single number: multiply the number by the percentage as a decimal. 17% of 240 is 240 x 0.17 = 40.8. The reverse question — one number as a percentage of another — divides the part by the whole and multiplies by 100: 40.8 / 240 x 100 = 17%. Percent change builds on these two: the change is first expressed as a part of the original value, then converted to a percentage the same way.",
+        "A related question with its own formula is percent error, which compares a measured value against an accepted value — |measured - accepted| / |accepted| x 100 — and is the standard accuracy figure in science experiments. It is covered step by step in our percent error guide. Keeping the three apart — percentage of a number, percentage change, and percent error — prevents most wrong-formula mistakes, because each one divides by a different baseline: the whole, the original value, and the accepted value."
+      ]},
       { heading: "Common mistakes and things to check", paragraphs: [
         "The most common error is dividing by the new value instead of the original. Another is reversing the values: the formula’s first input is the starting amount and its second is the ending amount. Use consistent units, such as comparing kilograms with kilograms, and do not compare a gross figure with a net figure unless that is the question you intend to answer.",
         "A 20% increase followed by a 20% decrease does not return to the original number. Starting at 100, a 20% increase gives 120; decreasing 120 by 20% gives 96 because the second change is calculated from 120. The base changes after each operation."
@@ -482,6 +486,45 @@ export const newArticles: NewArticle[] = [
     related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/how-to-calculate-weighted-grades", label: "How to Calculate Weighted Grades" }, { href: "/percentage-calculator", label: "Percentage Calculator" }]
   },
   {
+    slug: "how-to-calculate-percent-error",
+    title: "How to Calculate Percent Error (Step by Step)",
+    description: "Percent error compares a measured value with the accepted value: the formula, worked examples from science experiments, and how it differs from percent change and percent difference.",
+    intro: "Percent error answers a specific question: how far is a measured or experimental value from the accepted value, expressed as a percentage of that accepted value? It is the standard way science classes and labs report accuracy. This guide gives the formula, works through examples with real numbers, and separates percent error from its two look-alikes, percent change and percent difference.",
+    sections: [
+      { heading: "The percent error formula", paragraphs: [
+        "Percent error = |measured value - accepted value| / |accepted value| x 100. The vertical bars mean absolute value: the difference is taken as positive whether the measurement is too high or too low, because percent error reports the size of the error, not its direction. The accepted value — also called the theoretical or true value — is the one in the denominator, because the error is being measured against it.",
+        "The result is a percentage with no units, even when the values themselves have units, because the units cancel in the division. A percent error of 0% means the measurement matched the accepted value exactly; smaller is more accurate."
+      ]},
+      { heading: "Worked example: a density measurement", paragraphs: [
+        "In a lab, a student measures the density of a metal sample as 2.65 g/cm3. The accepted density is 2.70 g/cm3. The difference is |2.65 - 2.70| = 0.05. Divide by the accepted value: 0.05 / 2.70 = 0.018518. Multiply by 100: the percent error is 1.85%. The measurement was close — under 2% off — which the bare difference of 0.05 alone could not tell you without knowing the scale of the values.",
+        "Second example: a thermometer reads the boiling point of water as 101.5 °C against the accepted 100 °C. The difference is 1.5, divided by 100, times 100 — a percent error of 1.5%. Third example, outside the lab: a speedometer shows 48 mph while a calibrated reference says 50 mph. |48 - 50| / 50 x 100 = 4% error."
+      ]},
+      { heading: "Absolute error vs percent error", paragraphs: [
+        "The absolute error is the plain difference, with units: 0.05 g/cm3 in the density example. Percent error puts that difference in context by comparing it with the size of the accepted value. An absolute error of 0.05 is excellent against an accepted value of 2.70 (1.85%) and would be terrible against an accepted value of 0.10 (50%). Report both when the audience needs the full picture: the absolute error says how much, the percent error says how much it matters."
+      ]},
+      { heading: "Percent error, percent change and percent difference are not the same", paragraphs: [
+        "Percent change compares an old value with a new value of the same thing over time, keeps its sign (increase or decrease), and divides by the old value. Percent error compares a measurement with an accepted value, is never negative, and divides by the accepted value. Use percent change for prices, populations and scores over time; use percent error for measurements against a known standard.",
+        "Percent difference is the third sibling, used when neither value is 'the accepted one' — two measurements of the same thing, for example. It divides the difference by the average of the two values: measurements of 10.2 and 10.6 differ by 0.4, the average is 10.4, and the percent difference is 0.4 / 10.4 x 100 = 3.85%. If one value is the accepted standard, percent error is the right choice, not percent difference."
+      ]},
+      { heading: "Can percent error be over 100%?", paragraphs: [
+        "Yes. The error is larger than the accepted value itself whenever the measurement is more than double the accepted value (or below zero, for quantities that can go negative). A measured value of 30 against an accepted value of 10 gives |30 - 10| / 10 x 100 = 200% error. A large percent error is not a calculation mistake by itself — it usually means the measurement went badly wrong, or the wrong accepted value was used, and both are worth checking."
+      ]},
+      { heading: "Common mistakes", paragraphs: [
+        "Dividing by the measured value instead of the accepted value — the denominator is always the accepted (theoretical) value. Dropping the absolute value and reporting a negative percent error; by convention percent error is reported as positive, with the direction stated separately if it matters ('1.85% low'). Forgetting the x 100, which leaves a decimal fraction (0.0185) instead of a percentage (1.85%). And using percent error for a change over time, which is percent change's job."
+      ]}
+    ],
+    table: { caption: "Percent error examples", headers: ["Situation", "Measured", "Accepted", "Percent error"], rows: [["Density of a metal sample", "2.65 g/cm3", "2.70 g/cm3", "1.85%"], ["Boiling point of water", "101.5 °C", "100 °C", "1.5%"], ["Speedometer vs reference", "48 mph", "50 mph", "4%"], ["Temperature forecast vs actual", "24 °C", "27 °C", "11.11%"]] },
+    takeaways: ["Percent error = |measured - accepted| / |accepted| x 100 — the accepted value is always the denominator.", "Percent error is never negative and can exceed 100%; it reports accuracy, not direction or change over time.", "If neither value is the accepted standard, use percent difference (divide by the average) instead."],
+    faq: [
+      { question: "Why does percent error use absolute value?", answer: "Because it measures the size of the error, not whether the measurement was high or low. A result 2% too high and a result 2% too low are equally inaccurate, so both report a percent error of 2%." },
+      { question: "What is the accepted (theoretical) value?", answer: "The value accepted as correct for the comparison: a published constant, a calibrated reference, or the known true amount. In a school experiment it is usually the textbook or teacher-provided value." },
+      { question: "Is a percent error of 1.85% good?", answer: "It depends on the field and the instrument. Under 5% is commonly treated as a good school-lab result, while precision engineering and analytical chemistry often demand far less. Judge it against the tolerance your task specifies." },
+      { question: "What if the accepted value is zero?", answer: "Percent error is undefined, because it would require dividing by zero. Report the absolute error instead, or compare against a non-zero reference quantity." },
+      { question: "Can I calculate percent error with a percentage calculator?", answer: "Yes: subtract the accepted value from the measured value, take the positive difference, divide it by the accepted value, and multiply by 100. A general percentage calculator handles each step." }
+    ],
+    related: [{ href: "/percentage-calculator", label: "Percentage Calculator" }, { href: "/blog/percentage-increase-decrease", label: "How to Calculate Percentage Increase and Decrease" }, { href: "/final-grade-calculator", label: "Final Grade Calculator" }]
+  },
+  {
     slug: "how-many-days-between-two-dates",
     title: "How Many Days Between Two Dates? (And How to Count Them)",
     description: "Count the days between two dates exactly: the by-hand method, the inclusive vs exclusive off-by-one question, leap years, and converting a day count into weeks and months.",
@@ -881,6 +924,11 @@ export const newArticles: NewArticle[] = [
       { heading: "What the chart shows", paragraphs: [
         "Enter your birth date, time, and place in the calculator to find your Sun, Moon, and rising signs and your Midheaven. Astrologers read a chart using three building blocks: the zodiac signs, the planets and other points, and the houses, which are divisions of the sky based on time and place. The Ascendant, or rising sign, is the sign on the eastern horizon at birth. The Midheaven is the point highest in the sky at birth, often linked in astrology to public life and career.",
         "Aspects are the angles between planets, such as conjunctions and oppositions, which astrologers use to describe how themes interact. Retrograde means a planet appears to move backward from Earth's point of view; that is an optical effect, not a real reversal of the planet's motion."
+      ]},
+      { heading: "How to read the wheel, for beginners", paragraphs: [
+        "The wheel is a circle divided into the twelve signs in order, Aries through Pisces, running counterclockwise. Two lines anchor it. The horizontal line is the horizon at the birth moment: its left-hand point is the Ascendant (the rising sign) and its right-hand point is the Descendant. The highest point marked on the wheel is the Midheaven. Everything on the wheel is placed relative to those anchors, which is why two people born on the same day at different times get wheels rotated differently.",
+        "Read it in three steps. First, find the Sun symbol and note which sign segment it sits in — that is the Sun sign, the one most people already know. Second, find the Moon the same way; the Moon changes sign roughly every two and a half days, so it depends on the birth date, not just the month. Third, look at the sign on the left-hand horizon point: that is the rising sign. Astrologers call the Sun, Moon and rising signs the 'big three' and read them together — in the tradition's own terms, the Sun as core character, the Moon as emotional pattern, and the rising sign as outward style. The calculator's result cards show exactly these three, plus the Midheaven, next to the wheel.",
+        "If you did not enter a birth time, the wheel cannot be anchored: the calculator then reports the Sun and Moon signs only, and any rising sign or Midheaven from a time-less chart should be treated as unknown rather than approximate. When you do have a time, even one remembered to the nearest hour, the anchors are far more reliable than a chart with no time at all."
       ]},
       { heading: "Why birth time and place matter in astrology", paragraphs: [
         "In astrology, the exact time and place change the Ascendant and the houses, because the sky turns during the day. A chart made without a birth time, or with a rounded time, can still show planetary signs, which change more slowly, but its houses and Ascendant will be uncertain. If you do not know your birth time, treat the house and Ascendant parts as uncertain rather than exact, and do not use them for decisions.",
