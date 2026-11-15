@@ -30,6 +30,7 @@ export type CategoryDef = {
   intro: string;
   note: string;
   mistakes: string;
+  example: string;
   units: UnitDef[];
 };
 
@@ -43,6 +44,8 @@ export const categories: CategoryDef[] = [
     note: "The inch is defined as exactly 2.54 centimeters (international agreement, 1959), so length conversions between metric and imperial units are exact, not estimates. Area and volume factors are different: they are the length factors squared and cubed, which is why this site keeps them in their own categories.",
     mistakes:
       "The most common length mistakes are mixing up the direction of a conversion (multiplying when you should divide), confusing millimeters with centimeters, and treating a rounded mental shortcut (such as 1 inch ≈ 2.5 cm) as exact. For anything that will be cut, built or bought, use the exact factor and keep the unit written next to every number.",
+    example:
+      "A doorway listed as 36 inches wide is 36 × 2.54 = 91.44 cm — wide enough for most furniture, which is why 36-inch doors are a standard size. In the other direction, a 5 km fun run is 5 × 0.621371 = 3.11 miles, and a 65-inch television measures 65 × 2.54 = 165.1 cm across its diagonal. Notice that every one of these is a single multiplication by an exact factor, because all length units are defined from the meter.",
     units: [
       {
         id: "millimeter",
@@ -146,6 +149,8 @@ export const categories: CategoryDef[] = [
     note: "The pound is defined as exactly 0.45359237 kilograms, and the ounce is exactly one sixteenth of a pound, so conversions in this category are exact. The stone, still used for body weight in the UK and Ireland, is exactly 14 pounds.",
     mistakes:
       "The common weight mistakes are rounding 1 kg to 2 lb (it is 2.205 lb, a 10% error at luggage-allowance sizes), confusing ounces of weight with fluid ounces of volume, and forgetting that a stone is 14 pounds, not 10. When an airline limit or a recipe matters, use the exact factor and check the direction before you rely on the result.",
+    example:
+      "A traveller who weighs 154 lb is 154 × 0.45359237 = 69.85 kg on a metric scale — the figure a clinic or a luggage scale abroad will show. A 500 g bag of flour is 500 × 0.03527396 = 17.64 oz for an American recipe. And a 23 kg checked-bag allowance is 23 × 2.20462 = 50.7 lb, which is why a bag that feels fine at 48 lb at home is close to the limit.",
     units: [
       {
         id: "gram",
@@ -215,6 +220,8 @@ export const categories: CategoryDef[] = [
     note: "The landmarks worth remembering: water freezes at 0 °C / 32 °F, boils at 100 °C / 212 °F, normal body temperature is about 37 °C / 98.6 °F, and −40 is the one point where Celsius and Fahrenheit are equal. Kelvin starts at absolute zero, −273.15 °C, and never uses a degree symbol.",
     mistakes:
       "The classic temperature mistakes are multiplying by 9/5 but forgetting the +32 offset (or subtracting it in the wrong place), and treating a temperature *difference* as a temperature: a change of 10 °C is a change of 18 °F, with no offset involved. Oven temperatures add a third system, gas marks, which this converter does not cover.",
+    example:
+      "A recipe calling for a 350 °F oven needs (350 − 32) × 5/9 = 176.7 °C — most home cooks round to 175 °C or 180 °C. In the other direction, a weather forecast of 30 °C is 30 × 9/5 + 32 = 86 °F, a hot day. Body temperature shows why the offset matters: 37 °C × 9/5 + 32 = 98.6 °F exactly; skip the +32 and you would get 66.6, which is plainly wrong for a person. For Kelvin, just add 273.15 to the Celsius value: 25 °C, a warm room, is 298.15 K.",
     units: [
       {
         id: "celsius",
@@ -260,6 +267,8 @@ export const categories: CategoryDef[] = [
     note: "One US gallon is exactly 3.785411784 liters; one UK (imperial) gallon is 4.54609 liters, about 20% larger. US fluid ounces, cups, pints and quarts on this site are the US customary units used on American packaging and in American recipes. UK volume conversions will be added as their own clearly labelled pages rather than mixed into these.",
     mistakes:
       "The expensive volume mistakes are using a UK gallon where a US gallon is meant (a 20% error on fuel and tank sizes), treating fluid ounces as weight ounces, and assuming a 'cup' is the same everywhere: a US cup is 236.588 mL, a metric cup is 250 mL, and a mug from the cupboard is neither. Check which system a recipe or label uses before converting.",
+    example:
+      "A 500 mL drinks bottle holds 500 × 0.033814 = 16.9 US fluid ounces, which is why imported bottles are often labelled '16.9 fl oz'. A 10-gallon aquarium takes 10 × 3.785411784 = 37.85 liters — but only if those are US gallons; 10 UK gallons would be 45.46 liters, a difference of two full buckets of water. For a recipe, 2 US cups of milk is 2 × 236.588 = 473 mL, close to half a liter but not exactly.",
     units: [
       {
         id: "milliliter",
@@ -330,6 +339,8 @@ export const categories: CategoryDef[] = [
     note: "One mile is exactly 1.609344 kilometres, so 1 mph is exactly 1.609344 km/h. A useful mental check: multiply mph by 1.6 for a close km/h estimate — 60 mph ≈ 96 km/h, and the exact figure is 96.56 km/h.",
     mistakes:
       "The usual speed mistakes are converting the distance but forgetting it is *per hour* on both sides (no separate time conversion is needed), and reading a car's km/h speedometer against mph speed-limit signs abroad. When a journey time matters, convert the speed first, then divide the distance in the matching unit.",
+    example:
+      "Driving at 60 mph in a country with km/h signs means travelling at 60 × 1.609344 = 96.56 km/h, so a 110 km/h limit is about 68 mph, not a number you can guess by rounding the sign. For running, pace conversions go through meters per second: a sprinter covering 100 m in 10 seconds averages exactly 10 m/s, which is 10 × 3.6 = 36 km/h, or 36 ÷ 1.609344 = 22.37 mph. A marathon runner at a steady 12 km/h is moving at 3.33 m/s — the ×3.6 bridge between km/h and m/s is the one conversion in this category worth memorising, because it also runs wind speeds, cycling data and physics problems.",
     units: [
       {
         id: "kmh",
@@ -364,6 +375,8 @@ export const categories: CategoryDef[] = [
     note: "An acre is exactly 43,560 square feet, the area of a strip one chain by one furlong (66 × 660 feet), a definition that survives from medieval English farming. In metric terms one acre is 4,046.8564224 square meters, a little over 0.4 hectares.",
     mistakes:
       "The classic area mistakes are converting square units with the plain length factor (using 3.28 for square meters to square feet instead of 10.764), and confusing acres with hectares, which differ by a factor of about 2.47. Always square the length factor, or use the pair page for the exact area factor.",
+    example:
+      "A 1,200 sq ft apartment is 1,200 × 0.09290304 = 111.48 m² — the figure a European listing would show for the same home. Land runs the other way: a 2-acre plot is 2 × 43,560 = 87,120 sq ft, or 2 × 4,046.8564224 = 8,093.7 m², which is 0.809 hectares. Notice the hectare answer is smaller than the acre count even though nothing changed: a hectare is bigger than an acre, so the same land needs fewer of them.",
     units: [
       {
         id: "square-meter",

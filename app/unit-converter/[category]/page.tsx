@@ -122,7 +122,8 @@ export default async function CategoryPage({
           </div>
           {category.units.map((u) => (
             <p key={u.id} className="mt-3">
-              <strong>{u.name} ({u.symbol}):</strong> {u.definition}
+              <strong>{u.name} ({u.symbol}):</strong> {u.definition} {u.usage}
+              {u.caution ? <> <em>{u.caution}</em></> : null}
             </p>
           ))}
         </div>
@@ -130,6 +131,11 @@ export default async function CategoryPage({
         <div>
           <h3 className="text-lg font-semibold text-gray-900">Good to know</h3>
           <p className="mt-1">{category.note}</p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900">Worked example</h3>
+          <p className="mt-1">{category.example}</p>
         </div>
 
         <div>
