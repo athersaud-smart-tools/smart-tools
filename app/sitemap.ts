@@ -88,6 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/typing-speed-test-improve-wpm", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/calculate-final-grade-needed", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/how-to-calculate-weighted-grades", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/blog/how-to-calculate-mortgage-payment", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/calculate-gpa", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/generate-random-numbers", changeFrequency: "monthly", priority: 0.7 },
     { path: "/blog/create-qr-code", changeFrequency: "monthly", priority: 0.7 },
@@ -112,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
   // Materially updated on 2026-11-15 (Batch 7): Birth Chart rebuilt with an
   // own-code calculator (was a third-party widget); its guide article updated.
-  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator"]);
+  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
