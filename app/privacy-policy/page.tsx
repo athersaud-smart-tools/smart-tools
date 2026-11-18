@@ -122,6 +122,22 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-900">Affiliate links</h2>
+            <p className="leading-7">
+              SmartEdgeTools participates in affiliate programs, including the Amazon Services LLC
+              Associates Program. Some links on this site may be affiliate links: if you buy a product
+              or sign up for a service through one of them, SmartEdgeTools may earn a commission at no
+              extra cost to you. As an Amazon Associate, SmartEdgeTools earns from qualifying purchases.
+            </p>
+            <p className="leading-7">
+              Affiliate links are identified in the page code with rel=&quot;sponsored&quot; and are placed
+              only where the linked product or service is a relevant next step for the tool or guide on
+              that page. Commissions help cover the cost of running the site; they do not affect how any
+              tool calculates its results or what any guide recommends.
+            </p>
+          </section>
+
+          <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-900">Third-party services and links</h2>
             <p className="leading-7">
               SmartEdgeTools may use third-party services for hosting, analytics, advertising, or website
