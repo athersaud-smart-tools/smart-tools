@@ -131,6 +131,18 @@ export default function PasswordGenerator() {
           )}
         </div>
       </div>
+      {/* AFFILIATE CALLOUT — do not merge until href is replaced with the approved 1Password tracking link */}
+      <div style={{ maxWidth: 720, margin: "1.5rem auto 0", padding: "1rem 1.25rem", border: "1.5px solid var(--border)", borderRadius: 12, background: "var(--bg)" }}>
+        <p style={{ fontFamily: "var(--font-syne)", fontWeight: 700, margin: "0 0 0.4rem" }}>One strong password is not a system</p>
+        <p style={{ margin: "0 0 0.6rem", color: "var(--ink2)", lineHeight: 1.6 }}>
+          A generator can make a strong password, but using a different one on every account only works if
+          something remembers them for you. A password manager like 1Password stores them in an encrypted
+          vault and fills them in when you sign in — so the password you just generated can be one of
+          dozens, all unique.
+        </p>
+        <a href="https://1password.com" target="_blank" rel="sponsored nofollow noopener" style={{ fontFamily: "var(--font-syne)", fontWeight: 700, color: "var(--accent)" }}>Try 1Password →</a>
+        <p style={{ margin: "0.6rem 0 0", fontSize: "0.78rem", color: "var(--ink2)" }}>Affiliate link — if you sign up through it, SmartEdgeTools may earn a commission at no extra cost to you.</p>
+      </div>
       <ToolGuide guide="password" />
 
     </main>

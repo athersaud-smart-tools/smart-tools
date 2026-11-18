@@ -214,6 +214,17 @@ export default function CurrencyConverter() {
           </div>
         </div>
       </div>
+      {/* AFFILIATE CALLOUT — do not merge until href is replaced with the approved Wise (Partnerize) tracking link */}
+      <div style={{ maxWidth: 720, margin: "1.5rem auto 0", padding: "1rem 1.25rem", border: "1.5px solid var(--border)", borderRadius: 12, background: "var(--bg)" }}>
+        <p style={{ fontFamily: "var(--font-syne)", fontWeight: 700, margin: "0 0 0.4rem" }}>Converting for a real transfer?</p>
+        <p style={{ margin: "0 0 0.6rem", color: "var(--ink2)", lineHeight: 1.6 }}>
+          The rate above is the mid-market reference rate — the one banks trade at with each other, before
+          they add their margin. Wise moves money at that mid-market rate and shows its fee upfront, so
+          the amount a recipient gets is usually much closer to the figure you calculated here.
+        </p>
+        <a href="https://wise.com" target="_blank" rel="sponsored nofollow noopener" style={{ fontFamily: "var(--font-syne)", fontWeight: 700, color: "var(--accent)" }}>Check Wise&apos;s fee for your transfer →</a>
+        <p style={{ margin: "0.6rem 0 0", fontSize: "0.78rem", color: "var(--ink2)" }}>Affiliate link — if you sign up through it, SmartEdgeTools may earn a commission at no extra cost to you.</p>
+      </div>
       <ToolGuide guide="currency" />
 
     </main>
