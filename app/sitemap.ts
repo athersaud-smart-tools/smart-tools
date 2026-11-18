@@ -116,7 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedNov6 = new Set(["/json-formatter", "/word-counter"]);
   // Materially updated on 2026-11-15 (Batch 7): Birth Chart rebuilt with an
   // own-code calculator (was a third-party widget); its guide article updated.
-  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl"]);
+  const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl", "/privacy-policy"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
