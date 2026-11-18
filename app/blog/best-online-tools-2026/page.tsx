@@ -86,9 +86,10 @@ export default function ArticlePage() {
 
           <h2 className="text-2xl font-semibold text-gray-900">5. Writing and productivity utilities</h2>
           <p>
-            Small text utilities can remove repetitive work. A word counter can check assignment length,
-            a text-case tool can change capitalization, and an AI writing assistant can help rephrase
-            text. These tools work best when the user remains responsible for the final result, especially
+            Small text utilities can remove repetitive work. A <Link href="/word-counter" className="text-blue-600 hover:underline">word counter</Link>
+            {" "}can check assignment length, a <Link href="/text-case" className="text-blue-600 hover:underline">text-case tool</Link>
+            {" "}can change capitalization, and an <Link href="/ai-rewrite" className="text-blue-600 hover:underline">AI writing assistant</Link>
+            {" "}can help rephrase text. These tools work best when the user remains responsible for the final result, especially
             for school, work, or professional writing.
           </p>
 
@@ -114,11 +115,51 @@ export default function ArticlePage() {
             </table>
           </div>
 
+          <h2 className="text-2xl font-semibold text-gray-900">Three workflows, step by step</h2>
+          <p>
+            <strong>Preparing a job application packet.</strong> Put the resume first, then the cover letter,
+            then certificates, in the <Link href="/pdf/merge" className="text-blue-600 hover:underline">PDF Merge Tool</Link>,
+            {" "}and check the merged page order before downloading. If the portal sets a file-size limit and the
+            merged file is over it, the usual cause is uncompressed scanned pages — compressing the scans as
+            images before they are turned into a PDF is what brings the size down.
+          </p>
+          <p>
+            <strong>Comparing two loan offers.</strong> Enter the same amount in the <Link href="/loan-calculator" className="text-blue-600 hover:underline">Loan Calculator</Link>
+            {" "}for each offer and compare the total interest, not just the monthly payment. Borrowing $25,000 at
+            6% costs $587.13 a month over 4 years, with $3,182.03 of interest. Stretching the same loan to
+            6 years drops the payment to $414.32 but raises the interest to $4,831.20 — $1,649.16 more for
+            the same money.
+          </p>
+          <p>
+            <strong>Preparing a blog image.</strong> Resize first: a 4000 × 3000 phone photo scaled to 1200
+            pixels wide becomes 1200 × 900, keeping its proportions. Then run it through the <Link href="/image/compress" className="text-blue-600 hover:underline">Image Compressor</Link>
+            {" "}at about 70% quality and compare the before-and-after sizes the tool displays before downloading.
+          </p>
+
           <h2 className="text-2xl font-semibold text-gray-900">Final takeaway</h2>
           <p>
             Free online tools are most useful when they solve one clear problem well. Instead of looking
             for a single website that does everything, choose the smallest trustworthy tool that fits the
             task, understand its limitations, and verify anything important before acting on the result.
+          </p>
+
+          <h2 className="text-2xl font-semibold text-gray-900">Frequently asked questions</h2>
+          <p>
+            <strong>When is a browser-based tool safer than a cloud converter?</strong> When the tool runs
+            locally, your files stay on your device instead of being uploaded to a server — that is how most
+            SmartEdgeTools utilities work. The exception here is the AI writing assistant, which sends the
+            text you submit to an external AI service, so do not use it for confidential material.
+          </p>
+          <p>
+            <strong>Why do online currency converters differ slightly from bank rates?</strong> Converters
+            usually show the mid-market rate, the midpoint between buy and sell prices. Banks and card
+            networks add a spread and sometimes a fee, so the rate you actually get is a little worse than
+            the converter&apos;s figure.
+          </p>
+          <p>
+            <strong>Can I rely on a free calculator for an important decision?</strong> Use it to estimate
+            and compare, then verify consequential numbers with the source that will actually be used — a
+            lender&apos;s official quote, a school&apos;s grading policy, or a professional&apos;s advice.
           </p>
 
           <hr />
