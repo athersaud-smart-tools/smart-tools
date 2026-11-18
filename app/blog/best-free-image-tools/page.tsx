@@ -110,6 +110,18 @@ export default function ArticlePage() {
             </tbody>
           </table>
 
+          <h2 className="text-2xl font-semibold text-gray-900">One photo, start to finish</h2>
+          <p>
+            A worked example ties the tools together. Say a phone photo is 4000 × 3000 pixels and several
+            megabytes — too heavy for a blog post. First, resize it to the width the page will actually
+            display: at 1200 pixels wide it becomes 1200 × 900, keeping the same proportions, and the file
+            shrinks because it carries far fewer pixels. Second, compress the resized image at about 70%
+            quality and read the before-and-after sizes the compressor displays; if fine text or edges look
+            soft in the preview, raise the quality a step and compress again. Third, verify the result the
+            way a visitor will see it — open the downloaded file at the size it will appear on the page, not
+            zoomed in — and keep the original photo untouched in case you need it again.
+          </p>
+
           <h2 className="text-2xl font-semibold text-gray-900">Privacy and image files</h2>
           <p>
             Before using any online image service, consider whether the image contains personal,

@@ -116,7 +116,7 @@ export default function AboutPage() {
               please send the page address and details through the <Link href="/contact" className="text-blue-600 hover:underline">Contact page</Link> or email <a className="text-blue-600 hover:underline" href="mailto:support@smartedgetools.com">support@smartedgetools.com</a>.
             </p>
             <p className="leading-7">
-              SmartEdgeTools is published under the site name. We do not claim that these general-purpose tools
+              SmartEdgeTools is written and published by Ather Saud under the site name. We do not claim that these general-purpose tools
               replace professional advice, formal assessments, or independent verification for consequential decisions.
             </p>
           </section>
