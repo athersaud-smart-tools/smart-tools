@@ -91,7 +91,7 @@ export const guideTitles: Record<string, string> = {
   "/blog/create-strong-password": "How to Create a Strong Password You Can Actually Remember",
   "/blog/format-json-validate": "How to Format and Validate JSON (With Examples)",
   "/blog/typing-speed-test-improve-wpm": "How to Take a Typing Speed Test and Improve Your WPM",
-  "/blog/calculate-final-grade-needed": "How to Calculate Your Final Grade and the Score You Need",
+  "/blog/calculate-final-grade-needed": "Final Grade Calculator: How to Calculate Your Final Grade and the Score You Need",
   "/blog/how-to-calculate-weighted-grades": "How to Calculate Weighted Grades (Step by Step, With Examples)",
   "/blog/how-to-calculate-mortgage-payment": "How to Calculate a Mortgage Payment (Formula + Worked Example)",
   "/blog/how-to-calculate-tip": "How to Calculate a Tip (Including In Your Head)",
