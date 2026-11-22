@@ -450,8 +450,8 @@ export const newArticles: NewArticle[] = [
   },
   {
     slug: "calculate-final-grade-needed",
-    title: "How to Calculate Your Final Grade and the Score You Need",
-    description: "Use weighted grades and the score-needed formula to plan for a final exam, with worked examples.",
+    title: "Final Grade Calculator: How to Calculate Your Final Grade and the Score You Need",
+    description: "Use a final grade calculator with the score-needed formula and weighted grades to plan for a final exam — worked examples included.",
     intro: "A final grade calculator answers two different questions. First, what is your grade so far when categories have different weights? Second, what score do you need on the remaining work to reach a target? The SmartEdgeTools Final Grade Calculator has a mode for each question, and this guide explains the maths behind both, so you can check the result against your syllabus.",
     sections: [
       { heading: "Weighted grade: combine categories by weight", paragraphs: [
@@ -684,7 +684,7 @@ export const newArticles: NewArticle[] = [
       { question: "My scores are in points. Can I still weight them?", answer: "Yes — convert each category to a percentage first (points earned / points possible x 100), then apply the weights. Weighting raw points from categories with different totals gives a wrong answer." },
       { question: "Can a weighted grade be above 100%?", answer: "Only if a score above 100% is entered, which happens with extra credit. The maths allows it; whether your school counts it is a syllabus question." }
     ],
-    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/calculate-final-grade-needed", label: "How to Calculate Your Final Grade and the Score You Need" }, { href: "/gpa-calculator", label: "GPA Calculator" }]
+    related: [{ href: "/final-grade-calculator", label: "Final Grade Calculator" }, { href: "/blog/calculate-final-grade-needed", label: "Final Grade Calculator: How to Calculate Your Final Grade and the Score You Need" }, { href: "/gpa-calculator", label: "GPA Calculator" }]
   },
   {
     slug: "generate-random-numbers",

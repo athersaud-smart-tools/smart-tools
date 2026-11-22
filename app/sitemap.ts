@@ -117,10 +117,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Materially updated on 2026-11-15 (Batch 7): Birth Chart rebuilt with an
   // own-code calculator (was a third-party widget); its guide article updated.
   const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl", "/privacy-policy"]);
+  // 2026-11-22: final-grade article retitled to lead with "Final Grade Calculator" (GSC: 282 impressions at position 12.2, 0 clicks).
+  const updatedNov22 = new Set(["/blog/calculate-final-grade-needed"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(updatedNov15.has(path) ? "2026-11-15" : updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
+    lastModified: new Date(updatedNov22.has(path) ? "2026-11-22" : updatedNov15.has(path) ? "2026-11-15" : updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
