@@ -118,7 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // own-code calculator (was a third-party widget); its guide article updated.
   const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl", "/privacy-policy"]);
   // 2026-11-22: final-grade article retitled to lead with "Final Grade Calculator" (GSC: 282 impressions at position 12.2, 0 clicks).
-  const updatedNov22 = new Set(["/blog/calculate-final-grade-needed"]);
+  const updatedNov22 = new Set(["/blog/calculate-final-grade-needed", "/blog/how-to-calculate-mortgage-payment"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
@@ -140,7 +140,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...conversionPairs.map((p) => ({
       url: `${siteUrl}${pairPath(p)}`,
-      lastModified: new Date("2026-11-08"),
+      // 2026-11-22: ounces-to-grams and fluid-ounces-to-ml tables gained the exact values GSC shows people searching for (10 oz, 14 oz, 3.3 fl oz).
+      lastModified: new Date(p.slug === "ounces-to-grams" || p.slug === "fluid-ounces-to-ml" ? "2026-11-22" : "2026-11-08"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
