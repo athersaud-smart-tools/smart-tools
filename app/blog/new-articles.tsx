@@ -607,7 +607,7 @@ export const newArticles: NewArticle[] = [
   {
     slug: "how-to-calculate-mortgage-payment",
     title: "How to Calculate a Mortgage Payment (Formula + Worked Example)",
-    description: "Calculate a monthly mortgage payment from the loan amount, rate and term, then add property tax and insurance to see the full monthly cost, with a 30-year vs 15-year comparison.",
+    description: "The monthly mortgage payment formula, worked step by step: calculate a payment from the loan amount, rate and term, then add tax and insurance for the full cost.",
     intro: "A mortgage payment is not the home price divided by the number of months — interest changes the maths, and the loan is only part of what leaves your account each month. This guide shows the standard payment formula, works a complete example on a $350,000 home, adds property tax and insurance to get the real monthly cost, and compares a 30-year term with a 15-year term on the same loan. Every figure is an estimate for planning; a lender's quote on your actual loan is the number that counts.",
     sections: [
       { heading: "Start with the loan amount, not the home price", paragraphs: [
@@ -637,6 +637,7 @@ export const newArticles: NewArticle[] = [
     table: { caption: "Same loan, two terms: $280,000 at 6.5% (principal and interest only)", headers: ["Term", "Monthly payment", "Total interest", "Total paid"], rows: [["30 years (360 payments)", "$1,769.79", "$357,124.57", "$637,124.57"], ["15 years (180 payments)", "$2,439.10", "$159,038.11", "$439,038.11"]] },
     takeaways: ["Calculate on the loan amount (price minus down payment), never the full price.", "The real monthly cost is principal + interest + monthly tax + monthly insurance.", "A shorter term raises the monthly payment and cuts total interest dramatically — compare both numbers."],
     faq: [
+      { question: "What is the formula for monthly mortgage payments?", answer: "M = P x r x (1 + r)^n / ((1 + r)^n - 1). M is the monthly payment, P is the loan amount, r is the monthly interest rate (the annual rate divided by 1200), and n is the number of monthly payments. On a $280,000 loan at 6.5% over 30 years, the formula gives $1,769.79 a month in principal and interest." },
       { question: "How do I calculate a mortgage payment by hand?", answer: "Use M = P x r x (1 + r)^n / ((1 + r)^n - 1), where P is the loan amount, r is the annual rate divided by 1200, and n is the term in months. The worked example above substitutes a $280,000 loan at 6.5% over 30 years and gets $1,769.79 a month in principal and interest." },
       { question: "Does a mortgage payment include property tax and insurance?", answer: "The loan payment itself is principal and interest. Most lenders add monthly shares of property tax and homeowner's insurance to the same bill through escrow, so the amount you actually pay each month is higher — $2,269.79 in the worked example, versus $1,769.79 for the loan alone." },
       { question: "Why is total interest so high on a 30-year mortgage?", answer: "Because the balance falls slowly: early payments are mostly interest, and interest is charged on the remaining balance every month for 360 months. On the example loan, total interest is $357,124.57 — more than the $280,000 borrowed." },
