@@ -5,6 +5,8 @@ export type NewArticle = {
   title: string;
   description: string;
   intro: string;
+  /** ISO date of the last material update; defaults to 2026-11-01 in [slug]/page.tsx. */
+  updated?: string;
   sections: { heading: string; paragraphs: string[] }[];
   table: { headers: string[]; rows: string[][]; caption: string };
   takeaways: string[];
@@ -568,11 +570,12 @@ export const newArticles: NewArticle[] = [
     slug: "how-to-calculate-tip",
     title: "How to Calculate a Tip (Including In Your Head)",
     description: "Calculate any tip with one formula, a worked example, the 10% method for working tips out in your head, and how to split the tip and total fairly.",
+    updated: "2026-11-25",
     intro: "A tip is just a percentage of a bill, but doing percentages at a table, under time pressure, is where people either overpay nervously or underpay accidentally. This guide gives you the one formula behind every tip, a fully worked example, the mental shortcut that handles 15%, 18% and 20% without a phone, and the clean way to split both the tip and the total between friends.",
     sections: [
       { heading: "The tip formula", paragraphs: [
         "Tip = bill x percentage. Total = bill + tip. For an 18% tip, multiply the bill by 0.18; for 20%, by 0.20. That is the entire calculation — everything else in this guide is speed, splitting, and deciding which amount the percentage should apply to.",
-        "Worked example: an $86.40 restaurant bill with an 18% tip. The tip is 86.40 x 0.18 = $15.55, and the total is 86.40 + 15.55 = $101.95. If four people split it equally, each pays 101.95 / 4 = $25.49, of which $3.89 is their share of the tip. The SmartEdgeTools Tip Calculator runs exactly these steps and lets you change the percentage, the bill, and the number of people."
+        "Worked example: an $86.40 restaurant bill with an 18% tip. The tip is 86.40 x 0.18 = $15.55, and the total is 86.40 + 15.55 = $101.95. If four people split it equally, each pays 101.95 / 4 = $25.49, of which $3.89 is their share of the tip. The calculator above runs exactly these steps — change the percentage, the bill, and the number of people and watch the numbers update."
       ]},
       { heading: "How to calculate a tip in your head", paragraphs: [
         "Anchor on 10%, because 10% is just the decimal point moved one place left. On a $64 bill, 10% is $6.40. From there: 20% is double the 10% figure ($12.80). 15% is the 10% figure plus half of it ($6.40 + $3.20 = $9.60). 18% is the 20% figure minus a tenth of the bill's 10% twice over — or, more practically, 10% + 10% - 2%: $6.40 + $6.40 - $1.28 = $11.52. Most people simply use 15% or 20% in their head and leave the exact percentages to a calculator.",

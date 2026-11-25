@@ -3,8 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd, articleSchema, breadcrumbSchema } from "../../lib/jsonld";
 import { ArticleBody, newArticles } from "../new-articles";
+import TipCalculatorTool from "../../components/TipCalculatorTool";
 
 const updatedDate = "2026-11-01";
+
+function formatUpdated(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
 
 export const dynamicParams = false;
 
@@ -30,6 +37,7 @@ export default async function NewArticlePage({ params }: { params: Promise<{ slu
   const article = newArticles.find((item) => item.slug === slug);
   if (!article) notFound();
   const canonical = `/blog/${article.slug}`;
+  const updated = article.updated ?? updatedDate;
 
   return (
     <main className="min-h-screen bg-white px-6 py-12 text-gray-800">
@@ -37,7 +45,7 @@ export default async function NewArticlePage({ params }: { params: Promise<{ slu
         <JsonLd data={{
           "@context": "https://schema.org",
           "@graph": [
-            articleSchema({ title: article.title, description: article.description, path: canonical, dateModified: updatedDate }),
+            articleSchema({ title: article.title, description: article.description, path: canonical, dateModified: updated }),
             breadcrumbSchema([{ name: "Tools", path: "/" }, { name: "Guides", path: "/blog" }, { name: article.title, path: canonical }]),
           ],
         }} />
@@ -55,8 +63,14 @@ export default async function NewArticlePage({ params }: { params: Promise<{ slu
           <p className="text-sm font-semibold uppercase tracking-wide text-blue-600">Practical guide</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900">{article.title}</h1>
           <p className="mt-4 text-lg leading-8 text-gray-600">{article.intro}</p>
-          <p className="mt-3 text-sm text-gray-500">By Ather Saud · Updated on November 1, 2026</p>
+          <p className="mt-3 text-sm text-gray-500">By Ather Saud · Updated on {formatUpdated(updated)}</p>
         </header>
+        {slug === "how-to-calculate-tip" && (
+          <div className="tool-container mt-10">
+            <TipCalculatorTool heading="h2" />
+            <p className="mt-4 text-center text-sm text-gray-500">Try it with your own bill — the calculator above runs the same steps this guide explains.</p>
+          </div>
+        )}
         <div className="mt-10 space-y-2">
           <ArticleBody article={article} />
         </div>
