@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/image/resize", changeFrequency: "monthly", priority: 0.8 },
     { path: "/loan-calculator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/mortgage-calculator", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/mark-calculator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/tip-calculator", changeFrequency: "monthly", priority: 0.8 },
     { path: "/json-formatter", changeFrequency: "monthly", priority: 0.8 },
     { path: "/password", changeFrequency: "monthly", priority: 0.8 },
@@ -119,10 +120,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl", "/privacy-policy"]);
   // 2026-11-22: final-grade article retitled to lead with "Final Grade Calculator" (GSC: 282 impressions at position 12.2, 0 clicks).
   const updatedNov22 = new Set(["/blog/calculate-final-grade-needed", "/blog/how-to-calculate-mortgage-payment"]);
+  // 2026-11-25: new Mark Calculator tool (GSC keyword gap: "mark calculator" cluster, ~30 impressions at positions 16–42, no page targeted "marks"); percentage-increase article gained the "percent improvement" phrasing people search for.
+  const updatedNov25 = new Set(["/mark-calculator", "/blog/percentage-increase-decrease"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(updatedNov22.has(path) ? "2026-11-22" : updatedNov15.has(path) ? "2026-11-15" : updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
+    lastModified: new Date(updatedNov25.has(path) ? "2026-11-25" : updatedNov22.has(path) ? "2026-11-22" : updatedNov15.has(path) ? "2026-11-15" : updatedNov6.has(path) ? "2026-11-06" : updatedPaths.has(path) ? "2026-11-03" : "2026-11-01"),
     changeFrequency,
     priority,
   }));
