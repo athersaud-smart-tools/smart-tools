@@ -53,7 +53,7 @@ export const newArticles: NewArticle[] = [
     slug: "percentage-increase-decrease",
     title: "How to Calculate Percentage Increase and Decrease",
     description: "Use the original value as the baseline, calculate percentage change, and distinguish percent from percentage points.",
-    intro: "Percentage change describes how large a change is compared with the starting value. It is useful for checking price changes, scores, measurements, and other comparisons, but the direction of the calculation matters. This guide shows the formula for increases and decreases, works through examples, and explains how to avoid mixing up a percentage amount with a final value.",
+    intro: "Percentage change describes how large a change is compared with the starting value. It is useful for checking price changes, scores, measurements, and other comparisons, but the direction of the calculation matters. The same calculation is often called percent improvement when a score or result gets better — a test score rising from 60 to 75 is a 25% improvement, calculated exactly as a percentage increase. This guide shows the formula for increases and decreases, works through examples, and explains how to avoid mixing up a percentage amount with a final value.",
     sections: [
       { heading: "The percentage-change formula", paragraphs: [
         "Subtract the original value from the new value. Divide that difference by the original value, then multiply by 100. In symbols: percentage change = ((new value − original value) ÷ original value) × 100. A positive answer represents an increase, a negative answer represents a decrease, and zero means the values are equal.",

@@ -5,7 +5,7 @@ type GuideKey =
   | "age" | "ai-rewrite" | "bmi" | "color" | "currency" | "loan"
   | "percentage" | "random" | "image-resize" | "image-compress" | "qr"
   | "password" | "word-count" | "text-case" | "unit" | "stopwatch"
-  | "typing" | "pdf-merge" | "tip" | "days-between" | "mortgage";
+  | "typing" | "pdf-merge" | "tip" | "days-between" | "mortgage" | "mark";
 
 const guideRoutes: Record<GuideKey, string> = {
   age: "/age-calculator", "ai-rewrite": "/ai-rewrite", bmi: "/bmi-calculator", color: "/color-picker",
@@ -14,6 +14,7 @@ const guideRoutes: Record<GuideKey, string> = {
   qr: "/qr-code", password: "/password", "word-count": "/word-counter", "text-case": "/text-case",
   unit: "/unit-converter", stopwatch: "/stopwatch", typing: "/typing-test", "pdf-merge": "/pdf/merge",
   tip: "/tip-calculator", "days-between": "/days-between-dates", mortgage: "/mortgage-calculator",
+  mark: "/mark-calculator",
 };
 
 const guides: Record<GuideKey, { title: string; intro: string; sections: { heading: string; body: string }[] }> = {
@@ -48,6 +49,12 @@ const guides: Record<GuideKey, { title: string; intro: string; sections: { headi
   mortgage: { title: "How a mortgage payment is built", intro: "A monthly mortgage payment is usually quoted as one number, but it is really four parts collected together: principal and interest on the loan, plus monthly shares of the yearly property tax and home insurance bills, which the lender holds in escrow. This calculator shows each part separately so you can see what is loan cost and what is not.", sections: [
     { heading: "The loan part: principal and interest", body: "The amount you actually borrow is the home price minus your down payment. That principal is repaid in equal monthly instalments at a fixed rate using the standard amortisation formula: payment = principal × r × (1+r)^n ÷ ((1+r)^n − 1), where r is the annual rate divided by 12 and n is the number of monthly payments. Early payments are mostly interest; later payments are mostly principal." },
     { heading: "What is not in the estimate", body: "The estimate excludes private mortgage insurance (PMI), HOA fees, closing costs, and any rate changes on an adjustable-rate loan. Property tax and insurance are spread evenly over 12 months; a real escrow account can start with a cushion and adjust yearly. This is an estimate for planning, not a lender quote or financial advice — compare the lender's official Loan Estimate, including APR, before committing." },
+  ] },
+  mark: { title: "How exam marks become a percentage and a grade", intro: "A mark percentage answers one question: what share of the available marks did you score? Divide the marks you obtained by the total marks, then multiply by 100. The grade is a second step — it maps that percentage onto a letter using your school or board's boundaries, which are not the same everywhere.", sections: [
+    { heading: "The formula", body: "Percentage = (marks obtained ÷ total marks) × 100. If you scored 432 out of 500, that is 432 ÷ 500 × 100 = 86.40%. The total is the maximum marks available, not the number of questions — a paper with 20 questions worth 5 marks each has a total of 100, and a blank answer still counts as a mark you did not score." },
+    { heading: "Board exams: add all subjects first", body: "For a board exam, add the marks from every subject together, and add the total marks of every subject together, before dividing. With five subjects scored 78, 85, 92, 67 and 88 out of 100 each, the obtained total is 410 and the overall total is 500, so the percentage is 410 ÷ 500 × 100 = 82.00%. Averaging the five subject percentages gives the same answer only when every subject has the same total marks — adding first is the method that is always correct." },
+    { heading: "Grade boundaries are not universal", body: "This tool uses a common school scale: 90% and above A+, 80–89% A, 70–79% B, 60–69% C, 50–59% D, and below 50% F. Many boards use different bands, and some use grade points instead of letters, so treat the grade shown here as a guide and check your own school or board's scale before quoting it." },
+    { heading: "Percentage is not percentile", body: "A percentage says how much of the total you scored. A percentile says how many candidates scored below you. Scoring 82% does not mean you are in the 82nd percentile — if the paper was easy and most students scored above 82%, your percentile is lower than 82. The two numbers answer different questions, and mixing them up is the most common misunderstanding in result season." },
   ] },
   tip: { title: "How tipping maths works", intro: "A tip is a percentage of the bill: tip = bill × percentage ÷ 100. The total you hand over is the bill plus the tip, and splitting simply divides that total by the number of people. The only judgement call is which amount the percentage applies to.", sections: [
     { heading: "Tip on the pre-tax or post-tax amount?", body: "Custom differs. Many people tip on the pre-tax subtotal, because the tax is not part of the service; others tip on the final total for simplicity. On an $86.40 bill that already includes tax the difference is small, but on large bills it is worth deciding deliberately rather than by habit. This calculator applies the percentage to the bill amount you enter, so enter the pre-tax subtotal if that is the basis you prefer." },
@@ -191,6 +198,23 @@ const extraGuides: Partial<Record<GuideKey, ExtraGuide>> = {
       { q: "Does this include PMI, HOA fees, or closing costs?", a: "No. It includes principal, interest, and optionally property tax and home insurance. PMI, HOA dues, and closing costs must be added separately." },
       { q: "What down payment should I enter?", a: "The amount you plan to pay upfront, in dollars. 20% of the price is a common benchmark because it usually avoids PMI, but the calculator accepts any amount below the price." },
       { q: "Is this a quote I can rely on?", a: "No. It is a planning estimate using the figures you enter. A lender's official Loan Estimate reflects your actual rate, fees, and escrow rules." }
+    ]
+  },
+  mark: {
+    examples: [
+      "Scoring 432 out of 500: 432 ÷ 500 × 100 = 86.40%, which the common school scale grades as A (80–89%). You lost 68 marks in total.",
+      "Five subjects scored 78, 85, 92, 67 and 88 out of 100 each: add them first — 78 + 85 + 92 + 67 + 88 = 410 out of 500 — then 410 ÷ 500 × 100 = 82.00%, grade A.",
+      "One paper: 63 out of 80 gives 63 ÷ 80 × 100 = 78.75%, grade B. And 45 out of 60 gives 75.00%, also grade B on the common scale.",
+      "Working backwards: to reach 90% on an exam worth 400 marks you need 0.90 × 400 = 360 marks. If you already have 250, you need 110 more."
+    ],
+    checks: "Add every subject before dividing — a percentage calculated from one subject is not your exam percentage. Use the total marks as the denominator, not the number of questions or the number of subjects. If a subject has a practical component, include its marks in both the obtained and total figures. Do not average subject percentages unless every subject has the same total marks; adding first is always correct. Check whether your board rounds the percentage or truncates it, because 86.40% and 86% can sit on different sides of a grade boundary. A percentage and a percentile are different numbers: 82% scored does not mean 82nd percentile. Finally, remember that grade letters vary by school and board — the A-to-F scale shown here is a common one, not a universal rule.",
+    notes: "If some subjects count more than others — for example, a final exam worth 70% of the course and coursework worth 30% — a plain percentage of total marks is not the right calculation. That is a weighted grade: use the Weighted Grades guide and the Final Grade Calculator instead. This tool is for the straightforward case where every mark counts equally.",
+    faqs: [
+      { q: "How do I calculate my exam percentage?", a: "Divide the marks you obtained by the total marks and multiply by 100. For example, 432 out of 500 is 432 ÷ 500 × 100 = 86.40%." },
+      { q: "How do I calculate marks for a board exam with several subjects?", a: "Add the marks from all subjects together, add all the total marks together, then divide. Five subjects totalling 410 out of 500 gives 82.00%." },
+      { q: "What is the difference between percentage and percentile?", a: "Percentage is the share of the total marks you scored. Percentile is the share of candidates who scored below you. An 82% score is not the 82nd percentile unless exactly 82% of candidates scored below 82%." },
+      { q: "What grade is 80%?", a: "On the common school scale used here, 80–89% is grade A. Grade boundaries vary by school and board, so check your own scale before quoting a grade." },
+      { q: "What if some subjects count more than others?", a: "Then the marks are weighted, and a plain percentage is not correct. Use the Final Grade Calculator, which weights each part by its share of the total." }
     ]
   },
   tip: {
