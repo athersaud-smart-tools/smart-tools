@@ -120,8 +120,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updatedNov15 = new Set(["/birth-chart", "/blog/understand-birth-chart", "/tip-calculator", "/days-between-dates", "/mortgage-calculator", "/blog/how-to-calculate-weighted-grades", "/blog/calculate-final-grade-needed", "/final-grade-calculator", "/blog/how-to-calculate-mortgage-payment", "/blog/how-to-calculate-tip", "/blog/how-many-days-between-two-dates", "/blog/how-to-calculate-percent-error", "/blog/percentage-increase-decrease", "/bmi-calculator", "/about", "/blog/best-online-tools-2026", "/blog/best-free-image-tools", "/blog/use-color-picker-hex-rgb-hsl", "/privacy-policy"]);
   // 2026-11-22: final-grade article retitled to lead with "Final Grade Calculator" (GSC: 282 impressions at position 12.2, 0 clicks).
   const updatedNov22 = new Set(["/blog/calculate-final-grade-needed", "/blog/how-to-calculate-mortgage-payment"]);
-  // 2026-11-25: new Mark Calculator tool (GSC keyword gap: "mark calculator" cluster, ~30 impressions at positions 16–42, no page targeted "marks"); percentage-increase article gained the "percent improvement" phrasing people search for.
-  const updatedNov25 = new Set(["/mark-calculator", "/blog/percentage-increase-decrease"]);
+  // 2026-11-25: new Mark Calculator tool (GSC keyword gap: "mark calculator" cluster, ~30 impressions at positions 16–42, no page targeted "marks"); percentage-increase article gained the "percent improvement" phrasing people search for; Tip Calculator embedded in the tip guide (776 impressions at position 9.26, 0 clicks — competitors embed the tool in the guide).
+  const updatedNov25 = new Set(["/mark-calculator", "/blog/percentage-increase-decrease", "/blog/how-to-calculate-tip"]);
 
   const base = routes.map(({ path, changeFrequency, priority }) => ({
     url: `${siteUrl}${path}`,
